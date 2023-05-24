@@ -69,7 +69,7 @@ const DetailsContent = () => {
 
       <div className="application_statics mt30">
         <h4 className="mb30">
-          Location{" "}
+          Location
           <small className="float-end">
             1421 San Pedro St, Los Angeles, CA 90015
           </small>

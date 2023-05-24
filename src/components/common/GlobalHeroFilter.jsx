@@ -1,36 +1,26 @@
+import { useEffect, useState } from "react";
 import GlobalFilter from "./GlobalFilter";
+import { useRouter } from "next/router";
 
 const GlobalHeroFilter = ({ className = "" }) => {
+const router = useRouter()
+const page = router.asPath
+const [pageRoute, setPageRoute] = useState(false)
+
+
+useEffect(()=>{
+if(page === "/detailed-search"){
+    setPageRoute(true)
+} else{
+    setPageRoute(false)
+}
+}, [page])
+
+
     return (
         <div className={`home_adv_srch_opt ${className}`}>
-            <ul className="nav nav-pills" id="pills-tab" role="tablist">
-                <li className="nav-item">
-                    <a
-                        className="nav-link active"
-                        id="pills-home-tab"
-                        data-bs-toggle="pill"
-                        href="#pills-home"
-                        role="tab"
-                        aria-controls="pills-home"
-                        aria-selected="true"
-                    >
-                        Buy
-                    </a>
-                </li>
-
-                <li className="nav-item">
-                    <a
-                        className="nav-link"
-                        id="pills-profile-tab"
-                        data-bs-toggle="pill"
-                        href="#pills-profile"
-                        role="tab"
-                        aria-controls="pills-profile"
-                        aria-selected="false"
-                    >
-                        Rent
-                    </a>
-                </li>
+            <ul className="nav nav-pills" id="pills-tab" role="tablist">             
+              
             </ul>
             {/* End nav-pills */}
 
@@ -41,16 +31,16 @@ const GlobalHeroFilter = ({ className = "" }) => {
                     role="tabpanel"
                     aria-labelledby="pills-home-tab"
                 >
-                    <GlobalFilter />
+                    <GlobalFilter pageRoute={pageRoute}/>
                 </div>
-                <div
+                {/* <div
                     className="tab-pane fade"
                     id="pills-profile"
                     role="tabpanel"
                     aria-labelledby="pills-profile-tab"
                 >
                     <GlobalFilter />
-                </div>
+                </div> */}
             </div>
         </div>
     );

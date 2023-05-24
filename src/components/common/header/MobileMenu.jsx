@@ -3,30 +3,32 @@ import MobileMenuContent from "./MobileMenuContent";
 
 const MobileMenu = () => {
   return (
-    // <!-- Main Header Nav For Mobile -->
     <div className="stylehome1 h0 mega-menu-wrapper">
       <div className="mobile-menu">
-        <div className="header stylehome1">
+        <div className="header stylehome1" style={{backgroundColor: 404041,}}>
           <div className="main_logo_home2 text-center">
+            <div className="d-flex align-items-center justify-content-between">
+              
+              <img
+                className="nav_logo_img img-fluid mt20"
+                src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684257816/header-logo2_bawqi1.svg"
+                alt="header-logo2.svg"
+                width={100}
+
+              />
             <img
-              className="nav_logo_img img-fluid mt20"
-              src="/assets/images/header-logo2.png"
-              alt="header-logo2.png"
-            />
-            <span className="mt20">FindHouse</span>
+                className="nav_logo_img img-fluid mt20 ml10"
+                style={{marginRight: 50,}}
+                src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684257815/winner-land_jm56zk.webp"
+                alt="header-logo2.svg"
+                width={130}
+              />
+            </div>
           </div>
-          {/* main_logo_home2 */}
 
           <ul className="menu_bar_home2">
-            <li className="list-inline-item list_s">
-              <Link href="/login">
-                <a>
-                  <span className="flaticon-user"></span>
-                </a>
-              </Link>
-            </li>
             <li
-              className="list-inline-item"
+              className="list-inline-item mt10"
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasMenu"
               aria-controls="offcanvasMenu"
@@ -36,10 +38,8 @@ const MobileMenu = () => {
               </a>
             </li>
           </ul>
-          {/* menu_bar_home2 */}
         </div>
       </div>
-      {/* <!-- /.mobile-menu --> */}
 
       <div
         className="offcanvas offcanvas-start"

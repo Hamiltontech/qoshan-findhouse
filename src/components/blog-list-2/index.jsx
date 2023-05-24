@@ -1,12 +1,10 @@
-import BlogSidebar from "../common/blog/BlogSidebar";
-import Pagination from "../common/blog/Pagination";
+import SearchNews from "./SearchNews";
 import CopyrightFooter from "../common/footer/CopyrightFooter";
 import Footer from "../common/footer/Footer";
-import Header from "../common/header/DefaultHeader";
+import Header from "../home-8/Header";
 import MobileMenu from "../common/header/MobileMenu";
 import PopupSignInUp from "../common/PopupSignInUp";
-import BreadCrumbBlog from "./BreadCrumbBlog";
-import Blog from "./Blog";
+
 
 const index = () => {
   return (
@@ -20,45 +18,7 @@ const index = () => {
       {/* <!-- Modal --> */}
       <PopupSignInUp />
 
-      {/* <!-- Main Blog Post Content --> */}
-      <section className="blog_post_container bgc-f7">
-        <div className="container">
-          <div className="row">
-            <div className="col-xl-6">
-              <BreadCrumbBlog />
-            </div>
-          </div>
-          {/* End .row */}
-
-          <div className="row">
-            <div className="col-lg-8">
-              <div className="row">
-                <Blog />
-                {/* End blog item */}
-              </div>
-              {/* End .row */}
-
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="mbp_pagination mt20">
-                    <Pagination />
-                  </div>
-                  {/* End .mbp_pagination */}
-                </div>
-              </div>
-              {/* End .row */}
-            </div>
-            {/* End .col */}
-
-            <div className="col-lg-4 col-xl-4">
-              <BlogSidebar />
-            </div>
-            {/* End Sidebar column */}
-          </div>
-          {/* End .row */}
-        </div>
-        {/* End .container */}
-      </section>
+<SearchNews />
 
       {/* <!-- Our Footer --> */}
       <section className="footer_one">

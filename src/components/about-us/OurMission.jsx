@@ -24,59 +24,21 @@ const OurMission = () => {
 
   return (
     <>
-      <div className="col-lg-8 col-xl-7">
+      <div className="col-lg-12 text-center">
         <div className="about_content">
           <p className="large">
-            Mauris ac consectetur ante, dapibus gravida tellus. Nullam aliquet
-            eleifend dapibus. Cras sagittis, ex euismod lacinia tempor.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-            quis ligula eu lectus vulputate porttitor sed feugiat nunc. Mauris
-            ac consectetur ante, dapibus gravida tellus. Nullam aliquet eleifend
-            dapibus. Cras sagittis, ex euismod lacinia tempor, lectus orci
-            elementum augue, eget auctor metus ante sit amet velit.
-          </p>
-          <p>
-            Maecenas quis viverra metus, et efficitur ligula. Nam congue augue
-            et ex congue, sed luctus lectus congue. Integer convallis
-            condimentum sem. Duis elementum tortor eget condimentum tempor.
-            Praesent sollicitudin lectus ut pharetra pulvinar. Donec et libero
-            ligula. Vivamus semper at orci at placerat.Placeat Lorem ipsum dolor
-            sit amet, consectetur adipisicing elit. Quod libero amet, laborum
-            qui nulla quae alias tempora.
+          تم تصميمها بعناية فائقة ليُسهل على الاشخاص ايجاد العقار المناسب الذي يحلمون به، ولتكون حلقة وصل بينهم وبين أصحاب العقارات خلال عملية المعاينة والبيع، وذلك من خلال فريق عمل متكامل ومتخصص في البيع والشراء. ويوفر (قوشان) فرصة بيع وشراء  مختلف أنواع العقارات للأفراد والمستثمرين على حد سواء من داخل الاردن وخارجه، من عقارات سكنية وتجارية وصناعية وزراعية على اختلاف أشكالها وأسعارها.
+
+
           </p>
 
-          <ul className="ab_counting">
-            {missionContent.map((item) => (
-              <li className="list-inline-item" key={item.id}>
-                <div className="about_counting">
-                  <div className="icon">
-                    <span className={`${item.icon}`}></span>
-                  </div>
-                  <div className="details">
-                    <h3>{item.number}</h3>
-                    <p>{item.meta}</p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
+            
           {/* End .ab_counting */}
         </div>
       </div>
       {/* End .col */}
 
-      <div className="col-lg-4 col-xl-5">
-        <div className="about_thumb">
-          <img
-            className="img-fluid w100"
-            src="assets/images/about/1.jpg"
-            alt="1.jpg"
-          />
-          <PopupVideo />
-        </div>
-      </div>
+      
     </>
   );
 };

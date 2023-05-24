@@ -1,10 +1,10 @@
 const Social = () => {
   const socialContent = [
-    { id: 1, liveLink: "https://www.facebook.com/", icon: "fa-facebook" },
-    { id: 2, liveLink: "https://www.twitter.com/", icon: "fa-twitter" },
-    { id: 3, liveLink: "https://www.instagram.com/", icon: "fa-instagram" },
-    { id: 4, liveLink: "https://www.pinterest.com/", icon: "fa-pinterest" },
-    { id: 5, liveLink: "https://www.dribbble.com/", icon: "fa-dribbble" },
+    { id: 1, liveLink: "http://facebook.com/qoshancom", icon: "fa-facebook" },
+    { id: 2, liveLink: "https://twitter.com/qoshancom", icon: "fa-twitter" },
+    { id: 3, liveLink: "http://instagram.com/qoshancom", icon: "fa-instagram" },
+    { id: 4, liveLink: "https://api.whatsapp.com/send/?phone=962796868500&", icon: "fa-whatsapp" },
+    
   ];
   return (
     <>

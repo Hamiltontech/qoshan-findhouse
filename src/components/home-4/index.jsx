@@ -3,17 +3,19 @@ import GlobalHeroFilter from "../common/GlobalHeroFilter";
 import MobileMenu from "../common/header/MobileMenu";
 import FeaturedProperties from "./FeaturedProperties";
 import FindProperties from "./FindProperties";
-import Header from "./Header";
+import Header from "../home-8/Header";
 import HeroSlider from "./HeroSlider";
 import LookingItem from "./LookingItem";
 import Team from "./Team";
 import CopyrightFooter from "../common/footer/CopyrightFooter";
 import Footer from "../common/footer/Footer";
 import PopupSignInUp from "../common/PopupSignInUp";
+import CategoriesCards from "./CategoriesCards";
 
 const index = () => {
   return (
     <>
+   
       {/* <!-- Main Header Nav --> */}
       <Header />
 
@@ -24,7 +26,7 @@ const index = () => {
       <PopupSignInUp />
 
       {/* <!-- 4th Home Slider --> */}
-      <div className="home-four ">
+      <div className="home-four " dir="rtl">
         <div className="container-fluid p0">
           <div className="main-banner-wrapper">
             <div className="arrow-style-2 banner-style-one ">
@@ -40,26 +42,25 @@ const index = () => {
             <div className="col-lg-12">
               <div className="home_content home4">
                 <div className="home-text text-center">
-                  <h2 className="fz55">Find Your Dream Home</h2>
+                  <h2 className="fz55">البحث المفصل</h2>
                   <p className="fz18 color-white">
-                    From as low as $10 per day with limited time offer
-                    discounts.
+                  في بحثنا المتقدم ، نوفر لك استخدام الميزات المتقدمة للبحث عن العقار المناسب لك.
                   </p>
                 </div>
                 <GlobalHeroFilter className="home4" />
               </div>
             </div>
           </div>
-          <div className="row">
+          {/* <div className="row">
             <div className="col-lg-12">
               <h4 className="text-center color-white fw600 mb25 mb0-520">
-                What are you looking for?
+                حسب نوع العقار
               </h4>
               <ul className="home4_iconbox mb0">
                 <LookingItem />
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -69,23 +70,24 @@ const index = () => {
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center mb40">
-                <h2>Featured Properties</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h2>عقارات حسب النوع</h2>
+                <p>قم بالبحث عن عقارك بشكل مفصل من قائمة عقار قوشان حيث يتم تحديثها أولاً بأول</p>
               </div>
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-12">
+          <CategoriesCards />
+            {/* <div className="col-lg-12">
               <div className="best_property_slider gutter-x15">
                 <FeaturedProperties />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
 
       {/* <!-- Property Cities --> */}
-      <section id="property-city" className="property-city pb30">
+      {/* <section id="property-city" className="property-city pb30">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
@@ -99,7 +101,7 @@ const index = () => {
             <FindProperties />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <!-- Our Blog --> */}
       <section className="our-blog bgc-f7 pb30">
@@ -107,8 +109,8 @@ const index = () => {
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
-                <h2>Articles & Tips</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h2>جميع العقارات</h2>
+                <p>يمكنكم التواصل معنا في حال احتجتم إلى مساعدة و يمكنكم أن تعلنوا عن عقاركم من خلال صفحة أعلن عن عقارك</p>
               </div>
             </div>
           </div>
@@ -119,7 +121,7 @@ const index = () => {
       </section>
 
       {/* <!-- Our Team --> */}
-      <section className="our-team">
+      {/* <section className="our-team">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
@@ -137,7 +139,7 @@ const index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <!-- Our Footer --> */}
       <section className="footer_one">

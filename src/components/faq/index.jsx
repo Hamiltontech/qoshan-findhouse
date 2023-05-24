@@ -1,10 +1,10 @@
 import CopyrightFooter from "../common/footer/CopyrightFooter";
 import Footer from "../common/footer/Footer";
-import Header from "../common/header/DefaultHeader";
+import Header from "../home-8/Header";
 import MobileMenu from "../common/header/MobileMenu";
 import PopupSignInUp from "../common/PopupSignInUp";
 import BreadCrumbBanner from "./BreadCrumbBanner";
-import FaqContent from "./FaqContent";
+import FaqContent from "./Form";
 
 const index = () => {
   return (
@@ -27,7 +27,11 @@ const index = () => {
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
-                <h2 className="mt0">Frequently Asked Questions</h2>
+                <span className="mt0">
+                يمكنكم الإعلان عن عقاركم مع قوشان عن طريق تعبئة جميع البيانات المطلوبة أدناه بحيث يمكنكم رفع أكثر من صورة أو فيديو , وبعد إرسال العقار سيقوم مستشارك العقاري بالتواصل معكم عن طريق معلومات التواصل المزودة من قبلكم.  
+
+في حال احتجتم إلى مساعدة أخرى يمكنكم زيارة صفحة تواصل معنا و التحدث مع أحد مستشاري قوشان.
+                </span>
               </div>
             </div>
           </div>

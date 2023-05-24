@@ -1,11 +1,13 @@
 import CopyrightFooter from "../common/footer/CopyrightFooter";
 import Footer from "../common/footer/Footer";
-import Header from "../common/header/DefaultHeader";
+import Header from "../home-8/Header";
 import MobileMenu from "../common/header/MobileMenu";
 import PopupSignInUp from "../common/PopupSignInUp";
 import BreadCrumbBanner from "./BreadCrumbBanner";
 import GalleryBox from "./GalleryBox";
-
+import Season1 from "./season1";
+import Season2 from "./season2"
+import Season3 from "./season3"
 const index = () => {
   return (
     <>
@@ -22,10 +24,17 @@ const index = () => {
       <BreadCrumbBanner />
 
       {/* <!-- About Text Content --> */}
-      <section className="about-section pb30">
+      <section className="pb30">
         <div className="container">
           <div className="row">
-            <GalleryBox />
+          <Season3/>
+          <br></br>
+          <br></br>
+            <Season2/>
+            <br></br>
+            <br></br>
+          <Season1/>
+            
           </div>
         </div>
       </section>

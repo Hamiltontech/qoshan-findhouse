@@ -1,13 +1,14 @@
 import CallToAction from "../common/CallToAction";
 import CopyrightFooter from "../common/footer/CopyrightFooter";
 import Footer from "../common/footer/Footer";
-import Header from "../common/header/DefaultHeader";
+import Header from "../home-8/Header";
 import MobileMenu from "../common/header/MobileMenu";
 import PopupSignInUp from "../common/PopupSignInUp";
 import BreadCrumbBanner from "./BreadCrumbBanner";
 import SingleService from "./SingleService";
 
 const index = () => {
+
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -17,7 +18,6 @@ const index = () => {
       <MobileMenu />
 
       {/* <!-- Modal --> */}
-      <PopupSignInUp />
 
       {/* <!-- Inner Page Breadcrumb --> */}
       <BreadCrumbBanner />
@@ -32,11 +32,6 @@ const index = () => {
       </section>
 
       {/* <!-- Start Call to Action --> */}
-      <section className="start-partners bgc-thm pt50 pb50">
-        <div className="container">
-          <CallToAction />
-        </div>
-      </section>
 
       {/* <!-- Our Footer --> */}
       <section className="footer_one">

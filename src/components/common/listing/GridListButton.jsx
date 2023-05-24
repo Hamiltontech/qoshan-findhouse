@@ -6,7 +6,7 @@ const GridListButton = () => {
   const dispatch = useDispatch();
 
   return (
-    <ul className="mb-3">
+    <ul className="mb-3 " dir="rtl">
       <li
         className={`list-inline-item ${!isGridOrList ? "active" : ""}`}
         onClick={() => dispatch(toggleGridAndList(false))}

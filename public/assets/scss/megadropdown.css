@@ -161,7 +161,7 @@
 .vertical-wrapper .content-vertical .mega-vertical-menu > li > a{
   background-color: transparent;
   color: #a4a4a4;
-  font-family: "Nunito", Arial, sans-serif;
+  font-family: "Changa", Changa;
   font-size: 16px;
   font-weight: 400;
   float: left;
@@ -314,7 +314,7 @@
 }
 .element-wrapper .element-wrapper-title{
   color: #ffffff;
-  font-family: "Nunito";
+  font-family: "Changa";
   font-size: 16px;
   font-weight: 400;
 }
@@ -329,7 +329,7 @@
 .vertical-wrapper .content-vertical .mega-vertical-menu > li .dropdown-menu li > a{
   background-color: transparent;
   color: #a4a4a4;
-  font-family: "Nunito", Arial, sans-serif;
+  font-family: "Changa", Changa;
   font-size: 16px;
   line-height: 40px;
 }

@@ -1,4 +1,3 @@
-import Categorie from "./Categorie";
 import FeaturedListings from "./FeaturedListings";
 import FeatureProperties from "./FeatureProperties";
 import FilteringItem from "./FilteringItem";
@@ -25,7 +24,6 @@ const SidebarListing = () => {
                 <h4 className="title">Categories Property</h4>
                 <div className="widget_list">
                     <ul className="list_details">
-                        <Categorie />
                     </ul>
                 </div>
             </div>

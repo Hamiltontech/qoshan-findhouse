@@ -309,10 +309,10 @@ const MobileMenuContent = () => {
             <a className="sidebar-header-inner">
               <img
                 className="nav_logo_img img-fluid mt20"
-                src="/assets/images/header-logo2.png"
-                alt="header-logo.png"
+                src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684257816/header-logo2_bawqi1.svg"
+                alt="header-logo.svg"
               />
-              <span className="brand-text">FindHouse</span>
+              
             </a>
           </Link>
           {/* End .logo */}
@@ -332,225 +332,72 @@ const MobileMenuContent = () => {
 
       <SidebarContent>
         <Menu>
-          <SubMenu
-            title="Home"
-            className={
-              home.some((page) => page.routerPath === route.pathname)
-                ? "parent-menu-active"
-                : undefined
-            }
-          >
-            {home.map((val, i) => (
-              <MenuItem key={i} active={true}>
-                <Link href={val.routerPath}>
-                  <a
-                    className={
-                      val.routerPath === route.pathname
-                        ? "ui-active"
-                        : undefined
-                    }
-                  >
-                    {val.name}
-                  </a>
-                </Link>
-              </MenuItem>
-            ))}
-          </SubMenu>
-          {/* End Home Home */}
 
-          <SubMenu
-            title="Listing"
-            className={
-              listing.some((parent) => {
-                return parent.items.some(
-                  (page) => page.routerPath === route.pathname
-                );
-              })
-                ? "parent-menu-active"
-                : undefined
-            }
-          >
-            {listing.map((item) => (
-              <SubMenu
-                title={item.title}
-                className={
-                  item.items.some((page) => page.routerPath === route.pathname)
-                    ? "ui-active plus alt"
-                    : "plus alt"
-                }
-                key={item.id}
-              >
-                {item.items.map((val, i) => (
-                  <MenuItem key={i}>
-                    <Link href={val.routerPath}>
-                      <a
-                        className={
-                          route.pathname === val.routerPath
-                            ? "ui-active"
-                            : undefined
-                        }
-                      >
-                        {val.name}
-                      </a>
-                    </Link>
-                  </MenuItem>
-                ))}
-              </SubMenu>
-            ))}
-          </SubMenu>
-          {/* End Pages Listing */}
-
-          <SubMenu
-            title="Property"
-            className={
-              property.some((parent) => {
-                return parent.items.some(
-                  (page) =>
-                    page.routerPath === route.pathname ||
-                    page.routerPath + "/[id]" === route.pathname
-                );
-              })
-                ? "parent-menu-active"
-                : undefined
-            }
-          >
-            {property.map((item) => (
-              <SubMenu
-                title={item.title}
-                className={
-                  item.items.some(
-                    (page) =>
-                      page.routerPath === route.pathname ||
-                      page.routerPath + "/[id]" === route.pathname
-                  )
-                    ? "ui-active plus alt"
-                    : "plus alt"
-                }
-                key={item.id}
-              >
-                {item.items.map((val, i) => (
-                  <MenuItem key={i}>
-                    <Link href={val.routerPath}>
-                      <a
-                        className={
-                          route.pathname === val.routerPath ||
-                          val.routerPath + "/[id]" === route.pathname
-                            ? "ui-active"
-                            : undefined
-                        }
-                      >
-                        {val.name}
-                      </a>
-                    </Link>
-                  </MenuItem>
-                ))}
-              </SubMenu>
-            ))}
-          </SubMenu>
-          {/* End Pages Property */}
-
-          <SubMenu
-            title="Blog"
-            className={
-              blog.some(
-                (page) =>
-                  page.routerPath === route.pathname ||
-                  page.routerPath + "/[id]" === route.pathname
-              )
-                ? "parent-menu-active"
-                : undefined
-            }
-          >
-            {blog.map((val, i) => (
-              <MenuItem key={i}>
-                <Link href={val.routerPath}>
-                  <a
-                    className={
-                      route.pathname === val.routerPath ||
-                      val.routerPath + "/[id]" === route.pathname
-                        ? "ui-active"
-                        : undefined
-                    }
-                  >
-                    {val.name}
-                  </a>
-                </Link>
-              </MenuItem>
-            ))}
-          </SubMenu>
-          {/* End pages Blog */}
-
-          <SubMenu
-            title="Pages"
-            className={
-              pages.some((page) => page.routerPath === route.pathname)
-                ? "parent-menu-active"
-                : undefined
-            }
-          >
-            {pages.map((val, i) => (
-              <MenuItem key={i}>
-                <Link href={val.routerPath}>
-                  <a
-                    className={
-                      route.pathname === val.routerPath
-                        ? "ui-active"
-                        : undefined
-                    }
-                  >
-                    {val.name}
-                  </a>
-                </Link>
-              </MenuItem>
-            ))}
-          </SubMenu>
           {/* End pages Pages */}
-
           <MenuItem>
-            <Link href="/contact">
+          
+          <Link href="/">
+            <a
+              className={
+                route.pathname === "/Home" ? "ui-active" : undefined
+              }
+            >
+              الرئيسية
+            </a>
+          </Link>
+        </MenuItem>
+          <MenuItem>
+          
+            <Link href="/all-properties">
               <a
                 className={
-                  route.pathname === "/contact" ? "ui-active" : undefined
+                  route.pathname === "/all-properties" ? "ui-active" : undefined
                 }
               >
-                Contact
+                جميع العقارات
               </a>
             </Link>
           </MenuItem>
-
           <MenuItem>
-            <Link href="/login">
+          
+          <Link href="/search">
+            <a
+              className={
+                route.pathname === "/search" ? "ui-active" : undefined
+              }
+            >
+البحث المفصل        
+            </a>
+          </Link>
+        </MenuItem>
+        <MenuItem>
+          
+          <Link href="/about">
+            <a
+              className={
+                route.pathname === "/Home" ? "ui-active" : undefined
+              }
+            >
+تعرف علينا            </a>
+          </Link>
+        </MenuItem>
+          <MenuItem>
+            <Link href="/news">
               <a
                 className={
-                  route.pathname === "/login" ? "ui-active" : undefined
+                  route.pathname === "/news" ? "ui-active" : undefined
                 }
               >
-                <span className="flaticon-user"></span> Login
-              </a>
+الآخبار              </a>
             </Link>
           </MenuItem>
 
-          <MenuItem>
-            <Link href="/register">
-              <a
-                className={
-                  route.pathname === "/register" ? "ui-active" : undefined
-                }
-              >
-                <span className="flaticon-edit"></span> Register
-              </a>
-            </Link>
-          </MenuItem>
+         
+
         </Menu>
       </SidebarContent>
 
-      <SidebarFooter>
-        <Link href="/create-listing">
-          <a className="btn btn-block btn-lg btn-thm circle">
-            <span className="flaticon-plus"></span> Create Listing
-          </a>
-        </Link>
-      </SidebarFooter>
+      
     </ProSidebar>
   );
 };

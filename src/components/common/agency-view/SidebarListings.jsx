@@ -1,4 +1,3 @@
-import Categorie from "../listing/Categorie";
 import FeaturedListings from "../listing/FeaturedListings";
 import FeatureProperties from "../listing/FeatureProperties";
 
@@ -9,7 +8,6 @@ const SidebarListings = () => {
         <h4 className="title">Categories Property</h4>
         <div className="widget_list">
           <ul className="list_details">
-            <Categorie />
           </ul>
         </div>
       </div>

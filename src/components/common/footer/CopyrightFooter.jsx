@@ -14,15 +14,7 @@ const CopyrightFooter = () => {
     <div className="row">
       <div className="col-lg-6 col-xl-6">
         <div className="footer_menu_widget">
-          <ul>
-            {menuItems.map((item) => (
-              <li className="list-inline-item" key={item.id}>
-                <Link href={item.routeLink}>
-                  <a>{item.name}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          
         </div>
       </div>
       {/* End .col */}
@@ -30,15 +22,8 @@ const CopyrightFooter = () => {
       <div className="col-lg-6 col-xl-6">
         <div className="copyright-widget text-end">
           <p>
-            &copy; {new Date().getFullYear()} by{" "}
-            <a
-              href="https://themeforest.net/user/ib-themes"
-              target="_blank"
-              rel="noreferrer"
-            >
-              ib-themes
-            </a>
-            . All rights reserved.
+          الحقوق محفوظة 2023 لقوشان – مستشارك العقاري
+
           </p>
         </div>
       </div>

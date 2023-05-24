@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Seo
         font={
-          "https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"
+          "https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700;800&display=swap"
         }
       />
       <Provider store={store}>

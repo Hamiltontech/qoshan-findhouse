@@ -18,6 +18,7 @@ const initialState = {
         min: "",
         max: "",
     },
+    URL: "",
     length: 0,
 };
 
@@ -58,6 +59,9 @@ export const propertiesSlice = createSlice({
         },
         addBathrooms: (state, action) => {
             state.bathrooms = action.payload;
+        },
+        addURL: (state, action) => {
+            state.URL = action.payload;
         },
         addBedrooms: (state, action) => {
             state.bathrooms = action.payload;

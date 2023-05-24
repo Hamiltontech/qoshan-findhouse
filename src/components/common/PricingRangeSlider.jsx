@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { addPrice } from "../../features/properties/propertiesSlice";
 
 const RangeSlider = () => {
-  const [price, setPrice] = useState({ value: { min: 10000, max: 20000 } });
+  const [price, setPrice] = useState({ value: { min: 40000, max: 2000000 } });
   const dispath = useDispatch();
 
   const handleOnChange = (value) => {
@@ -24,16 +24,16 @@ const RangeSlider = () => {
 
   return (
     <div className="nft__filter-price tp-range-slider tp-range-slider-dark mb-20">
-      <div className="nft__filter-price-inner d-flex align-items-center justify-content-between">
-        <div className="nft__filter-price-box">
+      <div className="nft__filter-price-inner d-flex align-items-center justify-contotent-between">
+        {/* <div className="nft__filter-price-box">
           <div className="d-flex align-items-center">
-            <span>$ </span>
+            <span>دينار</span>
             <span>{price.value.min}</span>
           </div>
-        </div>
-        <div className="nft__filter-price-box">
+        </div> */}
+        <div className="nft__filter-price-box" >
           <div className="d-flex align-items-center">
-            <span>$ </span>
+            <span>دينار</span>
             <span>{price.value.max}</span>
           </div>
         </div>
@@ -41,8 +41,8 @@ const RangeSlider = () => {
 
       <InputRange
         formatLabel={(value) => ``}
-        maxValue={20000}
-        minValue={10000}
+        maxValue={2000000}
+        minValue={400000}
         value={price.value}
         onChange={(value) => handleOnChange(value)}
       />

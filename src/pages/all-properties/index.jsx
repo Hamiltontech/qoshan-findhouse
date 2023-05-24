@@ -5,7 +5,7 @@ import GridV3 from "../../components/listing-grid/grid-v3";
 const index = () => {
   return (
     <>
-      <Seo pageTitle="Simple Listing – Grid V3" />
+      <Seo pageTitle="جميع العقارات" />
       <GridV3 />
     </>
   );

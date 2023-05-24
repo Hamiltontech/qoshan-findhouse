@@ -1,176 +1,26 @@
 import { useEffect } from "react";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  addFeatured,
-  addStatusType,
-} from "../../../features/filter/filterSlice";
-import {
-  addAmenities,
-  addAreaMax,
-  addAreaMin,
-  addBathrooms,
-  addBedrooms,
-  addGarages,
-  addKeyword,
-  addLocation,
-  addPrice,
-  addPropertyType,
-  addStatus,
-  addYearBuilt,
-  resetAmenities,
-} from "../../../features/properties/propertiesSlice";
-import PricingRangeSlider from "../../common/PricingRangeSlider";
-import { v4 as uuidv4 } from "uuid";
-import { useRouter } from "next/router";
+import Link from "next/link";
 
-const FilteringItem = () => {
-  const {
-    keyword,
-    location,
-    status,
-    propertyType,
-    bathrooms,
-    bedrooms,
-    garages,
-    yearBuilt,
-    area,
-    amenities,
-  } = useSelector((state) => state.properties);
-
-  // input state
-  const [getKeyword, setKeyword] = useState(keyword);
-  const [getLocation, setLocation] = useState(location);
-  const [getStatus, setStatus] = useState(status);
-  const [getPropertiesType, setPropertiesType] = useState(propertyType);
-  const [getBathroom, setBathroom] = useState(bathrooms);
-  const [getBedroom, setBedroom] = useState(bedrooms);
-  const [getGarages, setGarages] = useState(garages);
-  const [getBuiltYear, setBuiltYear] = useState(yearBuilt);
-  const [getAreaMin, setAreaMin] = useState(area.min);
-  const [getAreaMax, setAreaMax] = useState(area.max);
-
-  // advanced state
-  const [getAdvanced, setAdvanced] = useState([
-    { id: uuidv4(), name: "Air Conditioning" },
-    { id: uuidv4(), name: "Barbeque" },
-    { id: uuidv4(), name: "Gym" },
-    { id: uuidv4(), name: "Microwave" },
-    { id: uuidv4(), name: "TV Cable" },
-    { id: uuidv4(), name: "Lawn" },
-    { id: uuidv4(), name: "Refrigerator" },
-    { id: uuidv4(), name: "Swimming Pool" },
-    { id: uuidv4(), name: "WiFi" },
-    { id: uuidv4(), name: "Sauna" },
-    { id: uuidv4(), name: "Dryer" },
-    { id: uuidv4(), name: "Washer" },
-    { id: uuidv4(), name: "Laundry" },
-    { id: uuidv4(), name: "Outdoor Shower" },
-    { id: uuidv4(), name: "Window Coverings" },
-  ]);
-
-  const dispath = useDispatch();
-
-  const Router = useRouter();
-
-  // keyword
-  useEffect(() => {
-    dispath(addKeyword(getKeyword));
-  }, [dispath, addKeyword, getKeyword]);
-
-  // location
-  useEffect(() => {
-    dispath(addLocation(getLocation));
-  }, [dispath, addLocation, getLocation]);
-
-  // status
-  useEffect(() => {
-    dispath(addStatus(getStatus));
-  }, [dispath, addStatus, getStatus]);
-
-  // properties type
-  useEffect(() => {
-    dispath(addPropertyType(getPropertiesType));
-  }, [dispath, addPropertyType, getPropertiesType]);
-
-  // bathroom
-  useEffect(() => {
-    dispath(addBathrooms(getBathroom));
-  }, [dispath, addBathrooms, getBathroom]);
-
-  // bedroom
-  useEffect(() => {
-    dispath(addBedrooms(getBedroom));
-  }, [dispath, addBedrooms, getBedroom]);
-
-  // garages
-  useEffect(() => {
-    dispath(addGarages(getGarages));
-  }, [dispath, addGarages, getGarages]);
-
-  // built years
-  useEffect(() => {
-    dispath(addYearBuilt(getBuiltYear));
-  }, [dispath, addYearBuilt, getBuiltYear]);
-
-  // area min
-  useEffect(() => {
-    dispath(dispath(addAreaMin(getAreaMin)));
-  }, [dispath, addAreaMin, getAreaMin]);
-
-  // area max
-  useEffect(() => {
-    dispath(dispath(addAreaMax(getAreaMax)));
-  }, [dispath, addAreaMax, getAreaMax]);
+const FilteringItem = ({headerType, setHeaderType, setSort, keyword, location, type, garages, bathrooms, bedrooms, minarea, maxarea, age, minprice, maxprice,  setKeyword, setLocation, setStatus, setType, setGarages, setBathroom, setBedroom, setAreaMax, setAreaMin, setBuiltYear, setMaxprice, setMinprice}) => {
 
   // clear filter
   const clearHandler = () => {
-    clearAllFilters();
+    setKeyword("")
+    setLocation("") 
+    setType("all")
+    setGarages("")
+    setBathroom("")
+    setBedroom("") 
+    setAreaMax('أكبر مساحة') 
+    setAreaMin('أقل مساحة')
+    setMinprice('أقل سعر')
+    setMaxprice("أعلى سعر")
+    setSort("")
+    
   };
 
-  const clearAllFilters = () => {
-    setKeyword("");
-    setLocation("");
-    setStatus("");
-    setPropertiesType("");
-    dispath(addPrice({ min: 10000, max: 20000 }));
-    setBathroom("");
-    setBedroom("");
-    setBedroom("");
-    setGarages("");
-    setBuiltYear("");
-    setAreaMin("");
-    setAreaMax("");
-    dispath(resetAmenities());
-    dispath(addStatusType(""));
-    dispath(addFeatured(""));
-    clearAdvanced();
-  };
 
-  // clear advanced
-  const clearAdvanced = () => {
-    const changed = getAdvanced.map((item) => {
-      item.isChecked = false;
-      return item;
-    });
-    setAdvanced(changed);
-  };
 
-  // add advanced
-  const advancedHandler = (id) => {
-    const data = getAdvanced.map((feature) => {
-      if (feature.id === id) {
-        if (feature.isChecked) {
-          feature.isChecked = false;
-        } else {
-          feature.isChecked = true;
-        }
-      }
-      return feature;
-    });
-
-    setAdvanced(data);
-  };
 
   return (
     <ul className="sasw_list mb0">
@@ -178,9 +28,9 @@ const FilteringItem = () => {
         <div className="form-group mb-3">
           <input
             type="text"
+            value={keyword}
             className="form-control"
-            placeholder="keyword"
-            value={getKeyword}
+            placeholder="ادخل كلمة البحث"
             onChange={(e) => setKeyword(e.target.value)}
           />
           <label>
@@ -190,13 +40,13 @@ const FilteringItem = () => {
       </li>
       {/* End li */}
 
-      <li className="search_area">
+      {/* <li className="search_area">
         <div className="form-group mb-3">
           <input
             type="search"
             className="form-control"
             id="exampleInputEmail"
-            placeholder="Location"
+            placeholder="الموقع"
             value={getLocation}
             onChange={(e) => setLocation(e.target.value)}
           />
@@ -204,16 +54,51 @@ const FilteringItem = () => {
             <span className="flaticon-maps-and-flags"></span>
           </label>
         </div>
+      </li> */}
+
+<li>
+        <div className="search_option_two">
+          <div className="candidate_revew_select">
+            <select
+            value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              className="selectpicker w100 show-tick form-select"
+            >
+              <option value="">الموقع</option>
+              <option value="عبدون">عبدون </option>
+              <option value="دير غبار">دير غبار</option>
+              <option value="دابوق">دابوق</option>
+              <option value="خلدا">خلدا</option>
+              <option value="الصويفية">الصويفية</option>
+              <option value="الدوار الرابع">جبل عمان</option>
+
+              <option value="ام اذينة">ام اذينة</option>
+              <option value="الكرسي">الكرسي</option>
+              <option value="ام السماق">ام السماق</option>
+              <option value="الرابية">الرابية </option>
+              <option value="حجارة النوابلسة">حجارة النوابلسة </option>
+              <option value="الحويطي">الحويطي </option>
+              <option value="ضاحية النخيل">ضاحية النخيل </option>
+              <option value="رجم عميش">رجم عميش </option>
+              <option value="حي الصحابة">حي الصحابة </option>
+              <option value="شارع مكة">شارع مكة </option>
+              <option value="شارع عبدالله غوشة">شارع عبدالله غوشة </option>
+              <option value="ضاحية الامير راشد">ضاحية الامير راشد </option>
+              <option value="طريق المطار">طريق المطار</option>
+            </select>
+          </div>
+        </div>
       </li>
+
       {/* End li */}
 
-      <li>
+      {/* <li>
         <div className="search_option_two">
           <div className="candidate_revew_select">
             <select
               onChange={(e) => setStatus(e.target.value)}
               className="selectpicker w100 show-tick form-select"
-              value={getStatus}
+              
             >
               <option value="">Status</option>
               <option value="apartment">Apartment</option>
@@ -225,32 +110,37 @@ const FilteringItem = () => {
             </select>
           </div>
         </div>
-      </li>
+      </li> */}
       {/* End li */}
 
       <li>
         <div className="search_option_two">
           <div className="candidate_revew_select">
             <select
-              onChange={(e) => setPropertiesType(e.target.value)}
+            value={type}
+              onChange={(e) => setType(e.target.value)}
               className="selectpicker w100 show-tick form-select"
-              value={getPropertiesType}
+              id="defaultType"
             >
-              <option value="">Property Type</option>
-              <option value="apartment">Apartment</option>
-              <option value="bungalow">Bungalow</option>
-              <option value="condo">Condo</option>
-              <option value="house">House</option>
-              <option value="land">Land</option>
-              <option value="single family">Single Family</option>
+              <option value="all">نوع العقار</option>
+              <option value="شقق">شقق</option>
+              <option value="شقق طابقية">شقق طابقية</option>
+              <option value="فلل متلاصقة">فلل متلاصقة</option>
+              <option value="فلل">فلل</option>
+              <option value="قطع أراضي سكنية">قطع أراضي سكنية</option>
+              <option value="قطع أراضي تجارية">قطع أراضي تجارية</option>
+              <option value="قطع أراضي صناعية">قطع أراضي صناعية</option>
+              <option value="برج سكني">برج سكني</option>
+              <option value="استوديوهات">استوديوهات</option>
+              <option value="شاليهات">شاليهات</option>
             </select>
           </div>
         </div>
       </li>
       {/* End li */}
 
-      <li>
-        <div className="small_dropdown2">
+      {/* <li>
+        <div className="small_dropdown2" dir="ltr">
           <div
             id="prncgs2"
             className="btn dd_btn"
@@ -258,7 +148,7 @@ const FilteringItem = () => {
             data-bs-auto-close="outside"
             aria-expanded="false"
           >
-            <span>Price Range</span>
+            <span>السعر</span>
             <label htmlFor="prncgs2">
               <span className="fa fa-angle-down"></span>
             </label>
@@ -269,18 +159,19 @@ const FilteringItem = () => {
             </div>
           </div>
         </div>
-      </li>
+      </li> */}
       {/* End li */}
 
       <li>
         <div className="search_option_two">
           <div className="candidate_revew_select">
             <select
+            value={bathrooms}
               onChange={(e) => setBathroom(e.target.value)}
               className="selectpicker w100 show-tick form-select"
-              value={getBathroom}
+             
             >
-              <option value="">Bathrooms</option>
+              <option value="">حمامات</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -297,11 +188,12 @@ const FilteringItem = () => {
         <div className="search_option_two">
           <div className="candidate_revew_select">
             <select
+            value={bedrooms}
               onChange={(e) => setBedroom(e.target.value)}
               className="selectpicker w100 show-tick form-select"
-              value={getBedroom}
+             
             >
-              <option value="">Bedrooms</option>
+              <option value="">غرف النوم</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -318,29 +210,37 @@ const FilteringItem = () => {
         <div className="search_option_two">
           <div className="candidate_revew_select">
             <select
+            value={garages}
               onChange={(e) => setGarages(e.target.value)}
               className="selectpicker w100 show-tick form-select"
-              value={getGarages}
+              
             >
-              <option value="">Garages</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-              <option value="other">Others</option>
+              <option value="">الكراجات</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
             </select>
           </div>
         </div>
       </li>
       {/* End li */}
 
-      <li>
+
+
+{/* AGE */}
+      {/* <li>
         <div className="search_option_two">
           <div className="candidate_revew_select">
             <select
               onChange={(e) => setBuiltYear(e.target.value)}
               className="selectpicker w100 show-tick form-select"
-              value={getBuiltYear}
+             
             >
-              <option value="">Year built</option>
+              <option value="">سنة البناء</option>
+              <option value="2009">2009</option>
+              <option value="2010">2010</option>
+              <option value="2011">2011</option>
+              <option value="2012">2012</option>
               <option value="2013">2013</option>
               <option value="2014">2014</option>
               <option value="2015">2015</option>
@@ -349,20 +249,23 @@ const FilteringItem = () => {
               <option value="2018">2018</option>
               <option value="2019">2019</option>
               <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
             </select>
           </div>
         </div>
-      </li>
+      </li> */}
       {/* End li */}
 
       <li className="min_area list-inline-item">
         <div className="form-group mb-4">
           <input
+          value={minarea}
             type="number"
             className="form-control"
             id="exampleInputName2"
-            placeholder="Min Area"
-            value={getAreaMin}
+            placeholder="اقل مساحة"
             onChange={(e) => setAreaMin(e.target.value)}
           />
         </div>
@@ -372,18 +275,50 @@ const FilteringItem = () => {
       <li className="max_area list-inline-item">
         <div className="form-group mb-4">
           <input
+          value={maxarea}
             type="number"
             className="form-control"
             id="exampleInputName3"
-            placeholder="Max Area"
-            value={getAreaMax}
+            placeholder="اكبر مساحة"
             onChange={(e) => setAreaMax(e.target.value)}
           />
         </div>
       </li>
       {/* End li */}
 
-      <li>
+
+
+{/* price range */}
+      <li className="min_area list-inline-item">
+        <div className="form-group mb-4">
+          <input
+          value={minprice}
+            type="number"
+            className="form-control"
+            id="exampleInputName2"
+            placeholder="اقل سعر"
+            onChange={(e) => setMinprice(e.target.value)}
+          />
+        </div>
+      </li>
+      {/* End li */}
+
+      <li className="max_area list-inline-item">
+        <div className="form-group mb-4">
+          <input
+          value={maxprice}
+            type="number"
+            className="form-control"
+            id="exampleInputName3"
+            placeholder="أعلى سعر"
+            onChange={(e) => setMaxprice(e.target.value)}
+          />
+        </div>
+      </li>
+      {/* End li */}
+
+
+      {/* <li>
         <div id="accordion" className="panel-group">
           <div className="panel">
             <div className="panel-heading">
@@ -394,11 +329,11 @@ const FilteringItem = () => {
                   data-bs-toggle="collapse"
                   data-bs-parent="#accordion"
                 >
-                  <i className="flaticon-more"></i> Advanced features
+                  <i className="flaticon-more"></i> مميزات اخرى
                 </a>
               </h4>
             </div>
-            {/* End .panel-heading */}
+          
 
             <div id="panelBodyRating" className="panel-collapse collapse">
               <div className="panel-body row">
@@ -433,18 +368,25 @@ const FilteringItem = () => {
             </div>
           </div>
         </div>
-      </li>
+      </li> */}
       {/* End li */}
 
       <li>
         <div className="search_option_button">
+          <Link href={{
+            pathname: "all-properties",
+            query: {
+              type : "all"
+            }
+          }}>
           <button
+            // clear
             onClick={clearHandler}
             type="button"
             className="btn btn-block btn-thm w-100"
           >
-            Clear Filters
-          </button>
+            تصفية البحث
+          </button></Link>
         </div>
       </li>
       {/* End li */}

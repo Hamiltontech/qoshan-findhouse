@@ -1,5 +1,4 @@
 import ContactWithAgent from "../common/agent-view/ContactWithAgent";
-import Categorie from "../common/listing/Categorie";
 import ListingCreator from "../common/listing/ListingCreator";
 import FeaturedListings from "../common/listing/FeaturedListings";
 import FeatureProperties from "../common/listing/FeatureProperties";
@@ -31,7 +30,6 @@ const Sidebar = () => {
         <h4 className="title">Categories Property</h4>
         <div className="widget_list">
           <ul className="list_details">
-            <Categorie />
           </ul>
         </div>
       </div>

@@ -7,7 +7,7 @@ const ContactWithAgent = () => {
             <input
               type="text"
               className="form-control"
-              placeholder="Your Name"
+              placeholder="الاسم"
               required
             />
           </div>
@@ -18,7 +18,7 @@ const ContactWithAgent = () => {
             <input
               type="number"
               className="form-control"
-              placeholder="Phone"
+              placeholder="الهاتف"
               required
             />
           </div>
@@ -29,7 +29,7 @@ const ContactWithAgent = () => {
             <input
               type="email"
               className="form-control"
-              placeholder="Email"
+              placeholder="الايميل"
               required
             />
           </div>
@@ -43,7 +43,7 @@ const ContactWithAgent = () => {
               className="form-control "
               rows="5"
               required
-              placeholder="Your Message"
+              placeholder="الاستفسار"
             ></textarea>
           </div>
         </li>{" "}
@@ -51,7 +51,7 @@ const ContactWithAgent = () => {
         <li>
           <div className="search_option_button">
             <button type="submit" className="btn btn-block btn-thm w-100">
-              Search
+              ارسال
             </button>
           </div>
         </li>{" "}

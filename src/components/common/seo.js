@@ -4,7 +4,7 @@ const Seo = ({ pageTitle, font }) => (
   <>
     <Head>
       <title>
-        {pageTitle && `${pageTitle} || FindHouse - Real Estate React Template}`}
+        {pageTitle && `${pageTitle} || مستشارك العقاري`}
       </title>
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta
@@ -13,7 +13,7 @@ const Seo = ({ pageTitle, font }) => (
       />
       <meta
         name="description"
-        content="FindHouse - Real Estate React Template"
+        content="Qoshan - Real Estate React Template"
       />
       <meta name="ibthemes" content="ATFN" />
       <meta
@@ -22,7 +22,7 @@ const Seo = ({ pageTitle, font }) => (
       />
 
       {font && <link href={font} rel="stylesheet" />}
-      <link rel="icon" href="favicon.ico" />
+      <link rel="icon" href="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684260281/favicon_uyc0cn.ico" />
     </Head>
   </>
 );

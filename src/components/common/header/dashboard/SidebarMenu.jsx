@@ -40,10 +40,10 @@ const SidebarMenu = () => {
           <Link href="/">
             <a>
               <img
-                src="/assets/images/header-logo2.png"
-                alt="header-logo2.png"
+                src="/assets/images/logo-mob.svg"
+                alt="header-logo2.svg"
               />
-              <span>FindHouse</span>
+            
             </a>
           </Link>
         </li>

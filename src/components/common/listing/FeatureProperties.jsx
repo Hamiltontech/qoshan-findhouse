@@ -15,17 +15,17 @@ const FeatureProperties = () => {
     return (
         <>
             <Slider {...settings} arrows={false}>
-                {featureProContent.slice(0, 5).map((item) => (
-                    <div className="item" key={item.id}>
+                {/* {featureProContent.slice(0, 5).map((item) => ( */}
+                    <div className="item" >
                         <div className="feat_property home7">
-                            <div className="thumb">
+                            <div >
                                 <img
-                                    className="img-whp"
-                                    src={item.img}
+                                    // className="img-whp"
+                                    src={'https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684397458/winner-color-vert_4x-1_i02g4n.webp'}
                                     alt="properties identity"
                                 />
 
-                                <div className="thmb_cntnt">
+                                {/* <div className="thmb_cntnt">
                                     <ul className="tag mb0">
                                         {item.saleTag.map((val, i) => (
                                             <li
@@ -43,11 +43,11 @@ const FeatureProperties = () => {
                                     <h4 className="posr color-white">
                                         {item.title}
                                     </h4>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
-                ))}
+                {/* ))} */}
             </Slider>
         </>
     );

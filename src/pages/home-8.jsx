@@ -5,7 +5,7 @@ import Home8 from "../components/home-8/Home8";
 const index = () => {
   return (
     <>
-      <Seo pageTitle="Home-8" />
+      <Seo pageTitle="قوشان" />
       <Home8 />
     </>
   );

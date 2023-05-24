@@ -1,5 +1,5 @@
 :root {
-    --color-primary: #ff5a5f;
+    --color-primary: #c2b49a;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -28,7 +28,7 @@ input[type="number"] {
 }
 .c_select {
     width: 220px;
-    background-color: #ffffff;
+    background-color: #54594f ;
     color: #7f7f7f;
     box-shadow: none;
     outline: none !important;
@@ -111,7 +111,7 @@ h4 {
     top: 0;
     transition: all 0.4s ease-out;
     z-index: 99;
-    background: transparent;
+    background: #404041;
 }
 .sign_up_modal .modal-header .btn-close {
     margin: 0;
@@ -173,7 +173,7 @@ h4 {
 .sign_up_modal :not(.btn-check) + .btn:hover,
 .sign_up_modal .btn:first-child:hover {
     color: var(--color-primary);
-    background-color: #ffffff;
+    background-color: #54594f ;
     border-color: var(--color-primary);
 }
 .custome_fields_520 .dropdown-content:before,
@@ -228,7 +228,7 @@ ul {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background: #fff;
+    background: #54594f ;
     .fix-icon {
         font-size: 18px;
         color: #333;
@@ -384,7 +384,7 @@ header.header-nav.menu_style_home_one .ace-responsive-menu li.add_listing {
     transition: 0.3s ease-in-out;
 }
 header.header-nav.menu_style_home_one .ace-responsive-menu li.add_listing:hover {
-    background-color: #fff !important;
+    background-color: #54594f !important;
     border-color: var(--color-primary);
     a {
         color: var(--color-primary) !important;

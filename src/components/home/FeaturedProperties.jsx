@@ -1,8 +1,22 @@
 import Link from "next/link";
 import Slider from "react-slick";
 import properties from "../../data/properties";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const FeaturedProperties = () => {
+
+  const [articles, setArticles] = useState([])
+
+  useEffect(()=>{
+    axios.get("https://strapi-125841-0.cloudclusters.net/api/articles?populate=*").then((res)=>{
+      setArticles(res?.data?.data)
+  }).catch((err)=>{
+    console.log(err)
+  })
+  }, [])
+
+
   const settings = {
     dots: true,
     arrows: false,
@@ -28,59 +42,47 @@ const FeaturedProperties = () => {
     ],
   };
 
-  let content = properties?.slice(0, 12)?.map((item) => (
+  let content = articles?.slice(0, 12)?.map((item) => (
     <div className="item" key={item.id}>
       <div className="feat_property">
         <div className="thumb">
-          <img className="img-whp" src={item.img} alt="fp1.jpg" />
+          <img className="img-whp" src={'https://strapi-125841-0.cloudclusters.net' + item?.attributes?.Featured?.data?.attributes?.formats?.large?.url} alt="fp1.jpg" />
           <div className="thmb_cntnt">
-            <ul className="tag mb0">
+            {/* <ul className="tag mb0">
               {item.saleTag.map((val, i) => (
                 <li className="list-inline-item" key={i}>
                   <a href="#">{val}</a>
                 </li>
               ))}
-            </ul>
+            </ul> */}
             {/* End .tag */}
 
-            <ul className="icon mb0">
-              <li className="list-inline-item">
-                <a href="#">
-                  <span className="flaticon-transfer-1"></span>
-                </a>
-              </li>
-              <li className="list-inline-item">
-                <a href="#">
-                  <span className="flaticon-heart"></span>
-                </a>
-              </li>
-            </ul>
             {/* End .icon */}
 
-            <Link href={`/listing-details-v1/${item.id}`}>
+            {/* <Link href={`/news-details/${item.id}`}>
               <a className="fp_price">
                 ${item.price}
                 <small>/mo</small>
               </a>
-            </Link>
+            </Link> */}
           </div>
         </div>
         {/* End .thumb */}
 
         <div className="details">
           <div className="tc_content">
-            <p className="text-thm">{item.type}</p>
+            <p className="text-thm">{item?.attributes?.category?.data?.attributes?.Category}</p>
             <h4>
-              <Link href={`/listing-details-v1/${item.id}`}>
-                <a>{item.title}</a>
+              <Link href={`/news-details/${item?.attributes?.URL}`}>
+                <a>{item.attributes.Title}</a>
               </Link>
             </h4>
-            <p>
+            {/* <p>
               <span className="flaticon-placeholder"></span>
               {item.location}
-            </p>
+            </p> */}
 
-            <ul className="prop_details mb0">
+            {/* <ul className="prop_details mb0">
               {item.itemDetails.map((val, i) => (
                 <li className="list-inline-item" key={i}>
                   <a href="#">
@@ -88,12 +90,12 @@ const FeaturedProperties = () => {
                   </a>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
           {/* End .tc_content */}
 
           <div className="fp_footer">
-            <ul className="fp_meta float-start mb0">
+            {/* <ul className="fp_meta float-start mb0">
               <li className="list-inline-item">
                 <Link href="/agent-v2">
                   <a>
@@ -106,8 +108,8 @@ const FeaturedProperties = () => {
                   <a>{item.posterName}</a>
                 </Link>
               </li>
-            </ul>
-            <div className="fp_pdate float-end">{item.postedYear}</div>
+            </ul> */}
+            <div className="fp_pdate float-end">{item.attributes?.createdAt.split('T')[0]}</div>
           </div>
           {/* End .fp_footer */}
         </div>
