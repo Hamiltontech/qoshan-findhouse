@@ -1,3 +1,6 @@
+
+
+
 const Form = () => {
   return (
     <form className="form-inline mailchimp_form">
