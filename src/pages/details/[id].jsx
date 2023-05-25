@@ -185,7 +185,7 @@ content={property?.attributes?.seo}/>
             </div>
             {/* End .row */}
           </Gallery>
-          <Sharing propertyUrl={`https://qoshan-findhouse.vercel.app/${property?.attributes?.URL}`}/>
+          <Sharing propertyUrl={`https://qoshan-findhouse.vercel.app/details/${property?.attributes?.URL}`}/>
         </div>
       </section>
 
