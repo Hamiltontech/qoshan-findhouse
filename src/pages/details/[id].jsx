@@ -10,6 +10,7 @@ import DetailsContent from "../../components/listing-details-v1/DetailsContent";
 import Sidebar from "../../components/listing-details-v1/Sidebar";
 import axios from "axios";
 import Image from 'next/image'
+import Sharing from '../../components/listing-details-v1/Sharing'
 
 
 import Head from 'next/head';
@@ -106,11 +107,7 @@ content={property?.attributes?.seo}/>
 
 
                   {/* share */}
-                  <li className="list-inline-item">
-                        <a href="#">
-                          <span className="flaticon-share">مشاركة العقار</span>
-                        </a>
-                      </li>
+                  
                 </div>
               </div>
               <div className="col-lg-5 col-xl-4">
@@ -188,6 +185,7 @@ content={property?.attributes?.seo}/>
             </div>
             {/* End .row */}
           </Gallery>
+          <Sharing propertyUrl={`https://qoshan-findhouse.vercel.app/${property?.attributes?.URL}`}/>
         </div>
       </section>
 
