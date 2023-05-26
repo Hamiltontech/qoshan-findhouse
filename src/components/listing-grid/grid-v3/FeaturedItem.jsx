@@ -157,7 +157,8 @@ return(
       isGridOrList && "d-flex align-items-center"
     }`}
   >
-    
+          <Link href={`/details/${item?.attributes?.URL}`}>
+
     <div className="thumb">
       <img className="img-whp" src={'https://strapi-125841-0.cloudclusters.net' + item?.attributes?.Featured?.data?.attributes?.formats?.large?.url} alt="fp1.jpg" />
      
@@ -167,6 +168,7 @@ return(
           </a>
       </div>
     </div>
+    </Link>
     <div className="details">
 
       <div className="tc_content">
