@@ -23,7 +23,7 @@ const ListingDynamicDetailsV1 = () => {
 
 
 // related articles states - props
-  const [relatedLocation, setRelatedLocation] = useState("")
+  const [relatedLocation, setRelatedLocation, propertyLink] = useState("")
   const [relatedType, setRelatedType] = useState("")
 
   // featured 
@@ -45,7 +45,6 @@ const ListingDynamicDetailsV1 = () => {
        console.log(error)
      })
    }, [id])
-  
 
   return (
     <>
@@ -201,7 +200,7 @@ content={property?.attributes?.seo}/>
             
 
             <div className="col-lg-4 col-xl-4">
-              <Sidebar featured={featured} relatedLocation={relatedLocation} relatedType={relatedType}/>
+            <Sidebar featured={featured} relatedLocation={relatedLocation} relatedType={relatedType} propertyLink={property?.attributes?.URL} propertyName={property?.attributes?.Name} />
             </div>
             {/* End sidebar content .col-lg-4 */}
           </div>

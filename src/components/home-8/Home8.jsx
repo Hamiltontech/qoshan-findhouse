@@ -61,9 +61,7 @@ const Home8 = () => {
         <div className="row posr">
           <div className="col-lg-12">
             <HeroFilter />
-            <div className="text-center mt10">
-        {featured.length > 0 && <Advert/>}
-      </div>
+            
           </div>
         </div>
       </div>
@@ -80,7 +78,9 @@ const Home8 = () => {
       <section id="feature-property" className="feature-property "  style={{marginLeft: 30, marginRight: 30}}>
         <div className="row">
           <div className="col-lg-12">
-          
+          ∫<div className="text-center mt10">
+        {featured.length > 0 && <Advert/>}
+      </div>
 
             <div className="main-title mb40 mt30">
 

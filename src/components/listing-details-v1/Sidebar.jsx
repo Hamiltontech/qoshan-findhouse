@@ -5,9 +5,9 @@ import FeaturedListings from "../common/listing/FeaturedListings";
 import FeatureProperties from "../common/listing/FeatureProperties";
 import Advert from "../common/listing/advert";
 import Advert2 from "../common/listing/advert-two";
-const Sidebar = ({relatedType, relatedLocation, featured}) => {
+const Sidebar = ({relatedType, relatedLocation, featured, propertyLink, propertyName}) => {
 
-
+console.log(propertyLink)
   return (
     <>
       <div className="sidebar_listing_list" dir="rtl">
@@ -17,7 +17,7 @@ const Sidebar = ({relatedType, relatedLocation, featured}) => {
             {/* <ListingCreator /> */}
           </div>
           {/* End .sl_creator */}
-          <ContactWithAgent />
+          <ContactWithAgent propertyLink={propertyLink} propertyName={propertyName}/>
         </div>
       </div>
       {/* End .sidebar_listing_list */}
