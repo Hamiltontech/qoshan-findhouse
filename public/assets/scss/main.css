@@ -2507,13 +2507,13 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last {
 
 /*== Mobile Menu Css ==*/
 .stylehome1 .mm-navbar {
-  color: #484848;
+  color: #404041;
   height: 86px;
   line-height: 4;
 }
 
 .stylehome1 .mm-panel {
-  background-color: #f7f7f7;
+  background-color: #404041;
 }
 
 .stylehome1 .mm-panel ul.mm-listview li:first-child.mm-listitem {
