@@ -33,8 +33,8 @@ const Header = () => {
     <div className="top-header d-flex align-items-center justify-content-between py-2 px-3" style={{ backgroundColor: "#232323" }}>
       <WhatsAppButton />
       <header className={`header-nav menu_style_home_one style2 home8  navbar-scrolltofixed stricky main-menu rtl ${navbar ? "stricky-fixed " : ""}`} style={{ display: "block" }}>
-        <div className="header-nav col-lg-12 p-0" style={{fontSize: 18, direction: 'ltr', textAlign: 'left', padding: 20}} >
-<Social/>
+        <div className="footer_social_widget  col-lg-12 p-0"  style={{fontSize: 18, direction: 'rtl', textAlign: 'left', padding: 20}}>
+<Social/>  
       </div>
 
         <div className="container-fluid col-lg-12 p-0">
