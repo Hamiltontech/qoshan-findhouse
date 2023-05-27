@@ -11,7 +11,7 @@ import Sidebar from "../../components/listing-details-v1/Sidebar";
 import axios from "axios";
 import Image from 'next/image'
 import Sharing from '../../components/listing-details-v1/Sharing'
-
+import Seo from "../../components/common/seo";
 
 import Head from 'next/head';
 
@@ -51,7 +51,7 @@ const ListingDynamicDetailsV1 = () => {
    <Head>
         <title>{property?.attributes?.Name}</title>
 
-
+<Seo pageTitle={property?.attributes?.name} />
         {/* meta */}
         {/* facebook */}
  {/* <meta property={`og:${property?.attributes?.Name}`} content={property?.attributes?.Name}/>
