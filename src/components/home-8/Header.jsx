@@ -4,7 +4,7 @@ import HeaderMenuContent from "../common/header/HeaderMenuContent";
 import WhatsAppButton from "./whatsapp";
 import axios from "axios";
 import Image from "next/image";
-import Social from "./social";
+import Social from "../common/footer/Social";
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
   const [data, setData] = useState({});
@@ -33,11 +33,13 @@ const Header = () => {
     <div className="top-header d-flex align-items-center justify-content-between py-2 px-3" style={{ backgroundColor: "#232323" }}>
       <WhatsAppButton />
       <header className={`header-nav menu_style_home_one style2 home8  navbar-scrolltofixed stricky main-menu rtl ${navbar ? "stricky-fixed " : ""}`} style={{ display: "block" }}>
-      <Social/>
+        <div className="header-nav col-lg-12 p-0" style={{fontSize: 18, direction: 'ltr', textAlign: 'left', padding: 20}} >
+<Social/>
+      </div>
 
-        <div className="container-fluid p-0">
+        <div className="container-fluid col-lg-12 p-0">
           {/* site logo brand */}
-          <div className="d-flex align-items-center justify-content-between">
+          <div className="d-flex align-items-center justify-content-between col-lg-12">
             <div className="d-flex align-items-center">
               <Link href="/">
                 <a className="me-3">
@@ -57,8 +59,10 @@ const Header = () => {
                       height={100}
                       />                                </a>
               {/* </a> */}
+              
             </div>
             <nav className="d-flex align-items-center justify-content-center" style={{ flex: 1 }}>
+
               <HeaderMenuContent />
             </nav>
           </div>
