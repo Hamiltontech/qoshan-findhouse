@@ -1,61 +1,117 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Field } from 'formik';
 
 const Form = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [files, setFiles] = useState([]);
+  // const [isSubmitted, setIsSubmitted] = useState(false);
+  // const [files, setFiles] = useState([]);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
 
-    const formData = new FormData(event.target);
+  //   const formData = new FormData(event.target);
 
-    try {
+  //   try {
       
-      const response = await axios({
-        method: 'post',
-        url: 'https://strapi-125841-0.cloudclusters.net/api/upload/files',
-        data: formData
-      });
+  //     const response = await axios({
+  //       method: 'post',
+  //       url: 'https://strapi-125841-0.cloudclusters.net/api/upload/files',
+  //       data: formData
+  //     });
 
-      const imageId = response.data[0].id;
+  //     const imageId = response.data[0].id;
 
-      const submissionData = {
-        Name: formData.get('name'),
-        phone: formData.get('phone'),
-        email: formData.get('email'),
-        larea: formData.get('larea'),
-        Area: formData.get('area'),
-        type: formData.get('type'),
-        price: formData.get('price'),
-        city: formData.get('city'),
-        Address: formData.get('address'),
-        image: imageId,
-      };
+  //     const submissionData = {
+  //       Name: formData.get('name'),
+  //       phone: formData.get('phone'),
+  //       email: formData.get('email'),
+  //       larea: formData.get('larea'),
+  //       Area: formData.get('area'),
+  //       type: formData.get('type'),
+  //       price: formData.get('price'),
+  //       city: formData.get('city'),
+  //       Address: formData.get('address'),
+  //       image: imageId,
+  //     };
 
-      const submissionResponse = await axios.post(
-        'https://strapi-125841-0.cloudclusters.net/api/submissions',
-        { data: submissionData }
-      );
+  //     const submissionResponse = await axios.post(
+  //       'https://strapi-125841-0.cloudclusters.net/api/submissions',
+  //       { data: submissionData }
+  //     );
 
-      if (submissionResponse.status === 200) {
-        setIsSubmitted(true);
-        console.log('Submission successful!');
-        // Reset the form or show a success message
-      } else {
-        console.error('Submission error:', submissionResponse.statusText);
-        // Show an error message to the user
-      }
-    } catch (error) {
-      console.error('Fetch error:', error);
-      // Show an error message to the user
+  //     if (submissionResponse.status === 200) {
+  //       setIsSubmitted(true);
+  //       console.log('Submission successful!');
+  //     } else {
+  //       console.error('Submission error:', submissionResponse.statusText);
+  //     }
+  //   } catch (error) {
+  //     console.error('Fetch error:', error);
+  //   }
+  // };
+
+  // const handleFileChange = (event) => {
+  //   setFiles(event.target.files);
+  // };
+
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [address, setAddress] = useState("")
+    const [map, setMap] = useState("")
+    const [area, setArea] = useState(null)
+    const [larea, setLarea] = useState(null)
+    const [city, setCity] = useState("")
+    const [phone, setPhone] = useState(null)
+    const [price, setPrice] = useState(null)
+    const [type, setType] = useState("")
+    const [media, setMedia] = useState(null)
+
+    const handleSubmit = async (e)=>{
+      e.preventDefault()
+
+      const file = new FormData()
+      file.append("files", media)
+      
+      let data = new FormData();
+      data.append("Name", name)
+      data.append("Email", email)
+      data.append("Address", address)
+      data.append("Area", area)
+      data.append("larea", larea)
+      data.append("price", price)
+      data.append("phone", phone)
+      data.append("city", city)
+      data.append("type", type)
+      data.append("files", media);
+      
+      axios.post("https://strapi-125841-0.cloudclusters.net/api/upload/", file
+      ).then((res)=>{
+        const fileId = res.data[0].id
+        
+        axios.post("https://strapi-125841-0.cloudclusters.net/api/submissions", {
+          "data":{
+            "Name": name,
+            "Email": email,
+            "Address": address,
+            "Area": area,
+            "larea": larea,
+            "price": price,
+            "phone": phone,
+            "city": city,
+            "type": type,
+            "Gallery": fileId
+          }
+        }).then((data) => {
+          console.log(data)
+      }).catch((err)=>{
+        console.log(err)
+      })
+      }).catch((error)=>{
+        console.log(error)
+      })
     }
-  };
 
-  const handleFileChange = (event) => {
-    setFiles(event.target.files);
-  };
-
+  
   return (
     <div>
       <form className="contact_form" onSubmit={handleSubmit}>
@@ -70,6 +126,7 @@ const Form = () => {
                 required="required"
                 type="text"
                 placeholder="اسمك الكامل"
+                onChange={(e)=>setName(e.target.value)}
               />
             </div>
           </div>
@@ -89,6 +146,7 @@ const Form = () => {
                 required="required"
                 type="email"
                 placeholder="البريد الالكتروني"
+                onChange={(e)=>setEmail(e.target.value)}
               />
             </div>
           </div>
@@ -101,6 +159,7 @@ const Form = () => {
                 required="required"
                 type="phone"
                 placeholder="هاتف"
+                onChange={(e)=>setPhone(e.target.value)}
               />
             </div>
           </div>
@@ -120,6 +179,7 @@ const Form = () => {
                 required="required"
                 type="text"
                 placeholder="مساحة العقار"
+                onChange={(e)=>setArea(e.target.value)}
               />
             </div>
           </div>
@@ -132,6 +192,7 @@ const Form = () => {
                 required="required"
                 type="text"
                 placeholder="المساحة بالأمتار"
+                onChange={(e)=>setLarea(e.target.value)}
               />
             </div>
           </div>
@@ -151,6 +212,7 @@ const Form = () => {
                 required="required"
                 type="text"
                 placeholder="نوع العقار"
+                onChange={(e)=>setType(e.target.value)}
               />
             </div>
           </div>
@@ -163,6 +225,7 @@ const Form = () => {
                 required="required"
                 type="text"
                 placeholder="سعر العقار"
+                onChange={(e)=>setPrice(e.target.value)}
               />
             </div>
           </div>
@@ -182,6 +245,7 @@ const Form = () => {
                 required="required"
                 type="text"
                 placeholder="المدينة"
+                onChange={(e)=>setCity(e.target.value)}
               />
             </div>
           </div>
@@ -194,6 +258,7 @@ const Form = () => {
                 required="required"
                 type="text"
                 placeholder="العنوان"
+                onChange={(e)=>setAddress(e.target.value)}
               />
             </div>
           </div>
@@ -206,9 +271,10 @@ const Form = () => {
               id="image"
               name="image"
               className="form-control"
-              required="required"
+              // required="required"
               type="file"
-              onChange={handleFileChange}
+              // onChange={handleFileChange}
+              onChange={(e)=>setMedia(e.target.files[0])}
             />
           </div>
         </div>
@@ -221,11 +287,11 @@ const Form = () => {
         </div>
       </form>
 
-      {isSubmitted && (
+      {/* {isSubmitted && ( */}
         <div className="success-message">
           <p>تم ارسال الرسالة بنجاح</p>
         </div>
-      )}
+      {/* )} */}
 
       {/* Additional styles */}
       <style jsx>{`
