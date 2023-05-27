@@ -5,7 +5,7 @@ import AboutUs from "../components/about-us";
 const index = () => {
   return (
     <>
-      <Seo pageTitle="About Us" />
+      <Seo pageTitle="تعرف على قوشان" />
       <AboutUs />
     </>
   );
