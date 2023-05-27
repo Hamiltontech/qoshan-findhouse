@@ -51,7 +51,7 @@ const ListingDynamicDetailsV1 = () => {
    <Head>
         <title>{property?.attributes?.Name}</title>
 
-<Seo pageTitle={property?.attributes?.name} />
+<Seo pageTitle={property?.attributes?.name} pageContent={property?.attributes?.Description} />
         {/* meta */}
         {/* facebook */}
  {/* <meta property={`og:${property?.attributes?.Name}`} content={property?.attributes?.Name}/>

@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-const Seo = ({ pageTitle, font }) => (
+const Seo = ({ pageTitle, font, pageContent }) => (
   <>
     <Head>
       <title>
@@ -9,11 +9,11 @@ const Seo = ({ pageTitle, font }) => (
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta
         name="keywords"
-        content="advanced custom search, agency, agent, business, clean, corporate, directory, google maps, homes, idx agent, listing properties, membership packages, property, real broker, real estate, real estate agent, real estate agency, realtor"
+        content=""
       />
       <meta
         name="description"
-        content="Qoshan - Real Estate React Template"
+        content={pageContent && `${pageContent} | مستشارك العقاري`}
       />
       <meta name="ibthemes" content="ATFN" />
       <meta
