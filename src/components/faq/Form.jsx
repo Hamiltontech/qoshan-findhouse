@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Field } from 'formik';
 
 const Form = () => {
-  // const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   // const [files, setFiles] = useState([]);
 
   // const handleSubmit = async (event) => {
@@ -103,6 +103,7 @@ const Form = () => {
           }
         }).then((data) => {
           console.log(data)
+          setIsSubmitted(true)
       }).catch((err)=>{
         console.log(err)
       })
@@ -287,11 +288,11 @@ const Form = () => {
         </div>
       </form>
 
-      {/* {isSubmitted && ( */}
+      {isSubmitted && (
         <div className="success-message">
-          <p>تم ارسال الرسالة بنجاح</p>
+          <p style={{color: 'white'}}>تم ارسال الرسالة بنجاح</p>
         </div>
-      {/* )} */}
+       )}
 
       {/* Additional styles */}
       <style jsx>{`
