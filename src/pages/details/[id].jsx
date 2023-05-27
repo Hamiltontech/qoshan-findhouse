@@ -50,7 +50,9 @@ const ListingDynamicDetailsV1 = () => {
     <>
    <Head>
         <title>{property?.attributes?.Name}</title>
-
+        <meta property="og:title" content={property?.attributes?.Name} />
+        <meta property="og:image" content={'https://strapi-125841-0.cloudclusters.net' + property?.attributes?.Socialimage?.data?.attributes?.url}/>
+        <meta property="og:description" content={property.description} />
 <Seo pageTitle={property?.attributes?.name} pageContent={property?.attributes?.Description} />
         {/* meta */}
         {/* facebook */}
