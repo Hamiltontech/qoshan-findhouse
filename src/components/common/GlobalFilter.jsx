@@ -1,7 +1,4 @@
-import {
-  addKeyword,
-} from "../../features/properties/propertiesSlice";
-import PricingRangeSlider from "./PricingRangeSlider";
+
 import {useState, useEffect} from 'react'
 import Link from "next/link";
 import axios from "axios";
@@ -10,7 +7,9 @@ const GlobalFilter = ({ className = "", pageRoute }) => {
   const [area, setArea] = useState([])
   useEffect(()=>{
     axios.get("https://strapi-125841-0.cloudclusters.net/api/areas?pagination[start]=0&pagination[limit]=1000").then((response)=>{
-      setArea(response.data.data)
+      const res = response?.data?.data
+      res.sort((a, b) => Number(a?.attributes?.Position) - Number(b?.attributes?.Position));
+      setArea(res)
     })
 }, [])
 
