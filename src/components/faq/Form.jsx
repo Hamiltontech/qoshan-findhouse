@@ -112,6 +112,7 @@ const Form = () => {
       })
     }
 
+    console.log(media)
   
   return (
     <div>

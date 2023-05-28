@@ -5912,6 +5912,17 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   transition: all 0.3s ease;
 }
 
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: #f7f7f7 !important;
+}
+
+
+
 .best_property_slider.style2.owl-carousel.owl-theme .owl-dots .owl-dot.active span,
 .best_property_slider.style2.owl-carousel.owl-theme .owl-dots .owl-dot:hover span,
 .feature_property_slider.owl-carousel.owl-theme .owl-dots .owl-dot.active span,

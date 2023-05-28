@@ -312,7 +312,7 @@ const MobileMenuContent = () => {
                 src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684257816/header-logo2_bawqi1.svg"
                 alt="header-logo.svg"
               />
-              
+
             </a>
           </Link>
           {/* End .logo */}
@@ -335,69 +335,96 @@ const MobileMenuContent = () => {
 
           {/* End pages Pages */}
           <MenuItem>
-          
-          <Link href="/">
-            <a
-              className={
-                route.pathname === "/Home" ? "ui-active" : undefined
-              }
-            >
-              الرئيسية
-            </a>
-          </Link>
-        </MenuItem>
-          <MenuItem>
-          
-            <Link href="/all-properties">
+
+            <Link href="/">
               <a
                 className={
-                  route.pathname === "/all-properties" ? "ui-active" : undefined
+                  route.pathname === "/Home" ? "ui-active" : undefined
                 }
               >
-                جميع العقارات
+                الرئيسية
               </a>
             </Link>
           </MenuItem>
           <MenuItem>
-          
-          <Link href="/search">
-            <a
-              className={
-                route.pathname === "/search" ? "ui-active" : undefined
-              }
-            >
-البحث المفصل        
-            </a>
-          </Link>
-        </MenuItem>
-        <MenuItem>
-          
-          <Link href="/about">
-            <a
-              className={
-                route.pathname === "/Home" ? "ui-active" : undefined
-              }
-            >
-تعرف علينا            </a>
-          </Link>
-        </MenuItem>
-          <MenuItem>
-            <Link href="/news">
+
+            <Link href="/all-properties?type=all">
               <a
-                className={
-                  route.pathname === "/news" ? "ui-active" : undefined
-                }
+                className={route.pathname === "/all-properties?type=all" ? "ui-active" : undefined}
               >
-الآخبار              </a>
+                جميع العقارات       </a>
+            </Link>
+          </MenuItem>
+          <MenuItem>
+
+            <Link href="/detailed-search">
+              <a
+                className={route.pathname === "/detailed-search" ? "ui-active" : undefined}
+              >
+                البحث المفصل        </a>
+            </Link>
+          </MenuItem>
+          <MenuItem>
+
+            <Link href="/about-us">
+              <a
+                className={route.pathname === "/about-us" ? "ui-active" : undefined}
+              >
+                تعرف علينا         </a>
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link href="/news?category=جميع+الاخبار">
+              <a
+                className={route.pathname === "/news?category=جميع-الاخبار" ? "ui-active" : undefined}
+              >
+                الآخبار         </a>
             </Link>
           </MenuItem>
 
-         
+          <MenuItem>
+            <Link href="/watch-qoshan">
+              <a
+                className={route.pathname === "/watch-qoshan" ? "ui-active" : undefined}
+              >
+                شاهد قوشان         </a>
+            </Link>
+          </MenuItem>
+
+          <MenuItem>
+          <Link href="/shorts">
+          <a
+            className={route.pathname === "/watch-qoshan" ? "ui-active" : undefined}
+          >
+نصائح عقارية        </a>
+        </Link>
+          </MenuItem>
+
+          <MenuItem>
+          <Link href="/faq">
+          <a
+            className={route.pathname === "/faq" ? "ui-active" : undefined}
+          >
+آعلن عن عقارك          </a>
+        </Link>
+          </MenuItem>
+
+          <MenuItem>
+          <Link href="/contact">
+          <a
+            className={route.pathname === "/contact" ? "ui-active" : undefined}
+          >
+            تواصل معنا
+          </a>
+        </Link>
+          </MenuItem>
+
+
 
         </Menu>
       </SidebarContent>
 
-      
+
     </ProSidebar>
   );
 };
