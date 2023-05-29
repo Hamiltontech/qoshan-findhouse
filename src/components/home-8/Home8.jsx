@@ -27,7 +27,7 @@ const Home8 = () => {
   const [data, setData] = useState([])
 
   useEffect(()=>{
-    axios.get("https://strapi-125841-0.cloudclusters.net/api/proerties?populate=*").then((res)=>{
+    axios.get("https://strapi-125841-0.cloudclusters.net/api/proerties?pagination[start]=200&pagination[limit]=300&&populate=*").then((res)=>{
     setData(res?.data?.data)
   }).catch((err)=>{
     console.log(err)
@@ -78,7 +78,7 @@ const Home8 = () => {
       <section id="feature-property" className="feature-property "  style={{marginLeft: 30, marginRight: 30}}>
         <div className="row">
           <div className="col-lg-12">
-          ∫<div className="text-center mt10">
+          <div className="text-center mt10">
         {featured.length > 0 && <Advert/>}
       </div>
 

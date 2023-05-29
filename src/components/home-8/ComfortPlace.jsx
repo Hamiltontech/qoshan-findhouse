@@ -4,7 +4,7 @@ import {TfiRulerAlt} from 'react-icons/tfi'
 
 
 const ComfortPlaces = ({featured, data}) => {
-
+console.log(data)
 
 
   const settings = {
