@@ -33,12 +33,14 @@ const ListingDynamicDetailsV1 = () => {
    // diala
 
    useEffect(()=>{
-     axios.get("https://strapi-125841-0.cloudclusters.net/api/proerties?populate=*").then((response)=>{
+     axios.get("https://strapi-125841-0.cloudclusters.net/api/proerties?pagination[start]=200&pagination[limit]=280&populate=*").then((response)=>{
        const res = response?.data?.data
        const feat = res?.filter((item)=>item?.attributes?.Promoted == true)
+       console.log(res)
        setFeatured(feat)
        const prop = res?.find((item)=>item.attributes.URL == id)
        setProperty(prop)
+       console.log(prop)
        setRelatedLocation(prop?.attributes?.areas?.data?.attributes?.Name)
        setRelatedType(prop?.attributes?.type?.data?.attributes?.Name)
      }).catch((error)=>{
@@ -87,11 +89,11 @@ content={property?.attributes?.seo}/>
  {/* tags */}
  <ul className="tag">
   {property?.attributes?.property_tags?.data?.map((item)=>(
-    <>
-    <li className="list-inline-item" style={{color:'white',margin: '6px', backgroundColor: '#c2b49a', paddingLeft: '20px',paddingRight: '20px', borderRadius: '6px'}}>
+   
+    <li key={property?.id}  className="list-inline-item" style={{color:'white',margin: '6px', backgroundColor: '#c2b49a', paddingLeft: '20px',paddingRight: '20px', borderRadius: '6px'}}>
                       {item?.attributes?.Tag}
      </li>
-    </>
+ 
   ))}
   </ul>
 

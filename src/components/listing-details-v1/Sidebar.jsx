@@ -44,10 +44,10 @@ console.log(propertyLink)
       </div>
       {/* End .Categories Property */}
 
-      <div className="sidebar_feature_listing">
+      {/* <div className="sidebar_feature_listing">
         <h4 className="title">عقارات مشابهة</h4>
         <FeaturedListings relatedLocation={relatedLocation} relatedType={relatedType}/>
-      </div>
+      </div> */}
       <div className="terms_condition_widget">
         {/* <h4 className="title">Featured Properties</h4> */}
         <div className="sidebar_feature_property_slider">

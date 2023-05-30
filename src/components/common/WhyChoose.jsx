@@ -2,22 +2,14 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
-
 const WhyChoose = ({ style = "" }) => {
-
-
 
   const handleFetch = () => {
     axios.get("https://qoshan.com/wp-json/wp/v2/properties?per_page=100&offset=200").then((response) => {
       console.log(response);
 
-
-
       response.data?.map((post) => {
        
-
-
-
           let data = new FormData();
           data.append("Name", post?.title?.rendered);
           data.append("Description", post?.content?.rendered);
@@ -30,8 +22,6 @@ const WhyChoose = ({ style = "" }) => {
           data.append("Garages", post?.property_meta.fave_property_garage);
           data.append("PropertyID", post?.property_meta.fave_property_id);
         
-
-
 
             axios.post("https://strapi-125841-0.cloudclusters.net/api/proerties/", {
               "data": {
@@ -57,7 +47,6 @@ const WhyChoose = ({ style = "" }) => {
   };
 
 
-
   const whyCooseContent = [
     {
       id: 1,
@@ -78,7 +67,6 @@ const WhyChoose = ({ style = "" }) => {
       descriptions: `Aliquam dictum elit vitae mauris facilisis at dictum urna dignissim donec vel lectus vel felis.`,
     },
   ];
-
 
 
   return (

@@ -27,7 +27,7 @@ const Home8 = () => {
   const [data, setData] = useState([])
 
   useEffect(()=>{
-    axios.get("https://strapi-125841-0.cloudclusters.net/api/proerties?pagination[start]=200&pagination[limit]=300&&populate=*").then((res)=>{
+    axios.get("https://strapi-125841-0.cloudclusters.net/api/proerties?populate=*").then((res)=>{
     setData(res?.data?.data)
   }).catch((err)=>{
     console.log(err)
