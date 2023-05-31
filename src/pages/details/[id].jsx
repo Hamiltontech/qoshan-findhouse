@@ -12,9 +12,7 @@ import axios from "axios";
 import Image from 'next/image'
 import Sharing from '../../components/listing-details-v1/Sharing'
 import Seo from "../../components/common/seo";
-
 import Head from 'next/head';
-
 const ListingDynamicDetailsV1 = () => {
 
   const router = useRouter();
@@ -25,7 +23,6 @@ const ListingDynamicDetailsV1 = () => {
   // related articles states - props
   const [relatedLocation, setRelatedLocation, propertyLink] = useState("")
   const [relatedType, setRelatedType] = useState("")
-
   // featured 
   const [featured, setFeatured] = useState([])
 
@@ -47,21 +44,6 @@ const ListingDynamicDetailsV1 = () => {
     })
   }, [id])
 
-  // useEffect(() => {
-  //   axios.get("https://strapi-125841-0.cloudclusters.net/api/proerties?pagination[start]=200&pagination[limit]=280&populate=*").then((response) => {
-  //     const res = response?.data?.data
-  //     const feat = res?.filter((item) => item?.attributes?.Promoted == true)
-  //     console.log(res)
-  //     setFeatured(feat)
-  //     const prop = res?.find((item) => item.attributes.URL == id)
-  //     setProperty(prop)
-  //     console.log(prop)
-  //     setRelatedLocation(prop?.attributes?.areas?.data?.attributes?.Name)
-  //     setRelatedType(prop?.attributes?.type?.data?.attributes?.Name)
-  //   }).catch((error) => {
-  //     console.log(error)
-  //   })
-  // }, [id])
 
   return (
     <>
@@ -170,7 +152,6 @@ const ListingDynamicDetailsV1 = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12 col-lg-8">
-              {/* <DetailsContent property={property} relatedType={relatedType} relatedLocation={relatedLocation} /> */}
               <DetailsContent property={property} relatedType={relatedType} relatedLocation={relatedLocation}/>
             </div>
             {/* End details content .col-lg-8 */}

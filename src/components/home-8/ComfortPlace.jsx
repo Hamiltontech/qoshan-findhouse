@@ -1,26 +1,12 @@
 import Link from "next/link";
 import {TfiRulerAlt} from 'react-icons/tfi'
 
-// fetching from json
-import {useEffect, useState} from 'react'
-import axios from "axios";
 
-
-const ComfortPlaces = () => {
-const [jsonData, setData] = useState([])
-
-useEffect(()=>{
-axios.get("data.json").then((res)=>{
-  setData(res.data)
-}).catch((error)=>{
-  console.log(error)
-})
-}, [])
-
+const ComfortPlaces = ({data}) => {
 
   return (
     <>
- {jsonData.slice(0,30).map((item) => (
+ {data.slice(0,30).map((item) => (
   <div   className="col-sm-6 col-lg-3"  dir="rtl" key={item.id} >
     <div className="feat_property home3">
       <div className="thumb">

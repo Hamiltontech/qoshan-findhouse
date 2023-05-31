@@ -25,16 +25,21 @@ import { useEffect, useState } from "react";
 
 const Home8 = () => {
   const [data, setData] = useState([])
+  const [featured, setFeatured] = useState([])
+  const [heroProperties, setHeroProperties] = useState([])
 
-  useEffect(()=>{
-    axios.get("https://strapi-125841-0.cloudclusters.net/api/proerties?populate=*").then((res)=>{
-    setData(res?.data?.data)
-  }).catch((err)=>{
-    console.log(err)
-  })
+
+  useEffect(() => {
+    axios.get("/data.json").then((res) => {
+      setData(res.data)
+      setFeatured(res.data.filter((ele) => ele?.x_studio_featured_property === true))
+      setHeroProperties(res.data.filter((ele) => ele?.x_studio_view_on_slider === true))
+    }).catch((err) => {
+      console.log(err)
+    })
   }, [])
 
-  let featured = data?.filter((ele) => ele?.attributes?.Promoted === true) 
+
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -51,52 +56,52 @@ const Home8 = () => {
         <div className="container-fluid p0">
           <div className="home8-slider">
             <div className="bs_carousel ">
-              <HeroSlider />
+              <HeroSlider heroProperties={heroProperties}/>
             </div>
           </div>
         </div>
       </section>
       <section className="property-search search-overlay">
-      <div className="container">
-        <div className="row posr">
-          <div className="col-lg-12">
-            <HeroFilter />
-            
+        <div className="container">
+          <div className="row posr">
+            <div className="col-lg-12">
+              <HeroFilter />
+
+            </div>
           </div>
         </div>
-      </div>
-      
-      {/* End .container */}
 
-      <div className="mouse_scroll">
-        <a href="#feature-property">
-          
-        </a>
-      </div>
-    </section>
+        {/* End .container */}
 
-      <section id="feature-property" className="feature-property "  style={{marginLeft: 30, marginRight: 30}}>
+        <div className="mouse_scroll">
+          <a href="#feature-property">
+
+          </a>
+        </div>
+      </section>
+
+      <section id="feature-property" className="feature-property " style={{ marginLeft: 30, marginRight: 30 }}>
         <div className="row">
           <div className="col-lg-12">
-          <div className="text-center mt10">
-        {featured.length > 0 && <Advert/>}
-      </div>
+            <div className="text-center mt10">
+              {featured.length > 0 && <Advert />}
+            </div>
 
             <div className="main-title mb40 mt30">
 
               <h2>عقارات مميزة</h2>
               <p>
-              <a className="float-start" href="#">
+                <a className="float-start" href="#">
                   إعرض المزيد <span className="flaticon-back"></span>
                 </a>
                 عقارات مميزة لكم من فريق قوشان.
-                
+
               </p>
             </div>
           </div>
           <div className="col-lg-12">
             <div className="feature_property_home3_slider gutter-x15">
-              <FeaturedProps featured={featured}/>
+              <FeaturedProps featured={featured} />
             </div>
           </div>
         </div>
@@ -127,18 +132,18 @@ const Home8 = () => {
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
                 <h2>جميع العقارات</h2>
-               
+
               </div>
             </div>
           </div>
           <div className="row" dir="rtl">
-            <ComfortPlace data={data} featured={featured}/>
+            <ComfortPlace data={data} featured={featured} />
           </div>
         </div>
       </section>
 
-            {/* <!-- Feature news --> */}
-            <section id="feature-property" className="feature-property bgc-f7">
+      {/* <!-- Feature news --> */}
+      <section id="feature-property" className="feature-property bgc-f7">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
@@ -148,8 +153,8 @@ const Home8 = () => {
               </div>
             </div>
             <div className="lsd_list">
-          <CategoriesFilter/>
-        </div> 
+              <CategoriesFilter />
+            </div>
             <div className="col-lg-12">
               <div className="feature_property_slider gutter-x15">
                 <FeaturedProperties />
@@ -161,25 +166,25 @@ const Home8 = () => {
 
       {/* <!-- Home Design --> */}
       <section className="our-hot-offer parallax" dir="rtl">
-<div className="container">
- <div className="row mt40">
+        <div className="container">
+          <div className="row mt40">
 
- <div className="col-lg-12">
+            <div className="col-lg-12">
 
- <div className="our_hotoffer">
-  <p>#مستشارك_العقاري</p>
- <h2>شاهد قوشان</h2>
- <Link href="/watch-qoshan"><button style={{background: '#22222222', paddingLeft: '15px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', color: '#ffff', border: 'none'}}>شاهد قوشان</button></Link>
-          <Link href="/shorts"><button style={{background: '#ffff', paddingLeft: '15px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', color: '#000000', border: 'none'}}>نصائح عقارية</button></Link>
-{/* <Watchqoshan/> */}
+              <div className="our_hotoffer">
+                <p>#مستشارك_العقاري</p>
+                <h2>شاهد قوشان</h2>
+                <Link href="/watch-qoshan"><button style={{ background: '#22222222', paddingLeft: '15px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', color: '#ffff', border: 'none' }}>شاهد قوشان</button></Link>
+                <Link href="/shorts"><button style={{ background: '#ffff', paddingLeft: '15px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', color: '#000000', border: 'none' }}>نصائح عقارية</button></Link>
+                {/* <Watchqoshan/> */}
 
-</div>
+              </div>
 
- </div>
- </div>
- </div>
+            </div>
+          </div>
+        </div>
 
- </section>
+      </section>
 
       {/* <!-- Our Footer --> */}
       <section className="footer_one home3">
