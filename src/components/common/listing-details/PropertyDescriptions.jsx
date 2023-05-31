@@ -1,16 +1,13 @@
-import { useState } from "react";
-import ReactMarkdown from "react-markdown";
-
+import ReactHtmlParser from 'react-html-parser';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
 const PropertyDescriptions = ({property}) => {
-  // const [click, setClick] = useState(true);
-  // const handleClick = () => setClick(!click);
-
-
 
   return (
     <>
-     <ReactMarkdown>{property?.attributes?.Description}</ReactMarkdown>
+    {property?.x_studio_property_information && 
+     <p>{ ReactHtmlParser(property?.x_studio_property_information) }</p> 
+    }
     </>
   );
 };

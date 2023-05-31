@@ -22,7 +22,7 @@ const ListingDynamicDetailsV1 = () => {
   const id = router.query.id;
 
 
-// related articles states - props
+  // related articles states - props
   const [relatedLocation, setRelatedLocation, propertyLink] = useState("")
   const [relatedType, setRelatedType] = useState("")
 
@@ -30,85 +30,70 @@ const ListingDynamicDetailsV1 = () => {
   const [featured, setFeatured] = useState([])
 
 
-   // diala
+  // diala
+  useEffect(()=>{
+    axios.get("https://hamiltontech-silver-space-garbanzo-x6r4vpr747p2p7pj-3000.preview.app.github.dev/data.json").then((response)=>{
+      const data = response.data?.find((item)=> item.x_name.replace(/\s+/g, '-') == id)
+      console.log(data)
+      setProperty(data)
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }, [id])
 
-   useEffect(()=>{
-     axios.get("https://strapi-125841-0.cloudclusters.net/api/proerties?pagination[start]=200&pagination[limit]=280&populate=*").then((response)=>{
-       const res = response?.data?.data
-       const feat = res?.filter((item)=>item?.attributes?.Promoted == true)
-       console.log(res)
-       setFeatured(feat)
-       const prop = res?.find((item)=>item.attributes.URL == id)
-       setProperty(prop)
-       console.log(prop)
-       setRelatedLocation(prop?.attributes?.areas?.data?.attributes?.Name)
-       setRelatedType(prop?.attributes?.type?.data?.attributes?.Name)
-     }).catch((error)=>{
-       console.log(error)
-     })
-   }, [id])
+  // useEffect(() => {
+  //   axios.get("https://strapi-125841-0.cloudclusters.net/api/proerties?pagination[start]=200&pagination[limit]=280&populate=*").then((response) => {
+  //     const res = response?.data?.data
+  //     const feat = res?.filter((item) => item?.attributes?.Promoted == true)
+  //     console.log(res)
+  //     setFeatured(feat)
+  //     const prop = res?.find((item) => item.attributes.URL == id)
+  //     setProperty(prop)
+  //     console.log(prop)
+  //     setRelatedLocation(prop?.attributes?.areas?.data?.attributes?.Name)
+  //     setRelatedType(prop?.attributes?.type?.data?.attributes?.Name)
+  //   }).catch((error) => {
+  //     console.log(error)
+  //   })
+  // }, [id])
 
   return (
     <>
-   <Head>
-        <title>{property?.attributes?.Name}</title>
-
-<Seo pageTitle={property?.attributes?.name} pageContent={property?.attributes?.Description} />
-        {/* meta */}
-        {/* facebook */}
- {/* <meta property={`og:${property?.attributes?.Name}`} content={property?.attributes?.Name}/>
-<meta property={`og:${property?.attributes?.type?.data[0]?.attributes?.Name}`} content={property?.attributes?.type?.data[0]?.attributes?.Name}/>
-<meta property={`og:${'https://qoshan.vercel.app' + property?.attributes?.URL}`} content={'https://qoshan.vercel.app' + property?.attributes?.URL}/>
-<meta property={`og:${property?.attributes?.seo}`}
-content={property?.attributes?.seo}/>
-<meta property={`og:${'https://strapi-125841-0.cloudclusters.net' + property?.attributes?.Socialimage?.data?.attributes?.ul}`} content={`'https://strapi-125841-0.cloudclusters.net' + ${property?.attributes?.Socialimage?.data?.attributes?.ul}`}/> */}
-
-
-{/* twitter */}
-
-{/* <meta property={`twitter:${property?.attributes?.Name}`} content={property?.attributes?.Name}/>
-<meta property={`twitter:${property?.attributes?.seo}`}
-content={property?.attributes?.seo}/>
-<meta property={`twitter:${'https://strapi-125841-0.cloudclusters.net' + property?.attributes?.Socialimage?.data?.attributes?.ul}`} content={`'https://strapi-125841-0.cloudclusters.net' + ${property?.attributes?.Socialimage?.data?.attributes?.ul}`}/> */}
-
+      <Head>
+        <title>{property?.x_name}</title>
+        <Seo pageTitle={property?.x_name} pageContent={property?.x_studio_property_information} />
       </Head>
 
       {/* <!-- Main Header Nav --> */}
-      {/* <Header /> */}
+      <Header />
       {/* <!--  Mobile Menu --> */}
-      
-      <Header/>
       <MobileMenu />
+
       {/* <!-- Listing Single Property --> */}
-      <section className="listing-title-area mt85 md-mt0" dir="rtl">
+      <section className="listing-title-area md-mt0 mt100" dir="rtl">
         <div className="container">
           <Gallery>
             <div className="row mb30">
               <div className="col-lg-7 col-xl-8">
 
- {/* tags */}
- <ul className="tag">
-  {property?.attributes?.property_tags?.data?.map((item)=>(
-   
-    <li key={property?.id}  className="list-inline-item" style={{color:'white',margin: '6px', backgroundColor: '#c2b49a', paddingLeft: '20px',paddingRight: '20px', borderRadius: '6px'}}>
+                {/* tags */}
+                {/* <ul className="tag">
+                  {property?.attributes?.property_tags?.data?.map((item) => (
+                    <li key={property?.id} className="list-inline-item" style={{ color: 'white', margin: '6px', backgroundColor: '#c2b49a', paddingLeft: '20px', paddingRight: '20px', borderRadius: '6px' }}>
                       {item?.attributes?.Tag}
-     </li>
- 
-  ))}
-  </ul>
+                    </li>
+                  ))}
+                </ul> */}
 
                 <div className="single_property_title mt30-767">
-               
-                  <h2>{property?.attributes?.Name}</h2>
+                  <h2>{property?.x_name}</h2>
 
                   {/* location */}
-                  <div style={{display: 'flex', gap: '2px', }}>
-                  <span className="flaticon-maps-and-flags" /> <p style={{ fontSize: '16px'}}>{property?.attributes?.areas?.data?.attributes?.Name}</p>
+                  <div style={{ display: 'flex', gap: '2px', }}>
+                    <span className="flaticon-maps-and-flags" /> <p style={{ fontSize: '16px' }}>{property?.x_studio_many2one_field_YbLip && property?.x_studio_many2one_field_YbLip[1]}</p>
                   </div>
 
-
                   {/* share */}
-                  
                 </div>
               </div>
               <div className="col-lg-5 col-xl-4">
@@ -116,10 +101,10 @@ content={property?.attributes?.seo}/>
                   <div className="price float-start fn-400">
                     {/* price */}
                     <h2>
-                  <span style={{fontSize: '12px'}}>{property?.attributes?.Prefix}</span>  {property?.attributes?.Price?.slice(0,3)},{property?.attributes?.Price?.slice(3)} دينار أردني 
+                      <span style={{ fontSize: '12px' }}>{property?.x_studio_price_prefix}</span> 
+                      {property?.x_studio_sale_price && property?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
                     </h2>
                   </div>
-                 
                 </div>
               </div>
             </div>
@@ -130,26 +115,10 @@ content={property?.attributes?.seo}/>
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="spls_style_two mb30-520">
-                      <Image src={'https://strapi-125841-0.cloudclusters.net' + property?.attributes?.Featured?.data?.attributes?.formats?.large?.url}
-                      width={752}
-                      height={450}
-                      />
-                      {/* <Item
-                        original={'https://strapi-125841-0.cloudclusters.net' + property?.attributes?.Featured?.data?.attributes?.formats?.large?.url}
-                        thumbnail={'https://strapi-125841-0.cloudclusters.net' + property?.attributes?.Featured?.data?.attributes?.formats?.large?.url}
+                      <Image src={property?.x_studio_property_images && property?.x_studio_property_images.split(",")[0]}
                         width={752}
                         height={450}
-                      >
-                        {({ ref, open }) => (
-                          <div role="button" ref={ref} onClick={open}>
-                            <img
-                              className="img-fluid w100 cover lds-1"
-                              src={'https://strapi-125841-0.cloudclusters.net' + property?.attributes?.Featured?.data?.attributes?.formats?.large?.url}
-                              alt="1.jpg"
-                            />
-                          </div>
-                        )}
-                      </Item> */}
+                      />
                     </div>
                   </div>
                 </div>
@@ -158,12 +127,12 @@ content={property?.attributes?.seo}/>
 
               <div className="col-sm-5 col-lg-4">
                 <div className="row">
-                  {property?.attributes?.Gallery?.data?.map((val, i) => (
+                  {property?.x_studio_property_images && property?.x_studio_property_images.split(",").map((val, i) => (
                     <div className="col-6" key={i}>
                       <div className="spls_style_two img-gallery-box mb24">
                         <Item
-                          original={'https://strapi-125841-0.cloudclusters.net' + val?.attributes?.url}
-                          thumbnail={'https://strapi-125841-0.cloudclusters.net' + val?.attributes?.url}
+                          original={val}
+                          thumbnail={val}
                           width={752}
                           height={450}
                         >
@@ -171,7 +140,7 @@ content={property?.attributes?.seo}/>
                             <div role="button" ref={ref} onClick={open}>
                               <img
                                 className="img-fluid w100"
-                                src={'https://strapi-125841-0.cloudclusters.net' + val?.attributes?.url}
+                                src={val}
                                 alt="2.jpg"
                               />
                             </div>
@@ -186,7 +155,7 @@ content={property?.attributes?.seo}/>
             </div>
             {/* End .row */}
           </Gallery>
-          <Sharing propertyUrl={`https://qoshan-findhouse.vercel.app/details/${property?.attributes?.URL}`}/>
+          {/* <Sharing propertyUrl={`https://qoshan-findhouse.vercel.app/details/${property?.x_name.replace(/\s+/g, '-')}`} /> */}
         </div>
       </section>
 
@@ -195,14 +164,15 @@ content={property?.attributes?.seo}/>
         <div className="container">
           <div className="row">
             <div className="col-md-12 col-lg-8">
-              <DetailsContent property={property} relatedType={relatedType} relatedLocation={relatedLocation}/>
+              {/* <DetailsContent property={property} relatedType={relatedType} relatedLocation={relatedLocation} /> */}
+              <DetailsContent property={property} />
             </div>
             {/* End details content .col-lg-8 */}
 
-            
+
 
             <div className="col-lg-4 col-xl-4">
-            <Sidebar featured={featured} relatedLocation={relatedLocation} relatedType={relatedType} propertyLink={property?.attributes?.URL} propertyName={property?.attributes?.Name} />
+              {/* <Sidebar featured={featured} relatedLocation={relatedLocation} relatedType={relatedType} propertyLink={property?.attributes?.URL} propertyName={property?.attributes?.Name} /> */}
             </div>
             {/* End sidebar content .col-lg-4 */}
           </div>

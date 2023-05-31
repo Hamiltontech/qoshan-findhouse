@@ -1,75 +1,46 @@
 import Link from "next/link";
-import Slider from "react-slick";
 import {TfiRulerAlt} from 'react-icons/tfi'
 
+// fetching from json
+import {useEffect, useState} from 'react'
+import axios from "axios";
 
-const ComfortPlaces = ({featured, data}) => {
-console.log(data)
 
+const ComfortPlaces = () => {
+const [jsonData, setData] = useState([])
 
-  const settings = {
-    dots: false,
-    arrows: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: false,
-    speed: 1200,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 520,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+useEffect(()=>{
+axios.get("data.json").then((res)=>{
+  setData(res.data)
+}).catch((error)=>{
+  console.log(error)
+})
+}, [])
+
 
   return (
     <>
-
-    {/* should be featured.slice(0,12).map */}
- {/* <Slider {...settings} arrows={true}> */}
-
-
- {data?.map((item) => (
-  <div   className="col-sm-6 col-lg-3"  dir="rtl" key={item?.id} >
+ {jsonData.slice(0,30).map((item) => (
+  <div   className="col-sm-6 col-lg-3"  dir="rtl" key={item.id} >
     <div className="feat_property home3">
       <div className="thumb">
-        <img className="img-whp" src={'https://strapi-125841-0.cloudclusters.net' + item?.attributes?.Featured?.data?.attributes?.formats?.large?.url} alt="fp1.jpg" />
+        <img className="img-whp" src={item.x_studio_property_images && item.x_studio_property_images.split(",")[0]} alt="fp1.jpg" />
         <div className="thmb_cntnt">
 
           {/* tags */}
-          <ul className="tag ">
+          {/* <ul className="tag ">
   {item?.attributes?.property_tags?.data?.map((item)=>(
     <li key={item?.id} className="list-inline-item" style={{width: "150px"}}>
         <a>{item?.attributes?.Tag}</a>
      </li>
  
   ))}
-  </ul>
-
+  </ul> */}
 
           {/* price */}
-
-          <Link href={`/details/${item?.attributes?.URL}`}>
+          <Link href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
             <a className="fp_price">
-            {item?.attributes?.Price?.slice(0,3)},{item?.attributes?.Price?.slice(3)} دينار أردني
-
+                {item.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
             </a>
           </Link>
         </div>
@@ -78,26 +49,25 @@ console.log(data)
       <div className="details">
         <div className="tc_content">
           {/* type */}
-          <p className="text-thm">{item?.attributes?.type?.data?.attributes?.Name}</p>
+          <p className="text-thm">{item.x_studio_type}</p>
           <h4>
-            <Link href={`/details/${item?.attributes?.URL}`}>
-              <a>{item?.attributes?.Name}</a>
+            <Link href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
+              <a>{item.x_name}</a>
             </Link>
           </h4>
 
           {/* location */}
           <p>
             <span className="flaticon-placeholder" style={{marginLeft: '5px'}}></span>
-            {item?.attributes?.areas?.data?.attributes?.Name}
+            {item.x_studio_many2one_field_YbLip[1]}
           </p>
 
-
-                {/* area */}
+           {/* area */}
           <ul className="prop_details mb0">
               <li className="list-inline-item">
                 <a href="#" style={{display: 'flex', gap: '5px'}}>
                   <TfiRulerAlt size={15}/>
-                  المساحة: {item?.attributes?.Area} متر مربع
+                  المساحة: {item.x_studio_property_area} متر مربع
                 </a>
               </li>
           </ul>
@@ -106,7 +76,6 @@ console.log(data)
     </div>
   </div>
 ))}
-{/* </Slider> */}
 
     </>
   );
