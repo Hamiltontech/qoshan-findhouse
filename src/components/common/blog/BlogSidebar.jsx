@@ -4,7 +4,7 @@ import { TfiSearch } from 'react-icons/tfi'
 import Advert from '../listing/advert'
 import Advert2 from '../listing/advert-two'
 
-const BlogSidebar = ({news, relatedCtegory, keyword, setKeyword }) => {
+const BlogSidebar = ({relatedCtegory, keyword, setKeyword }) => {
   return (
     <div className="blog-sidebar_widgets">
       <div className="sidebar_search_widget">
@@ -23,7 +23,7 @@ const BlogSidebar = ({news, relatedCtegory, keyword, setKeyword }) => {
       {relatedCtegory ? <div className="sidebar_feature_listing" dir="rtl">
         <h4 className="title">أخبار مشابهة</h4>
 
-        <RelatedNews news={news} relatedCtegory={relatedCtegory} />
+        <RelatedNews relatedCtegory={relatedCtegory} />
       </div> : <></>}
 
       {/* End .sidebar_feature_listing */}

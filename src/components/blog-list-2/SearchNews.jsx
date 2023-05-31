@@ -86,7 +86,7 @@ const [currentPage, setCurrentPage] = useState(1);
             {/* End .col */}
 
             <div className="col-lg-4 col-xl-4">
-              <BlogSidebar news={news} keyword={keyword} setKeyword={setKeyword}/>
+              <BlogSidebar keyword={keyword} setKeyword={setKeyword}/>
             </div>
             {/* End Sidebar column */}
           </div>

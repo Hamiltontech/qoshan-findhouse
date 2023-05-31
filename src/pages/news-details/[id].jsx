@@ -3,11 +3,6 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import BreadCrumb2 from "../../components/blog-details/BreadCrumb2";
-import Comments from "../../components/blog-details/Comments";
-import Pagination from "../../components/blog-details/Pagination";
-import Ratings from "../../components/blog-details/Ratings";
-import RelatedPost from "../../components/blog-details/RelatedPost";
-import ReviewBox from "../../components/blog-details/ReviewBox";
 import BlogSidebar from "../../components/common/blog/BlogSidebar";
 import CopyrightFooter from "../../components/common/footer/CopyrightFooter";
 import Footer from "../../components/common/footer/Footer";
@@ -17,6 +12,8 @@ import MobileMenu from "../../components/common/header/MobileMenu";
 import PopupSignInUp from "../../components/common/PopupSignInUp";
 import Seo from "../../components/common/seo";
 import Image from 'next/image'
+import ReactHtmlParser from 'react-html-parser';
+
 
 
 const BlogDetailsDynamic = () => {
@@ -26,20 +23,29 @@ const BlogDetailsDynamic = () => {
 
   const [relatedCtegory, setRelatedCategory]= useState("")
 
-  useEffect(() => {
-    axios
-      .get("https://strapi-125841-0.cloudclusters.net/api/articles?populate=*")
-      .then((response) => {
-        const res = response.data.data;
-        const prop = res?.find((item) => item.attributes.URL === id);
-        setArticle(prop);
-        setRelatedCategory(prop?.attributes?.category?.data?.attributes?.Category)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [id]);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://strapi-125841-0.cloudclusters.net/api/articles?populate=*")
+  //     .then((response) => {
+  //       const res = response.data.data;
+  //       const prop = res?.find((item) => item.attributes.URL === id);
+  //       setArticle(prop);
+  //       setRelatedCategory(prop?.attributes?.category?.data?.attributes?.Category)
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, [id]);
 
+
+  useEffect(()=>{
+    axios.get("/news.json").then((res)=>{
+      const response = res.data
+      const prop = response?.find((item)=> item.x_name.replace(/\s+/g, '-') === id)
+      setArticle(prop)
+      setRelatedCategory(prop?.x_studio_many2one_field_doQAc[1])
+    })
+  }, [id])
 
 
   return (
@@ -59,34 +65,35 @@ const BlogDetailsDynamic = () => {
 
           <div className="row">
             <div className="col-lg-8">
-              {article && article.attributes && (
+              {article && (
                 <div className="main_blog_post_content">
                   <div className="mbp_thumb_post">
                     <div className="blog_sp_tag" style={{color: "white"}}>
-                      {article?.attributes?.category?.data?.attributes?.Category}
+                      {article?.x_studio_many2one_field_doQAc && article?.x_studio_many2one_field_doQAc[1]}
         
                     </div>
-                    <h3 className="blog_sp_title">{article?.attributes?.Title}</h3>
+                    <h3 className="blog_sp_title">{article?.x_name}</h3>
                     <ul className="blog_sp_post_meta" style={{gap: '10px', display: "flex"}}>
                       
                       <li className="list-inline-item">
                         <span className="flaticon-calendar"></span>
                       </li>
                       <li className="list-inline-item">
-                      <a href="#">{article.attributes?.createdAt.split('T')[0]}</a>
+                      <a href="#">{article?.x_studio_original_create_date}</a>
                       </li>
                                           
                       
                     </ul>
                     <div className="thumb">
-                    <Image src={'https://strapi-125841-0.cloudclusters.net' + article?.attributes?.Featured?.data?.attributes?.formats?.large?.url}
+                    <Image 
+                    src={article?.x_studio_api_url && article?.x_studio_api_url}
                       width={752}
                       height={450}
                       />
                     </div>
 
                     <div className="details">
-                      <p className="mb25">{article?.attributes?.Body}</p>
+                      <p className="mb25">{ReactHtmlParser(article?.x_studio_body)}</p>
                     </div>
                     <ul className="blog_post_share">
                       <li>

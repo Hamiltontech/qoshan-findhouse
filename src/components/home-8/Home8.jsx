@@ -38,6 +38,7 @@ const Home8 = () => {
       console.log(err)
     })
   }, [])
+  
 
 
   return (

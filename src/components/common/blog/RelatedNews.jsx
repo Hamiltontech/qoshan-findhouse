@@ -1,17 +1,31 @@
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const FeaturedListings = ({news, relatedCtegory}) => {
 
-  // bring the location and type through props
-  const handleRelated = (item) =>{
-    if(item?.x_studio_many2one_field_doQAc[1] === relatedCtegory){
-      return item?.x_studio_many2one_field_doQAc[1]
-    }
-  }
+const FeaturedListings = ({relatedCtegory}) => {
+const [relatedNews, setRelatedNews] = useState([])
 
+useEffect(()=>{
+  axios.get("/news.json").then((res)=>{
+    const related = res.data.filter((item)=> item.x_studio_many2one_field_doQAc[1] === relatedCtegory)
+    setRelatedNews(related)
+  }).catch((err)=>{
+    console.log(err)
+  })
+}, [relatedCtegory])
+
+  // // bring the location and type through props
+  // const handleRelated = (item) =>{
+  //   if(item.x_studio_many2one_field_doQAc[1] === relatedCtegory){
+  //     return item?.x_studio_many2one_field_doQAc[1]
+  //   }
+  // }
+
+  // console.log(relatedCtegory)
   return (
     <>
-      {news?.slice(0,5)?.filter(handleRelated)?.map((item) => (
+      {relatedNews?.slice(0,5).map((item) => (
         <div className="media d-flex" key={item?.id}>
           <Link href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
             <a>
@@ -30,7 +44,7 @@ const FeaturedListings = ({news, relatedCtegory}) => {
                   </Link>
             </h5>
             <span style={{fontSize: '14px'}}>
-            {/* {item?.attributes?.createdAt.split('T')[0]} */}
+            {item?.x_studio_original_create_date}
                 </span>
 
           
