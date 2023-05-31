@@ -1,5 +1,4 @@
 import ReactHtmlParser from 'react-html-parser';
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
 const PropertyDescriptions = ({property}) => {
 

@@ -17,14 +17,14 @@ const Featured = ({featured}) => {
         <>
             <Slider {...settings} arrows={false}>
                 {featured?.slice(0,5)?.map((item) => (
-                    <div className="item" key={item?.id}>
-                         <a href={`/details/${item?.attributes?.URL}`}>
+                    <div className="item" key={item.id}>
+                         <a href={`/details/${item?.x_name.replace(/\s+/g, '-')}`}>
                         <div className="feat_property home7">
                             <div className="thumb">
                               
                                 <img
                                     className="img-whp"
-                                    src={'https://strapi-125841-0.cloudclusters.net' + item?.attributes?.Featured?.data?.attributes?.formats?.large?.url}
+                                    src={item?.x_studio_property_images && item?.x_studio_property_images.split(",")[0]}
                                     alt="properties identity"
                             
 />
@@ -39,11 +39,11 @@ const Featured = ({featured}) => {
                                             </li>
                                         ))}
                                     </ul> */}
-                                    <a className="fp_price" href={`/details/${item?.attributes?.URL}`}>
-                                    {item?.attributes?.Price?.slice(0,3)},{item?.attributes?.Price?.slice(3)} دينار أردني 
+                                    <a className="fp_price" href={`/details/${item?.x_name.replace(/\s+/g, '-')}`}>
+                                    {item?.x_studio_sale_price && item?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
                                     </a>
                                     <h4 className="posr color-white">
-                                        {item?.attributes?.Name}
+                                        {item?.x_name}
                                     </h4>
                                 </div>
                             </div>

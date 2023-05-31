@@ -6,7 +6,7 @@ import RelatedPost from "./RelatedPost";
 
 
 
-const DetailsContent = ({property}) => {
+const DetailsContent = ({property, relatedType, relatedLocation}) => {
   return (
     <>
       <div className="listing_single_description" dir="rtl">
@@ -45,7 +45,7 @@ const DetailsContent = ({property}) => {
                 <div className="col-lg-12 mb20">
                   <h4>عقارات مشابهة</h4>
                 </div>
-                {/* <RelatedPost relatedType={relatedType} relatedLocation={relatedLocation}/> */}
+                <RelatedPost relatedType={relatedType} relatedLocation={relatedLocation}/>
               </div>
 
       <div className="product_single_content">

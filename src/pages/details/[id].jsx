@@ -34,8 +34,14 @@ const ListingDynamicDetailsV1 = () => {
   useEffect(()=>{
     axios.get("/data.json").then((response)=>{
       const data = response.data?.find((item)=> item.x_name.replace(/\s+/g, '-') == id)
-      console.log(data)
       setProperty(data)
+
+      const feat = response.data.filter((item)=> item.x_studio_featured_property === true)
+      setFeatured(feat)
+
+      setRelatedLocation(data?.x_studio_many2one_field_YbLip[1])
+      setRelatedType(data?.x_studio_type)
+      
     }).catch((error)=>{
       console.log(error)
     })
@@ -127,7 +133,7 @@ const ListingDynamicDetailsV1 = () => {
 
               <div className="col-sm-5 col-lg-4">
                 <div className="row">
-                  {property?.x_studio_property_images && property?.x_studio_property_images.split(",").map((val, i) => (
+                  {property?.x_studio_property_images && property?.x_studio_property_images.split(",").slice(0,6).map((val, i) => (
                     <div className="col-6" key={i}>
                       <div className="spls_style_two img-gallery-box mb24">
                         <Item
@@ -165,14 +171,14 @@ const ListingDynamicDetailsV1 = () => {
           <div className="row">
             <div className="col-md-12 col-lg-8">
               {/* <DetailsContent property={property} relatedType={relatedType} relatedLocation={relatedLocation} /> */}
-              <DetailsContent property={property} />
+              <DetailsContent property={property} relatedType={relatedType} relatedLocation={relatedLocation}/>
             </div>
             {/* End details content .col-lg-8 */}
 
 
 
             <div className="col-lg-4 col-xl-4">
-              {/* <Sidebar featured={featured} relatedLocation={relatedLocation} relatedType={relatedType} propertyLink={property?.attributes?.URL} propertyName={property?.attributes?.Name} /> */}
+              <Sidebar featured={featured} relatedLocation={relatedLocation} relatedType={relatedType} propertyLink={property?.attributes?.URL} propertyName={property?.attributes?.Name} />
             </div>
             {/* End sidebar content .col-lg-4 */}
           </div>
