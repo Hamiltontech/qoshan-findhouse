@@ -83,15 +83,36 @@ const handleError = ()=>{
         <li className="list-inline-item">
           <div className="search_option_two">
             <div className="candidate_revew_select">
-              <select 
+            <select
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="selectpicker w100 form-select show-tick">
-                <option value="">جميع المناطق</option>
-                {area?.map((item)=>(
-                  <option key={item?.id} value={item?.attributes?.Name}>{item?.attributes?.Name}</option>
-                ))}
-              </select>
+              className="selectpicker w100 show-tick form-select"
+            >
+              <option value="">الموقع</option>
+              <option value="عبدون">عبدون </option>
+              <option value="دير غبار">دير غبار</option>
+              <option value="دابوق">دابوق</option>
+              <option value="خلدا">خلدا</option>
+              <option value="الصويفية">الصويفية</option>
+              <option value="جبل عمان">جبل عمان</option>
+
+              <option value="أم اذينة">أم اذينة</option>
+              <option value="الكرسي">الكرسي</option>
+              <option value="أم السماق">أم السماق</option>
+              <option value="الرابية">الرابية </option>
+              <option value="الظهير">الظهير </option>
+              <option value="الجندويل">الجندويل </option>
+              <option value="بوليفارد العبدلي"> بوليفارد العبدلي </option>
+              <option value="حجارة النوابلسة">حجارة النوابلسة </option>
+              <option value="طريق المطار">الحويطي </option>
+              <option value="ضاحية النخيل">ضاحية النخيل </option>
+              <option value="رجم عميش">رجم عميش </option>
+              <option value="طريق المطار">حي الصحابة </option>
+              <option value="شارع مكة المكرمة">شارع مكة المكرمة</option>
+              <option value="أم السماق">شارع عبدالله غوشة </option>
+              <option value="ضاحية الأمير راشد">ضاحية الامير راشد </option>
+              <option value="طريق المطار">طريق المطار</option>
+            </select>
             </div>
           </div>
         </li>

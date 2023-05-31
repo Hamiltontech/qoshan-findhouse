@@ -12,8 +12,8 @@ const Blogs = () => {
   const [data, setData] = useState([])
 
   useEffect(()=>{
-    axios.get("https://strapi-125841-0.cloudclusters.net/api/proerties?populate=*").then((res)=>{
-      setData(res?.data?.data)
+    axios.get("/data.json").then((res)=>{
+      setData(res.data)
     }).catch((err)=>{
       console.log(err)
     })
@@ -26,9 +26,9 @@ const Blogs = () => {
         <div className="col-md-6 col-lg-4 col-xl-4" key={item?.id}>
           <div className="for_blog feat_property">
             <div className="thumb">
-              <Link href={`/details/${item?.attributes?.URL}`}>
+              <Link href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
                 <a>
-                  <img className="img-whp" src={'https://strapi-125841-0.cloudclusters.net' + item?.attributes?.Featured?.data?.attributes?.formats?.large?.url} alt="bh1.jpg" />
+                  <img className="img-whp" src={item.x_studio_property_images && item.x_studio_property_images.split(",")[0]} alt="bh1.jpg" />
                 </a>
               </Link>
             </div>
@@ -36,64 +36,58 @@ const Blogs = () => {
               <div className="tc_content">
                 {/* <p className="text-thm">{item.postMeta}</p> */}
 
-                <p className="text-thm">{item?.attributes?.type?.data?.attributes?.Name}</p>
+                <p className="text-thm">{item?.x_studio_type}</p>
                 <h4>
-                  <Link href={`/details/${item?.attributes?.URL}`}>
-                    <a>{item?.attributes?.Name}</a>
+                  <Link href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
+                    <a>{item?.x_name}</a>
                   </Link>
                 </h4>
 
               {/* area */}
-                <p>
-            <span className="flaticon-placeholder" style={{marginLeft: '5px'}}></span>
-            {item?.attributes?.areas?.data?.attributes?.Name}
-          </p>
+              {item?.x_studio_many2one_field_YbLip ? 
+               <p>
+               <span className="flaticon-placeholder" style={{marginLeft: '5px'}}></span>
+               {item?.x_studio_many2one_field_YbLip[1]}
+             </p>
+             : <></>}
+               
 
               {/* price */}
-          <p><IoPricetagsOutline size={15}/> {item?.attributes?.Price?.slice(0,3)},{item?.attributes?.Price?.slice(3)} دينار أردني</p>
+          <p><IoPricetagsOutline size={15}/> {item?.x_studio_sale_price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني </p>
              
 
              {/* details */}
           <ul style={{display: 'flex', gap: "20px"}}>
                  
+                 {item?.x_studio_property_area > 0 ?
                  <li>
-                 <p><TfiRulerAlt size={15}/> {item?.attributes?.Area} متر مربع</p>
+                 <p><TfiRulerAlt size={15}/> {item?.x_studio_property_area} متر مربع</p>
                  </li>
+                 : <></>
+                 }
 
+                  {item?.x_studio_bathrooms_1 > 0 ? 
                  <li>
-                 <p>   <BiBath size={20}/>  {item?.attributes?.Bathrooms}</p>
+                 <p>   <BiBath size={20}/>  {item?.x_studio_bathrooms_1}</p>
                  </li>
+                 : <></>}
 
+                      {item?.x_studio_bedrooms > 0 ? 
                  <li>
-                 <p>   <IoBedOutline size={20}/>  {item?.attributes?.Bedrooms}</p>
+                 <p>   <IoBedOutline size={20}/>  {item?.x_studio_bedrooms}</p>
                  </li>
+                      : <></>
+                    }
                </ul>
              
               </div>
 
 
               <div className="fp_footer">
-                {/* <ul className="fp_meta float-start mb0">
-                  <li className="list-inline-item">
-                    <Link href="/agent-v2">
-                      <a>
-                        <img src={item.posterAvatar} alt="pposter1.png" />
-                      </a>
-                    </Link>
-                  </li>
-                  <li className="list-inline-item">
-                    <Link href="/agent-v2">
-                      <a>{item.posterName}</a>
-                    </Link>
-                  </li>
-                </ul> */}
-                {/* <a className="fp_pdate float-end" href="#">
-                  {item?.attributes?.updatedAt.slice(0,10)}
-                </a> */}
                 <Link   href={{
-        pathname: `/details/${item?.attributes?.URL}`,
+        pathname: `/details/${item.x_name.replace(/\s+/g, '-')}`,
         query: {
-            property: item?.attributes?.Name,
+            property: item?.x_name,
         }
     }}
     >

@@ -77,31 +77,9 @@ const index = () => {
           </div>
           <div className="row">
           <CategoriesCards />
-            {/* <div className="col-lg-12">
-              <div className="best_property_slider gutter-x15">
-                <FeaturedProperties />
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
-
-      {/* <!-- Property Cities --> */}
-      {/* <section id="property-city" className="property-city pb30">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 offset-lg-3">
-              <div className="main-title text-center">
-                <h2>Find Properties in These Cities</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <FindProperties />
-          </div>
-        </div>
-      </section> */}
 
       {/* <!-- Our Blog --> */}
       <section className="our-blog bgc-f7 pb30">
@@ -119,27 +97,6 @@ const index = () => {
           </div>
         </div>
       </section>
-
-      {/* <!-- Our Team --> */}
-      {/* <section className="our-team">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 offset-lg-3">
-              <div className="main-title text-center">
-                <h2>Our Team</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="team_slider gutter-x15">
-                <Team />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* <!-- Our Footer --> */}
       <section className="footer_one">

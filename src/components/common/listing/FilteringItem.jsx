@@ -1,22 +1,22 @@
 import { useEffect } from "react";
 import Link from "next/link";
 
-const FilteringItem = ({headerType, setHeaderType, setSort, keyword, location, type, garages, bathrooms, bedrooms, minarea, maxarea, age, minprice, maxprice,  setKeyword, setLocation, setStatus, setType, setGarages, setBathroom, setBedroom, setAreaMax, setAreaMin, setBuiltYear, setMaxprice, setMinprice}) => {
+const FilteringItem = ({ headerType, setHeaderType, setSort, keyword, location, type, garages, bathrooms, bedrooms, minarea, maxarea, age, minprice, maxprice, setKeyword, setLocation, setStatus, setType, setGarages, setBathroom, setBedroom, setAreaMax, setAreaMin, setBuiltYear, setMaxprice, setMinprice }) => {
 
   // clear filter
   const clearHandler = () => {
     setKeyword("")
-    setLocation("") 
+    setLocation("")
     setType("all")
     setGarages("")
     setBathroom("")
-    setBedroom("") 
-    setAreaMax('أكبر مساحة') 
+    setBedroom("")
+    setAreaMax('أكبر مساحة')
     setAreaMin('أقل مساحة')
     setMinprice('أقل سعر')
     setMaxprice("أعلى سعر")
     setSort("")
-    
+
   };
 
 
@@ -56,11 +56,11 @@ const FilteringItem = ({headerType, setHeaderType, setSort, keyword, location, t
         </div>
       </li> */}
 
-<li>
+      <li>
         <div className="search_option_two">
           <div className="candidate_revew_select">
             <select
-            value={location}
+              value={location}
               onChange={(e) => setLocation(e.target.value)}
               className="selectpicker w100 show-tick form-select"
             >
@@ -70,20 +70,23 @@ const FilteringItem = ({headerType, setHeaderType, setSort, keyword, location, t
               <option value="دابوق">دابوق</option>
               <option value="خلدا">خلدا</option>
               <option value="الصويفية">الصويفية</option>
-              <option value="الدوار الرابع">جبل عمان</option>
+              <option value="جبل عمان">جبل عمان</option>
 
-              <option value="ام اذينة">ام اذينة</option>
+              <option value="أم اذينة">أم اذينة</option>
               <option value="الكرسي">الكرسي</option>
-              <option value="ام السماق">ام السماق</option>
+              <option value="أم السماق">أم السماق</option>
               <option value="الرابية">الرابية </option>
+              <option value="الظهير">الظهير </option>
+              <option value="الجندويل">الجندويل </option>
+              <option value="بوليفارد العبدلي"> بوليفارد العبدلي </option>
               <option value="حجارة النوابلسة">حجارة النوابلسة </option>
-              <option value="الحويطي">الحويطي </option>
+              <option value="طريق المطار">الحويطي </option>
               <option value="ضاحية النخيل">ضاحية النخيل </option>
               <option value="رجم عميش">رجم عميش </option>
-              <option value="حي الصحابة">حي الصحابة </option>
-              <option value="شارع مكة">شارع مكة </option>
-              <option value="شارع عبدالله غوشة">شارع عبدالله غوشة </option>
-              <option value="ضاحية الامير راشد">ضاحية الامير راشد </option>
+              <option value="طريق المطار">حي الصحابة </option>
+              <option value="شارع مكة المكرمة">شارع مكة المكرمة</option>
+              <option value="أم السماق">شارع عبدالله غوشة </option>
+              <option value="ضاحية الأمير راشد">ضاحية الامير راشد </option>
               <option value="طريق المطار">طريق المطار</option>
             </select>
           </div>
@@ -117,7 +120,7 @@ const FilteringItem = ({headerType, setHeaderType, setSort, keyword, location, t
         <div className="search_option_two">
           <div className="candidate_revew_select">
             <select
-            value={type}
+              value={type}
               onChange={(e) => setType(e.target.value)}
               className="selectpicker w100 show-tick form-select"
               id="defaultType"
@@ -166,10 +169,10 @@ const FilteringItem = ({headerType, setHeaderType, setSort, keyword, location, t
         <div className="search_option_two">
           <div className="candidate_revew_select">
             <select
-            value={bathrooms}
+              value={bathrooms}
               onChange={(e) => setBathroom(e.target.value)}
               className="selectpicker w100 show-tick form-select"
-             
+
             >
               <option value="">حمامات</option>
               <option value="1">1</option>
@@ -188,10 +191,10 @@ const FilteringItem = ({headerType, setHeaderType, setSort, keyword, location, t
         <div className="search_option_two">
           <div className="candidate_revew_select">
             <select
-            value={bedrooms}
+              value={bedrooms}
               onChange={(e) => setBedroom(e.target.value)}
               className="selectpicker w100 show-tick form-select"
-             
+
             >
               <option value="">غرف النوم</option>
               <option value="1">1</option>
@@ -210,10 +213,10 @@ const FilteringItem = ({headerType, setHeaderType, setSort, keyword, location, t
         <div className="search_option_two">
           <div className="candidate_revew_select">
             <select
-            value={garages}
+              value={garages}
               onChange={(e) => setGarages(e.target.value)}
               className="selectpicker w100 show-tick form-select"
-              
+
             >
               <option value="">الكراجات</option>
               <option value="1">1</option>
@@ -227,7 +230,7 @@ const FilteringItem = ({headerType, setHeaderType, setSort, keyword, location, t
 
 
 
-{/* AGE */}
+      {/* AGE */}
       {/* <li>
         <div className="search_option_two">
           <div className="candidate_revew_select">
@@ -261,7 +264,7 @@ const FilteringItem = ({headerType, setHeaderType, setSort, keyword, location, t
       <li className="min_area list-inline-item">
         <div className="form-group mb-4">
           <input
-          value={minarea}
+            value={minarea}
             type="number"
             className="form-control"
             id="exampleInputName2"
@@ -275,7 +278,7 @@ const FilteringItem = ({headerType, setHeaderType, setSort, keyword, location, t
       <li className="max_area list-inline-item">
         <div className="form-group mb-4">
           <input
-          value={maxarea}
+            value={maxarea}
             type="number"
             className="form-control"
             id="exampleInputName3"
@@ -288,11 +291,11 @@ const FilteringItem = ({headerType, setHeaderType, setSort, keyword, location, t
 
 
 
-{/* price range */}
+      {/* price range */}
       <li className="min_area list-inline-item">
         <div className="form-group mb-4">
           <input
-          value={minprice}
+            value={minprice}
             type="number"
             className="form-control"
             id="exampleInputName2"
@@ -306,7 +309,7 @@ const FilteringItem = ({headerType, setHeaderType, setSort, keyword, location, t
       <li className="max_area list-inline-item">
         <div className="form-group mb-4">
           <input
-          value={maxprice}
+            value={maxprice}
             type="number"
             className="form-control"
             id="exampleInputName3"
@@ -376,17 +379,17 @@ const FilteringItem = ({headerType, setHeaderType, setSort, keyword, location, t
           <Link href={{
             pathname: "all-properties",
             query: {
-              type : "all"
+              type: "all"
             }
           }}>
-          <button
-            // clear
-            onClick={clearHandler}
-            type="button"
-            className="btn btn-block btn-thm w-100"
-          >
-            تصفية البحث
-          </button></Link>
+            <button
+              // clear
+              onClick={clearHandler}
+              type="button"
+              className="btn btn-block btn-thm w-100"
+            >
+              تصفية البحث
+            </button></Link>
         </div>
       </li>
       {/* End li */}

@@ -55,7 +55,7 @@ const [sort, setSort] = useState("")
   const maxAreaParams = router.query.maxArea
 
 
-    // type filter fro, header
+    // type filter from header
     const [headerType, setHeaderType] = useState("")
 
 
