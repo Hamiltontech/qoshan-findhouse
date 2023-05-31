@@ -15,7 +15,7 @@ const FeaturedItem = ({ headerType, keyword, location, status, type, garages, ba
 
   // missing sort on date
   useEffect(() => {
-    axios.get("/data.json?_limit=500").then((response) => {
+    axios.get("/data.json").then((response) => {
       if (
         sort === "lowPrice"
       ) {
@@ -107,15 +107,15 @@ const FeaturedItem = ({ headerType, keyword, location, status, type, garages, ba
 
 
   // type filter
-  // const typeHandler = (item) => {
-  //   if (type === "all") {
-  //     return item?.attributes?.type?.data?.attributes?.Name
-  //   } else if (item?.attributes?.type?.data?.attributes?.Name?.toLowerCase() === type?.toLowerCase()
-  //   ) {
-  //     return item?.attributes?.type?.data?.attributes?.Name
-  //   }
+  const typeHandler = (item) => {
+    if (type === "all") {
+      return item
+    } else if (item?.x_studio_type.toLowerCase() === type?.toLowerCase()
+    ) {
+      return item?.x_studio_type
+    }
 
-  // }
+  }
 
 
   // bathrooms filter
@@ -155,13 +155,14 @@ const FeaturedItem = ({ headerType, keyword, location, status, type, garages, ba
 
 
   useEffect(() => {
-    setCount((property?.filter(areaHandler)?.filter(priceHandler)?.filter(locationHandler)?.filter(bathroomsHandler)?.filter(bedroomsHandler)?.filter(garagesHandler)?.filter(keywordHandler)?.filter(featuredHandler)).length)
+    setCount((property?.filter(typeHandler)?.filter(areaHandler)?.filter(priceHandler)?.filter(locationHandler)?.filter(bathroomsHandler)?.filter(bedroomsHandler)?.filter(garagesHandler)?.filter(keywordHandler)?.filter(featuredHandler)).length)
   }), []
 
-
+console.log(count)
+ 
   return (
     <>
-      {property?.filter(areaHandler)?.filter(priceHandler)?.filter(locationHandler)?.filter(bathroomsHandler)?.filter(bedroomsHandler)?.filter(garagesHandler)?.filter(keywordHandler)?.filter(featuredHandler)?.map((item) => {
+      {property?.filter(typeHandler)?.filter(areaHandler)?.filter(priceHandler)?.filter(locationHandler)?.filter(bathroomsHandler)?.filter(bedroomsHandler)?.filter(garagesHandler)?.filter(keywordHandler)?.filter(featuredHandler)?.map((item) => {
 
 
         return (

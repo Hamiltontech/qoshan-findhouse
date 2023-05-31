@@ -21,13 +21,7 @@ const SearchBox = ({keyword, setKeyword}) => {
           onChange={handleSubmit}
         />
         <div className="input-group-append">
-          {/* <button
-            className="btn btn-outline-secondary"
-            type="button"
-            id="button-addon2"
-          >
-            <span className="flaticon-magnifying-glass"></span>
-          </button> */}
+
         </div>
       </div>
     </form>

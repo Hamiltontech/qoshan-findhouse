@@ -6,24 +6,43 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CategoriesFilter from "./CategoriesFilter";
 import { useRouter } from "next/router";
+import { paginate } from "../common/blog/paginate";
+
 
 const SearchNews = ()=>{
-    const [articles, setArticles] = useState([])
     const [keyword, setKeyword] = useState("")
     const router = useRouter()
     const categoryParams = router.query.category
     const [categ, setCateg] = useState("")
 
+// pagination
+const [currentPage, setCurrentPage] = useState(1);
+ const pageSize = 6;
 
-    useEffect(()=>{
-      axios.get("https://strapi-125841-0.cloudclusters.net/api/articles?populate=*").then((res)=>{
-        setArticles(res?.data?.data)
-        setCateg(categoryParams)
-    }).catch((err)=>{
-      console.log(err)
-    })
-    }, [categoryParams])
+ const onPageChange = (page) => {
+   setCurrentPage(page);
+ };
 
+
+
+
+    const [news, setNews] = useState([])
+
+      useEffect(()=>{
+        axios.get("/news.json").then((res)=>{
+          setNews(res.data)
+          setCateg(categoryParams)
+        }).catch((error)=>{
+          console.log(error)
+        })
+      }, [categoryParams])
+
+      news?.sort(function(a,b){
+        return new Date(b?.x_studio_original_create_date) - new Date(a?.x_studio_original_create_date);
+      });
+
+
+      // const paginatedPosts = paginate(news, currentPage, pageSize)
     return(
         <>
               {/* <!-- Main Blog Post Content --> */}
@@ -37,7 +56,6 @@ const SearchNews = ()=>{
           {/* End .row */}
 
 
-
           <div className="lsd_list">
           <CategoriesFilter/>
         </div> 
@@ -45,7 +63,7 @@ const SearchNews = ()=>{
           <div className="row">
             <div className="col-lg-8">
               <div className="row">
-                <Blog articles={articles} keyword={keyword} setKeyword={setKeyword} categ={categ} setCateg={setCateg} />
+                <Blog news={news}  keyword={keyword} setKeyword={setKeyword} categ={categ} setCateg={setCateg} />
                 {/* End blog item */}
               </div>
               {/* End .row */}
@@ -53,7 +71,12 @@ const SearchNews = ()=>{
               <div className="row">
                 <div className="col-lg-12">
                   <div className="mbp_pagination mt20">
-                    <Pagination />
+                    {/* <Pagination 
+                    items={news.length}
+                    currentPage={currentPage} 
+                    pageSize={pageSize} 
+                    onPageChange={onPageChange}
+                    /> */}
                   </div>
                   {/* End .mbp_pagination */}
                 </div>
@@ -63,7 +86,7 @@ const SearchNews = ()=>{
             {/* End .col */}
 
             <div className="col-lg-4 col-xl-4">
-              <BlogSidebar keyword={keyword} setKeyword={setKeyword}/>
+              <BlogSidebar news={news} keyword={keyword} setKeyword={setKeyword}/>
             </div>
             {/* End Sidebar column */}
           </div>

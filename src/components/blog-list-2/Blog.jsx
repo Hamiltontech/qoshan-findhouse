@@ -1,45 +1,45 @@
 import Link from "next/link";
+import ReactHtmlParser from 'react-html-parser';
 
-const Blog = ({articles, keyword, setKeyword, categ, setCateg}) => {
-
+const Blog = ({news, keyword, setKeyword, categ, setCateg}) => {
 
   const handleSearch = (item)=>{
-    if(item?.attributes?.Title?.toLowerCase().includes(keyword.toLowerCase())
+    if(item?.x_name.toLowerCase().includes(keyword.toLowerCase())
         ||
-        item?.attributes?.Body?.toLowerCase().includes(keyword.toLowerCase())){
+        item?.x_studio_body?.toLowerCase().includes(keyword.toLowerCase())){
           return (
-            item?.attributes?.Title || item?.attributes?.Body
+            item?.x_name || item?.x_studio_body
           )
         }
   }
 
   const handleCategory = (item) =>{
-    if(categ === "جميع الاخبار"){
-      return item?.attributes?.category?.data?.attributes?.Category
-    } else if(item?.attributes?.category?.data?.attributes?.Category === categ){
-      return item?.attributes?.category?.data?.attributes?.Category
+    if(categ && categ === "جميع الاخبار"){
+      return item?.x_studio_many2one_field_doQAc[1]
+    } else if(item?.x_studio_many2one_field_doQAc[1] === categ){
+      return item?.x_studio_many2one_field_doQAc[1]
     }
   }
   return (
     <>
-{articles?.filter(handleSearch)?.filter(handleCategory)?.map((item)=>(
+{news?.filter(handleSearch)?.filter(handleCategory)?.map((item)=>(
         <div className="col-lg-6" key={item.id}>
           <div className="for_blog feat_property">
             <div className="thumb">
-              <Link href={`/news-details/${item?.attributes?.URL}`}>
+              <Link href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
                 <a>
-                  <img className="img-whp" src={'https://strapi-125841-0.cloudclusters.net' + item?.attributes?.Featured?.data?.attributes?.formats?.large?.url} alt="fp1.jpg"/>
+                  <img className="img-whp" src={item?.x_studio_api_url && item?.x_studio_api_url} alt="fp1.jpg"/>
                 </a>
               </Link>
-              <div className="blog_tag"> <p style={{color: "white"}}>{item?.attributes?.category?.data?.attributes?.Category}</p></div>
+              <div className="blog_tag"> <p style={{color: "white"}}>{item?.x_studio_many2one_field_doQAc[1]}</p></div>
             </div>
             {/* End .thumb */}
 
             <div className="details">
               <div className="tc_content">
                 <h4 className="mb15">
-                  <Link href={`/news-details/${item?.attributes?.URL}`}>
-                    <a>{item.attributes.Title}</a>
+                  <Link href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
+                    <a>{item.x_name}</a>
                   </Link>
                 </h4>
                 <ul className="bpg_meta mb10">
@@ -49,16 +49,16 @@ const Blog = ({articles, keyword, setKeyword, categ, setCateg}) => {
                     </a>
                   </li>
                   <li className="list-inline-item m-" style={{margin: 5,}}>
-                  <a href="#"> {item.attributes?.createdAt.split('T')[0]} </a>
+                  <a href="#"> {item.x_studio_original_create_date} </a>
                   </li>
                 </ul>
-                <p>{item?.attributes?.Body?.slice(0, 100)}</p>
+                <p>{ReactHtmlParser(item?.x_studio_body?.slice(0, 100))}</p>
               </div>
               {/* End .tc_content */}
 
               <div className="fp_footer">
               
-                <a className=" text-thm" href={`/news-details/${item?.attributes?.URL}`}>
+                <a className=" text-thm" href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
                   إقرأ المزيد <span className="flaticon-back"></span>
                 </a>
               </div>

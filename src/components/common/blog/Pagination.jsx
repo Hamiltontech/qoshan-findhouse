@@ -1,13 +1,23 @@
-const Pagination = () => {
+const Pagination = ({ items, pageSize, currentPage, onPageChange }) => {
+  const pagesCount = Math.ceil(items / pageSize);
+  if (pagesCount === 1) return null;
+  const pages = Array.from({ length: pagesCount }, (_, i) => i + 1);
+
+
+
+
+
   return (
     <ul className="page_navigation">
-      <li className="page-item disabled">
-        <a className="page-link" href="#" tabIndex="-1" aria-disabled="true">
-          {" "}
-          <span className="flaticon-left-arrow"></span>
+      {pages.slice(0,10).map((page) => (
+      <li className="page-item active"  key={page}>
+        <a className="pagination"  onClick={() => onPageChange(page)}>
+          {page}
         </a>
       </li>
-      <li className="page-item">
+      ))}
+
+      {/* <li className="page-item">
         <a className="page-link" href="#">
           1
         </a>
@@ -36,7 +46,7 @@ const Pagination = () => {
         <a className="page-link" href="#">
           <span className="flaticon-right-arrow"></span>
         </a>
-      </li>
+      </li> */}
     </ul>
   );
 };

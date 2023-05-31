@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Link from "next/link";
 
 const FilteringItem = ({ headerType, setHeaderType, setSort, keyword, location, type, garages, bathrooms, bedrooms, minarea, maxarea, age, minprice, maxprice, setKeyword, setLocation, setStatus, setType, setGarages, setBathroom, setBedroom, setAreaMax, setAreaMin, setBuiltYear, setMaxprice, setMinprice }) => {
@@ -19,8 +20,18 @@ const FilteringItem = ({ headerType, setHeaderType, setSort, keyword, location, 
 
   };
 
+const [cities, setCities] = useState([])
+
+  useEffect(()=>{
+    axios.get("/cities.json").then((response)=>{
+      setCities(response.data)
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }, [])
 
 
+  console.log(cities)
 
   return (
     <ul className="sasw_list mb0">
@@ -65,29 +76,9 @@ const FilteringItem = ({ headerType, setHeaderType, setSort, keyword, location, 
               className="selectpicker w100 show-tick form-select"
             >
               <option value="">الموقع</option>
-              <option value="عبدون">عبدون </option>
-              <option value="دير غبار">دير غبار</option>
-              <option value="دابوق">دابوق</option>
-              <option value="خلدا">خلدا</option>
-              <option value="الصويفية">الصويفية</option>
-              <option value="جبل عمان">جبل عمان</option>
-
-              <option value="أم اذينة">أم اذينة</option>
-              <option value="الكرسي">الكرسي</option>
-              <option value="أم السماق">أم السماق</option>
-              <option value="الرابية">الرابية </option>
-              <option value="الظهير">الظهير </option>
-              <option value="الجندويل">الجندويل </option>
-              <option value="بوليفارد العبدلي"> بوليفارد العبدلي </option>
-              <option value="حجارة النوابلسة">حجارة النوابلسة </option>
-              <option value="طريق المطار">الحويطي </option>
-              <option value="ضاحية النخيل">ضاحية النخيل </option>
-              <option value="رجم عميش">رجم عميش </option>
-              <option value="طريق المطار">حي الصحابة </option>
-              <option value="شارع مكة المكرمة">شارع مكة المكرمة</option>
-              <option value="أم السماق">شارع عبدالله غوشة </option>
-              <option value="ضاحية الأمير راشد">ضاحية الامير راشد </option>
-              <option value="طريق المطار">طريق المطار</option>
+              {cities?.map((item)=>(
+                <option key={item.id} value={item.x_name}>{item.x_name}</option>
+              ))}
             </select>
           </div>
         </div>
