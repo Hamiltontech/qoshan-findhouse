@@ -32,7 +32,7 @@ const ListingDynamicDetailsV1 = () => {
 
   // diala
   useEffect(()=>{
-    axios.get("https://hamiltontech-silver-space-garbanzo-x6r4vpr747p2p7pj-3000.preview.app.github.dev/data.json").then((response)=>{
+    axios.get("/data.json").then((response)=>{
       const data = response.data?.find((item)=> item.x_name.replace(/\s+/g, '-') == id)
       console.log(data)
       setProperty(data)
