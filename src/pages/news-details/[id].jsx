@@ -12,8 +12,9 @@ import MobileMenu from "../../components/common/header/MobileMenu";
 import PopupSignInUp from "../../components/common/PopupSignInUp";
 import Seo from "../../components/common/seo";
 import Image from 'next/image'
-import ReactHtmlParser from 'react-html-parser';
 
+import ReactHtmlParser from 'react-html-parser';
+import RelatedPost from '../../components/blog-details/RelatedPost'
 
 
 const BlogDetailsDynamic = () => {
@@ -23,19 +24,7 @@ const BlogDetailsDynamic = () => {
 
   const [relatedCtegory, setRelatedCategory]= useState("")
 
-  // useEffect(() => {
-  //   axios
-  //     .get("https://strapi-125841-0.cloudclusters.net/api/articles?populate=*")
-  //     .then((response) => {
-  //       const res = response.data.data;
-  //       const prop = res?.find((item) => item.attributes.URL === id);
-  //       setArticle(prop);
-  //       setRelatedCategory(prop?.attributes?.category?.data?.attributes?.Category)
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, [id]);
+
 
 
   useEffect(()=>{
@@ -55,7 +44,7 @@ const BlogDetailsDynamic = () => {
       <MobileMenu />
       <PopupSignInUp />
 
-      <section className="blog_post_container bgc-f7">
+      <section className="blog_post_container bgc-f7" dir="rtl">
         <div className="container">
           <div className="row">
             <div className="col-xl-6">
@@ -76,7 +65,7 @@ const BlogDetailsDynamic = () => {
                     <ul className="blog_sp_post_meta" style={{gap: '10px', display: "flex"}}>
                       
                       <li className="list-inline-item">
-                        <span className="flaticon-calendar"></span>
+                      <i className="flaticon-calendar"></i> 
                       </li>
                       <li className="list-inline-item">
                       <a href="#">{article?.x_studio_original_create_date}</a>
@@ -114,12 +103,12 @@ const BlogDetailsDynamic = () => {
                 </div>
               )}
 
-              {/* <div className="row">
-                <div className="col-lg-12 mb20">
-                  <h4>مقالات مشابهة</h4>
+              <div className="row" dir="rtl">
+                <div className="col-lg-12 mt20">
+                  <h4>أخبار مشابهة</h4>
                 </div>
-                <RelatedPost />
-              </div> */}
+                <RelatedPost relatedCtegory={relatedCtegory}/>
+              </div>
             </div>
 
             <div className="col-lg-4">

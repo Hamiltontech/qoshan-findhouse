@@ -19,12 +19,12 @@ const BlogSidebar = ({relatedCtegory, keyword, setKeyword }) => {
 
       {/* End .Categories widget */}
 
-
+{/* 
       {relatedCtegory ? <div className="sidebar_feature_listing" dir="rtl">
         <h4 className="title">أخبار مشابهة</h4>
 
         <RelatedNews relatedCtegory={relatedCtegory} />
-      </div> : <></>}
+      </div> : <></>} */}
 
       {/* End .sidebar_feature_listing */}
 

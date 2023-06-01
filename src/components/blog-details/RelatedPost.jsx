@@ -1,24 +1,44 @@
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import relatedPostContent from "../../data/blogs";
+import ReactHtmlParser from 'react-html-parser';
 
-const RelatedPost = () => {
+
+const RelatedPost = ({relatedCtegory}) => {
+  const [relatedNews, setRelatedNews] = useState([])
+
+useEffect(()=>{
+  axios.get("/news.json").then((res)=>{
+    const related = res.data.filter((item)=> item.x_studio_many2one_field_doQAc[1] === relatedCtegory)
+    setRelatedNews(related)
+  }).catch((err)=>{
+    console.log(err)
+  })
+}, [relatedCtegory])
+
+relatedNews?.sort(function(a,b){
+  return new Date(b?.x_studio_original_create_date) - new Date(a?.x_studio_original_create_date);
+});
+
+
   return (
     <>
-      {relatedPostContent.slice(4, 6).map((item) => (
-        <div className="col-md-6 col-lg-6" key={item.id}>
+      {relatedNews?.slice(0,4).map((item) => (
+        <div className="col-md-6 col-lg-6" key={item?.id} dir="rtl">
           <div className="for_blog feat_property">
             <div className="thumb">
-              <Link href={`/blog-details/${item.id}`}>
+              <Link href={`/news-details/${item?.x_name.replace(/\s+/g, '-')}`}>
                 <a>
-                  <img className="img-whp" src={item.img} alt={item.img} />
+                  <img className="img-whp" src={item?.x_studio_api_url && item?.x_studio_api_url} alt={item?.x_studio_api_url && item?.x_studio_api_url} />
                 </a>
               </Link>
             </div>
             <div className="details">
               <div className="tc_content">
                 <h4>
-                  <Link href={`/blog-details/${item.id}`}>
-                    <a>{item.title}</a>
+                  <Link href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
+                    <a>{item?.x_name}</a>
                   </Link>
                 </h4>
                 <ul className="bpg_meta">
@@ -28,26 +48,17 @@ const RelatedPost = () => {
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="#">{item.postedDate}</a>
+                    <a href="#">{item?.x_studio_original_create_date}</a>
                   </li>
                 </ul>
-                <p>{item.postDescriptions.slice(0, 65)}</p>
+                <p>{ReactHtmlParser(item?.x_studio_body.slice(0, 100))}</p>
               </div>
               {/* End . tc_content */}
 
               <div className="fp_footer">
-                <ul className="fp_meta float-start mb0">
-                  <li className="list-inline-item">
-                    <a href="#">
-                      <img src={item.posterAvatar} alt={item.posterAvatar} />
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#">{item.posterName}</a>
-                  </li>
-                </ul>
-                <a className="fp_pdate float-end text-thm" href="#">
-                  Read More <span className="flaticon-next"></span>
+               
+              <a className=" text-thm" href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
+                  إقرأ المزيد <span className="flaticon-back"></span>
                 </a>
               </div>
             </div>

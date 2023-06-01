@@ -16,10 +16,9 @@ const FeaturedProperties = () => {
   })
   }, [])
 
-  // articles?.sort(function(a,b){
-  //   return new Date(b?.x_studio_original_create_date) - new Date(a?.x_studio_original_create_date);
-  // });
-
+  articles?.sort(function(a,b){
+    return new Date(b?.x_studio_original_create_date) - new Date(a?.x_studio_original_create_date);
+  });
 
   const settings = {
     dots: true,
@@ -64,13 +63,21 @@ const FeaturedProperties = () => {
                 <a>{item.x_name}</a>
               </Link>
             </h4>
-           
+            <ul className="">
+                  <li className="list-inline-item" >
+                      <i className="flaticon-calendar"></i>
+                  </li>
+                  <li className="list-inline-item m-" style={{margin: 5,}}>
+                 {item.x_studio_original_create_date}
+                  </li>
+                </ul>
           </div>
           {/* End .tc_content */}
 
           <div className="fp_footer">
-           
-            <div className="fp_pdate float-end">{item.x_studio_original_create_date}</div>
+          <a className=" text-thm" href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
+                  إقرأ المزيد <span className="flaticon-back"></span>
+                </a>
           </div>
           {/* End .fp_footer */}
         </div>

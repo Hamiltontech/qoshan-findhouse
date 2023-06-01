@@ -36,7 +36,7 @@ const handleType = (item)=>{
 
   return (
     <>
-       {relatedProperteis?.filter(handleRelated)?.filter(handleType)?.slice(0, 4).map((item) => (
+       {relatedProperteis?.filter(handleRelated)?.filter(handleType)?.slice(0, 6).map((item) => (
         <div className="col-md-6 col-lg-6" key={item?.id}>
           <div className="for_blog feat_property">
             <div className="thumb">

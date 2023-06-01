@@ -15,14 +15,7 @@ useEffect(()=>{
   })
 }, [relatedCtegory])
 
-  // // bring the location and type through props
-  // const handleRelated = (item) =>{
-  //   if(item.x_studio_many2one_field_doQAc[1] === relatedCtegory){
-  //     return item?.x_studio_many2one_field_doQAc[1]
-  //   }
-  // }
 
-  // console.log(relatedCtegory)
   return (
     <>
       {relatedNews?.slice(0,5).map((item) => (
@@ -43,10 +36,17 @@ useEffect(()=>{
                     <a>{item?.x_name}</a>
                   </Link>
             </h5>
-            <span style={{fontSize: '14px'}}>
+
+            <ul>
+           <li className="list-inline-item">
+           <i className="flaticon-calendar"></i> 
+           </li>
+           <li className="list-inline-item">
+            <span style={{fontSize: '14px', marginRight: "5px"}}>
             {item?.x_studio_original_create_date}
                 </span>
-
+           </li>
+           </ul>
           
           </div>
         </div>
