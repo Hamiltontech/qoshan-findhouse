@@ -963,6 +963,9 @@ ul.sign_up_btn.home7 a {
   outline: none;
 }
 
+section.property-search.search-overlay {
+  margin-top: -10px;
+}
 
 .ht_left_widget,
 .ht_right_widget {
