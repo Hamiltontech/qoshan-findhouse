@@ -10,7 +10,7 @@ const ComfortPlaces = ({data}) => {
   <div   className="col-sm-6 col-lg-3"  dir="rtl" key={item.id} >
     <div className="feat_property home3">
       <div className="thumb">
-        <img className="img-whp" src={item.x_studio_property_images && item.x_studio_property_images.split(",")[0]} alt="fp1.jpg" />
+        <img className="img-whp" src={item.x_studio_featured_url && item.x_studio_featured_url} alt="fp1.jpg" />
         <div className="thmb_cntnt">
 
           {/* tags */}
@@ -35,7 +35,7 @@ const ComfortPlaces = ({data}) => {
       <div className="details">
         <div className="tc_content">
           {/* type */}
-          <p className="text-thm">{item.x_studio_type}</p>
+          <p className="text-thm">{item.x_studio_property_type[1]}</p>
           <h4>
             <Link href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
               <a>{item.x_name}</a>

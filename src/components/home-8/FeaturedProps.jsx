@@ -47,7 +47,7 @@ const FeaturedProperties = ({ featured }) => {
           <div className="item" key={item?.id} dir="rtl">
             <div className="feat_property home3">
               <div className="thumb">
-                <img className="img-whp" src={item.x_studio_property_images && item.x_studio_property_images.split(",")[0]} alt="fp1.jpg" />
+                <img className="img-whp" src={item.x_studio_featured_url && item.x_studio_featured_url} alt="fp1.jpg" />
                 <div className="thmb_cntnt">
 
                   {/* tags */}
@@ -78,7 +78,7 @@ const FeaturedProperties = ({ featured }) => {
               <div className="details">
                 <div className="tc_content">
                   {/* type */}
-                  <p className="text-thm">{item?.x_studio_type}</p>
+                  <p className="text-thm">{item?.x_studio_property_type[1]}</p>
                   <h4>
                     <Link href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
                       <a>{item?.x_name}</a>
@@ -98,7 +98,7 @@ const FeaturedProperties = ({ featured }) => {
                     <li className="list-inline-item">
                       <a href="#" style={{ display: 'flex', gap: '5px' }}>
                         <TfiRulerAlt size={15} />
-                        المساحة: {item?.x_studio_property_area} متر مربع
+                       {item?.x_studio_property_area} متر مربع
                       </a>
                     </li>
                     : <></>

@@ -39,7 +39,7 @@ const ListingDynamicDetailsV1 = () => {
       setFeatured(feat)
 
       setRelatedLocation(data?.x_studio_many2one_field_YbLip[1])
-      setRelatedType(data?.x_studio_type)
+      setRelatedType(data?.x_studio_property_type[1])
 
     }).catch((error) => {
       console.log(error)
@@ -48,6 +48,12 @@ const ListingDynamicDetailsV1 = () => {
 
 
   const url = property?.x_name?.replace(/\s+/g, '-')
+
+const handleImages = (val)=>{
+if (val !== ", ")
+{
+return val
+}}
 
   return (
     <>
@@ -107,7 +113,7 @@ const ListingDynamicDetailsV1 = () => {
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="spls_style_two mb30-520">
-                      <Image src={property?.x_studio_property_images && property?.x_studio_property_images.split(",")[0]}
+                      <Image src={property?.x_studio_featured_url && property?.x_studio_featured_url}
                         width={752}
                         height={450}
                       />
@@ -119,7 +125,7 @@ const ListingDynamicDetailsV1 = () => {
 
               <div className="col-sm-5 col-lg-4">
                 <div className="row">
-                  {property?.x_studio_property_images && property?.x_studio_property_images.split(",").slice(0, 6).map((val, i) => (
+                  {property?.x_studio_property_images && property?.x_studio_property_images.split('"').slice(0,6)?.filter(handleImages)?.map((val, i) => (
                     <div className="col-6" key={i}>
                       <div className="spls_style_two img-gallery-box mb24">
                         <Item

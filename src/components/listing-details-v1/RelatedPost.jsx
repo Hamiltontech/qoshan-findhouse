@@ -19,23 +19,31 @@ const RelatedPost = ({relatedType, relatedLocation}) => {
   const handleRelated = (item) =>{
     if((item?.x_studio_many2one_field_YbLip[1] === relatedLocation)){
       return item?.x_studio_many2one_field_YbLip[1]
-    }
+    }  
   }
+
+const handleType = (item)=>{
+  if(item?.x_studio_property_type[1] === relatedType){
+
+    return item?.x_studio_property_type[1]
+  }
+}
 
   return (
     <>
-       {relatedProperteis?.filter(handleRelated)?.slice(0, 4).map((item) => (
+       {relatedProperteis?.filter(handleRelated)?.filter(handleType)?.slice(0, 4).map((item) => (
         <div className="col-md-6 col-lg-6" key={item?.id}>
           <div className="for_blog feat_property">
             <div className="thumb">
               <Link href={`/detials/${item?.id}`}>
                 <a>
-                  <img className="img-whp"  src={item?.x_studio_property_images && item?.x_studio_property_images.split(",")[0]} alt={item.img} />
+                  <img className="img-whp"  src={item?.x_studio_featured_url && item?.x_studio_featured_url} alt={item.img} />
                 </a>
               </Link>
             </div>
             <div className="details">
               <div className="tc_content">
+                <p style={{color: "#c2b49a"}}>{item?.x_studio_property_type[1]}</p>
                 <h4>
                   <Link href={`/details/${item?.x_name.replace(/\s+/g, '-')}`}>
                     <a>{item?.x_name}</a>

@@ -56,27 +56,27 @@ const PropertyDetails = ({ property }) => {
             : <></>
           }
 
-          {property?.x_studio_bedrooms > 0 ?
+          {property?.x_studio_beedrooms_count > 0 ?
             <li>
               <p>
-                غرف النوم : <span>{property?.x_studio_bedrooms}</span>
+                غرف النوم : <span>{property?.x_studio_beedrooms_count}</span>
               </p>
             </li>
             : <></>}
 
-          {property?.x_studio_bathrooms_1 > 0 ?
+          {property?.x_studio_bathrooms_count > 0 ?
             <li>
               <p>
-                الحمامات : <span>{property?.x_studio_bathrooms_1}</span>
+                الحمامات : <span>{property?.x_studio_bathrooms_count}</span>
               </p>
             </li>
             : <></>
           }
 
-          {property?.x_studio_garages > 0 ?
+          {property?.x_studio_garages_count> 0 ?
             <li>
               <p>
-                الكراجات : <span>{property?.x_studio_garages}</span>
+                الكراجات : <span>{property?.x_studio_garages_count}</span>
               </p>
             </li>
             : <></>}

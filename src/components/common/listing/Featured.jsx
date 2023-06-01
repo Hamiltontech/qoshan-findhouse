@@ -24,7 +24,7 @@ const Featured = ({featured}) => {
                               
                                 <img
                                     className="img-whp"
-                                    src={item?.x_studio_property_images && item?.x_studio_property_images.split(",")[0]}
+                                    src={item?.x_studio_featured_url && item?.x_studio_featured_url}
                                     alt="properties identity"
                             
 />

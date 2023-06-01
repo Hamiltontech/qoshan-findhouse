@@ -30,7 +30,7 @@ const HeroSlider = ({heroProperties}) => {
           key={singleItem.id}
         >
           <img className="vh-100 image-hero" 
-          src={singleItem.x_studio_property_images && singleItem.x_studio_property_images.split(",")[0]}
+          src={singleItem.x_studio_featured_url && singleItem.x_studio_featured_url}
           alt="slider-property" />
           
           <div className="carousel-slide ">
@@ -64,16 +64,16 @@ const HeroSlider = ({heroProperties}) => {
                   </div>
 
                     {/* bathrooms */}
-                    {singleItem?.x_studio_bathrooms_1 ? 
+                    {singleItem?.x_studio_bathrooms_count ? 
                   <div style={{display: 'flex', gap: '2px', }}>
-                  <BiBath size={20}/> <p style={{color: 'white', fontSize: '16px'}}>حمامات:  {singleItem?.x_studio_bathrooms_1}</p>
+                  <BiBath size={20}/> <p style={{color: 'white', fontSize: '16px'}}>حمامات:  {singleItem?.x_studio_bathrooms_count}</p>
                   </div>  
                     : <></>}
 
                     {/* bedrooms */}
-                    {singleItem?.x_studio_bedrooms ? 
+                    {singleItem?.x_studio_beedrooms_count ? 
                   <div style={{display: 'flex', gap: '2px', }}>
-                  <IoBedOutline size={20} /> <p style={{color: 'white', fontSize: '16px'}}>غرف نوم: {singleItem?.x_studio_bedrooms}</p>
+                  <IoBedOutline size={20} /> <p style={{color: 'white', fontSize: '16px'}}>غرف نوم: {singleItem?.x_studio_beedrooms_count}</p>
                   </div>
                     : <></>
                   }

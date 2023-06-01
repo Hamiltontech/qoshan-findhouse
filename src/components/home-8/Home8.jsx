@@ -39,7 +39,9 @@ const Home8 = () => {
     })
   }, [])
   
-
+  data?.sort(function(a,b){
+    return new Date(b?.x_studio_create_date_wp) - new Date(a?.x_studio_create_date_wp);
+  });
 
   return (
     <>
@@ -92,7 +94,7 @@ const Home8 = () => {
 
               <h2>عقارات مميزة</h2>
               <p>
-                <a className="float-start" href="#">
+                <a className="float-start" href="all-properties?type=all">
                   إعرض المزيد <span className="flaticon-back"></span>
                 </a>
                 عقارات مميزة لكم من فريق قوشان.

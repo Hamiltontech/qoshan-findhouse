@@ -32,6 +32,10 @@ const FeaturedItem = ({ headerType, keyword, location, status, type, garages, ba
   }, [sort])
 
 
+  property?.sort(function(a,b){
+    return new Date(b?.x_studio_create_date_wp) - new Date(a?.x_studio_create_date_wp);
+  });
+
   // useEffect(()=>{
   //   axios.get("https://strapi-125841-0.cloudclusters.net/api/proerties?populate=*").then((res)=>{
   //     if(
@@ -110,9 +114,9 @@ const FeaturedItem = ({ headerType, keyword, location, status, type, garages, ba
   const typeHandler = (item) => {
     if (type === "all") {
       return item
-    } else if (item?.x_studio_type.toLowerCase() === type?.toLowerCase()
+    } else if (item?.x_studio_property_type[1] === type?.toLowerCase()
     ) {
-      return item?.x_studio_type
+      return item?.x_studio_property_type[1]
     }
 
   }
@@ -120,24 +124,24 @@ const FeaturedItem = ({ headerType, keyword, location, status, type, garages, ba
 
   // bathrooms filter
   const bathroomsHandler = (item) => {
-    if (item?.x_studio_bathrooms_1?.toString().includes(bathrooms)) {
-      return item?.x_studio_bathrooms_1
+    if (item?.x_studio_bathrooms_count?.toString().includes(bathrooms)) {
+      return item?.x_studio_bathrooms_count
     }
   }
 
 
   // bedrooms filter
   const bedroomsHandler = (item) => {
-    if (item?.x_studio_bedrooms?.toString().includes(bedrooms)) {
-      return item?.x_studio_bedrooms
+    if (item?.x_studio_beedrooms_count?.toString().includes(bedrooms)) {
+      return item?.x_studio_beedrooms_count
     }
   }
 
 
   // garages filter
   const garagesHandler = (item) => {
-    if (item?.x_studio_garages?.toString().includes(garages)) {
-      return item?.x_studio_garages
+    if (item?.x_studio_garages_count?.toString().includes(garages)) {
+      return item?.x_studio_garages_count
     }
   }
 
@@ -179,7 +183,7 @@ console.log(count)
                 <Link href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
 
                   <div className="thumb">
-                    <img className="img-whp" src={item.x_studio_property_images && item.x_studio_property_images.split(",")[0]} alt="fp1.jpg" />
+                    <img className="img-whp" src={item.x_studio_featured_url && item.x_studio_featured_url} alt="fp1.jpg" />
 
                     <div className="thmb_cntnt">
                       {item.x_studio_sale_price > 0 ? 
@@ -198,7 +202,7 @@ console.log(count)
                     {/* type */}
 
 
-                    <p className="text-thm">{item?.x_studio_type}</p>
+                    <p className="text-thm">{item?.x_studio_property_type[1]}</p>
 
                     {/* name */}
 
@@ -233,12 +237,12 @@ console.log(count)
 
                       {/* bathrooms */}
                       <div style={{ display: 'flex', gap: '2px', }}>
-                        <BiBath size={20} /> <p style={{ fontSize: '16px' }}> {item?.x_studio_bathrooms_1}</p>
+                        <BiBath size={20} /> <p style={{ fontSize: '16px' }}> {item?.x_studio_bathrooms_count}</p>
                       </div>
 
                       {/* bedrooms */}
                       <div style={{ display: 'flex', gap: '2px', }}>
-                        <IoBedOutline size={20} /> <p style={{ fontSize: '16px' }}> {item?.x_studio_bedrooms}</p>
+                        <IoBedOutline size={20} /> <p style={{ fontSize: '16px' }}> {item?.x_studio_beedrooms_count}</p>
                       </div>
 
                     </div>

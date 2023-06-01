@@ -66,15 +66,15 @@ const Blogs = () => {
                  : <></>
                  }
 
-                  {item?.x_studio_bathrooms_1 > 0 ? 
+                  {item?.x_studio_bathrooms_count > 0 ? 
                  <li>
-                 <p>   <BiBath size={20}/>  {item?.x_studio_bathrooms_1}</p>
+                 <p>   <BiBath size={20}/>  {item?.x_studio_bathrooms_count}</p>
                  </li>
                  : <></>}
 
-                      {item?.x_studio_bedrooms > 0 ? 
+                      {item?.x_studio_beedrooms_count > 0 ? 
                  <li>
-                 <p>   <IoBedOutline size={20}/>  {item?.x_studio_bedrooms}</p>
+                 <p>   <IoBedOutline size={20}/>  {item?.x_studio_beedrooms_count}</p>
                  </li>
                       : <></>
                     }
