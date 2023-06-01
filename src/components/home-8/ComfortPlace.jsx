@@ -6,7 +6,7 @@ const ComfortPlaces = ({data}) => {
 
   return (
     <>
- {data.slice(0,30).map((item) => (
+ {data.slice(0,20).map((item) => (
   <div   className="col-sm-6 col-lg-3"  dir="rtl" key={item.id} >
     <div className="feat_property home3">
       <div className="thumb">

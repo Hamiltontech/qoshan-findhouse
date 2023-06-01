@@ -52,7 +52,7 @@ const Blog = ({news, keyword, setKeyword, categ, setCateg}) => {
                   <a href="#"> {item.x_studio_original_create_date} </a>
                   </li>
                 </ul>
-                <p>{ReactHtmlParser(item?.x_studio_body?.slice(0, 100))}</p>
+                <p>{ReactHtmlParser(item?.x_studio_body?.slice(0, 100))} </p>
               </div>
               {/* End .tc_content */}
 

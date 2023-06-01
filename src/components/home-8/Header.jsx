@@ -27,15 +27,15 @@ const Header = () => {
         console.log(error);
       });
   }, []);
-  
+
 
   return (
     <div className="top-header d-flex align-items-center justify-content-between py-2 px-3" style={{ backgroundColor: "#232323" }}>
       <WhatsAppButton />
       <header className={`header-nav menu_style_home_one style2 home8  navbar-scrolltofixed stricky main-menu rtl ${navbar ? "stricky-fixed " : ""}`} style={{ display: "block" }}>
-        <div className="footer_social_widget  col-lg-12 p-0"  style={{fontSize: 18, direction: 'rtl', textAlign: 'left', padding: 20}}>
-<Social/>  
-      </div>
+        <div className="footer_social_widget col-lg-12 " style={{ fontSize: 18, direction: 'rtl', textAlign: 'left', paddingLeft: "15px" }}>
+          <Social />
+        </div>
 
         <div className="container-fluid col-lg-12 p-0">
           {/* site logo brand */}
@@ -52,14 +52,14 @@ const Header = () => {
                 </a>
               </Link>
               {/* <a > */}
-                <a href={data?.attributes?.URL} className="position-relative" style={{ marginRight: 15, marginLeft: 15 }}>
-                  {/* <img className="logo img-fluid winner" src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684257815/winner-land_jm56zk.webp" alt="header-logo2.svg" style={{ height: 80 }} /> */}
-                  <Image src={'https://strapi-125841-0.cloudclusters.net' + data?.attributes?.advert?.data?.attributes?.url}
-                      width={200}
-                      height={100}
-                      />                                </a>
+              <a href={data?.attributes?.URL} className="position-relative" style={{ marginRight: 15, marginLeft: 15 }}>
+                {/* <img className="logo img-fluid winner" src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684257815/winner-land_jm56zk.webp" alt="header-logo2.svg" style={{ height: 80 }} /> */}
+                <Image src={'https://strapi-125841-0.cloudclusters.net' + data?.attributes?.advert?.data?.attributes?.url}
+                  width={200}
+                  height={100}
+                />                                </a>
               {/* </a> */}
-              
+
             </div>
             <nav className="d-flex align-items-center justify-content-center" style={{ flex: 1 }}>
 

@@ -16,9 +16,9 @@ const FeaturedProperties = () => {
   })
   }, [])
 
-  articles?.sort(function(a,b){
-    return new Date(b?.x_studio_original_create_date) - new Date(a?.x_studio_original_create_date);
-  });
+  // articles?.sort(function(a,b){
+  //   return new Date(b?.x_studio_original_create_date) - new Date(a?.x_studio_original_create_date);
+  // });
 
 
   const settings = {

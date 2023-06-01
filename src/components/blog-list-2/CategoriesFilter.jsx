@@ -17,7 +17,7 @@ const CategoriesFilter = () => {
       <ul className="mb0" dir="rtl">
         {categories.map((item)=>(
             
-            <li key={item.id} className="list-inline-item">
+            <li key={item.id} className="list-inline-item categories" style={{marginRight: "0px"}}>
           <Link 
           href={{
             pathname: "news",

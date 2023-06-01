@@ -13,6 +13,8 @@ import Image from 'next/image'
 import Sharing from '../../components/listing-details-v1/Sharing'
 import Seo from "../../components/common/seo";
 import Head from 'next/head';
+import Social from "./Social";
+
 const ListingDynamicDetailsV1 = () => {
 
   const router = useRouter();
@@ -28,22 +30,24 @@ const ListingDynamicDetailsV1 = () => {
 
 
   // diala
-  useEffect(()=>{
-    axios.get("/data.json").then((response)=>{
-      const data = response.data?.find((item)=> item.x_name.replace(/\s+/g, '-') == id)
+  useEffect(() => {
+    axios.get("/data.json").then((response) => {
+      const data = response.data?.find((item) => item.x_name.replace(/\s+/g, '-') == id)
       setProperty(data)
 
-      const feat = response.data.filter((item)=> item.x_studio_featured_property === true)
+      const feat = response.data.filter((item) => item.x_studio_featured_property === true)
       setFeatured(feat)
 
       setRelatedLocation(data?.x_studio_many2one_field_YbLip[1])
       setRelatedType(data?.x_studio_type)
-      
-    }).catch((error)=>{
+
+    }).catch((error) => {
       console.log(error)
     })
   }, [id])
 
+
+  const url = property?.x_name?.replace(/\s+/g, '-')
 
   return (
     <>
@@ -89,8 +93,8 @@ const ListingDynamicDetailsV1 = () => {
                   <div className="price float-start fn-400">
                     {/* price */}
                     <h2>
-                      <span style={{ fontSize: '12px' }}>{property?.x_studio_price_prefix}</span> 
-                      {property?.x_studio_sale_price && property?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
+                      <span style={{ fontSize: '12px' }}>{property?.x_studio_price_prefix}</span>
+                      {property?.x_studio_sale_price && property?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني
                     </h2>
                   </div>
                 </div>
@@ -115,7 +119,7 @@ const ListingDynamicDetailsV1 = () => {
 
               <div className="col-sm-5 col-lg-4">
                 <div className="row">
-                  {property?.x_studio_property_images && property?.x_studio_property_images.split(",").slice(0,6).map((val, i) => (
+                  {property?.x_studio_property_images && property?.x_studio_property_images.split(",").slice(0, 6).map((val, i) => (
                     <div className="col-6" key={i}>
                       <div className="spls_style_two img-gallery-box mb24">
                         <Item
@@ -143,7 +147,11 @@ const ListingDynamicDetailsV1 = () => {
             </div>
             {/* End .row */}
           </Gallery>
-          {/* <Sharing propertyUrl={`https://qoshan-findhouse.vercel.app/details/${property?.x_name.replace(/\s+/g, '-')}`} /> */}
+          {/* <Sharing propertyUrl={`https://qoshan-findhouse.vercel.app/details/${url}`} /> */}
+
+          <ul className="contact_form_social_area">
+            <Social propertyUrl={`https://qoshan-findhouse.vercel.app/details/${url}`} />
+          </ul>
         </div>
       </section>
 
@@ -152,7 +160,7 @@ const ListingDynamicDetailsV1 = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12 col-lg-8">
-              <DetailsContent property={property} relatedType={relatedType} relatedLocation={relatedLocation}/>
+              <DetailsContent property={property} relatedType={relatedType} relatedLocation={relatedLocation} />
             </div>
             {/* End details content .col-lg-8 */}
 

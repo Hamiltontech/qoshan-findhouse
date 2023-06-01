@@ -99,7 +99,9 @@ const BlogDetailsDynamic = () => {
                       <li>
                         <p>شارك المقال</p>
                       </li>
-                      <Social />
+                      <ul className="contact_form_social_area">
+        <Social />
+      </ul>
                     </ul>
                   </div>
 
