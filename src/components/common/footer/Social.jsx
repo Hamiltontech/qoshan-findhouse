@@ -20,7 +20,7 @@ const Social = () => {
       <ul >
        <li className="list-inline-item" >
           <a href="http://tiktok.com/qoshancom" target="_blank" rel="noopener noreferrer">
-            <i ><BsTiktok /></i>
+            <i ><BsTiktok width={17} height={17}/></i>
           </a>
         </li>
         <li className="list-inline-item" >
