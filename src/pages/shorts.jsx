@@ -5,7 +5,7 @@ import Service from "../components/service";
 const index = () => {
   return (
     <>
-      <Seo pageTitle="Service" />
+      <Seo pageTitle="نصائح عقارية | قوشان تكتوك" />
       <Service />
     </>
   );

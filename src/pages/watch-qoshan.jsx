@@ -5,7 +5,7 @@ import Gallery from "../components/gallery";
 const index = () => {
   return (
     <>
-      <Seo pageTitle="Gallery" />
+      <Seo pageTitle="شاهد قوشان" />
       <Gallery />
     </>
   );

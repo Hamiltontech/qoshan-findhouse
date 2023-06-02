@@ -5,7 +5,7 @@ import Contact from "../components/contact";
 const index = () => {
   return (
     <>
-      <Seo pageTitle="Contact" />
+      <Seo pageTitle="تواصل مع فريق قوشان" />
       <Contact />
     </>
   );
