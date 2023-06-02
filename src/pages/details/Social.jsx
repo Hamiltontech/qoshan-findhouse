@@ -44,7 +44,7 @@ const Social = ({ propertyUrl }) => {
     <div>
  
       <ul >
-      <strong>شارك العقار</strong>
+      <strong>شارك</strong>
        <li className="list-inline-item" >
           <a href='#'  onClick={copyLink}>
             <FaCopy size={18} /> 

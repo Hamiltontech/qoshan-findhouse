@@ -33,9 +33,7 @@ const Header = () => {
     <div className="top-header d-flex align-items-center justify-content-between py-2 px-3" style={{ backgroundColor: "#232323" }}>
       <WhatsAppButton />
       <header className={`header-nav menu_style_home_one style2 home8  navbar-scrolltofixed stricky main-menu rtl ${navbar ? "stricky-fixed " : ""}`} style={{ display: "block" }}>
-        <div className="footer_social_widget col-lg-12 " style={{ fontSize: 18, direction: 'rtl', textAlign: 'left', paddingLeft: "15px" }}>
-          <Social />
-        </div>
+       
 
         <div className="container-fluid col-lg-12 p-0">
           {/* site logo brand */}
@@ -56,16 +54,19 @@ const Header = () => {
                 {/* <img className="logo img-fluid winner" src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684257815/winner-land_jm56zk.webp" alt="header-logo2.svg" style={{ height: 80 }} /> */}
                 <Image src={'https://strapi-125841-0.cloudclusters.net' + data?.attributes?.advert?.data?.attributes?.url}
                   width={200}
-                  height={100}
+                  height={80}
                 />                                </a>
               {/* </a> */}
 
             </div>
-            <nav className="d-flex align-items-center justify-content-center" style={{ flex: 1 }}>
-
-              <HeaderMenuContent />
-            </nav>
+            <div className="footer_social_widget col-lg-4 " style={{ fontSize: 18, direction: 'rtl', textAlign: 'left', paddingLeft: "15px" }}>
+          <Social />
+        </div>
           </div>
+          <nav className="d-flex align-items-center justify-content-center" style={{ flex: 1, textAlign: 'center', backgroundColor:'#35353F' }}>
+
+<HeaderMenuContent />
+</nav>
         </div>
       </header>
     </div>

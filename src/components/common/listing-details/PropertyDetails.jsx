@@ -40,6 +40,15 @@ const PropertyDetails = ({ property }) => {
             :
             <></>
           }
+          {property?.x_studio_year_built_1 > 0 ?
+            <li>
+              <p>
+            عمر البناء : <span>{property?.x_studio_year_built_1}</span>
+              </p>
+            </li>
+            :
+            <></>
+          }
         </ul>
       </div>
       {/* End .col */}

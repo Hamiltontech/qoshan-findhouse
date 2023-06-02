@@ -116,6 +116,8 @@ return val
                       <Image src={property?.x_studio_featured_url && property?.x_studio_featured_url}
                         width={752}
                         height={450}
+                        loading="lazy"
+                        layout="responsive"
                       />
                     </div>
                   </div>
@@ -133,6 +135,9 @@ return val
                           thumbnail={val}
                           width={752}
                           height={450}
+                          loading="lazy"
+                          layout="responsive"
+
                         >
                           {({ ref, open }) => (
                             <div role="button" ref={ref} onClick={open}>
@@ -140,6 +145,8 @@ return val
                                 className="img-fluid w100"
                                 src={val}
                                 alt="2.jpg"
+                                loading="lazy"
+
                               />
                             </div>
                           )}

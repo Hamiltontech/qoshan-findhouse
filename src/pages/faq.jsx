@@ -5,7 +5,7 @@ import Faq from "../components/faq";
 const index = () => {
   return (
     <>
-      <Seo pageTitle="Faq" />
+      <Seo pageTitle="أعلن عن عقارك" />
       <Faq />
     </>
   );

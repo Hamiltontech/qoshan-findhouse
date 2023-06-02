@@ -12,6 +12,7 @@ import MobileMenu from "../../components/common/header/MobileMenu";
 import PopupSignInUp from "../../components/common/PopupSignInUp";
 import Seo from "../../components/common/seo";
 import Image from 'next/image'
+import Share from '../details/Social'
 
 import ReactHtmlParser from 'react-html-parser';
 import RelatedPost from '../../components/blog-details/RelatedPost'
@@ -80,18 +81,17 @@ const BlogDetailsDynamic = () => {
                       height={450}
                       />
                     </div>
-
+                    <ul className="blog_post_share">
+                      <li>
+                      </li>
+                      <ul className="contact_form_social_area">
+        <Share />
+      </ul>
+                    </ul>
                     <div className="details">
                       <p className="mb25">{ReactHtmlParser(article?.x_studio_body)}</p>
                     </div>
-                    <ul className="blog_post_share">
-                      <li>
-                        <p>شارك المقال</p>
-                      </li>
-                      <ul className="contact_form_social_area">
-        <Social />
-      </ul>
-                    </ul>
+                    
                   </div>
 
                   {/* <div className="mbp_pagination_tab">
