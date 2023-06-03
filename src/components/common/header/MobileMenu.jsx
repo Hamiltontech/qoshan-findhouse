@@ -3,37 +3,40 @@ import MobileMenuContent from "./MobileMenuContent";
 
 const MobileMenu = () => {
   return (
-    <div className="stylehome1 h0 mega-menu-wrapper" >
+    // <!-- Main Header Nav For Mobile -->
+    <div className="stylehome1 h0 mega-menu-wrapper">
       <div className="mobile-menu">
-        <div className="header stylehome1" >
+        <div className="header stylehome1">
           <div className="main_logo_home2 text-center">
-            <div className="d-flex align-items-center justify-content-between">
-              
-              <img
-                className="nav_logo_img img-fluid mt20"
-                src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1685212478/header-logo2_bawqi1_1_-svg_j6fhp4.webp"
-                alt="header-logo2.svg"
-                width={250}
-
-              />
-           
-            </div>
+            <img
+              className="nav_logo_img img-fluid mt20"
+              src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1685212478/header-logo2_bawqi1_1_-svg_j6fhp4.webp"
+              alt="header-logo2.png"
+              width={250}
+            />
           </div>
+          {/* main_logo_home2 */}
 
-          <ul className="menu_bar_home2"  style={{color: 'white'}}>
+          <ul className="menu_bar_home2">
+            <li className="list-inline-item list_s">
+            
+            </li>
             <li
-              className="list-inline-item mt10"
+              className="list-inline-item"
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasMenu"
               aria-controls="offcanvasMenu"
+              style={{color: 'white'}}
             >
               <a>
-                <span>القائمة</span>
+                <span></span>
               </a>
             </li>
           </ul>
+          {/* menu_bar_home2 */}
         </div>
       </div>
+      {/* <!-- /.mobile-menu --> */}
 
       <div
         className="offcanvas offcanvas-start"

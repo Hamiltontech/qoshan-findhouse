@@ -112,7 +112,7 @@ header.stylehome1.home4 a {
 .header a:before {
   content: "";
   display: block;
-  background: #54594f ;
+  background: white ;
   height: 2px;
   width: 15px;
 }
@@ -120,16 +120,16 @@ header.stylehome1.home4 a {
   text-align: center;
 }
 .header a span {
-  background: #54594f ;
+  background: white ;
   display: block;
   height: 2px;
   margin: 6px 0;
   width: 30px;
 }
 .header a:after {
-  content: "";
+  content: "القائمة";
   display: block;
-  background: #54594f ;
+  background: white ;
   height: 2px;
   width: 20px;
 }
@@ -139,10 +139,14 @@ header.stylehome1.home4 a {
 }
 .header li.list_s a span {
   background-color: #54594f ;
+  display: none;
+}
+.qoshan{
+  background-image: url("https://res.cloudinary.com/dhk7qsnfv/image/upload/v1685816328/New_Project_i6pzns.svg");
 }
 .menu_bar_home2 li.list-inline-item:first-child {
   position: absolute;
-  right: 90px;
+  right: 300px;
   top: -15px;
 }
 .menu_bar_home2 li.list-inline-item:first-child a::before {
@@ -155,7 +159,7 @@ header.stylehome1.home4 a {
   width: 35px;
 }
 .header.stylehome1.home5 a:before {
-  content: "";
+  content: "hello";
   display: block;
   background-color: #0a0a0a;
   height: 2px;

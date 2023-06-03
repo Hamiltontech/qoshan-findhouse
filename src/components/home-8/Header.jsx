@@ -35,18 +35,18 @@ const Header = () => {
       <header className={`header-nav menu_style_home_one style2 home8  navbar-scrolltofixed stricky main-menu rtl ${navbar ? "stricky-fixed " : ""}`} style={{ display: "block" }}>
        
 
-        <div className="container-fluid col-lg-12 p-0">
+        <div className="container-fluid col-lg-12 p-0" style={{marginTop: '10px', marginBottom: '10px'}}>
           {/* site logo brand */}
           <div className="d-flex align-items-center justify-content-between col-lg-12">
             <div className="d-flex align-items-center">
               <Link href="/">
                 <a className="me-3">
-                  <img className="logo1 img-fluid" src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684257816/header-logo2_bawqi1.svg" alt="header-logo2.svg" style={{ height: 80 }} />
+                  <img className="logo1 img-fluid" src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684257816/header-logo2_bawqi1.svg" alt="header-logo2.svg" style={{ height: 70 }} />
                 </a>
               </Link>
               <Link href="/">
                 <a className="position-relative" style={{ marginRight: 15, marginLeft: 15 }}>
-                  <img className="logo img-fluid winner" src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684257815/winner-land_jm56zk.webp" alt="header-logo2.svg" style={{ height: 80 }} />
+                  <img className="logo img-fluid winner" src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684257815/winner-land_jm56zk.webp" alt="header-logo2.svg" style={{ height: 70 }} />
                 </a>
               </Link>
               {/* <a > */}
@@ -63,13 +63,20 @@ const Header = () => {
           <Social />
         </div>
           </div>
-          <nav className="d-flex align-items-center justify-content-center" style={{ flex: 1, textAlign: 'center', backgroundColor:'#35353F' }}>
-
-<HeaderMenuContent />
-</nav>
+         
         </div>
+        <div className="container-fluid col-lg-12 p-0 text-center" style={{borderTop: '1px solid #c2b49a'}}>
+        <nav className="d-flex align-items-center justify-content-center text-center" style={{ flex: 1 }}>
+          <strong>
+          <HeaderMenuContent />
+
+          </strong>
+</nav>
+          </div>
       </header>
+      
     </div>
+    
   );
 };
 
