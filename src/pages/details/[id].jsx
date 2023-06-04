@@ -124,10 +124,14 @@ return val
                 <div className="single_property_social_share position-static transform-none">
                   <div className="price float-start fn-400">
                     {/* price */}
+                    {property?.x_studio_sale_price > 0 ?
                     <h2>
-                      <span style={{ fontSize: '12px' }}>{property?.x_studio_price_prefix}</span>
-                      {property?.x_studio_sale_price && property?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني
-                    </h2>
+                    <span style={{ fontSize: '12px' }}>{property?.x_studio_price_prefix}</span>
+                    {property?.x_studio_sale_price && property?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني
+                  </h2>
+                  :
+                  <></> }
+                    
                   </div>
                 </div>
               </div>
@@ -139,12 +143,17 @@ return val
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="spls_style_two mb30-520">
-                      <Image src={property?.x_studio_featured_url && property?.x_studio_featured_url}
-                        width={752}
-                        height={450}
-                        loading="lazy"
-                        layout="responsive"
-                      />
+                      {property?.x_studio_featured_url ? 
+                      <Image src={property?.x_studio_featured_url}
+                      width={752}
+                      height={450}
+                      // loading="lazy"
+                      layout="responsive"
+                      priority
+                    />
+                    : <></>
+                    }
+                      
                     </div>
                   </div>
                 </div>
