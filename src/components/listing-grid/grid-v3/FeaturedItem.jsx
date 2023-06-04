@@ -24,7 +24,6 @@ const FeaturedItem = ({ headerType, keyword, location, status, type, garages, ba
       }
       else {
         setProeprty(response.data)
-        console.log(response.data)
       }
     }).catch((error) => {
       console.log(error)
@@ -32,7 +31,7 @@ const FeaturedItem = ({ headerType, keyword, location, status, type, garages, ba
   }, [sort])
 
 
-  property?.sort(function(a,b){
+  property?.sort(function (a, b) {
     return new Date(b?.x_studio_create_date_wp) - new Date(a?.x_studio_create_date_wp);
   });
 
@@ -104,9 +103,14 @@ const FeaturedItem = ({ headerType, keyword, location, status, type, garages, ba
 
   // location filter
   const locationHandler = (item) => {
-      if (item?.x_studio_many2one_field_YbLip[1]?.toLowerCase().includes(location)) {
+    if (!item.x_studio_many2one_field_YbLip[1]) {
+      return "عبدون"
+    } else {
+      if (item?.x_studio_many2one_field_YbLip[1]?.includes(location)) {
         return item?.x_studio_many2one_field_YbLip[1]
+      }
     }
+
   }
 
 
@@ -122,18 +126,20 @@ const FeaturedItem = ({ headerType, keyword, location, status, type, garages, ba
   }
 
 
+
+
   // bathrooms filter
   const bathroomsHandler = (item) => {
     if (item?.x_studio_bathrooms_count?.toString().includes(bathrooms)) {
-      return item?.x_studio_bathrooms_count
+      return item?.x_studio_bathrooms_count || "0"
     }
   }
 
 
   // bedrooms filter
   const bedroomsHandler = (item) => {
-    if (item?.x_studio_beedrooms_count?.toString().includes(bedrooms)) {
-      return item?.x_studio_beedrooms_count
+    if (!item?.x_studio_beedrooms_count || item?.x_studio_beedrooms_count?.toString().includes(bedrooms)) {
+      return item?.x_studio_beedrooms_count || "0"
     }
   }
 
@@ -141,7 +147,7 @@ const FeaturedItem = ({ headerType, keyword, location, status, type, garages, ba
   // garages filter
   const garagesHandler = (item) => {
     if (item?.x_studio_garages_count?.toString().includes(garages)) {
-      return item?.x_studio_garages_count
+      return item?.x_studio_garages_count || "0"
     }
   }
 
@@ -157,13 +163,14 @@ const FeaturedItem = ({ headerType, keyword, location, status, type, garages, ba
     }
   }
 
+  console.log(property)
 
   useEffect(() => {
-    setCount((property?.filter(typeHandler)?.filter(areaHandler)?.filter(priceHandler)?.filter(locationHandler)?.filter(bathroomsHandler)?.filter(bedroomsHandler)?.filter(garagesHandler)?.filter(keywordHandler)?.filter(featuredHandler)).length)
+    setCount((property?.filter(typeHandler)?.filter(areaHandler)?.filter(priceHandler)?.filter(locationHandler)?.filter(bedroomsHandler)?.filter(bathroomsHandler)?.filter(garagesHandler)?.filter(keywordHandler)?.filter(featuredHandler)).length)
   }), []
 
-console.log(count)
- 
+
+  console.log(count)
   return (
     <>
       {property?.filter(typeHandler)?.filter(areaHandler)?.filter(priceHandler)?.filter(locationHandler)?.filter(bathroomsHandler)?.filter(bedroomsHandler)?.filter(garagesHandler)?.filter(keywordHandler)?.filter(featuredHandler)?.map((item) => {
@@ -186,12 +193,12 @@ console.log(count)
                     <img className="img-whp" src={item.x_studio_featured_url && item.x_studio_featured_url} alt="fp1.jpg" />
 
                     <div className="thmb_cntnt">
-                      {item.x_studio_sale_price > 0 ? 
-                       <a className="fp_price">
-                       {item.x_studio_sale_price && item.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
-                       </a>
-                      :<></>}
-                     
+                      {item.x_studio_sale_price > 0 ?
+                        <a className="fp_price">
+                          {item.x_studio_sale_price && item.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني
+                        </a>
+                        : <></>}
+
                     </div>
                   </div>
                 </Link>

@@ -31,7 +31,6 @@ const [cities, setCities] = useState([])
   }, [])
 
 
-  console.log(cities)
 
   return (
     <ul className="sasw_list mb0">
