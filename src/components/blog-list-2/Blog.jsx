@@ -1,7 +1,13 @@
 import Link from "next/link";
 import ReactHtmlParser from 'react-html-parser';
 
-const Blog = ({news, keyword, setKeyword, categ, setCateg}) => {
+const Blog = ({setPostNum, postNum, news, keyword, setKeyword, categ, setCateg}) => {
+
+  function handleClick() {
+    setPostNum(prevPostNum => prevPostNum + 6) 
+  }
+
+
 
   const handleSearch = (item)=>{
     if(item?.x_name.toLowerCase().includes(keyword.toLowerCase())
@@ -22,7 +28,7 @@ const Blog = ({news, keyword, setKeyword, categ, setCateg}) => {
   }
   return (
     <>
-{news?.filter(handleSearch)?.filter(handleCategory)?.map((item)=>(
+{news?.filter(handleSearch)?.filter(handleCategory)?.slice(0, postNum)?.map((item)=>(
         <div className="col-lg-6" key={item.id}>
           <div className="for_blog feat_property">
             <div className="thumb">
@@ -68,7 +74,11 @@ const Blog = ({news, keyword, setKeyword, categ, setCateg}) => {
           </div>
         </div>
       ))}
+
+<div style={{ display: "flex", placeContent: "center"}}>
+<button  className="btn btn-thm" type="submit" onClick={handleClick}>عرض المزيد</button></div>
     </>
+    
   );
 };
 

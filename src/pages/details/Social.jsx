@@ -1,4 +1,3 @@
-import {BsTiktok} from 'react-icons/bs'
 import { FaCopy, FaWhatsapp, FaFacebook, FaEnvelope } from 'react-icons/fa';
 
 const Social = ({ propertyUrl }) => {

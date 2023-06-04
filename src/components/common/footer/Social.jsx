@@ -1,4 +1,5 @@
 import {BsTiktok} from 'react-icons/bs'
+import {TbBrandTiktok} from 'react-icons/tb'
 
 const Social = () => {
   const socialContent = [
@@ -19,8 +20,8 @@ const Social = () => {
       ))} */}
       <ul >
        <li className="list-inline-item" >
-          <a href="http://tiktok.com/qoshancom" target="_blank" rel="noopener noreferrer">
-            <i ><BsTiktok width={17} height={17}/></i>
+          <a href="http://tiktok.com/qoshancom" target="_blank" rel="noopener noreferrer" style={{marginLeft: "-5px"}}>
+            <i ><TbBrandTiktok size={25}/></i>
           </a>
         </li>
         <li className="list-inline-item" >

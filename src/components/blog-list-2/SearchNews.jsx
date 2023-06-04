@@ -15,6 +15,8 @@ const SearchNews = ()=>{
     const categoryParams = router.query.category
     const [categ, setCateg] = useState("")
 
+    const [postNum, setPostNum] = useState(6)
+
 // pagination
 const [currentPage, setCurrentPage] = useState(1);
  const pageSize = 6;
@@ -63,7 +65,7 @@ const [currentPage, setCurrentPage] = useState(1);
           <div className="row">
             <div className="col-lg-8">
               <div className="row">
-                <Blog news={news}  keyword={keyword} setKeyword={setKeyword} categ={categ} setCateg={setCateg} />
+                <Blog postNum={postNum} setPostNum={setPostNum} news={news}  keyword={keyword} setKeyword={setKeyword} categ={categ} setCateg={setCateg} />
                 {/* End blog item */}
               </div>
               {/* End .row */}

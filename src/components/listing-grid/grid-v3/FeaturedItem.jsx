@@ -7,7 +7,15 @@ import { BiBath } from 'react-icons/bi'
 import { IoBedOutline } from 'react-icons/io5'
 import Highlighter from "react-highlight-words";
 
-const FeaturedItem = ({ headerType, keyword, location, status, type, garages, bathrooms, bedrooms, minarea, maxarea, age, minprice, maxprice, count, setCount, sort, setSort }) => {
+const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, status, type, garages, bathrooms, bedrooms, minarea, maxarea, age, minprice, maxprice, count, setCount, sort, setSort }) => {
+
+// load more
+ 
+
+  function handleClick() {
+    setPostNum(prevPostNum => prevPostNum + 6) 
+  }
+
 
   // diala
   const [property, setProeprty] = useState([])
@@ -163,7 +171,7 @@ const FeaturedItem = ({ headerType, keyword, location, status, type, garages, ba
     }
   }
 
-  console.log(property)
+
 
   useEffect(() => {
     setCount((property?.filter(typeHandler)?.filter(areaHandler)?.filter(priceHandler)?.filter(locationHandler)?.filter(bedroomsHandler)?.filter(bathroomsHandler)?.filter(garagesHandler)?.filter(keywordHandler)?.filter(featuredHandler)).length)
@@ -173,7 +181,7 @@ const FeaturedItem = ({ headerType, keyword, location, status, type, garages, ba
   console.log(count)
   return (
     <>
-      {property?.filter(typeHandler)?.filter(areaHandler)?.filter(priceHandler)?.filter(locationHandler)?.filter(bathroomsHandler)?.filter(bedroomsHandler)?.filter(garagesHandler)?.filter(keywordHandler)?.filter(featuredHandler)?.map((item) => {
+      {property?.filter(typeHandler)?.filter(areaHandler)?.filter(priceHandler)?.filter(locationHandler)?.filter(bathroomsHandler)?.filter(bedroomsHandler)?.filter(garagesHandler)?.filter(keywordHandler)?.filter(featuredHandler)?.slice(0, postNum)?.map((item) => {
 
 
         return (
@@ -280,6 +288,9 @@ const FeaturedItem = ({ headerType, keyword, location, status, type, garages, ba
         )
 
       })}
+
+<div style={{ display: "flex", placeContent: "center"}}>
+<button  className="btn btn-thm" type="submit" onClick={handleClick}>عرض المزيد</button></div>
     </>
 
 

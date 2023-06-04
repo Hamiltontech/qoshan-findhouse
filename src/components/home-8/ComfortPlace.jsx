@@ -1,12 +1,20 @@
 import Link from "next/link";
 import {TfiRulerAlt} from 'react-icons/tfi'
+import { useState } from "react";
 
 
 const ComfortPlaces = ({data}) => {
 
+  const [ postNum, setPostNum] = useState(8);
+
+  function handleClick() {
+    setPostNum(prevPostNum => prevPostNum + 8) 
+  }
+
+
   return (
     <>
- {data.slice(0,20).map((item) => (
+ {data?.slice(0, postNum).map((item) => (
   <div   className="col-sm-6 col-lg-3"  dir="rtl" key={item.id} >
     <div className="feat_property home3">
       <div className="thumb">
@@ -24,11 +32,15 @@ const ComfortPlaces = ({data}) => {
   </ul> */}
 
           {/* price */}
+          {item.x_studio_sale_price ? 
           <Link href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
-            <a className="fp_price">
-                {item.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
-            </a>
-          </Link>
+          <a className="fp_price">
+              {item.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
+          </a>
+        </Link>
+        : <></>  
+        }
+        
         </div>
       </div>
 
@@ -62,10 +74,12 @@ const ComfortPlaces = ({data}) => {
     </div>
   </div>
 ))}
-
+<div style={{ display: "flex", placeContent: "center"}}>
+<button  className="btn btn-thm" type="submit" onClick={handleClick}>عرض المزيد</button></div>
     </>
   );
 };
+
 
 export default ComfortPlaces;
 

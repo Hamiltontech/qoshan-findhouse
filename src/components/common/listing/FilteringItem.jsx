@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 
-const FilteringItem = ({ headerType, setHeaderType, setSort, keyword, location, type, garages, bathrooms, bedrooms, minarea, maxarea, age, minprice, maxprice, setKeyword, setLocation, setStatus, setType, setGarages, setBathroom, setBedroom, setAreaMax, setAreaMin, setBuiltYear, setMaxprice, setMinprice }) => {
+const FilteringItem = ({postNum,setPostNum, headerType, setHeaderType, setSort, keyword, location, type, garages, bathrooms, bedrooms, minarea, maxarea, age, minprice, maxprice, setKeyword, setLocation, setStatus, setType, setGarages, setBathroom, setBedroom, setAreaMax, setAreaMin, setBuiltYear, setMaxprice, setMinprice }) => {
 
   // clear filter
   const clearHandler = () => {
@@ -17,6 +17,7 @@ const FilteringItem = ({ headerType, setHeaderType, setSort, keyword, location, 
     setMinprice('أقل سعر')
     setMaxprice("أعلى سعر")
     setSort("")
+    setPostNum(6)
 
   };
 

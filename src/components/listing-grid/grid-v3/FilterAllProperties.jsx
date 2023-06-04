@@ -26,6 +26,8 @@ const FilterAllProperties = () =>{
     const [minprice, setMinprice] = useState('أقل سعر')
     const [maxprice, setMaxprice] = useState("أعلى سعر")
 
+    const [ postNum, setPostNum] = useState(6);
+
     // diala - top bar
 // filtered count
 const [count, setCount] = useState(0)
@@ -150,6 +152,7 @@ return(
         maxprice={maxprice}
         minprice={minprice}
         setSort={setSort}
+        postNum={postNum} setPostNum={setPostNum}
 
         headerType={headerType} 
         setHeaderType={setHeaderType}
@@ -192,6 +195,7 @@ return(
 
       <div className="row">
         <FeaturedItem
+        postNum={postNum} setPostNum={setPostNum}
         keyword={keyword}
         location={location} 
         status={status} 

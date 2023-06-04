@@ -13,7 +13,6 @@ import PopupSignInUp from "../../components/common/PopupSignInUp";
 import Seo from "../../components/common/seo";
 import Image from 'next/image'
 import Share from '../details/Social'
-
 import ReactHtmlParser from 'react-html-parser';
 import RelatedPost from '../../components/blog-details/RelatedPost'
 
@@ -37,6 +36,8 @@ const BlogDetailsDynamic = () => {
     })
   }, [id])
 
+const propertyUrl = window.location.href
+
 
   return (
     <>
@@ -45,7 +46,7 @@ const BlogDetailsDynamic = () => {
       <MobileMenu />
       <PopupSignInUp />
 
-      <section className="blog_post_container bgc-f7" dir="rtl">
+      <section className="blog_post_container bgc-f7 " dir="rtl">
         <div className="container">
           <div className="row">
             <div className="col-xl-6">
@@ -53,7 +54,7 @@ const BlogDetailsDynamic = () => {
             </div>
           </div>
 
-          <div className="row">
+          <div className="row mt60">
             <div className="col-lg-8">
               {article && (
                 <div className="main_blog_post_content">
@@ -85,7 +86,7 @@ const BlogDetailsDynamic = () => {
                       <li>
                       </li>
                       <ul className="contact_form_social_area">
-        <Share />
+        <Share propertyUrl={propertyUrl}/>
       </ul>
                     </ul>
                     <div className="details">
