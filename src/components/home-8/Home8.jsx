@@ -31,7 +31,6 @@ const Home8 = () => {
 
   
 
-
   useEffect(() => {
     axios.get("/data.json").then((res) => {
       setData(res.data)

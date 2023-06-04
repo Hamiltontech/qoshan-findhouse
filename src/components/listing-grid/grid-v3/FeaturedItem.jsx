@@ -9,11 +9,11 @@ import Highlighter from "react-highlight-words";
 
 const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, status, type, garages, bathrooms, bedrooms, minarea, maxarea, age, minprice, maxprice, count, setCount, sort, setSort }) => {
 
-// load more
- 
+  // load more
+
 
   function handleClick() {
-    setPostNum(prevPostNum => prevPostNum + 6) 
+    setPostNum(prevPostNum => prevPostNum + 6)
   }
 
 
@@ -29,6 +29,11 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
       ) {
         let arr = response.data.sort((a, b) => parseFloat(a?.x_studio_sale_price) - parseFloat(b?.x_studio_sale_price));
         setProeprty(arr)
+      } else if (
+        sort === "recent"
+      ) {
+        let arr = response.data.sort((a, b) => new Date(b?.x_studio_create_date_wp) - new Date(a?.x_studio_create_date_wp));
+        setProeprty(arr)
       }
       else {
         setProeprty(response.data)
@@ -39,39 +44,11 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
   }, [sort])
 
 
-  property?.sort(function (a, b) {
-    return new Date(b?.x_studio_create_date_wp) - new Date(a?.x_studio_create_date_wp);
-  });
-
-  // useEffect(()=>{
-  //   axios.get("https://strapi-125841-0.cloudclusters.net/api/proerties?populate=*").then((res)=>{
-  //     if(
-  //           sort === "lowPrice"
-  //     ){
-  //       let arr = res?.data?.data?.sort((a, b) => parseFloat(a?.attributes?.Price) - parseFloat(b?.attributes?.Price));
-  //       setProeprty(arr)
-  //     }else if(
-  //       sort === "recent"
-  //     ){
-  //       let arr = res?.data?.data?.sort((a, b) => new Date(b?.attributes?.updatedAt) - new Date(a?.attributes?.updatedAt));
-  //       setProeprty(arr)
-  //     }
-  //     else{
-  //       setProeprty(res?.data?.data)
-  //     }
-
-  // }).catch((err)=>{
-  //   console.log(err)
-  // })
-  // }, [sort])
-
   const { isGridOrList } = useSelector(
     (state) => state.filter
   );
 
-
   // sorting
-
   const featuredHandler = (item) => {
     if (sort === "faetured") {
       if (item?.x_studio_featured_property === true) {
@@ -289,8 +266,8 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
 
       })}
 
-<div style={{ display: "flex", placeContent: "center"}}>
-<button  className="btn btn-thm" type="submit" onClick={handleClick}>عرض المزيد</button></div>
+      <div style={{ display: "flex", placeContent: "center" }}>
+        <button className="btn btn-thm" type="submit" onClick={handleClick}>عرض المزيد</button></div>
     </>
 
 
