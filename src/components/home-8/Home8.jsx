@@ -29,6 +29,9 @@ const Home8 = () => {
   const [heroProperties, setHeroProperties] = useState([])
 
 
+  
+
+
   useEffect(() => {
     axios.get("/data.json").then((res) => {
       setData(res.data)

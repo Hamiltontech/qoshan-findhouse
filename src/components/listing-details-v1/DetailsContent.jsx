@@ -6,7 +6,7 @@ import RelatedPost from "./RelatedPost";
 
 
 
-const DetailsContent = ({property, relatedType, relatedLocation}) => {
+const DetailsContent = ({features, property, relatedType, relatedLocation}) => {
   return (
     <>
       <div className="listing_single_description" dir="rtl">
@@ -35,7 +35,7 @@ const DetailsContent = ({property, relatedType, relatedLocation}) => {
             <h4 className="">مميزات</h4>
           </div>
           {/* End .col */}
-          <PropertyFeatures property={property} />
+          <PropertyFeatures features={features} property={property} />
         </div>
       </div>
       {/* End .feature_area */}

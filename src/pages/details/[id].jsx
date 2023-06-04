@@ -47,25 +47,28 @@ const ListingDynamicDetailsV1 = () => {
   }, [id])
 
 
+
+// tags
   const [inittags, setinitTags] = useState([])
-  const [tags, setTags] = useState([])
 
-
-  const handleTags = ()=>{
-    let arr = []
-      property?.x_studio_tags?.map((item)=>{
-        const found = inittags?.find(el => el.id === item);
-        arr.push(found)
-      })
-      setTags(arr)
-  }
+// features
+const [initfeatures, setinitFeatures] = useState([])
+ 
+  useEffect(()=>{
+    axios.get("/property_features.json").then((res)=>{
+      setinitFeatures(res.data)
+    })
+  }, [id])
 
   useEffect(()=>{
     axios.get("/property_tags.json").then((res)=>{
       setinitTags(res.data)
-      handleTags()
     })
   }, [id])
+
+
+  let tags =  inittags.filter(c => property?.x_studio_tags?.includes(c.id));
+  let features =  initfeatures.filter(c => property?.x_studio_many2many_field_Tzhpw?.includes(c.id));
 
 
   const url = property?.x_name?.replace(/\s+/g, '-')
@@ -75,7 +78,6 @@ if (val !== ", ")
 {
 return val
 }}
-
 
 
   return (
@@ -197,7 +199,7 @@ return val
         <div className="container">
           <div className="row">
             <div className="col-md-12 col-lg-8">
-              <DetailsContent property={property} relatedType={relatedType} relatedLocation={relatedLocation} />
+              <DetailsContent features={features} property={property} relatedType={relatedType} relatedLocation={relatedLocation} />
             </div>
             {/* End details content .col-lg-8 */}
 
