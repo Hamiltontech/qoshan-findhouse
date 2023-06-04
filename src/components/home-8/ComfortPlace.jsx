@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {TfiRulerAlt} from 'react-icons/tfi'
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 
 const ComfortPlaces = ({data}) => {
@@ -11,7 +12,18 @@ const ComfortPlaces = ({data}) => {
     setPostNum(prevPostNum => prevPostNum + 8) 
   }
 
+  // const [inittags, setinitTags] = useState([])
+  // useEffect(()=>{
+  //   axios.get("/property_tags.json").then((res)=>{
+  //     setinitTags(res.data)
+  //   })
+  // }, [])
 
+
+  // let tags = data?.map((item)=>{
+  //   inittags.filter(c => item?.x_studio_tags?.includes(c.id));
+  // })
+ 
   return (
     <>
  {data?.slice(0, postNum).map((item) => (
@@ -23,9 +35,9 @@ const ComfortPlaces = ({data}) => {
 
           {/* tags */}
           {/* <ul className="tag ">
-  {item?.attributes?.property_tags?.data?.map((item)=>(
+  {tags.map((item)=>(
     <li key={item?.id} className="list-inline-item" style={{width: "150px"}}>
-        <a>{item?.attributes?.Tag}</a>
+        <a>{item?.x_name}</a>
      </li>
  
   ))}
