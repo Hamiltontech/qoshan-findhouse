@@ -18,15 +18,16 @@ const Header = () => {
   };
   useEffect(() => {
     axios
-      .get("https://strapi-125841-0.cloudclusters.net/api/header-ad?populate=*")
+      .get("/advert.json")
       .then((response) => {
-        const res = response.data.data;
+        const res = response.data[0];
         setData(res);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
+
 
 
   return (
@@ -49,14 +50,13 @@ const Header = () => {
                   <img className="logo img-fluid winner" src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684257815/winner-land_jm56zk.webp" alt="header-logo2.svg" style={{ height: 70 }} />
                 </a>
               </Link>
-              {/* <a > */}
-              <a href={data?.attributes?.URL} className="position-relative" style={{ marginRight: 15, marginLeft: 15 }}>
-                {/* <img className="logo img-fluid winner" src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684257815/winner-land_jm56zk.webp" alt="header-logo2.svg" style={{ height: 80 }} /> */}
-                <Image src={'https://strapi-125841-0.cloudclusters.net' + data?.attributes?.advert?.data?.attributes?.url}
+            
+              <a href={data?.x_studio_advert_url_top} className="position-relative" style={{ marginRight: 15, marginLeft: 15 }}>
+                <Image src={data?.x_studio_image_url_top}
                   width={200}
                   height={80}
-                />                                </a>
-              {/* </a> */}
+                />
+                </a>
 
             </div>
             <div className="footer_social_widget col-lg-4 " style={{ fontSize: 18, direction: 'rtl', textAlign: 'left', paddingLeft: "15px" }}>
