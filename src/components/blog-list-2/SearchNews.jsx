@@ -26,8 +26,6 @@ const [currentPage, setCurrentPage] = useState(1);
  };
 
 
-
-
     const [news, setNews] = useState([])
 
       useEffect(()=>{

@@ -47,6 +47,27 @@ const ListingDynamicDetailsV1 = () => {
   }, [id])
 
 
+  const [inittags, setinitTags] = useState([])
+  const [tags, setTags] = useState([])
+
+
+  const handleTags = ()=>{
+    let arr = []
+      property?.x_studio_tags?.map((item)=>{
+        const found = inittags?.find(el => el.id === item);
+        arr.push(found)
+      })
+      setTags(arr)
+  }
+
+  useEffect(()=>{
+    axios.get("/property_tags.json").then((res)=>{
+      setinitTags(res.data)
+      handleTags()
+    })
+  }, [id])
+
+
   const url = property?.x_name?.replace(/\s+/g, '-')
 
 const handleImages = (val)=>{
@@ -54,6 +75,8 @@ if (val !== ", ")
 {
 return val
 }}
+
+
 
   return (
     <>
@@ -75,13 +98,14 @@ return val
               <div className="col-lg-7 col-xl-8">
 
                 {/* tags */}
-                {/* <ul className="tag">
-                  {property?.attributes?.property_tags?.data?.map((item) => (
-                    <li key={property?.id} className="list-inline-item" style={{ color: 'white', margin: '6px', backgroundColor: '#c2b49a', paddingLeft: '20px', paddingRight: '20px', borderRadius: '6px' }}>
-                      {item?.attributes?.Tag}
+                <ul className="tag">
+                  {tags?.map((item) => (
+                    <li key={item?.id} className="list-inline-item" style={{ color: 'white', margin: '6px', backgroundColor: '#c2b49a', paddingLeft: '20px', paddingRight: '20px', borderRadius: '6px' }}>
+                      {item?.x_name}
                     </li>
                   ))}
-                </ul> */}
+                </ul>
+              
 
                 <div className="single_property_title mt30-767">
                   <h2>{property?.x_name}</h2>
@@ -162,7 +186,7 @@ return val
           </Gallery>
           {/* <Sharing propertyUrl={`https://qoshan-findhouse.vercel.app/details/${url}`} /> */}
 
-          <ul className="contact_form_social_area">
+          <ul className="contact_form_social_area mt30">
             <Social propertyUrl={`https://qoshan-findhouse.vercel.app/details/${url}`} />
           </ul>
         </div>

@@ -7,7 +7,6 @@ import Advert from "../common/listing/advert";
 import Advert2 from "../common/listing/advert-two";
 const Sidebar = ({relatedType, relatedLocation, featured, propertyLink, propertyName}) => {
 
-console.log(propertyLink)
   return (
     <>
       <div className="sidebar_listing_list" dir="rtl">
