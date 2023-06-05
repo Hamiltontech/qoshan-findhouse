@@ -72,10 +72,10 @@ const FilterTopBar = ({count, sort, setSort}) => {
                 onChange={(e) => setSort(e.target.value)}
                 value={sort}
               >
-                <option value="">جميع العقارات</option>
+                <option value="recent">أحدث العقارات</option>
                 <option value="faetured">العقارات المميزة</option>
                 <option value="lowPrice">الأقل سعرا</option>
-                <option value="recent">أحدث العقارات</option>
+                {/* <option value="recent">أحدث العقارات</option> */}
               </select>
             </li>
           </ul>

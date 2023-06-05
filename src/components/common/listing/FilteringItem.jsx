@@ -16,7 +16,7 @@ const FilteringItem = ({postNum,setPostNum, headerType, setHeaderType, setSort, 
     setAreaMin('أقل مساحة')
     setMinprice('أقل سعر')
     setMaxprice("أعلى سعر")
-    setSort("")
+    setSort("recent")
     setPostNum(6)
 
   };

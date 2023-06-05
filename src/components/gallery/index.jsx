@@ -8,6 +8,7 @@ import GalleryBox from "./GalleryBox";
 import Season1 from "./season1";
 import Season2 from "./season2"
 import Season3 from "./season3"
+import Laith from "./Laith";
 const index = () => {
   return (
     <>
@@ -26,6 +27,7 @@ const index = () => {
       {/* <!-- About Text Content --> */}
       <section className="pb30">
         <div className="container">
+          <Laith />
           <div className="row">
           <Season3/>
           <br></br>

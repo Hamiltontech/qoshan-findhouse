@@ -47,7 +47,7 @@ const FeaturedProperties = ({ featured }) => {
           <div className="item" key={item?.id} dir="rtl">
             <div className="feat_property home3">
               <div className="thumb">
-                <img className="img-whp" src={item.x_studio_featured_url && item.x_studio_featured_url} alt="fp1.jpg" />
+                <img className="img-whp" src={item?.x_studio_featured_url && item?.x_studio_featured_url} alt="fp1.jpg" />
                 <div className="thmb_cntnt">
 
                   {/* tags */}
@@ -66,9 +66,9 @@ const FeaturedProperties = ({ featured }) => {
 
                   {/* price */}
 
-                  <Link href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
+                  <Link href={`/details/${item?.x_name.replace(/\s+/g, '-')}`}>
                     <a className="fp_price">
-                    {item.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
+                    {item?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
 
                     </a>
                   </Link>

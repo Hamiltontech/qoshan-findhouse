@@ -139,11 +139,9 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
 
   // keyword filter
   const keywordHandler = (item) => {
-    if (item?.x_name?.toLowerCase().includes(keyword.toLowerCase())
-      ||
-      item?.x_studio_property_information?.toLowerCase().includes(keyword.toLowerCase())) {
+    if (item?.x_name?.toLowerCase().includes(keyword.toLowerCase())) {
       return (
-        item?.x_name || item?.x_studio_property_information
+        item?.x_name 
       )
     }
   }

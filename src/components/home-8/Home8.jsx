@@ -89,7 +89,7 @@ const Home8 = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center mt10">
-              {featured.length > 0 && <Advert />}
+               {/* <Advert /> */}
             </div>
 
             <div className="main-title mb40 mt30">
