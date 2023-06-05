@@ -19,6 +19,10 @@ const Blogs = () => {
     })
   }, [])
 
+  data?.sort(function(a,b){
+    return new Date(b?.x_studio_create_date_wp) - new Date(a?.x_studio_create_date_wp);
+  });
+
 
   return (
     <>
@@ -28,7 +32,7 @@ const Blogs = () => {
             <div className="thumb">
               <Link href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
                 <a>
-                  <img className="img-whp" src={item.x_studio_property_images && item.x_studio_property_images.split(",")[0]} alt="bh1.jpg" />
+                  <img className="img-whp" src={item.x_studio_featured_url} alt="bh1.jpg" />
                 </a>
               </Link>
             </div>
