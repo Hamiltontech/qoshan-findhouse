@@ -1,302 +1,213 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Field } from 'formik';
+import { useState } from 'react';
 
-const Form = () => {
+const ContactForm = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [area, setArea] = useState('');
+  const [body, setBody] = useState('');
+  const [message, setMessage] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
-  // const [files, setFiles] = useState([]);
+  const [propertyType, setPropertyType] = useState('');
+  const [sellingPrice, setSellingPrice] = useState('');
+  const [propertyArea, setPropertyArea] = useState('');
+  const [propertyImages, setPropertyImages] = useState([]);
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
 
-  //   const formData = new FormData(event.target);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+formData.append('name', name);
+formData.append('email', email);
+formData.append('phone', phone);
+formData.append('area', area);
+formData.append('propertyType', propertyType);
+formData.append('sellingPrice', sellingPrice);
+formData.append('propertyArea', propertyArea);
+formData.append('body', body);
+propertyImages.forEach((image, index) => {
+  formData.append(`image_${index + 1}`, image);
+});
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, phone, area, propertyType, sellingPrice, propertyArea, body }),
+      });
 
-  //   try {
-      
-  //     const response = await axios({
-  //       method: 'post',
-  //       url: 'https://strapi-125841-0.cloudclusters.net/api/upload/files',
-  //       data: formData
-  //     });
+      const data = await response.json();
 
-  //     const imageId = response.data[0].id;
-
-  //     const submissionData = {
-  //       Name: formData.get('name'),
-  //       phone: formData.get('phone'),
-  //       email: formData.get('email'),
-  //       larea: formData.get('larea'),
-  //       Area: formData.get('area'),
-  //       type: formData.get('type'),
-  //       price: formData.get('price'),
-  //       city: formData.get('city'),
-  //       Address: formData.get('address'),
-  //       image: imageId,
-  //     };
-
-  //     const submissionResponse = await axios.post(
-  //       'https://strapi-125841-0.cloudclusters.net/api/submissions',
-  //       { data: submissionData }
-  //     );
-
-  //     if (submissionResponse.status === 200) {
-  //       setIsSubmitted(true);
-  //       console.log('Submission successful!');
-  //     } else {
-  //       console.error('Submission error:', submissionResponse.statusText);
-  //     }
-  //   } catch (error) {
-  //     console.error('Fetch error:', error);
-  //   }
-  // };
-
-  // const handleFileChange = (event) => {
-  //   setFiles(event.target.files);
-  // };
-
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [address, setAddress] = useState("")
-    const [map, setMap] = useState("")
-    const [area, setArea] = useState(null)
-    const [larea, setLarea] = useState(null)
-    const [city, setCity] = useState("")
-    const [phone, setPhone] = useState(null)
-    const [price, setPrice] = useState(null)
-    const [type, setType] = useState("")
-    const [media, setMedia] = useState(null)
-
-    const handleSubmit = async (e)=>{
-      e.preventDefault()
-
-      const file = new FormData()
-      file.append("files", media)
-      
-      let data = new FormData();
-      data.append("Name", name)
-      data.append("Email", email)
-      data.append("Address", address)
-      data.append("Area", area)
-      data.append("larea", larea)
-      data.append("price", price)
-      data.append("phone", phone)
-      data.append("city", city)
-      data.append("type", type)
-      data.append("files", media);
-      
-      axios.post("https://strapi-125841-0.cloudclusters.net/api/upload/", file
-      ).then((res)=>{
-        const fileId = res.data[0].id
+      if (response.ok) {
+        setMessage(data.message);
+        setName('');
+        setEmail('');
+        setPhone('');
+        setArea('');
+        setPropertyType('');
+        setSellingPrice('');
+        setPropertyArea('');
+        setPropertyImages([]);
+        setBody('');
         
-        axios.post("https://strapi-125841-0.cloudclusters.net/api/submissions", {
-          "data":{
-            "Name": name,
-            "Email": email,
-            "Address": address,
-            "Area": area,
-            "larea": larea,
-            "price": price,
-            "phone": phone,
-            "city": city,
-            "type": type,
-            "Gallery": fileId
-          }
-        }).then((data) => {
-          console.log(data)
-          setIsSubmitted(true)
-      }).catch((err)=>{
-        console.log(err)
-      })
-      }).catch((error)=>{
-        console.log(error)
-      })
-    }
 
-    console.log(media)
-  
+      } else {
+        setMessage('Failed to send email');
+      }
+    } catch (error) {
+      console.error(error);
+      setMessage('Failed to send email');
+    }
+  };
+
   return (
     <div>
-      <form className="contact_form" onSubmit={handleSubmit}>
-        {/* Name field */}
-        <div className="row">
-          <div className="col-md-12">
+      {message && <p>{message}</p>}
+      <form onSubmit={handleSubmit}>
+      <div className="row">
+      <div className="col-sm-12">
             <div className="form-group">
-              <input
-                id="name"
-                name="name"
-                className="form-control"
-                required="required"
-                type="text"
-                placeholder="اسمك الكامل"
-                onChange={(e)=>setName(e.target.value)}
-              />
-            </div>
+            <label htmlFor="name">اسمك الكامل</label>
+        <input
+          id="name"
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+                </div>
           </div>
+                  <div className="col-md-6">
+            <div className="form-group">
+              <label htmlFor="email">البريد الالكتروني</label>
+        <input
+          id="email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
         </div>
+          </div>
+          <div className="col-md-6">
+            <div className="form-group">
+              <label htmlFor="phone">هاتف</label>
+        <input
+          id="phone"
+          type="tel"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+        />
+          </div>
+          </div>
+          <div className="col-sm-12">
+  <div className="form-group">
+    <label htmlFor="area">عنوان العقار</label>
+    <input
+      id="area"
+      type="text"
+      value={area}
+      onChange={(e) => setArea(e.target.value)}
+    />
+  </div>
+  <div className="row">
 
-        {/* Contact information */}
-        <span style={{ textAlign: 'center', marginTop: 10, marginBottom: 10 }}>
-          معلومات التواصل
-        </span>
-        <div className="row">
-          <div className="col-md-6">
+  <div className="col-sm-6">
+  <div className="form-group">
+    <label htmlFor="propertyType">نوع العقار</label>
+    <div className="input-group">
+    <select
+      id="propertyType"
+      value={propertyType}
+      onChange={(e) => setPropertyType(e.target.value)}
+    >
+      <option value="">اختر نوع العقار</option>
+      <option value="apartment">شقة</option>
+      <option value="villa">فيلا</option>
+      <option value="land">أرض</option>
+    </select>
+    </div>
+  </div>
+</div>
+<div className="col-sm-6">
+  <div className="form-group">
+    <label htmlFor="sellingPrice">سعر البيع</label>
+    <div className="input-group">
+      <input
+        id="sellingPrice"
+        type="text"
+        value={sellingPrice}
+        onChange={(e) => setSellingPrice(e.target.value)}
+      />
+    </div>
+  </div>
+</div>
+</div>
+
+<div className="col-sm-6">
+  <div className="form-group">
+    <label htmlFor="propertyArea">مساحة العقار</label>
+    <div className="input-group">
+      <input
+        id="propertyArea"
+        type="text"
+        value={propertyArea}
+        onChange={(e) => setPropertyArea(e.target.value)}
+      />
+    </div>
+  </div>
+</div>
+
+</div>
+          <div className="col-sm-12">
             <div className="form-group">
-              <input
-                id="email"
-                name="email"
-                className="form-control required email"
-                required="required"
-                type="email"
-                placeholder="البريد الالكتروني"
-                onChange={(e)=>setEmail(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="form-group">
-              <input
-                id="phone"
-                name="phone"
-                className="form-control required phone"
-                required="required"
-                type="phone"
-                placeholder="هاتف"
-                onChange={(e)=>setPhone(e.target.value)}
-              />
-            </div>
-          </div>
+              <label htmlFor="message">رسالتك</label>        <textarea
+          id="body"
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+        />
+                    </div>
+                    <div className="col-sm-12">
+  <div className="form-group">
+    <label htmlFor="propertyImages">صور العقار</label>
+    <input
+      id="propertyImages"
+      type="file"
+      accept="image/*"
+      multiple
+      onChange={(e) => setPropertyImages(Array.from(e.target.files))}
+    />
+  </div>
+</div>
+
+                    <div className="form-group mb-0">
+
+        <button type="submit" className="btn btn-lg btn-thm">ارسال</button>
         </div>
-
-        {/* Area information */}
-        <span style={{ textAlign: 'center', marginTop: 10, marginBottom: 10 }}>
-          معلومات المساحة
-        </span>
-        <div className="row">
-          <div className="col-md-6">
-            <div className="form-group">
-              <input
-                id="area"
-                name="area"
-                className="form-control required"
-                required="required"
-                type="text"
-                placeholder="مساحة العقار"
-                onChange={(e)=>setArea(e.target.value)}
-              />
-            </div>
           </div>
-          <div className="col-md-6">
-            <div className="form-group">
-              <input
-                id="larea"
-                name="larea"
-                className="form-control required"
-                required="required"
-                type="text"
-                placeholder="المساحة بالأمتار"
-                onChange={(e)=>setLarea(e.target.value)}
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Property details */}
-        <span style={{ textAlign: 'center', marginTop: 10, marginBottom: 10 }}>
-          تفاصيل العقار
-        </span>
-        <div className="row">
-          <div className="col-md-6">
-            <div className="form-group">
-              <input
-                id="type"
-                name="type"
-                className="form-control required"
-                required="required"
-                type="text"
-                placeholder="نوع العقار"
-                onChange={(e)=>setType(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="form-group">
-              <input
-                id="price"
-                name="price"
-                className="form-control required"
-                required="required"
-                type="text"
-                placeholder="سعر العقار"
-                onChange={(e)=>setPrice(e.target.value)}
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Additional information */}
-        <span style={{ textAlign: 'center', marginTop: 10, marginBottom: 10 }}>
-          معلومات إضافية
-        </span>
-        <div className="row">
-          <div className="col-md-6">
-            <div className="form-group">
-              <input
-                id="city"
-                name="city"
-                className="form-control required"
-                required="required"
-                type="text"
-                placeholder="المدينة"
-                onChange={(e)=>setCity(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="form-group">
-              <input
-                id="address"
-                name="address"
-                className="form-control required"
-                required="required"
-                type="text"
-                placeholder="العنوان"
-                onChange={(e)=>setAddress(e.target.value)}
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* File upload field */}
-        <div className="col-md-6">
-          <div className="form-group">
-            <input
-              id="image"
-              name="image"
-              className="form-control"
-              // required="required"
-              type="file"
-              // onChange={handleFileChange}
-              onChange={(e)=>setMedia(e.target.files[0])}
-            />
-          </div>
-        </div>
-
-        {/* Submit button */}
-        <div className="form-group mb0">
-          <button type="submit" className="btn btn-lg btn-thm">
-            ارسال
-          </button>
         </div>
       </form>
-
       {isSubmitted && (
         <div className="success-message">
-          <p style={{color: 'white'}}>تم ارسال الرسالة بنجاح</p>
+          <p>تم ارسال الرسالة بنجاح</p>
         </div>
-       )}
+      )}
 
-      {/* Additional styles */}
       <style jsx>{`
+        .form-group {
+          margin-bottom: 20px;
+        }
+
+        label {
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        input,
+        textarea {
+          width: 100%;
+          padding: 10px;
+        }
+
         .success-message {
           background-color: #42c966;
           color: #fff;
@@ -319,4 +230,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default ContactForm;
