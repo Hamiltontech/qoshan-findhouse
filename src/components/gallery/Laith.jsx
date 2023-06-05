@@ -13,6 +13,7 @@ const Laith = () => {
           `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC_dx1Isro1pudToX4xDKqlg&key=AIzaSyDRU6kE78hnlAc6m8ROFMouwRberRQF-kk&maxResults=18`
         );
         setPlaylistData(response.data.items);
+        console.log(response)
       } catch (error) {
         console.error('Error fetching playlist data:', error);
       }
@@ -34,7 +35,7 @@ const Laith = () => {
       <h1>قناة قوشان على اليوتيوب</h1>
       <div className="video-grid">
         {playlistData.map((item) => (
-          <div key={item.id} className="video-item" onClick={() => handleVideoClick(item.snippet.resourceId.videoId)}>
+          <div key={item.id} className="video-item" onClick={() => handleVideoClick(item?.id?.videoId)}>
             <div className="thumbnail">
               <img src={item.snippet.thumbnails.medium.url} alt={item.snippet.title} />
             </div>
