@@ -15,12 +15,12 @@ const FindProperties = () => {
 
   return (
     <>
-      <Link href={data?.x_studio_advert_url_search} className="position-relative" style={{ marginRight: 15, marginLeft: 15 }}>
+      <a href={data?.x_studio_advert_url_search} className="position-relative" style={{ marginRight: 15, marginLeft: 15 }}>
         <Image src={data?.x_studio_image_url_search}
           width={729}
           height={90}
         /> 
-      </Link>
+      </a>
     </>
   );
 };
