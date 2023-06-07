@@ -24,6 +24,12 @@ const transporter = nodemailer.createTransport({
         to: 'info@qoshan.com',
         subject: 'آعلن عن عقارك',
         text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nArea: ${area}\nProperty Type: ${propertyType}\nSelling Price: ${sellingPrice} \nProperty Area: ${PropertyArea} \n${body}`,
+       attachments : [
+        {
+          filename: "testing.png",
+          path: "https://res.cloudinary.com/dhk7qsnfv/image/upload/v1686130405/1-7_glnwhu_x8w7rg.webp"
+        }
+       ]
       });
 
       res.status(200).json({ message: 'تم ارسال الرسالة بنجاح' });
