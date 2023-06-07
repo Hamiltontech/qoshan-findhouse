@@ -61,6 +61,7 @@ propertyImages.forEach((image, index) => {
     }
   };
 
+
   return (
     <div>
       {message && <p>{message}</p>}
@@ -174,11 +175,10 @@ propertyImages.forEach((image, index) => {
       type="file"
       accept="image/*"
       multiple
-      onChange={(e) => setPropertyImages(Array.from(e.target.files))}
+      onChange={(e) => {setPropertyImages(Array.from(e.target.files)); console.log(Array.from(e.target.files))}}
     />
   </div>
 </div>
-
                     <div className="form-group mb-0">
 
         <button type="submit" className="btn btn-lg btn-thm">ارسال</button>

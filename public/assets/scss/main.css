@@ -8827,7 +8827,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 
 /*== Inner Pages Breadcrumb ==*/
 .inner_page_breadcrumb {
-  background-image: url(https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684269734/Untitled-1_y2etq0.jpg);
+  background-image: url(https://res.cloudinary.com/dhk7qsnfv/image/upload/v1686130405/1-7_glnwhu_x8w7rg.webp);
   background-repeat: no-repeat;
   background-size: cover;
   height: 370px;
@@ -8842,7 +8842,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 }
 
 .inner_page_breadcrumb:before {
-  background-color: rgb(29, 41, 62);
+  background-color: white;
   bottom: 0;
   content: "";
   left: 0;
@@ -8850,6 +8850,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   position: absolute;
   right: 0;
   top: 0;
+ 
 }
 
 .inner_page_breadcrumb .breadcrumb_content {
@@ -8876,7 +8877,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .inner_page_breadcrumb .breadcrumb_title {
   font-size: 40px;
   font-family: "Changa";
-  color: #C2B49A;
+  color: #404041;
   font-weight: bold;
   line-height: 1.2;
   margin-bottom: 0;
