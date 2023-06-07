@@ -2,11 +2,11 @@ import BreadCrumb from "../common/BreadCrumb";
 
 const BreadCrumbBanner = () => {
   return (
-    <section className="inner_page_breadcrumb">
-      <div className="container">
+    <section className="inner_page_breadcrumb" >
+      <div className="container" style={{display: "flex", justifyContent: "center", paddingTop: "40px"}}>
         <div className="row">
-          <div className="col-xl-6">
-            <div className="breadcrumb_content">
+          <div className="" >
+            <div className="breadcrumb_content" >
               <h4 className="breadcrumb_title">تواصل معنا</h4>
             </div>
           </div>

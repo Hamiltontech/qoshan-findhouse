@@ -931,6 +931,12 @@ ul.sign_up_btn.home7 a {
   padding-left: 30px;
   width: 350px;
 }
+
+.footer_one .container {
+  max-width: 2100px !important;
+}
+
+
 @media (min-width: 1500px) and (max-width: 1800px) {
   .header_search_widget .mailchimp_form .form-control {
     width: 280px;
@@ -8371,22 +8377,22 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 }
 
 .footer_one {
-  background-color: #404041;
+  background-color: white;
   direction: rtl;
 }
 
 .footer_middle_area {
-  background-color: #35353F;
+  background-color: white;
 }
 
 .footer_bottom_area {
-  background-color: #484848;
+  background-color: white;
 }
 
 .copyright-widget p {
   font-size: 14px;
   font-family: "Changa";
-  color: #8a99b3;
+  color: #777777;
   line-height: 2.143;
   margin-bottom: 0;
 }
@@ -8395,6 +8401,10 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .home3 .copyright-widget p a,
 .home6 .copyright-widget p {
   color: #777777;
+}
+
+.footer_middle_area .container {
+  max-width: 2100px;
 }
 
 .footer_one.home3 {
@@ -8464,13 +8474,13 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .home5 .footer_qlink_widget li a,
 .home5 .footer_contact_widget li a,
 .home5 .footer_social_widget li a {
-  color: #98a2aa;
+  color: #404041;
 }
 
 .home6 .footer_about_widget p,
 .home6 .footer_qlink_widget li a,
 .home6 .footer_contact_widget li a {
-  color: #777777;
+  color: #404041;
 }
 
 .home6 .footer_social_widget li a {
@@ -8478,7 +8488,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 }
 
 .footer_about_widget.home3 p {
-  color: #777777;
+  color: #404041;
 }
 
 .footer_contact_widget li {
@@ -8494,7 +8504,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .footer_contact_widget h4,
 .footer_social_widget h4,
 .footer_apps_widget h4 {
-  color: #ffffff;
+  color: #777777;
   font-weight: bold;
   margin-bottom: 25px;
 }
@@ -8537,7 +8547,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .footer_contact_widget li a {
   font-size: 14px;
   font-family: "Changa";
-  color: #c2b49a;
+  color: #777777;
   line-height: 2.429;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;

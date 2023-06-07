@@ -22,12 +22,12 @@ const index = () => {
       <BreadCrumbBanner />
 
       {/* <!-- Our Contact --> */}
-      <section className="our-contact pb0 bgc-f7">
+      <section className="our-contact pb60 bgc-f7">
         <div className="container">
           <div className="row">
             <div className="col-lg-7 col-xl-8">
               <div className="form_grid">
-                <h4 className="mb5">راسلنا</h4>
+                <h4 className="mb40">راسلنا</h4>
                 <p>
                 فريق عمال قوشان جاهز لتقديم الخبرة و  النصيحة العقارية في كل ما يتعلق بالقطاع العقاري في المملكة الأردنية الهاشمية.
 نرجو تعبئة النموذج أدناه وسيتم التواصل معكم من قبل مستشار قوشان.

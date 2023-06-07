@@ -3,9 +3,9 @@ import BreadCrumb from "../common/BreadCrumb";
 const BreadCrumbBanner = () => {
   return (
     <section className="inner_page_breadcrumb">
-      <div className="container">
+      <div className="container" style={{display: "flex", justifyContent: "center", paddingTop: "40px"}}>
         <div className="row">
-          <div className="col-xl-6">
+          <div className="">
             <div className="breadcrumb_content">
               <h4 className="breadcrumb_title">أعلن عن عقارك
 </h4>

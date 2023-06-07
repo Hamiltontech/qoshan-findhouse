@@ -147,7 +147,7 @@ const Footer = () => {
         className="col-sm-6 col-md-6 col-lg-3 col-xl-6"
         style={{ marginTop: 20 }}
       >
-        <div className="footer_contact_widget">
+        <div className="footer_contact_widget" >
           <h4>تواصل معنا</h4>
 
           <ul className="list-unstyled">
@@ -159,8 +159,8 @@ const Footer = () => {
               <a target="_blank" rel="noreferrer" href="#">العنوان :الدوار السابع ، مجمع الشروقي</a>
             </li>
 
-            <li>
-              <a target="_blank" rel="noreferrer" href="tel:+962-796-868-500">+962-796-868-500</a>
+            <li dir="ltr">
+              <a target="_blank" rel="noreferrer" dir="ltr"  href="tel:+962796868500">+962-796-868-500</a>
             </li>
           </ul>
         </div>
