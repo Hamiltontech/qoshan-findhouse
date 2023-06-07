@@ -8,6 +8,7 @@ import BreadCrumbBanner from "./BreadCrumbBanner";
 import SingleService from "./SingleService";
 
 const index = () => {
+  const channelId = 'UC_dx1Isro1pudToX4xDKqlg';
 
   return (
     <>
@@ -26,7 +27,7 @@ const index = () => {
       <section className="our-service pb30">
         <div className="container">
           <div className="row">
-            <SingleService />
+            <SingleService channelId={channelId}/>
           </div>
         </div>
       </section>
