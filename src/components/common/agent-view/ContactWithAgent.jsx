@@ -18,7 +18,7 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, phone, propertyName, body }),
+        body: JSON.stringify({ name, email, phone, propertyName, body, propertyLink }),
       });
 
       const data = await response.json();

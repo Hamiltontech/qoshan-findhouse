@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 
 export default async (req, res) => {
   if (req.method === 'POST') {
-    const { name, email, phone, propertyName, body } = req.body;
+    const { name, email, phone, propertyName, body, proprtyLink } = req.body;
 
     // Create a nodemailer transporter
     // Create a nodemailer transporter
@@ -23,7 +23,7 @@ const transporter = nodemailer.createTransport({
         from: email,
         to: 'interest@qoshan.com',
         subject: 'إهتمام عقار',
-        text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nProperty: ${propertyName}\n${body}`,
+        text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nProperty Name: ${propertyName}\nProperty Link: ${proprtyLink}\nMessage: ${body}`,
       });
 
       res.status(200).json({ message: 'تم ارسال الرسالة بنجاح' });
