@@ -21,7 +21,7 @@ const transporter = nodemailer.createTransport({
       // Send email
       await transporter.sendMail({
         from: email,
-        to: 'info@qoshan.com',
+        to: 'interest@qoshan.com',
         subject: 'إهتمام عقار',
         text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nProperty: ${propertyName}\n${body}`,
       });
