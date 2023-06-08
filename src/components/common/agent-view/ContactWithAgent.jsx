@@ -5,11 +5,9 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [Property, setProperty] = useState('');
   const [body, setBody] = useState('');
   const [message, setMessage] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   const handleSubmit = async (event) => {
     e.preventDefault();
 
@@ -19,7 +17,7 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, phone, Property, body }),
+        body: JSON.stringify({ name, email, phone, propertyName, body }),
       });
 
       const data = await response.json();
@@ -29,7 +27,7 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
         setName('');
         setEmail('');
         setPhone('');
-        setProperty('');
+        setpropertyName('');
         setBody('');
       } else {
         setMessage('Failed to send email');
@@ -65,10 +63,10 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
               name="propertyName"
               className="form-control"
               placeholder="اسم العقار"
-              value={Property}
+              value={propertyName}
               required
               hidden
-              onChange={(e) => setpropertyName(e.target.value)}
+              onChange={(e) => setProperty(e.target.value)}
             />
           </div>
         </li>
