@@ -51,7 +51,7 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
   // sorting
   const featuredHandler = (item) => {
     if (sort === "faetured") {
-      if (item?.x_studio_featured_property === true) {
+      if (item?.x_studio_featured_property === "Yes") {
         return item?.x_studio_featured_property
       }
     } else {

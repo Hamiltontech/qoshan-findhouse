@@ -35,7 +35,7 @@ const ListingDynamicDetailsV1 = () => {
       const data = response.data?.find((item) => item.x_name.replace(/\s+/g, '-') == id)
       setProperty(data)
 
-      const feat = response.data.filter((item) => item.x_studio_featured_property === true)
+      const feat = response.data.filter((item) => item.x_studio_featured_property === "Yes")
       setFeatured(feat)
 
       setRelatedLocation(data?.x_studio_many2one_field_YbLip[1])
