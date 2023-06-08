@@ -23,7 +23,7 @@ const transporter = nodemailer.createTransport({
         from: email,
         to: 'interest@qoshan.com',
         subject: 'إهتمام عقار',
-        text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nProperty Name: ${propertyName}\nProperty Link: ${proprtyLink}\nMessage: ${body}`,
+        text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nProperty Name: ${propertyName}\nMessage: ${body}`,
       });
 
       res.status(200).json({ message: 'تم ارسال الرسالة بنجاح' });
