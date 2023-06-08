@@ -5,6 +5,7 @@ module.exports = [
     icon: "flaticon-house",
     name: "مشاريع قيد الانشاء",
     number: "07",
+    type: "all"
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ module.exports = [
     icon: "flaticon-house-1",
     name: "مشاريع قطع اراضي",
     number: "07",
+    type: "all"
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ module.exports = [
     icon: "flaticon-house-2",
     name: "فلل مستقلة",
     number: "07",
+    type: "فلل"
   },
   {
     id: 4,
@@ -26,5 +29,6 @@ module.exports = [
     icon: "flaticon-building",
     name: "شقق طابقية",
     number: "07",
+    type: "شقق-طابقية"
   },
 ];

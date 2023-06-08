@@ -12,7 +12,7 @@ const [keyword, setKeyword] = useState("")
           <Link  href={{
               pathname: "all-properties",
               query: {
-                  type: "all",
+                  type: item.type,
                   keyword: item.name,
                   
               }

@@ -15336,6 +15336,13 @@ legend span {
   line-height: 1.714;
   margin-bottom: 20px;
 }
+.feat_property .thumb img {
+  opacity: .6;
+  -o-object-fit: fill;
+  object-fit: fill;
+  /* min-height: 220px; */
+  height: 270px !important;
+}
 
 .contact_localtion .content_list h5 {
   font-size: 16px;
