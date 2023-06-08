@@ -94,7 +94,7 @@ const [keyword, setKeyword] = useState("")
           <Link  href={{
               pathname: "all-properties",
               query: {
-                  type: "شقق-طابقية",
+                  type: "شقق+طابقية",
               }
           }}>
             <a
