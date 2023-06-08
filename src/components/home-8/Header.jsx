@@ -51,12 +51,12 @@ const Header = () => {
                 </a>
               </Link>
             
-              <a href={data?.x_studio_advert_url_top} className="position-relative" style={{ marginRight: 15, marginLeft: 15 }}>
+              {/* <a href={data?.x_studio_advert_url_top} className="position-relative" style={{ marginRight: 15, marginLeft: 15 }}>
                 <Image src={data?.x_studio_image_url_top}
                   width={200}
                   height={80}
                 />
-                </a>
+                </a> */}
 
             </div>
             <div className="footer_social_widget col-lg-4 " style={{ fontSize: 18, direction: 'rtl', textAlign: 'left', paddingLeft: "15px" }}>
