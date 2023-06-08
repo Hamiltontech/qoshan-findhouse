@@ -215,7 +215,7 @@ return val
 
 
             <div className="col-lg-4 col-xl-4">
-              <Sidebar featured={featured} relatedLocation={relatedLocation} relatedType={relatedType} propertyLink={property?.attributes?.URL} propertyName={property?.attributes?.Name} />
+              <Sidebar featured={featured} relatedLocation={relatedLocation} relatedType={relatedType} propertyLink={`https://qoshan-findhouse.vercel.app/details/${url}`} propertyName={property?.x_name} />
             </div>
             {/* End sidebar content .col-lg-4 */}
           </div>

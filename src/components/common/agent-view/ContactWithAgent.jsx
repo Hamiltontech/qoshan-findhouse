@@ -7,9 +7,9 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
   const [phone, setPhone] = useState('');
   const [body, setBody] = useState('');
   const [message, setMessage] = useState('');
-  const [propertyName, setpropertyName] = useState("")
+  // const [propertyName, setpropertyName] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false);
-  
+
   const handleSubmit = async (event) => {
     e.preventDefault();
 
@@ -29,7 +29,6 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
         setName('');
         setEmail('');
         setPhone('');
-        setpropertyName('');
         setBody('');
       } else {
         setMessage('Failed to send email');
@@ -68,7 +67,7 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
               value={propertyName}
               required
               hidden
-              onChange={(e) => setpropertyName(e.target.value)}
+              // onChange={(e) => setpropertyName(e.target.value)}
             />
           </div>
         </li>
@@ -83,7 +82,6 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
               required
               hidden
               id="name"
-
             />
           </div>
         </li>
