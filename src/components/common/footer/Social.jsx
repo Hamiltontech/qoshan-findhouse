@@ -1,23 +1,9 @@
-import {BsTiktok} from 'react-icons/bs'
 import {TbBrandTiktok} from 'react-icons/tb'
 
 const Social = () => {
-  const socialContent = [
-    { id: 0, liveLink: "https://twitter.com/qoshancom", icon: "fa-twitter" },
-    { id: 1, liveLink: "http://instagram.com/qoshancom", icon: "fa-instagram" },
-    { id: 2, liveLink: "https://api.whatsapp.com/send/?phone=962796868500&", icon: "fa-whatsapp" },
 
-    
-  ];
   return (
     <div>
-      {/* {socialContent.map((item) => (
-        <li className="list-inline-item" key={item.id}>
-          <a href={item.liveLink} target="_blank" rel="noopener noreferrer">
-            <i className={`fa ${item.icon}`}></i>
-          </a>
-        </li>
-      ))} */}
       <ul >
        <li className="list-inline-item" >
           <a href="http://tiktok.com/qoshancom" target="_blank" rel="noopener noreferrer" style={{marginLeft: "-5px"}}>

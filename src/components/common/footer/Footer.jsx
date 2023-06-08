@@ -152,11 +152,11 @@ const Footer = () => {
 
           <ul className="list-unstyled">
             <li>
-              <a target="_blank" rel="noreferrer" href="mailto:info@findhouse.com">info@qoshan.com</a>
+              <a target="_blank" rel="noreferrer" href="mailto:info@qoshan.com">info@qoshan.com</a>
             </li>
 
-            <li>
-              <a target="_blank" rel="noreferrer" href="#">العنوان :الدوار السابع ، مجمع الشروقي</a>
+            <li style={{fontSize: "14px"}}>
+            العنوان :الدوار السابع ، مجمع الشروقي
             </li>
 
             <li dir="ltr">
