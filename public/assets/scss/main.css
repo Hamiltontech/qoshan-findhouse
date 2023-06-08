@@ -18996,6 +18996,20 @@ canvas {
   width: 100%;
 }
 
+
+.header.stylehome1 {
+  background-color: #404041 !important;
+  position: relative;
+  z-index: 1;
+}
+
+@media only screen and (max-width: 992px){
+  .stylehome1:before, .header.stylehome1 {
+    background-color: #404041;
+}
+}
+
+
 .cart_page_form tbody.table_body th .cart_list .cart_title {
   font-size: 18px;
   font-family: "Changa";

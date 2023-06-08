@@ -13,7 +13,7 @@
     position: relative;
     z-index: 99;
     box-shadow: 0px 1px 4px 0px rgb(0 0 0 / 9%);
-    background-color: #54594f !important;
+    background-color: #404041 !important;
   }
   .header,
   .footer {
@@ -21,12 +21,12 @@
   }
 }
 .header.stylehome1 {
-  background-color: #54594f !important;
+  background-color: #404041 !important;
   position: relative;
   z-index: 1;
 }
 .header.stylehome1.home5 {
-  background-color: #54594f !important;
+  background-color: #404041 !important;
   position: relative;
   z-index: 1;
 }
@@ -750,11 +750,13 @@ header.stylehome1.home4 a {
   }
   .stylehome1.dashbord_mobile_logo.dashbord_pages .nav_logo_img {
     margin-left: 0 !important;
+
   }
 
   .stylehome1:before,
   .header.stylehome1 {
-    background-color: #222222 !important;
+    background-color: #404041 !important;
+ 
   }
   .stylehome1.home2,
   .stylehome1.home2:before {
