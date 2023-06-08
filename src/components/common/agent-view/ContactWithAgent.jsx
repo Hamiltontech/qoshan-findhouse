@@ -7,7 +7,9 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
   const [phone, setPhone] = useState('');
   const [body, setBody] = useState('');
   const [message, setMessage] = useState('');
+  const [propertyName, setpropertyName] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false);
+  
   const handleSubmit = async (event) => {
     e.preventDefault();
 
@@ -66,7 +68,7 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
               value={propertyName}
               required
               hidden
-              onChange={(e) => setProperty(e.target.value)}
+              onChange={(e) => setpropertyName(e.target.value)}
             />
           </div>
         </li>
