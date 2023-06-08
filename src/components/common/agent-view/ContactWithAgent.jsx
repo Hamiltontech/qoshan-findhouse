@@ -7,10 +7,9 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
   const [phone, setPhone] = useState('');
   const [body, setBody] = useState('');
   const [message, setMessage] = useState('');
-  // const [propertyName, setpropertyName] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
@@ -26,7 +25,6 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
 
       if (response.ok) {
         setMessage(data.message);
-        setName('');
         setEmail('');
         setPhone('');
         setBody('');
@@ -40,6 +38,7 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
   };
   return (
     <div>
+      {message && <p>{message}</p>}
     <form onSubmit={handleSubmit}>
       <ul className="sasw_list mb0">
         <li className="search_area">
@@ -67,7 +66,7 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
               value={propertyName}
               required
               hidden
-              // onChange={(e) => setpropertyName(e.target.value)}
+              id="propertyName"
             />
           </div>
         </li>
@@ -81,7 +80,7 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
               value={propertyLink}
               required
               hidden
-              id="name"
+              id="url"
             />
           </div>
         </li>
@@ -109,7 +108,6 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
               required
               value={email}
               id="email"
-
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>

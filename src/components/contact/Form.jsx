@@ -41,52 +41,52 @@ const ContactForm = () => {
     <div>
       {message && <p>{message}</p>}
       <form onSubmit={handleSubmit}>
-      <div className="row">
-      <div className="col-sm-12">
+        <div className="row">
+          <div className="col-sm-12">
             <div className="form-group">
-            <label htmlFor="name">اسمك الكامل</label>
-        <input
-          id="name"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-                </div>
+              <label htmlFor="name">اسمك الكامل</label>
+              <input
+                id="name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
           </div>
-                  <div className="col-md-6">
+          <div className="col-md-6">
             <div className="form-group">
               <label htmlFor="email">البريد الالكتروني</label>
-        <input
-          id="email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        </div>
+              <input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
           </div>
           <div className="col-md-6">
             <div className="form-group">
               <label htmlFor="phone">هاتف</label>
-        <input
-          id="phone"
-          type="tel"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-          </div>
+              <input
+                id="phone"
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
           </div>
           <div className="col-sm-12">
             <div className="form-group">
               <label htmlFor="message">رسالتك</label>        <textarea
-          id="body"
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-        />
-                    </div>
-                    <div className="form-group mb-0">
+                id="body"
+                value={body}
+                onChange={(e) => setBody(e.target.value)}
+              />
+            </div>
+            <div className="form-group mb-0">
 
-        <button type="submit" className="btn btn-lg btn-thm">ارسال</button>
-        </div>
+              <button type="submit" className="btn btn-lg btn-thm">ارسال</button>
+            </div>
           </div>
         </div>
       </form>
