@@ -14,7 +14,7 @@ const TaggboxWidget = () => {
   }, []);
 
   return (
-    <div className="taggbox" style={{ width: '100%', height: '100%' }} data-widget-id="134002" data-tags="false"></div>
+    <div className="taggbox" style={{ width: '100%', height: '100%' }} data-widget-id="134104" data-tags="false"></div>
   );
 };
 
