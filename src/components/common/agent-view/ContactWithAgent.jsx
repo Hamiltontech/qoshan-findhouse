@@ -2,32 +2,41 @@ import axios from 'axios';
 import React, { useState } from 'react';
 
 const ContactWithAgent = ({ propertyLink, propertyName }) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [Property, setProperty] = useState('');
+  const [body, setBody] = useState('');
+  const [message, setMessage] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
+    e.preventDefault();
 
     try {
-      const response = await axios.post(
-        'https://strapi-125841-0.cloudclusters.net/api/interests',
-        {
-        data: {
-          Name: formData.get('Contact'), 
-          propName: formData.get('propertyName'),
-          URL: formData.get('URL'),
-          Phone: formData.get('Phone'), 
-          Email: formData.get('email'), 
-          Message: formData.get('form_message'), 
+      const response = await fetch('/api/interest', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      }
-      );
+        body: JSON.stringify({ name, email, phone, Property, body }),
+      });
 
-      setIsSubmitted(true);
-      console.log(response.data);
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage(data.message);
+        setName('');
+        setEmail('');
+        setPhone('');
+        setProperty('');
+        setBody('');
+      } else {
+        setMessage('Failed to send email');
+      }
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      setMessage('Failed to send email');
     }
   };
   return (
@@ -42,6 +51,10 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
               className="form-control"
               placeholder="الاسم"
               required
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+              id="name"
+
             />
           </div>
         </li>
@@ -52,9 +65,10 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
               name="propertyName"
               className="form-control"
               placeholder="اسم العقار"
-              value={propertyName}
+              value={Property}
               required
               hidden
+              onChange={(e) => setpropertyName(e.target.value)}
             />
           </div>
         </li>
@@ -68,6 +82,8 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
               value={propertyLink}
               required
               hidden
+              id="name"
+
             />
           </div>
         </li>
@@ -79,6 +95,9 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
               className="form-control"
               placeholder="الهاتف"
               required
+              value={phone}
+              id="phone"
+              onChange={(e) => setPhone(e.target.value)}
             />
           </div>
         </li>
@@ -90,18 +109,24 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
               className="form-control"
               placeholder="الايميل"
               required
+              value={email}
+              id="email"
+
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
         </li>
         <li className="search_area">
           <div className="form-group mb-3">
             <textarea
-              id="form_message"
+              id="body"
               name="form_message"
               className="form-control"
               rows="5"
               required
               placeholder="الاستفسار"
+              value={body}
+              onChange={(e) => setBody(e.target.value)}
             ></textarea>
           </div>
         </li>
