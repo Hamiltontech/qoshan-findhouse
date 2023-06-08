@@ -162,7 +162,7 @@ return val
 
               <div className="col-sm-5 col-lg-4">
                 <div className="row">
-                  {property?.x_studio_property_images && property?.x_studio_property_images.split('"').slice(0,6)?.filter(handleImages)?.map((val, i) => (
+                  {property?.x_studio_property_images && property?.x_studio_property_images.split('"').slice(0,10)?.filter(handleImages)?.map((val, i) => (
                     <div className="col-6" key={i}>
                       <div className="spls_style_two img-gallery-box mb24">
                         <Item
