@@ -113,9 +113,9 @@ return(
       </div>
       {/* End list grid */}
 
-      {/* <div className="dn db-991 mt30 mb0">
+      <div className="dn db-991 mt30 mb0">
         <ShowFilter />
-      </div> */}
+      </div>
       {/* ENd button for mobile sidebar show  */}
     </div>
     {/* End .col filter grid list */}
@@ -166,7 +166,7 @@ return(
         id="sidebarListing"
       >
         <div className="offcanvas-header">
-          <h5 className="offcanvas-title">Advanced Search</h5>
+          <h5 className="offcanvas-title">بحث مفصل</h5>
           <button
             type="button"
             className="btn-close text-reset"
