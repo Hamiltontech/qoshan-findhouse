@@ -59,9 +59,14 @@ const HeroSlider = ({heroProperties}) => {
                   {/* details */}
                   <div style={{display: 'flex', justifyContent: 'start', gap: '20px'}}>
                     {/* location */}
+
+                    {singleItem?.x_studio_many2one_field_YbLip ? 
+                    
                   <div style={{display: 'flex', gap: '2px', }}>
                   <span className="flaticon-maps-and-flags" /> <p style={{color: 'white', fontSize: '16px'}}>{singleItem?.x_studio_many2one_field_YbLip && singleItem?.x_studio_many2one_field_YbLip[1]}</p>
                   </div>
+                    :
+                    <></>}
 
                     {/* bathrooms */}
                     {singleItem?.x_studio_bathrooms_count ? 
