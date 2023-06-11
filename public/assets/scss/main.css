@@ -12539,6 +12539,11 @@ legend span {
   font-style: italic;
   line-height: 1.714;
 }
+@media only screen and (max-width: 767.98px){
+  .mbp_blockquote, .grid_list_search_result {
+      display: block !important;
+  }
+}
 
 .blog_post_share li {
   background-color: #f7f7f7;

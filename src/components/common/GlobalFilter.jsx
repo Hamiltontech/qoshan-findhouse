@@ -74,6 +74,10 @@ const handleError = ()=>{
                 <option value="برج سكني">برج سكني</option>
                 <option value="استوديوهات">استوديوهات</option>
                 <option value="شاليهات">شاليهات</option>
+                <option value="مشاريع قطع أراضي">مشاريع قطع أراضي</option>
+                <option value="مشاريع قيد الإنشاء">مشاريع قيد الإنشاء</option>
+
+
               </select>
             </div>
           </div>

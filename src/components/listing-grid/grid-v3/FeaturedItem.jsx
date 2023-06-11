@@ -12,6 +12,8 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
   // load more
 
 
+  console.log(sort)
+
   function handleClick() {
     setPostNum(prevPostNum => prevPostNum + 6)
   }
@@ -25,7 +27,7 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
   useEffect(() => {
     axios.get("/data.json").then((response) => {
       if (
-        sort === "lowPrice"
+        sort === "lowPrice" && response?.data.x_studio_sale_price
       ) {
         let arr = response.data.sort((a, b) => parseFloat(a?.x_studio_sale_price) - parseFloat(b?.x_studio_sale_price));
         setProeprty(arr)
@@ -141,7 +143,7 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
   const keywordHandler = (item) => {
     if (item?.x_name?.toLowerCase().includes(keyword.toLowerCase())) {
       return (
-        item?.x_name 
+        item?.x_name
       )
     }
   }
@@ -208,6 +210,7 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
                       </Link></h4>
 
                     {/* location */}
+                    {item?.x_studio_many2one_field_YbLip ?
                     <div style={{ display: 'flex', gap: '2px', }}>
                       <span className="flaticon-maps-and-flags" />
                       <Highlighter
@@ -216,24 +219,39 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
                         textToHighlight={item?.x_studio_many2one_field_YbLip && item?.x_studio_many2one_field_YbLip[1]}
                       />
                     </div>
+                    :
+                    <></>
+                    }
 
 
                     <div style={{ display: 'flex', justifyContent: 'start', gap: '20px' }}>
 
                       {/* area */}
+                      {item?.x_studio_property_area > 0 ?
                       <div style={{ display: 'flex', gap: '2px', }}>
                         <TfiRulerAlt size={20} /> <p>{item?.x_studio_property_area} متر مربع</p>
                       </div>
+                      : <></>
+                      }
+
+
 
                       {/* bathrooms */}
-                      <div style={{ display: 'flex', gap: '2px', }}>
-                        <BiBath size={20} /> <p style={{ fontSize: '16px' }}> {item?.x_studio_bathrooms_count}</p>
-                      </div>
+                      {item?.x_studio_bathrooms_count ?
+                        <div style={{ display: 'flex', gap: '2px', }}>
+                          <BiBath size={20} /> <p style={{ fontSize: '16px' }}> {item?.x_studio_bathrooms_count}</p>
+                        </div>
+                        :
+                        <></>
+                      }
 
                       {/* bedrooms */}
-                      <div style={{ display: 'flex', gap: '2px', }}>
-                        <IoBedOutline size={20} /> <p style={{ fontSize: '16px' }}> {item?.x_studio_beedrooms_count}</p>
-                      </div>
+                      {item?.x_studio_beedrooms_count ?
+                        <div style={{ display: 'flex', gap: '2px', }}>
+                          <IoBedOutline size={20} /> <p style={{ fontSize: '16px' }}> {item?.x_studio_beedrooms_count}</p>
+                        </div>
+                        :
+                        <></>}
 
                     </div>
                   </div>

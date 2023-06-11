@@ -233,9 +233,8 @@ const HeaderMenuContent = ({ float = "" }) => {
     { id: 8, name: "برج سكني", routerPath: "/all-properties" },
     { id: 9, name: "استوديوهات", routerPath: "/all-properties" },
     { id: 10, name: "شاليهات", routerPath: "/all-properties" },
-
-
-
+    { id: 10, name: "مشاريع قطع أراضي", routerPath: "/all-properties" },
+    { id: 10, name: "مشاريع قيد الإنشاء", routerPath: "/all-properties" },
   ];
 
   return (
@@ -278,7 +277,7 @@ const HeaderMenuContent = ({ float = "" }) => {
         </a>
         <ul className="sub-menu " dir="rtl">
           {pages.map((item) => (
-            <li key={item.id}>
+            <li  key={item.id}>
               <Link href={{
         pathname: "all-properties",
         query: {

@@ -11,8 +11,7 @@ const [keyword, setKeyword] = useState("")
           <Link  href={{
               pathname: "all-properties",
               query: {
-                  type: "all",
-                  keyword: "مشاريع قيد الانشاء",
+                  type: "مشاريع قيد الإنشاء",
               }
           }}>
             <a
@@ -40,8 +39,7 @@ const [keyword, setKeyword] = useState("")
           <Link  href={{
               pathname: "all-properties",
               query: {
-                  type: "all",
-                  keyword: "مشاريع قطع اراضي",
+                  type: "مشاريع قطع أراضي",
               }
           }}>
             <a

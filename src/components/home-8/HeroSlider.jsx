@@ -11,6 +11,7 @@ import {TfiRulerAlt} from 'react-icons/tfi'
 const HeroSlider = ({heroProperties}) => {
 
 
+
   const settings = {
     dots: true,
     arrow: false,
@@ -19,6 +20,7 @@ const HeroSlider = ({heroProperties}) => {
     slidesToScroll: 1,
     autoplay: false,
   };
+
 
 
   return (
@@ -40,22 +42,23 @@ const HeroSlider = ({heroProperties}) => {
                  
                   <div className="col-md-7 col-lg-8">
 
-                    {/* tags */}
-                    {/* <ul className="tag">
-                    {singleItem?.attributes?.property_tags?.data?.map((item)=>(
-                          <>
-                        <li className="list-inline-item" style={{color:'white',margin: '6px', backgroundColor: '#404041', paddingLeft: '20px',paddingRight: '20px', borderRadius: '6px'}}>
-                      {item?.attributes?.Tag}
-                        </li>
-                          </>
-                       ))}
-                    </ul> */}
+         {/* tags */}
+                {/* <ul className="tag">
+                  {tags?.map((item) => (
+                    <li key={item?.id} className="list-inline-item" style={{ color: 'white', margin: '6px', backgroundColor: '#c2b49a', paddingLeft: '20px', paddingRight: '20px', borderRadius: '6px' }}>
+                      {item?.x_name}
+                    </li>
+                  ))}
+                </ul> */}
   
                  
 
                   {/* title */}
+                    <a href={`/details/${singleItem.x_name.replace(/\s+/g, '-')}`}>
                     <div className="main_title" style={{fontSize: '40px', fontFamily: 'Changa'}}>{singleItem?.x_name}</div>
-                   
+                    </a>
+               
+              
                   {/* details */}
                   <div style={{display: 'flex', justifyContent: 'start', gap: '20px'}}>
                     {/* location */}

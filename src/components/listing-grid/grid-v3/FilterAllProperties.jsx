@@ -33,7 +33,7 @@ const FilterAllProperties = () =>{
 const [count, setCount] = useState(0)
 
 // featured properties
-const [sort, setSort] = useState("")
+const [sort, setSort] = useState("recent")
 
 
 
