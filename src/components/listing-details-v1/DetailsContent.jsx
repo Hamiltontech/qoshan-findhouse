@@ -45,7 +45,7 @@ const DetailsContent = ({features, property, relatedType, relatedLocation}) => {
                 <div className="col-lg-12 mb20">
                   <h4>عقارات مشابهة</h4>
                 </div>
-                <RelatedPost relatedType={relatedType} relatedLocation={relatedLocation}/>
+                <RelatedPost relatedType={relatedType} relatedLocation={relatedLocation} property={property}/>
               </div>
 
       <div className="product_single_content">

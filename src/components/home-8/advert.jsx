@@ -14,14 +14,14 @@ const FindProperties = () => {
   }, [])
 
   return (
-    <>
+    <div className="mt20">
       <a href={data?.x_studio_advert_url_search} className="position-relative" style={{ marginRight: 15, marginLeft: 15 }}>
         <Image src={data?.x_studio_image_url_search}
-          width={729}
-          height={90}
+          width={240}
+          height={60}
         /> 
       </a>
-    </>
+    </div>
   );
 };
 

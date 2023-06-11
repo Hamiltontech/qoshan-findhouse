@@ -9,15 +9,9 @@ import Highlighter from "react-highlight-words";
 
 const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, status, type, garages, bathrooms, bedrooms, minarea, maxarea, age, minprice, maxprice, count, setCount, sort, setSort }) => {
 
-  // load more
-
-
-  console.log(sort)
-
   function handleClick() {
     setPostNum(prevPostNum => prevPostNum + 6)
   }
-
 
   // diala
   const [property, setProeprty] = useState([])
@@ -90,8 +84,8 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
 
   // location filter
   const locationHandler = (item) => {
-    if (!item.x_studio_many2one_field_YbLip[1]) {
-      return "عبدون"
+    if (!item.x_studio_many2one_field_YbLip) {
+      return false
     } else {
       if (item?.x_studio_many2one_field_YbLip[1]?.includes(location)) {
         return item?.x_studio_many2one_field_YbLip[1]
@@ -111,8 +105,6 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
     }
 
   }
-
-
 
 
   // bathrooms filter
@@ -172,7 +164,7 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
                 className={`feat_property home7 style4 ${isGridOrList && "d-flex align-items-center"
                   }`}
               >
-                <Link href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
+                <a href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
 
                   <div className="thumb">
                     <img className="img-whp" src={item.x_studio_featured_url && item.x_studio_featured_url} alt="fp1.jpg" />
@@ -186,7 +178,7 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
 
                     </div>
                   </div>
-                </Link>
+                </a>
                 <div className="details">
 
                   <div className="tc_content">
@@ -282,8 +274,14 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
 
       })}
 
+{count > 6 ?
+
       <div style={{ display: "flex", placeContent: "center" }}>
         <button className="btn btn-thm" type="submit" onClick={handleClick}>عرض المزيد</button></div>
+:
+<></>
+}
+
     </>
 
 

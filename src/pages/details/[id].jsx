@@ -10,13 +10,12 @@ import DetailsContent from "../../components/listing-details-v1/DetailsContent";
 import Sidebar from "../../components/listing-details-v1/Sidebar";
 import axios from "axios";
 import Image from 'next/image'
-import Sharing from '../../components/listing-details-v1/Sharing'
 import Seo from "../../components/common/seo";
 import Head from 'next/head';
 import Social from "./Social";
+import { MdChevronRight, MdChevronLeft } from "react-icons/md";
 
 
-import { IoIosArrowDown } from "react-icons/io";
 
 const ListingDynamicDetailsV1 = () => {
 
@@ -83,12 +82,16 @@ const ListingDynamicDetailsV1 = () => {
   }
 
 
-
-  const slideBottom = () => {
+  const slideLeft = () => {
     var slider = document.getElementById("slider");
-    slider.scrollTop = slider.scrollTop - 210;
+    slider.scrollLeft = slider.scrollLeft - 500;
+
   };
 
+  const slideRight = () => {
+    var slider = document.getElementById("slider");
+    slider.scrollLeft = slider.scrollLeft + 500;
+  };
 
 
   return (
@@ -125,9 +128,12 @@ const ListingDynamicDetailsV1 = () => {
                   <h2>{property?.x_name}</h2>
 
                   {/* location */}
-                  <div style={{ display: 'flex', gap: '2px', }}>
-                    <span className="flaticon-maps-and-flags" /> <p style={{ fontSize: '16px' }}>{property?.x_studio_many2one_field_YbLip && property?.x_studio_many2one_field_YbLip[1]}</p>
-                  </div>
+                  {property?.x_studio_many2one_field_YbLip ?
+                    <div style={{ display: 'flex', gap: '2px', }}>
+                      <span className="flaticon-maps-and-flags" /> <p style={{ fontSize: '16px' }}>{property?.x_studio_many2one_field_YbLip && property?.x_studio_many2one_field_YbLip[1]}</p>
+                    </div>
+                    : <></>
+                  }
 
                   {/* share */}
                 </div>
@@ -176,50 +182,62 @@ const ListingDynamicDetailsV1 = () => {
 
 
               {/* <div className="col-sm-5 col-lg-4"> */}
-              <div className="row mt20" >
-                <div
-                  style={{ overflowX: "scroll", whiteSpace: "nowrap", scrollBehavior: "smooth", display: "flex", gap: "10px", overflow: "hidden" }}
-                  id="slider"
-                >
-                  {property?.x_studio_property_images && property?.x_studio_property_images.split('"')?.filter(handleImages)?.map((val, i) => (
-                    <div className="col-3" key={i} >
-                      <div className="spls_style_two img-gallery-box mb24">
-                        <Item
-                          original={val}
-                          thumbnail={val}
-                          width={752}
-                          height={450}
-                          priority
-                          layout="responsive"
 
-                        >
-                          {({ ref, open }) => (
-                            <div role="button" ref={ref} onClick={open}>
-                              <img
-                                className="img-fluid w100"
-                                src={val}
-                                alt="2.jpg"
-                                priority
-                              />
-                            </div>
-                          )}
-                        </Item>
+
+
+              <div style={{ display: "flex", placeContent: "center", justifyContent: "center", alignContent: "center", placeItems: "center", gap: "10px"}}>
+                <MdChevronRight
+                  // style={{ padding: "10px" }}
+                  onClick={slideRight}
+                  size={120}
+                />
+                <div className="row mt20" >
+                  <div
+                    style={{ overflowX: "scroll", whiteSpace: "nowrap", scrollBehavior: "smooth", display: "flex", gap: "10px", scrollbarColor: "#d5ac68", scrollbarWidth: "thin", overflow: "hidden"}}
+                    id="slider"
+                  >
+                    {property?.x_studio_property_images && property?.x_studio_property_images.split('"')?.filter(handleImages)?.map((val, i) => (
+                      <div className="col-3" key={i} >
+                        <div className="spls_style_two img-gallery-box mb24">
+                          <Item
+                            original={val}
+                            thumbnail={val}
+                            width={752}
+                            height={450}
+                            priority
+                            layout="responsive"
+
+                          >
+                            {({ ref, open }) => (
+                              <div role="button" ref={ref} onClick={open}>
+                                <img
+                                  className="img-fluid w100"
+                                  src={val}
+                                  alt="2.jpg"
+                                  priority
+                                />
+                              </div>
+                            )}
+                          </Item>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-                {/* </div> */}
-
-
-
-
-
+                <MdChevronLeft
+                  // style={{ padding: "10px" }}
+                  onClick={slideLeft}
+                  size={120}
+                />
               </div>
+
+
+
+
               {/* End  col-sm-5 col-lg-4 */}
             </div>
             {/* End .row */}
           </Gallery>
-          {/* <Sharing propertyUrl={`https://qoshan-findhouse.vercel.app/details/${url}`} /> */}
 
           <ul className="contact_form_social_area mt30">
             <Social propertyUrl={`https://qoshan-findhouse.vercel.app/details/${url}`} />
