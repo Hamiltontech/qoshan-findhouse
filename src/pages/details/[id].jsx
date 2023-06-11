@@ -15,6 +15,9 @@ import Seo from "../../components/common/seo";
 import Head from 'next/head';
 import Social from "./Social";
 
+
+import { IoIosArrowDown } from "react-icons/io";
+
 const ListingDynamicDetailsV1 = () => {
 
   const router = useRouter();
@@ -48,36 +51,44 @@ const ListingDynamicDetailsV1 = () => {
 
 
 
-// tags
+  // tags
   const [inittags, setinitTags] = useState([])
 
-// features
-const [initfeatures, setinitFeatures] = useState([])
- 
-  useEffect(()=>{
-    axios.get("/property_features.json").then((res)=>{
+  // features
+  const [initfeatures, setinitFeatures] = useState([])
+
+  useEffect(() => {
+    axios.get("/property_features.json").then((res) => {
       setinitFeatures(res.data)
     })
   }, [id])
 
-  useEffect(()=>{
-    axios.get("/property_tags.json").then((res)=>{
+  useEffect(() => {
+    axios.get("/property_tags.json").then((res) => {
       setinitTags(res.data)
     })
   }, [id])
 
 
-  let tags =  inittags.filter(c => property?.x_studio_tags?.includes(c.id));
-  let features =  initfeatures.filter(c => property?.x_studio_many2many_field_Tzhpw?.includes(c.id));
+  let tags = inittags.filter(c => property?.x_studio_tags?.includes(c.id));
+  let features = initfeatures.filter(c => property?.x_studio_many2many_field_Tzhpw?.includes(c.id));
 
 
   const url = property?.x_name?.replace(/\s+/g, '-')
 
-const handleImages = (val)=>{
-if (val !== ", ")
-{
-return val
-}}
+  const handleImages = (val) => {
+    if (val !== ", ") {
+      return val
+    }
+  }
+
+
+
+  const slideBottom = () => {
+    var slider = document.getElementById("slider");
+    slider.scrollTop = slider.scrollTop - 210;
+  };
+
 
 
   return (
@@ -91,6 +102,7 @@ return val
       <Header />
       {/* <!--  Mobile Menu --> */}
       <MobileMenu />
+
 
       {/* <!-- Listing Single Property --> */}
       <section className="listing-title-area md-mt0 mt100" dir="rtl">
@@ -107,7 +119,7 @@ return val
                     </li>
                   ))}
                 </ul>
-              
+
 
                 <div className="single_property_title mt30-767">
                   <h2>{property?.x_name}</h2>
@@ -125,13 +137,13 @@ return val
                   <div className="price float-start fn-400">
                     {/* price */}
                     {property?.x_studio_sale_price > 0 ?
-                    <h2>
-                    <span style={{ fontSize: '12px' }}>{property?.x_studio_price_prefix}</span>
-                    {property?.x_studio_sale_price && property?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني
-                  </h2>
-                  :
-                  <></> }
-                    
+                      <h2>
+                        <span style={{ fontSize: '12px' }}>{property?.x_studio_price_prefix}</span>
+                        {property?.x_studio_sale_price && property?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني
+                      </h2>
+                      :
+                      <></>}
+
                   </div>
                 </div>
               </div>
@@ -139,38 +151,45 @@ return val
             {/* End .row */}
 
             <div className="row">
-              <div className="col-sm-7 col-lg-8">
+              <div className="col-sm-7 col-lg-12">
                 <div className="row">
-                  <div className="col-lg-12">
+                  <div className="">
                     <div className="spls_style_two mb30-520">
-                      {property?.x_studio_featured_url ? 
-                      <Image src={property?.x_studio_featured_url}
-                      width={752}
-                      height={450}
-                      // loading="lazy"
-                      layout="responsive"
-                      priority
-                    />
-                    : <></>
-                    }
-                      
+                      {property?.x_studio_featured_url ?
+                        <Image src={property?.x_studio_featured_url}
+                          width={752}
+                          height={450}
+                          layout="responsive"
+                          priority
+                        />
+                        : <></>
+                      }
+
                     </div>
                   </div>
                 </div>
               </div>
               {/* End .col-sm-7 .col-lg-8 */}
 
-              <div className="col-sm-5 col-lg-4">
-                <div className="row">
-                  {property?.x_studio_property_images && property?.x_studio_property_images.split('"').slice(0,10)?.filter(handleImages)?.map((val, i) => (
-                    <div className="col-6" key={i}>
+
+
+
+
+              {/* <div className="col-sm-5 col-lg-4"> */}
+              <div className="row mt20" >
+                <div
+                  style={{ overflowX: "scroll", whiteSpace: "nowrap", scrollBehavior: "smooth", display: "flex", gap: "10px", overflow: "hidden" }}
+                  id="slider"
+                >
+                  {property?.x_studio_property_images && property?.x_studio_property_images.split('"')?.filter(handleImages)?.map((val, i) => (
+                    <div className="col-3" key={i} >
                       <div className="spls_style_two img-gallery-box mb24">
                         <Item
                           original={val}
                           thumbnail={val}
                           width={752}
                           height={450}
-                          loading="lazy"
+                          priority
                           layout="responsive"
 
                         >
@@ -180,8 +199,7 @@ return val
                                 className="img-fluid w100"
                                 src={val}
                                 alt="2.jpg"
-                                loading="lazy"
-
+                                priority
                               />
                             </div>
                           )}
@@ -190,6 +208,12 @@ return val
                     </div>
                   ))}
                 </div>
+                {/* </div> */}
+
+
+
+
+
               </div>
               {/* End  col-sm-5 col-lg-4 */}
             </div>
