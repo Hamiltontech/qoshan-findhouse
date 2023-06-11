@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react'
 import axios from "axios";
 import ReactHtmlParser from 'react-html-parser';
 
-const RelatedPost = ({relatedType, relatedLocation}) => {
+const RelatedPost = ({relatedType, relatedLocation, property}) => {
   const [relatedProperteis, setRelatedProperties] = useState([])
 
 
@@ -22,13 +22,13 @@ const RelatedPost = ({relatedType, relatedLocation}) => {
 
   // bring the location and type through props
   const handleRelated = (item) =>{
-    if((item?.x_studio_many2one_field_YbLip[1] === relatedLocation)){
+    if((item?.x_studio_many2one_field_YbLip[1] === relatedLocation )){
       return item?.x_studio_many2one_field_YbLip[1]
     }  
   }
 
 const handleType = (item)=>{
-  if(item?.x_studio_property_type[1] === relatedType){
+  if(item?.x_studio_property_type[1] === relatedType && item?.x_name !== property?.x_name){
 
     return item?.x_studio_property_type[1]
   }

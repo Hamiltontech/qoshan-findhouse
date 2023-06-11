@@ -46,24 +46,14 @@ const FeaturedProperties = ({ featured }) => {
         {featured?.slice(0, 12)?.map((item) => (
           <div className="item" key={item?.id} dir="rtl">
             <div className="feat_property home3">
+              <a href={`/details/${item?.x_name.replace(/\s+/g, '-')}`} style={{zIndex: "1000"}}>
               <div className="thumb">
                 <img className="img-whp" src={item?.x_studio_featured_url && item?.x_studio_featured_url} alt="fp1.jpg" />
-               
+                
                 <div className="thmb_cntnt">
-                  {/* tags */}
-                  {/* <ul className="tag ">
-                    {item?.attributes?.property_tags?.data?.map((item) => (
-                      <>
-                        <li className="list-inline-item" style={{ width: "150px" }}>
-                          <a>{item?.attributes?.Tag}</a>
-                        </li>
-
-                      </>
-                    ))}
-                  </ul> */}
-
               
 
+              
                   {/* price */}
                   <Link href={`/details/${item?.x_name.replace(/\s+/g, '-')}`}>
                     <a className="fp_price">
@@ -72,6 +62,7 @@ const FeaturedProperties = ({ featured }) => {
                   </Link>
                 </div>
               </div>
+              </a>
 
               <div className="details">
                 <div className="tc_content">

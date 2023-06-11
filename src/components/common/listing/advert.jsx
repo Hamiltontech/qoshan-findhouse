@@ -1,4 +1,3 @@
-import Link from "next/link";
 import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -20,13 +19,11 @@ const FindProperties = () => {
 
   return (
     <>
- 
-                <a href={data?.x_studio_advert_url_sidebar} className="position-relative" style={{ marginRight: 15, marginLeft: 15 }}>
+     <a href={data?.x_studio_advert_url_sidebar} className="position-relative" style={{ marginRight: 50}}>
                   <Image src={data?.x_studio_image_url_sidebar}
-                      width={616}
-                      height={1023}
+                      width={220}
+                      height={500}
                       /> </a>
-             
     </>
   );
 };

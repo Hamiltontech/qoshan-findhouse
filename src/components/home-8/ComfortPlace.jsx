@@ -6,42 +6,24 @@ import axios from "axios";
 
 const ComfortPlaces = ({data}) => {
 
-  const [ postNum, setPostNum] = useState(8);
+  const [ postNum, setPostNum] = useState(9);
 
   function handleClick() {
-    setPostNum(prevPostNum => prevPostNum + 8) 
+    setPostNum(prevPostNum => prevPostNum + 9) 
   }
 
-  // const [inittags, setinitTags] = useState([])
-  // useEffect(()=>{
-  //   axios.get("/property_tags.json").then((res)=>{
-  //     setinitTags(res.data)
-  //   })
-  // }, [])
 
-
-  // let tags = data?.map((item)=>{
-  //   inittags.filter(c => item?.x_studio_tags?.includes(c.id));
-  // })
  
   return (
     <>
  {data?.slice(0, postNum).map((item) => (
-  <div   className="col-sm-6 col-lg-3"  dir="rtl" key={item.id} >
+  <div   className="col-sm-6 col-lg-4"  dir="rtl" key={item.id} >
     <div className="feat_property home3">
+      <a href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
       <div className="thumb">
         <img className="img-whp" src={item.x_studio_featured_url && item.x_studio_featured_url} alt="fp1.jpg" />
         <div className="thmb_cntnt">
 
-          {/* tags */}
-          {/* <ul className="tag ">
-  {tags.map((item)=>(
-    <li key={item?.id} className="list-inline-item" style={{width: "150px"}}>
-        <a>{item?.x_name}</a>
-     </li>
- 
-  ))}
-  </ul> */}
 
           {/* price */}
           {item.x_studio_sale_price ? 
@@ -55,6 +37,7 @@ const ComfortPlaces = ({data}) => {
         
         </div>
       </div>
+      </a>
 
       <div className="details">
         <div className="tc_content">
