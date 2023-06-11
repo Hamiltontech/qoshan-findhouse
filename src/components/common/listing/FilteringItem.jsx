@@ -51,21 +51,7 @@ const [cities, setCities] = useState([])
       </li>
       {/* End li */}
 
-      {/* <li className="search_area">
-        <div className="form-group mb-3">
-          <input
-            type="search"
-            className="form-control"
-            id="exampleInputEmail"
-            placeholder="الموقع"
-            value={getLocation}
-            onChange={(e) => setLocation(e.target.value)}
-          />
-          <label htmlFor="exampleInputEmail">
-            <span className="flaticon-maps-and-flags"></span>
-          </label>
-        </div>
-      </li> */}
+
 
       <li>
         <div className="search_option_two">
@@ -86,26 +72,7 @@ const [cities, setCities] = useState([])
 
       {/* End li */}
 
-      {/* <li>
-        <div className="search_option_two">
-          <div className="candidate_revew_select">
-            <select
-              onChange={(e) => setStatus(e.target.value)}
-              className="selectpicker w100 show-tick form-select"
-              
-            >
-              <option value="">Status</option>
-              <option value="apartment">Apartment</option>
-              <option value="bungalow">Bungalow</option>
-              <option value="condo">Condo</option>
-              <option value="house">House</option>
-              <option value="land">Land</option>
-              <option value="single family">Single Family</option>
-            </select>
-          </div>
-        </div>
-      </li> */}
-      {/* End li */}
+
 
       <li>
         <div className="search_option_two">
@@ -127,34 +94,15 @@ const [cities, setCities] = useState([])
               <option value="برج سكني">برج سكني</option>
               <option value="استوديوهات">استوديوهات</option>
               <option value="شاليهات">شاليهات</option>
+              <option value="مشاريع قطع أراضي">مشاريع قطع أراضي</option>
+              <option value="مشاريع قيد الإنشاء">مشاريع قيد الإنشاء</option>
+
             </select>
           </div>
         </div>
       </li>
       {/* End li */}
 
-      {/* <li>
-        <div className="small_dropdown2" dir="ltr">
-          <div
-            id="prncgs2"
-            className="btn dd_btn"
-            data-bs-toggle="dropdown"
-            data-bs-auto-close="outside"
-            aria-expanded="false"
-          >
-            <span>السعر</span>
-            <label htmlFor="prncgs2">
-              <span className="fa fa-angle-down"></span>
-            </label>
-          </div>
-          <div className="dd_content2 style2 dropdown-menu">
-            <div className="pricing_acontent ">
-              <PricingRangeSlider />
-            </div>
-          </div>
-        </div>
-      </li> */}
-      {/* End li */}
 
       <li>
         <div className="search_option_two">
@@ -221,36 +169,6 @@ const [cities, setCities] = useState([])
 
 
 
-      {/* AGE */}
-      {/* <li>
-        <div className="search_option_two">
-          <div className="candidate_revew_select">
-            <select
-              onChange={(e) => setBuiltYear(e.target.value)}
-              className="selectpicker w100 show-tick form-select"
-             
-            >
-              <option value="">سنة البناء</option>
-              <option value="2009">2009</option>
-              <option value="2010">2010</option>
-              <option value="2011">2011</option>
-              <option value="2012">2012</option>
-              <option value="2013">2013</option>
-              <option value="2014">2014</option>
-              <option value="2015">2015</option>
-              <option value="2016">2016</option>
-              <option value="2017">2017</option>
-              <option value="2018">2018</option>
-              <option value="2019">2019</option>
-              <option value="2020">2020</option>
-              <option value="2021">2021</option>
-              <option value="2022">2022</option>
-              <option value="2023">2023</option>
-            </select>
-          </div>
-        </div>
-      </li> */}
-      {/* End li */}
 
       <li className="min_area list-inline-item">
         <div className="form-group mb-4">

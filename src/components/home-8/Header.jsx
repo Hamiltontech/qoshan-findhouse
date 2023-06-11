@@ -31,7 +31,7 @@ const Header = () => {
 
 
   return (
-    <div className="top-header d-flex align-items-center justify-content-between py-2 px-3" style={{ backgroundColor: "#232323" }}>
+    <div className="top-header d-flex align-items-center justify-content-between  px-3" style={{ backgroundColor: "#232323" }}>
       <WhatsAppButton />
       <header className={`header-nav menu_style_home_one style2 home8  navbar-scrolltofixed stricky main-menu rtl ${navbar ? "stricky-fixed " : ""}`} style={{ display: "block" }}>
        
