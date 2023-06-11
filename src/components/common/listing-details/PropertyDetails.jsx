@@ -25,7 +25,7 @@ const PropertyDetails = ({ property }) => {
           {property?.x_studio_property_area > 0 ?
             <li>
               <p>
-                مساحة العقار : <span>{property?.x_studio_property_area} متر مربع</span>
+                مساحة العقار : <span>{property?.x_studio_area_prefix} {property?.x_studio_property_area} متر مربع</span>
               </p>
             </li>
             : <></>
