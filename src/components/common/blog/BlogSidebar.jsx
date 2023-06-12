@@ -17,17 +17,6 @@ const BlogSidebar = ({relatedCtegory, keyword, setKeyword }) => {
       {/* End .sidebar_search_widget */}
 
 
-      {/* End .Categories widget */}
-
-{/* 
-      {relatedCtegory ? <div className="sidebar_feature_listing" dir="rtl">
-        <h4 className="title">أخبار مشابهة</h4>
-
-        <RelatedNews relatedCtegory={relatedCtegory} />
-      </div> : <></>} */}
-
-      {/* End .sidebar_feature_listing */}
-
       <div className="sidebar_feature_listing" dir="rtl">
         {/* <FeaturedListings/> */}
 

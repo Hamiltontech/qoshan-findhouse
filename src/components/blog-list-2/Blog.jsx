@@ -58,15 +58,18 @@ const Blog = ({setPostNum, postNum, news, keyword, setKeyword, categ, setCateg})
                   <a href="#"> {item.x_studio_original_create_date} </a>
                   </li>
                 </ul>
-                <p>{ReactHtmlParser(item?.x_studio_body?.slice(0, 100))} </p>
-              </div>
+
+               
+                <p>{ReactHtmlParser(item?.x_studio_body?.slice(0,90) + "...")}</p>
+             
+           </div>
               {/* End .tc_content */}
 
               <div className="fp_footer">
-              
                 <a className=" text-thm" href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
                   إقرأ المزيد <span className="flaticon-back"></span>
                 </a>
+              
               </div>
               {/* End fb_footer */}
             </div>
