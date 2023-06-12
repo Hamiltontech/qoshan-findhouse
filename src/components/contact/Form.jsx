@@ -46,6 +46,7 @@ const ContactForm = () => {
             <div className="form-group">
               <label htmlFor="name">اسمك الكامل</label>
               <input
+              className='form-control'
                 id="name"
                 type="text"
                 value={name}
@@ -57,6 +58,7 @@ const ContactForm = () => {
             <div className="form-group">
               <label htmlFor="email">البريد الالكتروني</label>
               <input
+              className='form-control'
                 id="email"
                 type="email"
                 value={email}
@@ -68,6 +70,7 @@ const ContactForm = () => {
             <div className="form-group">
               <label htmlFor="phone">هاتف</label>
               <input
+              className='form-control'
                 id="phone"
                 type="tel"
                 value={phone}
@@ -81,6 +84,7 @@ const ContactForm = () => {
                 id="body"
                 value={body}
                 onChange={(e) => setBody(e.target.value)}
+                className='form-control'
               />
             </div>
             <div className="form-group mb-0">

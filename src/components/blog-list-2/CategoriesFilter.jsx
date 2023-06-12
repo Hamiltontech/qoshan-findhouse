@@ -4,12 +4,11 @@ const CategoriesFilter = () => {
 
     const categories = [
         {id: 1, name: "جميع الاخبار"},
-        {id: 2, name: "العقاري"},
         {id: 3, name: "مشاريع و توجهات"},
         {id: 4, name: "خاص بقوشان"},
         {id: 5, name: "سوق العقار"},
-        {id: 6, name: "سوق المال"},
         {id: 7, name: "تصميم داخلي وديكورات"},
+        {id: 6, name: "سوق المال"},
         {id: 8, name: "معلومات عقارية"}
     ]
 

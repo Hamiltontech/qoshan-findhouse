@@ -68,8 +68,8 @@ const handleError = ()=>{
                 <option value="شقق طابقية">شقق طابقية</option>
                 <option value="فلل متلاصقة">فلل متلاصقة</option>
                 <option value="فلل">فلل</option>
-                <option value="قطع أراضي سكنية">قطع أراضي سكنية</option>
-                <option value="قطع أراضي تجارية">قطع أراضي تجارية</option>
+                <option value="قطع أراضي سكني">قطع أراضي سكنية</option>
+                <option value="قطع أراضي تجاري">قطع أراضي تجارية</option>
                 <option value="قطع أراضي صناعية">قطع أراضي صناعية</option>
                 <option value="برج سكني">برج سكني</option>
                 <option value="استوديوهات">استوديوهات</option>
