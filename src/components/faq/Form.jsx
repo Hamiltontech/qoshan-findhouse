@@ -17,17 +17,17 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-formData.append('name', name);
-formData.append('email', email);
-formData.append('phone', phone);
-formData.append('area', area);
-formData.append('propertyType', propertyType);
-formData.append('sellingPrice', sellingPrice);
-formData.append('propertyArea', propertyArea);
-formData.append('body', body);
-propertyImages.forEach((image, index) => {
-  formData.append(`image_${index + 1}`, image);
-});
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('phone', phone);
+    formData.append('area', area);
+    formData.append('propertyType', propertyType);
+    formData.append('sellingPrice', sellingPrice);
+    formData.append('propertyArea', propertyArea);
+    formData.append('body', body);
+    propertyImages.forEach((image, index) => {
+      formData.append(`image_${index + 1}`, image);
+    });
     try {
       const response = await fetch('/api/send', {
         method: 'POST',
@@ -50,7 +50,7 @@ propertyImages.forEach((image, index) => {
         setPropertyArea('');
         setPropertyImages([]);
         setBody('');
-        
+
 
       } else {
         setMessage('Failed to send email');
@@ -66,123 +66,142 @@ propertyImages.forEach((image, index) => {
     <div>
       {message && <p>{message}</p>}
       <form onSubmit={handleSubmit}>
-      <div className="row">
-      <div className="col-sm-12">
+        <div className="row">
+          <div className="col-sm-12">
             <div className="form-group">
-            <label htmlFor="name">اسمك الكامل</label>
-        <input
-          id="name"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-                </div>
+              <label htmlFor="name">اسمك الكامل</label>
+              <input
+                className='form-control'
+                id="name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
           </div>
-                  <div className="col-md-6">
+          <div className="col-md-6">
             <div className="form-group">
               <label htmlFor="email">البريد الالكتروني</label>
-        <input
-          id="email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        </div>
+              <input
+                className='form-control'
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
           </div>
           <div className="col-md-6">
             <div className="form-group">
               <label htmlFor="phone">هاتف</label>
-        <input
-          id="phone"
-          type="tel"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-          </div>
+              <input
+                className='form-control'
+                id="phone"
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
           </div>
           <div className="col-sm-12">
-  <div className="form-group">
-    <label htmlFor="area">عنوان العقار</label>
-    <input
-      id="area"
-      type="text"
-      value={area}
-      onChange={(e) => setArea(e.target.value)}
-    />
-  </div>
-  <div className="row">
+            <div className="form-group">
+              <label htmlFor="area">عنوان العقار</label>
+              <input
+                className='form-control'
+                id="area"
+                type="text"
+                value={area}
+                onChange={(e) => setArea(e.target.value)}
+              />
+            </div>
+            <div className="row">
 
-  <div className="col-sm-6">
-  <div className="form-group">
-    <label htmlFor="propertyType">نوع العقار</label>
-    <div className="input-group">
-    <select
-      id="propertyType"
-      value={propertyType}
-      onChange={(e) => setPropertyType(e.target.value)}
-    >
-      <option value="">اختر نوع العقار</option>
-      <option value="apartment">شقة</option>
-      <option value="villa">فيلا</option>
-      <option value="land">أرض</option>
-    </select>
-    </div>
-  </div>
-</div>
-<div className="col-sm-6">
-  <div className="form-group">
-    <label htmlFor="sellingPrice">سعر البيع</label>
-    <div className="input-group">
-      <input
-        id="sellingPrice"
-        type="text"
-        value={sellingPrice}
-        onChange={(e) => setSellingPrice(e.target.value)}
-      />
-    </div>
-  </div>
-</div>
-</div>
+              <div className="col-sm-6">
+                <div className="form-group">
+                  <label htmlFor="propertyType">نوع العقار</label>
+                  <div className="input-group">
+                    <select
+                      className='selectpicker form-select show-tick form-control'
+                      id="propertyType"
+                      value={propertyType}
+                      onChange={(e) => setPropertyType(e.target.value)}
+                    >
+                     <option value="">نوع العقار</option>
+                <option value="شقق">شقق</option>
+                <option value="شقق طابقية">شقق طابقية</option>
+                <option value="فلل متلاصقة">فلل متلاصقة</option>
+                <option value="فلل">فلل</option>
+                <option value="قطع أراضي سكنية">قطع أراضي سكنية</option>
+                <option value="قطع أراضي تجارية">قطع أراضي تجارية</option>
+                <option value="قطع أراضي صناعية">قطع أراضي صناعية</option>
+                <option value="برج سكني">برج سكني</option>
+                <option value="استوديوهات">استوديوهات</option>
+                <option value="شاليهات">شاليهات</option>
+                <option value="مشاريع قطع أراضي">مشاريع قطع أراضي</option>
+                <option value="مشاريع قيد الإنشاء">مشاريع قيد الإنشاء</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div className="col-sm-6">
+                <div className="form-group">
+                  <label htmlFor="sellingPrice">سعر البيع</label>
+                  <div className="input-group">
+                    <input
+                      className='form-control'
+                      id="sellingPrice"
+                      type="text"
+                      value={sellingPrice}
+                      onChange={(e) => setSellingPrice(e.target.value)}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
 
-<div className="col-sm-6">
-  <div className="form-group">
-    <label htmlFor="propertyArea">مساحة العقار</label>
-    <div className="input-group">
-      <input
-        id="propertyArea"
-        type="text"
-        value={propertyArea}
-        onChange={(e) => setPropertyArea(e.target.value)}
-      />
-    </div>
-  </div>
-</div>
+            <div className="col-sm-12">
+              <div className="form-group">
+                <label htmlFor="propertyArea">مساحة العقار</label>
+                <div className="input-group">
+                  <input
+                    className='form-control '
+                    id="propertyArea"
+                    type="text"
+                    value={propertyArea}
+                    onChange={(e) => setPropertyArea(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
 
-</div>
+          </div>
           <div className="col-sm-12">
             <div className="form-group">
               <label htmlFor="message">رسالتك</label>        <textarea
-          id="body"
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-        />
-                    </div>
-                    <div className="col-sm-12">
-  <div className="form-group">
-    <label htmlFor="propertyImages">صور العقار</label>
-    <input
-      id="propertyImages"
-      type="file"
-      accept="image/*"
-      multiple
-      onChange={(e) => {setPropertyImages(Array.from(e.target.files)); console.log(Array.from(e.target.files))}}
-    />
-  </div>
-</div>
-                    <div className="form-group mb-0">
+                id="body"
+                className='form-control'
+                value={body}
+                onChange={(e) => setBody(e.target.value)}
+              />
+            </div>
+            <div className="col-sm-12">
+              <div className="form-group">
+                <label htmlFor="propertyImages">صور العقار</label>
+                <input
+                  className='form-control'
+                  style={{border: "none"}}
+                  id="propertyImages"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={(e) => { setPropertyImages(Array.from(e.target.files)); console.log(Array.from(e.target.files)) }}
+                />
+              </div>
+            </div>
+            <div className="form-group mb-0">
 
-        <button type="submit" className="btn btn-lg btn-thm">ارسال</button>
-        </div>
+              <button type="submit" className="btn btn-lg btn-thm">ارسال</button>
+            </div>
           </div>
         </div>
       </form>

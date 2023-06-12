@@ -6,7 +6,7 @@ const PropertyDescriptions = ({property}) => {
     height: "390",
     width: "640",
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
     },
   };
   return (

@@ -48,6 +48,7 @@ const FeaturedProperties = () => {
   let content = articles?.slice(0, 12)?.map((item) => (
     <div className="item" key={item.id}>
       <div className="feat_property">
+        <a href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
         <div className="thumb">
           <img className="img-whp" src={item?.x_studio_api_url} alt="fp1.jpg" />
           <div className="thmb_cntnt">
@@ -64,14 +65,15 @@ const FeaturedProperties = () => {
               </Link>
             </h4>
             <ul className="">
-                  <li className="list-inline-item" >
+                  <li className="list-inline-item text-thm" >
                       <i className="flaticon-calendar"></i>
                   </li>
-                  <li className="list-inline-item m-" style={{margin: 5,}}>
+                  <li className="list-inline-item text-thm" style={{margin: 5,}}>
                  {item.x_studio_original_create_date}
                   </li>
                 </ul>
           </div>
+         
           {/* End .tc_content */}
 
           <div className="fp_footer">
@@ -81,6 +83,7 @@ const FeaturedProperties = () => {
           </div>
           {/* End .fp_footer */}
         </div>
+        </a>
         {/* End .details */}
       </div>
     </div>

@@ -21766,7 +21766,7 @@
     ],
     "x_studio_many2many_field_HdeKZ": [],
     "x_studio_area_prefix": "250, 280",
-    "x_studio_youtube_video": "https://youtu.be/ywZdvzjY4fE"
+    "x_studio_youtube_video": false
   },
   {
     "id": 25238,
@@ -43322,6 +43322,6 @@
     ],
     "x_studio_many2many_field_HdeKZ": [],
     "x_studio_area_prefix": false,
-    "x_studio_youtube_video": "https://www.youtube.com/watch?v=XxhAJM73Nmk"
+    "x_studio_youtube_video": ""
   }
 ]
