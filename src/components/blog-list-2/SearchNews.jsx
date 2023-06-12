@@ -67,21 +67,6 @@ const [currentPage, setCurrentPage] = useState(1);
                 {/* End blog item */}
               </div>
               {/* End .row */}
-
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="mbp_pagination mt20">
-                    {/* <Pagination 
-                    items={news.length}
-                    currentPage={currentPage} 
-                    pageSize={pageSize} 
-                    onPageChange={onPageChange}
-                    /> */}
-                  </div>
-                  {/* End .mbp_pagination */}
-                </div>
-              </div>
-              {/* End .row */}
             </div>
             {/* End .col */}
 
