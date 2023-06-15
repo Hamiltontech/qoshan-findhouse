@@ -186,9 +186,8 @@ const ListingDynamicDetailsV1 = () => {
 
 
 
-              <div style={{ display: "flex", placeContent: "center", justifyContent: "center", alignContent: "center", placeItems: "center", gap: "10px"}}>
+              {/* <div style={{ display: "flex", placeContent: "center", justifyContent: "center", alignContent: "center", placeItems: "center", gap: "10px"}}>
                 <MdChevronRight
-                  // style={{ padding: "10px" }}
                   onClick={slideRight}
                   size={120}
                 />
@@ -226,11 +225,10 @@ const ListingDynamicDetailsV1 = () => {
                   </div>
                 </div>
                 <MdChevronLeft
-                  // style={{ padding: "10px" }}
                   onClick={slideLeft}
                   size={120}
                 />
-              </div>
+              </div> */}
 
 
 
