@@ -5,6 +5,7 @@ import MobileMenu from "../common/header/MobileMenu";
 import PopupSignInUp from "../common/PopupSignInUp";
 import BreadCrumbBanner from "./BreadCrumbBanner";
 import FaqContent from "./Form";
+import Iframe from "react-iframe";
 
 const index = () => {
   return (
@@ -41,7 +42,16 @@ const index = () => {
             <div className="col-lg-10 offset-lg-1">
               <div className="faq_content">
                 <div className="faq_according">
-                  <FaqContent />
+                  {/* <FaqContent /> */}
+                  {/* <iframe src="http://qform.vps47625.mylogin.co/?page_id=12" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" height="50%" width="50%" allowfullscreen></iframe> */}
+                  <Iframe url="http://qform.vps47625.mylogin.co/?page_id=12"
+        width=""
+        height="900px"
+        scrolling="no"
+        id=""
+        className=""
+        display="block"
+        position="relative"/>
                 </div>
               </div>
             </div>

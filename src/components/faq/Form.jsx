@@ -25,16 +25,19 @@ const ContactForm = () => {
     formData.append('sellingPrice', sellingPrice);
     formData.append('propertyArea', propertyArea);
     formData.append('body', body);
-    propertyImages.forEach((image, index) => {
-      formData.append(`image_${index + 1}`, image);
-    });
+    formData.append('propertyImages', propertyImages)
+    // propertyImages.forEach((image, index) => {
+    //   formData.append(`image_${index + 1}`, image);
+    // });
+
+    
     try {
       const response = await fetch('/api/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, phone, area, propertyType, sellingPrice, propertyArea, body }),
+        body: JSON.stringify({ name, email, phone, area, propertyType, sellingPrice, propertyArea, body, propertyImages }),
       });
 
       const data = await response.json();
@@ -48,7 +51,7 @@ const ContactForm = () => {
         setPropertyType('');
         setSellingPrice('');
         setPropertyArea('');
-        setPropertyImages([]);
+        setPropertyImages(null);
         setBody('');
 
 
@@ -60,7 +63,6 @@ const ContactForm = () => {
       setMessage('Failed to send email');
     }
   };
-
 
   return (
     <div>
@@ -194,7 +196,7 @@ const ContactForm = () => {
                   type="file"
                   accept="image/*"
                   multiple
-                  onChange={(e) => { setPropertyImages(Array.from(e.target.files)); console.log(Array.from(e.target.files)) }}
+                  onChange={(e) => { setPropertyImages(e.target.files[0]); }}
                 />
               </div>
             </div>
