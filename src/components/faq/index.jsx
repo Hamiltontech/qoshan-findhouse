@@ -47,7 +47,7 @@ const index = () => {
                   <Iframe url="http://qform.vps47625.mylogin.co/?page_id=12"
         width=""
         height="900px"
-        scrolling="no"
+        
         id=""
         className=""
         display="block"
