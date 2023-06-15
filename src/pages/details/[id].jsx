@@ -14,6 +14,7 @@ import Seo from "../../components/common/seo";
 import Head from 'next/head';
 import Social from "./Social";
 import { MdChevronRight, MdChevronLeft } from "react-icons/md";
+import PropGallery from './PropGallery'
 
 
 
@@ -82,6 +83,8 @@ const ListingDynamicDetailsV1 = () => {
     }
   }
 
+
+  const gal = property?.x_studio_property_images && property?.x_studio_property_images.split('"')?.filter(handleImages)
 
   const slideLeft = () => {
     var slider = document.getElementById("slider");
@@ -231,6 +234,12 @@ const ListingDynamicDetailsV1 = () => {
               </div> */}
 
 
+
+<div className="col-lg-12">
+            <div className="feature_property_home3_slider gutter-x15">
+              <PropGallery  gal={gal}/>
+            </div>
+          </div>
 
 
               {/* End  col-sm-5 col-lg-4 */}
