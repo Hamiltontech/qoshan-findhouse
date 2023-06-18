@@ -135,7 +135,7 @@ const ContactForm = () => {
                 <option value="فلل">فلل</option>
                 <option value="قطع أراضي سكنية">قطع أراضي سكنية</option>
                 <option value="قطع أراضي تجارية">قطع أراضي تجارية</option>
-                <option value="قطع أراضي صناعية">قطع أراضي صناعية</option>
+                <option value="قطع أراضي صناعي">قطع أراضي صناعية</option>
                 <option value="برج سكني">برج سكني</option>
                 <option value="استوديوهات">استوديوهات</option>
                 <option value="شاليهات">شاليهات</option>

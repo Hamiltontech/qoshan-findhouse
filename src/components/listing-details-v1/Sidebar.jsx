@@ -53,12 +53,11 @@ const Sidebar = ({relatedType, relatedLocation, featured, propertyLink, property
           <Advert />
         </div>
       </div>
-      <div className="terms_condition_widget">
-        {/* <h4 className="title">Featured Properties</h4> */}
+      {/* <div className="terms_condition_widget">
         <div className="sidebar_feature_property_slider">
           <Advert2 />
         </div>
-      </div>
+      </div> */}
       {/* End .Recently Viewed */}
     </>
   );

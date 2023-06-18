@@ -229,7 +229,7 @@ const HeaderMenuContent = ({ float = "" }) => {
     { id: 4, name: "فلل", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
     { id: 5, name: "قطع أراضي سكني", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
     { id: 6, name: "قطع أراضي تجاري", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
-    { id: 7, name: "قطع أراضي صناعية", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
+    { id: 7, name: "قطع أراضي صناعي", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
     { id: 8, name: "برج سكني", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
     { id: 9, name: "استوديوهات", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
     { id: 10, name: "شاليهات", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
