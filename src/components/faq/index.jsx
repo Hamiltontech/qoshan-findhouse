@@ -44,7 +44,7 @@ const index = () => {
                 <div className="faq_according">
                   {/* <FaqContent /> */}
                   {/* <iframe src="http://qform.vps47625.mylogin.co/?page_id=12" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" height="50%" width="50%" allowfullscreen></iframe> */}
-                  <Iframe url="https://qform.vps47625.mylogin.co/?page_id=12"
+                  <Iframe url="https://qoshan.esmrts.com/?page_id=12"
         width=""
         height="900px"
         scrolling="no"
