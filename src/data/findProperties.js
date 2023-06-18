@@ -58,7 +58,7 @@ module.exports = [
   {
     id: 9,
     img: "/assets/images/property/um-alsummaq.png",
-    name: "ام السماق",
+    name: "أم السماق",
     number: "47",
     column: "col-lg-4 col-xl-4",
   }

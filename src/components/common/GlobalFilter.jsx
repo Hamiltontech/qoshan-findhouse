@@ -42,11 +42,11 @@ const handleError = ()=>{
 
 
         {/* keyword */}
-        <li className="list-inline-item" style={{width: "50%", marginBottom: "10px"}}>
+        <li className="list-inline-item keywordInput">
           <div className="form-group">
             <input
               type="text"
-              className="form-control"
+              className="form-control desktopInputs"
               style={{width: '100%'}}
               placeholder="أدخل كلمة للبحث"
               onChange={(e) => setKeyword(e.target.value)}
@@ -56,13 +56,13 @@ const handleError = ()=>{
      
 
         {/* type */}
-        <li className="list-inline-item">
+        <li className="list-inline-item selectionInputs">
           <div className="search_option_two">
             <div className="candidate_revew_select">
               <select 
               value={type}
               onChange={(e) => setType(e.target.value)} 
-              className="selectpicker w100 form-select show-tick">
+              className="selectpicker  form-select show-tick desktopInputs">
                 <option value="">نوع العقار</option>
                 <option value="شقق">شقق</option>
                 <option value="شقق طابقية">شقق طابقية</option>
@@ -76,8 +76,6 @@ const handleError = ()=>{
                 <option value="شاليهات">شاليهات</option>
                 <option value="مشاريع قطع أراضي">مشاريع قطع أراضي</option>
                 <option value="مشاريع قيد الإنشاء">مشاريع قيد الإنشاء</option>
-
-
               </select>
             </div>
           </div>
@@ -92,28 +90,27 @@ const handleError = ()=>{
             <select
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="selectpicker w100 show-tick form-select"
+              className="selectpicker  show-tick form-select desktopInputs"
             >
               <option value="">الموقع</option>
-
               {cities?.map((item)=>(
                 <option key={item?.id} value={item?.x_name}>{item?.x_name}</option>
               ))}
-             
             </select>
             </div>
           </div>
         </li>
+        
    
 
 {pageRoute? <>
   {/* bedrooms */}
   <li className=" list-inline-item" style={{marginBottom: "10px"}}>
-        <div className="form-group ">
+        <div className="form-group selectpicker">
           <input
           value={bedrooms}
             type="number"
-            className="form-control"
+            className="form-control desktopInputs"
             placeholder="غرف النوم"
             onChange={(e) => setBedrooms(e.target.value)}
           />
@@ -123,24 +120,24 @@ const handleError = ()=>{
 
      {/* bathrooms */}
      <li className=" list-inline-item">
-        <div className="form-group ">
+        <div className="form-group selectpicker">
           <input
           value={bathrooms}
             type="number"
-            className="form-control"
+            className="form-control desktopInputs"
             placeholder="الحمامات "
             onChange={(e) => setBathrooms(e.target.value)}
           />
         </div>
       </li>
 
-           {/* garages */}
+      {/* garages */}
      <li className=" list-inline-item">
         <div className="form-group ">
           <input
           value={garages}
             type="number"
-            className="form-control"
+            className="form-control desktopInputs"
             placeholder=" الكراجات"
             onChange={(e) => setGarages(e.target.value)}
           />
@@ -154,7 +151,7 @@ const handleError = ()=>{
           <input
           value={minArea}
             type="number"
-            className="form-control"
+            className="form-control desktopInputs"
             placeholder=" أقل مساحة"
             onChange={(e) => setMinArea(e.target.value)}
           />
@@ -166,7 +163,7 @@ const handleError = ()=>{
           <input
           value={maxArea}
             type="number"
-            className="form-control"
+            className="form-control desktopInputs"
             id="exampleInputName3"
             placeholder=" أكبر مساحة"
             onChange={(e) => setMaxArea(e.target.value)}
@@ -177,12 +174,6 @@ const handleError = ()=>{
 :
 <></>
 }
-   
-
-
-
-
-
 
      {/* price range */}
      <li className=" list-inline-item">
@@ -190,19 +181,19 @@ const handleError = ()=>{
           <input
           value={minPrice}
             type="number"
-            className="form-control"
+            className="form-control desktopInputs"
             placeholder="اقل سعر"
             onChange={(e) => setMinPrice(e.target.value)}
           />
         </div>
       </li>
 
-      <li className="list-inline-item">
+      <li className="list-inline-item lastInput">
         <div className="form-group">
           <input
           value={maxPrice}
             type="number"
-            className="form-control"
+            className="form-control desktopInputs"
             id="exampleInputName3"
             placeholder="أعلى سعر"
             onChange={(e) => setMaxPrice(e.target.value)}
@@ -211,7 +202,7 @@ const handleError = ()=>{
       </li>
 
 
-      <li className="custome_fields_520 list-inline-item"></li>
+      {/* <li className="custome_fields_520 list-inline-item"></li> */}
 
 
 
@@ -226,7 +217,6 @@ const handleError = ()=>{
                   type: type,
                   minPrice: minPrice,
                   maxPrice: maxPrice,
-
                   bedrooms: bedrooms,
                   bathrooms: bathrooms,
                   garages: garages,
@@ -244,9 +234,6 @@ const handleError = ()=>{
           </div>
         </li>
 
-  
-        
-       
 
       </ul>
     </div>

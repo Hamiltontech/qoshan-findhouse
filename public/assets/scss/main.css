@@ -386,6 +386,38 @@ address {
   height: 100%;
 }
 
+
+@media only screen and (max-width: 600px) {
+  .desktopInputs {
+    width: 90% !important;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  .keywordInput{
+    width: "90%";
+    margin-bottom: 0px !important;
+  }
+  .selectionInputs{
+    margin-left: 0px;
+  }
+}
+
+.lastInput{
+  margin-left: 10px;
+}
+
+.selectionInputs {
+  margin-left: 30px;
+}
+.desktopInputs{
+  width: 100%;
+}
+
+.keywordInput {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
 .sign_up_modal.modal .close:focus {
   outline: none;
 }

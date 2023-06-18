@@ -236,7 +236,7 @@ const ListingDynamicDetailsV1 = () => {
 
 
 <div className="col-lg-12">
-            <div className="feature_property_home3_slider gutter-x15">
+            <div className="feature_property_home3_slider gutter-x15" style={{paddingLeft: "5px"}}>
               <PropGallery  gal={gal}/>
             </div>
           </div>

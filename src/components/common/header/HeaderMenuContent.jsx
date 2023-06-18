@@ -234,7 +234,6 @@ const HeaderMenuContent = ({ float = "" }) => {
     { id: 9, name: "استوديوهات", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
     { id: 10, name: "شاليهات", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
     { id: 10, name: "مشاريع قطع أراضي", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
-    { id: 10, name: "مشاريع قيد الإنشاء", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
   ];
 
   return (
@@ -284,6 +283,7 @@ const HeaderMenuContent = ({ float = "" }) => {
             type: item.name,
         }
     }}>
+     
                 <a
                   className={
                     route.pathname === item.routerPath ? "ui-active" : undefined
@@ -294,6 +294,25 @@ const HeaderMenuContent = ({ float = "" }) => {
               </Link>
             </li>
           ))}
+
+<li>
+      <Link
+        href={{
+          pathname: "https://qoshan-findhouse.vercel.app/all-properties",
+          query: {
+            type: "all",
+              keyword: "قيد الإنشاء",
+          }}} >
+         <a
+                  className={
+                    route.pathname === "/all-properties" ? "ui-active" : undefined
+                  }
+                >
+                  مشاريع قيد الإنشاء
+                </a>
+              </Link>
+            </li>
+
         </ul>
       </li>
 

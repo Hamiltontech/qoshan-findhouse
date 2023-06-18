@@ -25,7 +25,7 @@ const index = () => {
       <div className="home-four " dir="rtl">
         <div className="container-fluid p0">
           <div className="main-banner-wrapper">
-            <div className="arrow-style-2 banner-style-one ">
+            <div className="arrow-style-2 banner-style-one">
               <HeroSlider />
             </div>
           </div>

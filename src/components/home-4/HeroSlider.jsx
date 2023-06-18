@@ -13,8 +13,8 @@ const HeroSlider = () => {
 
   return (
     <Slider {...settings} arrows={false}>
-      <div className="slide slide-one image-1"></div>
-      <div className="slide slide-one image-2"></div>
+      <div className="slide slide-one image-1" style={{height: "1000px"}}></div>
+      <div className="slide slide-one image-2" style={{height: "1000px"}}></div>
       <div className="slide slide-one image-1"></div>
     </Slider>
   );
