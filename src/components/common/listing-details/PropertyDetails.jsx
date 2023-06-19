@@ -20,7 +20,7 @@ const PropertyDetails = ({ property }) => {
                 السعر :  <span><span style={{ fontSize: '9px' }}>{property?.x_studio_price_prefix}</span> {property?.x_studio_sale_price && property?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني </span>
               </p>
             </li>
-            : <></>}
+            : <><span style={{ fontSize: '9px' }}>{property?.x_studio_price_prefix}</span> </>}
 
           {property?.x_studio_property_area > 0 ?
             <li>

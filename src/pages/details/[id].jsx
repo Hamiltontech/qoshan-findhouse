@@ -75,6 +75,8 @@ const ListingDynamicDetailsV1 = () => {
   let features = initfeatures.filter(c => property?.x_studio_many2many_field_Tzhpw?.includes(c.id));
 
 
+console.log(features)
+
   const url = property?.x_name?.replace(/\s+/g, '-')
 
   const handleImages = (val) => {
@@ -152,7 +154,7 @@ const ListingDynamicDetailsV1 = () => {
                         {property?.x_studio_sale_price && property?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني
                       </h2>
                       :
-                      <></>}
+                      <> <span style={{ fontSize: '12px' }}>{property?.x_studio_price_prefix}</span></>}
 
                   </div>
                 </div>
