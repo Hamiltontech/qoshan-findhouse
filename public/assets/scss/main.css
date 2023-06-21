@@ -8306,6 +8306,10 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   width: 195px;
 }
 
+.feat_property.home7.style4.false {
+    height: 500px;
+}
+
 .home3 .footer_mailchimp_form .col-auto input.form-control {
   background-color: #e8eef2;
   border: 1px solid #e8eef2;
