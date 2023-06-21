@@ -8878,7 +8878,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 }
 
 .inner_page_breadcrumb:before {
-  background-color: white;
+  
   bottom: 0;
   content: "";
   left: 0;
