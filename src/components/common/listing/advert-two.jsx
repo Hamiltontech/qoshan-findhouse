@@ -19,7 +19,7 @@ const FindProperties = () => {
   return (
     <>
 <a href={data?.x_studio_advert_url_sidebar} className="position-relative" style={{ marginRight: 50 }}>
-        <Image src={data?.x_studio_image_url_sidebar}
+        <Image src="https://res.cloudinary.com/dhk7qsnfv/image/upload/v1684397458/winner-color-vert_4x-1_i02g4n.webp"
             width={220}
             height={500}
         /></a>
