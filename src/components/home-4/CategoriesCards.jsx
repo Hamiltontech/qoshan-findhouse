@@ -11,7 +11,8 @@ const [keyword, setKeyword] = useState("")
           <Link  href={{
               pathname: "all-properties",
               query: {
-                  type: "مشاريع قيد الإنشاء",
+                  type: "all",
+                  keyword: "قيد الإنشاء"
               }
           }}>
             <a
@@ -39,7 +40,7 @@ const [keyword, setKeyword] = useState("")
           <Link  href={{
               pathname: "all-properties",
               query: {
-                  type: "مشاريع قطع أراضي",
+                  type: "قطع أراضي سكني",
               }
           }}>
             <a
@@ -53,7 +54,7 @@ const [keyword, setKeyword] = useState("")
                   <span style={{color: 'white'}} className="flaticon-house-1"></span>
                 </div>
                 <div className="details">
-                  <h4 style={{color: 'white'}}>مشاريع قطع اراضي</h4>
+                  <h4 style={{color: 'white'}}>  قطع أراضي سكنية</h4>
                   
                 </div>
               </div>

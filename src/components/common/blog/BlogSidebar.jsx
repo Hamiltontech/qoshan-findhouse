@@ -22,11 +22,11 @@ const BlogSidebar = ({relatedCtegory, keyword, setKeyword }) => {
 
         <Advert />
       </div>
-      <div className="sidebar_feature_listing" dir="rtl">
-        {/* <FeaturedListings/> */}
+      {/* <div className="sidebar_feature_listing" dir="rtl">
+       
 
         <Advert2 />
-      </div>
+      </div> */}
       {/* End .blog_tag_widget */}
     </div>
 

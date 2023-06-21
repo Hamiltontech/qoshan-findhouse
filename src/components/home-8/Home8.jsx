@@ -34,7 +34,7 @@ const Home8 = () => {
   useEffect(() => {
     axios.get("/data.json").then((res) => {
       setData(res.data)
-      setFeatured(res.data.filter((ele) => ele?.x_studio_featured_property === "Yes"))
+      setFeatured(res.data.filter((ele) => ele?.x_studio_featured_property === true))
       setHeroProperties(res.data.filter((ele) => ele?.x_studio_view_on_slider === "Yes"))
     }).catch((err) => {
       console.log(err)
