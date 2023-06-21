@@ -18,7 +18,7 @@ const Featured = ({featured}) => {
             <Slider {...settings} arrows={false}>
                 {featured?.slice(0,5)?.map((item) => (
                     <div className="item" key={item.id}>
-                         <a href={`/details/${item?.x_name.replace(/\s+/g, '-')}`}>
+                         <a href={`/details/${item?.x_studio_property_id}`}>
                         <div className="feat_property home7">
                             <div className="thumb">
                               
@@ -39,7 +39,7 @@ const Featured = ({featured}) => {
                                             </li>
                                         ))}
                                     </ul> */}
-                                    <a className="fp_price" href={`/details/${item?.x_name.replace(/\s+/g, '-')}`}>
+                                    <a className="fp_price" href={`/details/${item?.x_studio_property_id}`}>
                                     {item?.x_studio_sale_price && item?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
                                     </a>
                                     <h4 className="posr color-white">

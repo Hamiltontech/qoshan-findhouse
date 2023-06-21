@@ -164,7 +164,7 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
                 className={`feat_property home7 style4 ${isGridOrList && "d-flex align-items-center"
                   }`}
               >
-                <a href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
+                <a href={`/details/${item.x_studio_property_id}`}>
 
                   <div className="thumb">
                     <img className="img-whp" src={item.x_studio_featured_url && item.x_studio_featured_url} alt="fp1.jpg" />
@@ -191,7 +191,7 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
                     {/* name */}
 
                     <h4>
-                      <Link href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
+                      <Link href={`/details/${item.x_studio_property_id}`}>
                         <a>
                           <Highlighter
                             class="YourHighlightClass"
@@ -254,7 +254,7 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
 
                     {/* details */}
                     <Link href={{
-                      pathname: `/details/${item.x_name.replace(/\s+/g, '-')}`,
+                      pathname: `/details/${item.x_studio_property_id}`,
                       query: {
                         property: item?.x_name,
                       }

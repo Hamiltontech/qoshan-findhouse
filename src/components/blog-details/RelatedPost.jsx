@@ -28,7 +28,7 @@ relatedNews?.sort(function(a,b){
         <div className="col-md-6 col-lg-6" key={item?.id} dir="rtl">
           <div className="for_blog feat_property">
             <div className="thumb">
-              <Link href={`/news-details/${item?.x_name.replace(/\s+/g, '-')}`}>
+              <Link href={`/news-details/${item?.x_studio_property_id}`}>
                 <a>
                   <img className="img-whp" src={item?.x_studio_api_url && item?.x_studio_api_url} alt={item?.x_studio_api_url && item?.x_studio_api_url} />
                 </a>
@@ -37,7 +37,7 @@ relatedNews?.sort(function(a,b){
             <div className="details">
               <div className="tc_content">
                 <h4>
-                  <Link href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
+                  <Link href={`/news-details/${item.x_studio_property_id}`}>
                     <a>{item?.x_name}</a>
                   </Link>
                 </h4>
@@ -57,7 +57,7 @@ relatedNews?.sort(function(a,b){
 
               <div className="fp_footer">
                
-              <a className=" text-thm" href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
+              <a className=" text-thm" href={`/news-details/${item.x_studio_property_id}`}>
                   إقرأ المزيد <span className="flaticon-back"></span>
                 </a>
               </div>

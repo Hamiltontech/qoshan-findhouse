@@ -54,7 +54,7 @@ const HeroSlider = ({heroProperties}) => {
                  
 
                   {/* title */}
-                    <a href={`/details/${singleItem.x_name.replace(/\s+/g, '-')}`}>
+                    <a href={`/details/${singleItem?.x_studio_property_id}`}>
                     <div className="main_title" style={{fontSize: '40px', fontFamily: 'Changa'}}>{singleItem?.x_name}</div>
                     </a>
                
@@ -103,7 +103,7 @@ const HeroSlider = ({heroProperties}) => {
                 </p>      
 
                 {/* details */}
-                <Link href={`/details/${singleItem.x_name.replace(/\s+/g, '-')}`}>
+                <Link href={`/details/${singleItem.x_studio_property_id}`}>
                 <button className="btn btn-thm" type="submit">تفاصيل</button>
                 </Link>
                   </div>

@@ -40,7 +40,7 @@ const handleType = (item)=>{
         <div className="col-md-6 col-lg-6" key={item?.id}>
           <div className="for_blog feat_property">
             <div className="thumb">
-              <Link href={`/detials/${item?.id}`}>
+              <Link href={`/detials/${item?.x_studio_property_id}`}>
                 <a>
                   <img className="img-whp"  src={item?.x_studio_featured_url && item?.x_studio_featured_url} alt={item.img} />
                 </a>
@@ -50,7 +50,7 @@ const handleType = (item)=>{
               <div className="tc_content">
                 <p style={{color: "#c2b49a"}}>{item?.x_studio_property_type[1]}</p>
                 <h4>
-                  <Link href={`/details/${item?.x_name.replace(/\s+/g, '-')}`}>
+                  <Link href={`/details/${item?.x_studio_property_id}`}>
                     <a>{item?.x_name}</a>
                   </Link>
                 </h4>
@@ -66,7 +66,7 @@ const handleType = (item)=>{
 
               <div className="fp_footer">
                 
-                <a className="fp_pdate float-end text-thm" href={`/details/${item?.x_name.replace(/\s+/g, '-')}`}>
+                <a className="fp_pdate float-end text-thm" href={`/details/${item?.x_studio_property_id}`}>
                   تفاصيل <span className="flaticon-back"></span>
                 </a>
               </div>
