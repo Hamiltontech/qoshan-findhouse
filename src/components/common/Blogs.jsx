@@ -30,7 +30,7 @@ const Blogs = () => {
         <div className="col-md-6 col-lg-4 col-xl-4" key={item?.id}>
           <div className="for_blog feat_property">
             <div className="thumb">
-              <Link href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
+              <Link href={`/details/${item.x_studio_property_id}`}>
                 <a>
                   <img className="img-whp" src={item.x_studio_featured_url} alt="bh1.jpg" />
                 </a>
@@ -42,7 +42,7 @@ const Blogs = () => {
 
                 <p className="text-thm">{item?.x_studio_type}</p>
                 <h4>
-                  <Link href={`/details/${item.x_name.replace(/\s+/g, '-')}`}>
+                  <Link href={`/details/${item.x_studio_property_id}`}>
                     <a>{item?.x_name}</a>
                   </Link>
                 </h4>
@@ -89,7 +89,7 @@ const Blogs = () => {
 
               <div className="fp_footer">
                 <Link   href={{
-        pathname: `/details/${item.x_name.replace(/\s+/g, '-')}`,
+        pathname: `/details/${item.x_studio_property_id}`,
         query: {
             property: item?.x_name,
         }

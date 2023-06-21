@@ -34,7 +34,7 @@ const ListingDynamicDetailsV1 = () => {
   // diala
   useEffect(() => {
     axios.get("/data.json").then((response) => {
-      const data = response.data?.find((item) => item.x_name.replace(/\s+/g, '-') == id)
+      const data = response.data?.find((item) => item?.x_studio_property_id == id)
       setProperty(data)
 
       const feat = response.data.filter((item) => item.x_studio_featured_property === true)
@@ -76,7 +76,7 @@ const ListingDynamicDetailsV1 = () => {
 
 console.log(features)
 
-  const url = property?.x_name?.replace(/\s+/g, '-')
+  const url = property?.x_studio_property_id
 
   const handleImages = (val) => {
     if (val !== ", ") {

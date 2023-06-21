@@ -20,7 +20,7 @@ useEffect(()=>{
     <>
       {relatedNews?.slice(0,5).map((item) => (
         <div className="media d-flex" key={item?.id}>
-          <Link href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
+          <Link href={`/news-details/${item.x_studio_property_id}`}>
             <a>
               <img
                 className="align-self-start me-3"
@@ -32,7 +32,7 @@ useEffect(()=>{
 
           <div className="media-body" style={{margin: '5px'}}>
             <h5 className="mt-0 post_title">
-            <Link href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
+            <Link href={`/news-details/${item.x_studio_property_id}`}>
                     <a>{item?.x_name}</a>
                   </Link>
             </h5>
