@@ -13,7 +13,6 @@ import Image from 'next/image'
 import Seo from "../../components/common/seo";
 import Head from 'next/head';
 import Social from "./Social";
-import { MdChevronRight, MdChevronLeft } from "react-icons/md";
 import PropGallery from './PropGallery'
 
 
@@ -184,12 +183,7 @@ console.log(features)
               {/* End .col-sm-7 .col-lg-8 */}
 
 
-
-
-
               {/* <div className="col-sm-5 col-lg-4"> */}
-
-
 
               {/* <div style={{ display: "flex", placeContent: "center", justifyContent: "center", alignContent: "center", placeItems: "center", gap: "10px"}}>
                 <MdChevronRight
