@@ -36,6 +36,27 @@ const handleError = ()=>{
 }
 
 
+
+function replaceArabicNums(str) {
+  const arabicNums = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g];
+  const englishNums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  let newStr = str;
+  arabicNums.forEach((num, index) => {
+    newStr = newStr.replace(num, englishNums[index]);
+  });
+  return newStr;
+}
+
+const arabicNums = /[٠-٩]/;
+const tested = arabicNums.test(keyword)
+
+if(tested){
+    const englishStr = replaceArabicNums(keyword)
+    setKeyword(englishStr)
+}
+
+
+
   return (
     <div className={`home1-advnc-search ${className}`}>
       <ul className="h1ads_1st_list mb0">
