@@ -15,7 +15,7 @@ const FindProperties = () => {
 
   return (
     <div className="mt20">
-      <a href={data?.x_studio_advert_url_search} className="position-relative" style={{ marginRight: 15, marginLeft: 15 }}>
+      <a target="_blank" rel="noreferrer" href={data?.x_studio_advert_url_search} className="position-relative" style={{ marginRight: 15, marginLeft: 15 }}>
         <Image src={data?.x_studio_image_url_search}
           width={240}
           height={60}

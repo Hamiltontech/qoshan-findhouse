@@ -19,7 +19,7 @@ const AddressSidebar = () => {
       </div>
       <div className="content_list">
         <h5>بريد الكتروني</h5>
-        <p>info@qoshan.com</p>
+        <a href="mailto:info@qoshan.com">  <p>info@qoshan.com</p></a>
       </div>
       <h5>تابعنا</h5>
       <ul className="contact_form_social_area">
