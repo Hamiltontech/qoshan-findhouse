@@ -20,10 +20,7 @@ const Header = () => {
 
   return (
     <>
-    <Head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MH0Z854NRN"></script> 
-    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)} gtag('js', new Date()); gtag('config', 'G-MH0Z854NRN')</script>
-      </Head>
+
     <header
       className={`header-nav menu_style_home_one style2 navbar-scrolltofixed stricky main-menu  ${
         navbar ? "stricky-fixed " : ""
