@@ -3933,6 +3933,10 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   animation-delay: 0.5s;
 }
 
+.for_blog.feat_property {
+  height: 640px;
+}
+
 .banner-style-one .active p {
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;

@@ -38,7 +38,7 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
   };
   return (
     <div>
-      {message && <p>{message}</p>}
+      
     <form onSubmit={handleSubmit}>
       <ul className="sasw_list mb0">
         <li className="search_area">
@@ -132,6 +132,7 @@ const ContactWithAgent = ({ propertyLink, propertyName }) => {
               ارسال
             </button>
           </div>
+          {message && <p style={{color: "#c2b49a"}}>{message}</p>}
         </li>
       </ul>
     </form>

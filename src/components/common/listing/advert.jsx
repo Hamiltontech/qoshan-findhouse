@@ -19,7 +19,7 @@ const FindProperties = () => {
 
   return (
     <>
-     <a href={data?.x_studio_advert_url_sidebar} className="position-relative" style={{ marginRight: 50}}>
+     <a target="_blank" rel="noreferrer" href={data?.x_studio_advert_url_sidebar} className="position-relative" style={{ marginRight: 50}}>
                   <Image src={data?.x_studio_image_url_sidebar}
                       width={220}
                       height={500}

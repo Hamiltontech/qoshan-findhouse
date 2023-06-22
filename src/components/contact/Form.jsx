@@ -39,7 +39,7 @@ const ContactForm = () => {
 
   return (
     <div>
-      {message && <p>{message}</p>}
+      
       <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-sm-12">
@@ -91,6 +91,7 @@ const ContactForm = () => {
 
               <button type="submit" className="btn btn-lg btn-thm">ارسال</button>
             </div>
+            {message && <p style={{color: "#c2b49a"}}>{message}</p>}
           </div>
         </div>
       </form>

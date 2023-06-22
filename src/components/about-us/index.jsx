@@ -71,12 +71,14 @@ const index = () => {
         <div className="container">
           <div className="row" >
             <div className="col-lg-12 text-center" style={{direction: 'rtl', color: 'white', paddingLeft: 40, paddingRight: 40}}>
-              <h2 style={{color: '#C2B49A'}}>برنامج قوشان التلفزيوني</h2>
+              <h2 style={{color: '#C2B49A', marginBottom: "20px"}}>برنامج قوشان التلفزيوني</h2>
+
               برنامج تلفزيوني عقاري يسلط الضوء على أهم الاستثمارات العقارية في المملكة ويساعد على تشجيع الاستثمار في القطاع و نشر التوعية بأساسيات الهندسة و البناء, والعمل على تقديم حلول للمشاكل التي تواجه العملاء أثناء بيع و  شراء العقار بطرق صحيحة ومهنية ونكشف للمشاهدين بعض أسرار المهن العقارية ودورها المهم لتطور القطاع العقاري في الأردن كما نعمل جذب العملاء لإختيار العقار المناسب بطريقة غير تقليدية
+              
               <br>
               </br>
-              <Link href="/watchqoshan">
-                <button style={{paddingLeft: 20, paddingRight: 20, paddingTop: 8, paddingBottom: 8, marginTop: 5, background:'#C2B49A', border: 'none', color: 'white' }}>شاهد قوشان</button>
+              <Link href="/watch-qoshan">
+                <button style={{paddingLeft: 20, paddingRight: 20, paddingTop: 8, paddingBottom: 8, marginTop: 20, background:'#C2B49A', border: 'none', color: 'white' }}>شاهد قوشان</button>
               </Link>
 
 </div>
