@@ -223,17 +223,17 @@ const HeaderMenuContent = ({ float = "" }) => {
   ];
 
   const pages = [
-    { id: 1, name: "شقق", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
-    { id: 2, name: "شقق طابقية", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
-    { id: 3, name: "فلل متلاصقة", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
-    { id: 4, name: "فلل", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
-    { id: 5, name: "قطع أراضي سكني", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
-    { id: 6, name: "قطع أراضي تجاري", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
-    { id: 7, name: "قطع أراضي صناعي", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
-    { id: 8, name: "برج سكني", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
-    { id: 9, name: "استوديوهات", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
-    { id: 10, name: "شاليهات", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
-    { id: 10, name: "مشاريع قطع أراضي", routerPath: "https://qoshan-findhouse.vercel.app/all-properties" },
+    { id: 1, name: "شقق", routerPath: "https://qoshan.com/all-properties" },
+    { id: 2, name: "شقق طابقية", routerPath: "https://qoshan.com/all-properties" },
+    { id: 3, name: "فلل متلاصقة", routerPath: "https://qoshan.com/all-properties" },
+    { id: 4, name: "فلل", routerPath: "https://qoshan.com/all-properties" },
+    { id: 5, name: "قطع أراضي سكني", routerPath: "https://qoshan.com/all-properties" },
+    { id: 6, name: "قطع أراضي تجاري", routerPath: "https://qoshan.com/all-properties" },
+    { id: 7, name: "قطع أراضي صناعي", routerPath: "https://qoshan.com/all-properties" },
+    { id: 8, name: "برج سكني", routerPath: "https://qoshan.com/all-properties" },
+    { id: 9, name: "استوديوهات", routerPath: "https://qoshan.com/all-properties" },
+    { id: 10, name: "شاليهات", routerPath: "https://qoshan.com/all-properties" },
+    { id: 10, name: "مشاريع قطع أراضي", routerPath: "https://qoshan.com/all-properties" },
   ];
 
   return (
@@ -278,7 +278,7 @@ const HeaderMenuContent = ({ float = "" }) => {
           {pages.map((item) => (
             <li  key={item.id}>
               <Link href={{
-        pathname: "https://qoshan-findhouse.vercel.app/all-properties",
+        pathname: "https://qoshan.com/all-properties",
         query: {
             type: item.name,
         }
@@ -298,15 +298,13 @@ const HeaderMenuContent = ({ float = "" }) => {
 <li>
       <Link
         href={{
-          pathname: "https://qoshan-findhouse.vercel.app/all-properties",
+          pathname: "https://qoshan.com/all-properties",
           query: {
             type: "all",
               keyword: "قيد الإنشاء",
           }}} >
          <a
-                  className={
-                    route.pathname === "/all-properties" ? "ui-active" : undefined
-                  }
+                 
                 >
                   مشاريع قيد الإنشاء
                 </a>
