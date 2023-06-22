@@ -21,8 +21,8 @@ const Social = () => {
           </a>
         </li>
         <li className="list-inline-item" >
-          <a href="https://twitter.com/qoshancom" target="_blank" rel="noopener noreferrer">
-            <i className='fa fa-twitter'/>
+          <a href="https://youtube.com/@qoshancom4230" target="_blank" rel="noopener noreferrer">
+            <i className='fa fa-youtube'/>
           </a>
         </li>
         <li className="list-inline-item" >
