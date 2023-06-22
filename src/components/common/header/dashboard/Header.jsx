@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import HeaderMenuContent from "./HeaderMenuContent";
-import Head from 'next/head'
+
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
@@ -19,7 +19,6 @@ const Header = () => {
   }, []);
 
   return (
-    <>
 
     <header
       className={`header-nav menu_style_home_one style2 navbar-scrolltofixed stricky main-menu  ${
@@ -52,7 +51,6 @@ const Header = () => {
       </div>
     </header>
     // {/* <!-- /.theme-main-menu --> */}
-    </>
   );
 };
 
