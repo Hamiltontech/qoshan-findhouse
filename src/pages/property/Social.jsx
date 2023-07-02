@@ -45,7 +45,7 @@ const Social = ({ propertyUrl }) => {
       <ul >
       <strong>شارك</strong>
        <li className="list-inline-item" >
-          <a href='#'  onClick={copyLink}>
+          <a href='#' onClick={copyLink}>
             <FaCopy size={18} /> 
            
           </a>

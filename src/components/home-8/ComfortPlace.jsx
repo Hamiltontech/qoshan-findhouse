@@ -19,7 +19,7 @@ const ComfortPlaces = ({data}) => {
  {data?.slice(0, postNum).map((item) => (
   <div   className="col-sm-6 col-lg-4"  dir="rtl" key={item.id} >
     <div className="feat_property home3">
-      <a href={`/details/${item.x_studio_property_id}`}>
+      <a href={`/property/${item.x_studio_property_id}`}>
       <div className="thumb">
         <img className="img-whp" src={item.x_studio_featured_url && item.x_studio_featured_url} alt="fp1.jpg" />
         <div className="thmb_cntnt">
@@ -27,7 +27,7 @@ const ComfortPlaces = ({data}) => {
 
           {/* price */}
           {item.x_studio_sale_price ? 
-          <Link href={`/details/${item.x_studio_property_id}`}>
+          <Link href={`/property/${item.x_studio_property_id}`}>
           <a className="fp_price">
               {item.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
           </a>
@@ -44,7 +44,7 @@ const ComfortPlaces = ({data}) => {
           {/* type */}
           <p className="text-thm">{item.x_studio_property_type[1]}</p>
           <h4>
-            <Link href={`/details/${item.x_studio_property_id}`}>
+            <Link href={`/property/${item.x_studio_property_id}`}>
               <a>{item.x_name}</a>
             </Link>
           </h4>

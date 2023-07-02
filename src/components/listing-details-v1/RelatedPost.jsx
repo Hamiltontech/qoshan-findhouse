@@ -50,7 +50,7 @@ const handleType = (item)=>{
               <div className="tc_content">
                 <p style={{color: "#c2b49a"}}>{item?.x_studio_property_type[1]}</p>
                 <h4>
-                  <Link href={`/details/${item?.x_studio_property_id}`}>
+                  <Link href={`/property/${item?.x_studio_property_id}`}>
                     <a>{item?.x_name}</a>
                   </Link>
                 </h4>
@@ -66,7 +66,7 @@ const handleType = (item)=>{
 
               <div className="fp_footer">
                 
-                <a className="fp_pdate float-end text-thm" href={`/details/${item?.x_studio_property_id}`}>
+                <a className="fp_pdate float-end text-thm" href={`/property/${item?.x_studio_property_id}`}>
                   تفاصيل <span className="flaticon-back"></span>
                 </a>
               </div>
