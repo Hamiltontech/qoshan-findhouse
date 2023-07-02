@@ -23,8 +23,6 @@ const ListingDynamicDetailsV1 = () => {
   const [property, setProperty] = useState({});
   const id = router.query.id;
 
-  // console.log(property?.x_name?.replace(/\s+/g, '-'))
-  // check if id from param == property?.x_name?.replace(/\s+/g, '-') ----> find property id where property?.x_name?.replace(/\s+/g, '-') === id from param ---> save it in a value --> redirect to /property/value
 
   // related articles states - props
   const [relatedLocation, setRelatedLocation, propertyLink] = useState("")
@@ -33,17 +31,32 @@ const ListingDynamicDetailsV1 = () => {
   // featured 
   const [featured, setFeatured] = useState([])
 
+
+
   // diala
   useEffect(() => {
     axios.get("/data.json").then((response) => {
-      const data = response.data?.find((item) => item?.x_studio_property_id == id)
-      setProperty(data)
+      if(isNaN(id)){
+        const data = response.data?.find((item) => item?.x_name?.replace(/\s+/g, '-') == id)
+        console.log(data.x_studio_property_id)
+        router.push('/property/' + `${data.x_studio_property_id}`)
+        setProperty(data)
+        const feat = response.data.filter((item) => item.x_studio_featured_property === true)
+        setFeatured(feat)
+  
+        setRelatedLocation(data?.x_studio_many2one_field_YbLip[1])
+        setRelatedType(data?.x_studio_property_type[1])
+      }else{
 
-      const feat = response.data.filter((item) => item.x_studio_featured_property === true)
-      setFeatured(feat)
-
-      setRelatedLocation(data?.x_studio_many2one_field_YbLip[1])
-      setRelatedType(data?.x_studio_property_type[1])
+        const data = response.data?.find((item) => item?.x_studio_property_id == id)
+        setProperty(data)
+  
+        const feat = response.data.filter((item) => item.x_studio_featured_property === true)
+        setFeatured(feat)
+  
+        setRelatedLocation(data?.x_studio_many2one_field_YbLip[1])
+        setRelatedType(data?.x_studio_property_type[1])
+      }
 
     }).catch((error) => {
       console.log(error)
@@ -76,7 +89,6 @@ const ListingDynamicDetailsV1 = () => {
   let features = initfeatures.filter(c => property?.x_studio_many2many_field_Tzhpw?.includes(c.id));
 
 
-console.log(features)
 
   const url = property?.x_studio_property_id
 
@@ -87,18 +99,8 @@ console.log(features)
   }
 
 
-  const gal = property?.x_studio_property_images && property?.x_studio_property_images.split('"')?.filter(handleImages)
+  const gal = property?.x_studio_property_images && property?.x_studio_property_images?.split('"')?.filter(handleImages)
 
-  const slideLeft = () => {
-    var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft - 500;
-
-  };
-
-  const slideRight = () => {
-    var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft + 500;
-  };
 
 
   return (
