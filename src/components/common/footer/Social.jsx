@@ -6,7 +6,7 @@ const Social = () => {
     <div>
       <ul >
        <li className="list-inline-item" >
-          <a href="http://tiktok.com/qoshancom" target="_blank" rel="noopener noreferrer" style={{marginLeft: "-5px"}}>
+          <a href="http://tiktok.com/@qoshancom" target="_blank" rel="noopener noreferrer" style={{marginLeft: "-5px"}}>
             <i ><TbBrandTiktok size={25}/></i>
           </a>
         </li>
