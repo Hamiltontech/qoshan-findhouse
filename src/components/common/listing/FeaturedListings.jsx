@@ -44,7 +44,7 @@ const FeaturedListings = ({relatedType, relatedLocation}) => {
 
           <div className="media-body" style={{margin: '5px'}}>
             <h5 className="mt-0 post_title">
-              <Link href={`/details/${item?.attributes?.URL}`}>
+              <Link href={`/property/${item?.attributes?.URL}`}>
                 <a>{item?.attributes?.Name}</a>
               </Link>
             </h5>

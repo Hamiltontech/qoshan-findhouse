@@ -23,13 +23,15 @@ const ListingDynamicDetailsV1 = () => {
   const [property, setProperty] = useState({});
   const id = router.query.id;
 
+  // console.log(property?.x_name?.replace(/\s+/g, '-'))
+  // check if id from param == property?.x_name?.replace(/\s+/g, '-') ----> find property id where property?.x_name?.replace(/\s+/g, '-') === id from param ---> save it in a value --> redirect to /property/value
 
   // related articles states - props
   const [relatedLocation, setRelatedLocation, propertyLink] = useState("")
   const [relatedType, setRelatedType] = useState("")
+
   // featured 
   const [featured, setFeatured] = useState([])
-
 
   // diala
   useEffect(() => {
@@ -238,13 +240,27 @@ console.log(features)
           </div>
 
 
+          {/* <section id="feature-property" className="feature-property bgc-f7">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="feature_property_slider gutter-x15">
+                <FeaturedProperties />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+
+
               {/* End  col-sm-5 col-lg-4 */}
             </div>
             {/* End .row */}
           </Gallery>
 
           <ul className="contact_form_social_area mt30">
-            <Social propertyUrl={`https://qoshan-findhouse.vercel.app/details/${url}`} />
+            <Social propertyUrl={`https://qoshan-findhouse.vercel.app/property/${url}`} />
           </ul>
         </div>
       </section>
@@ -261,7 +277,7 @@ console.log(features)
 
 
             <div className="col-lg-4 col-xl-4">
-              <Sidebar featured={featured} relatedLocation={relatedLocation} relatedType={relatedType} propertyLink={`https://qoshan-findhouse.vercel.app/details/${url}`} propertyName={property?.x_name} />
+              <Sidebar featured={featured} relatedLocation={relatedLocation} relatedType={relatedType} propertyLink={`https://qoshan-findhouse.vercel.app/property/${url}`} propertyName={property?.x_name} />
             </div>
             {/* End sidebar content .col-lg-4 */}
           </div>
