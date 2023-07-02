@@ -6,7 +6,6 @@ import BreadCrumb2 from "../../components/blog-details/BreadCrumb2";
 import BlogSidebar from "../../components/common/blog/BlogSidebar";
 import CopyrightFooter from "../../components/common/footer/CopyrightFooter";
 import Footer from "../../components/common/footer/Footer";
-import Social from "../../components/common/footer/Social";
 import Header from "../../components/home-8/Header";
 import MobileMenu from "../../components/common/header/MobileMenu";
 import PopupSignInUp from "../../components/common/PopupSignInUp";
@@ -30,7 +29,7 @@ const BlogDetailsDynamic = () => {
   useEffect(()=>{
     axios.get("/news.json").then((res)=>{
       const response = res.data
-      const prop = response?.find((item)=> item.x_name.replace(/\s+/g, '-') === id)
+      const prop = response?.find((item)=> item.attributes.URL === id)
       setArticle(prop)
       setRelatedCategory(prop?.x_studio_many2one_field_doQAc[1])
     })
