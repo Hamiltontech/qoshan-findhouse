@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 import Slider from "react-slick";
 import { Item } from "react-photoswipe-gallery";
 
