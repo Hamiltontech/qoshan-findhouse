@@ -14,6 +14,7 @@ import Seo from "../../components/common/seo";
 import Head from 'next/head';
 import Social from "./Social";
 import PropGallery from './PropGallery'
+import PropertyGallery from "./Gallery";
 
 
 
@@ -41,7 +42,7 @@ const ListingDynamicDetailsV1 = () => {
         console.log(data.x_studio_property_id)
         router.push('/property/' + `${data.x_studio_property_id}`)
         setProperty(data)
-        const feat = response.data.filter((item) => item.x_studio_featured_property === true)
+        const feat = response.data.filter((item) => item.x_studio_featured_property === "Yes")
         setFeatured(feat)
   
         setRelatedLocation(data?.x_studio_many2one_field_YbLip[1])
@@ -51,7 +52,7 @@ const ListingDynamicDetailsV1 = () => {
         const data = response.data?.find((item) => item?.x_studio_property_id == id)
         setProperty(data)
   
-        const feat = response.data.filter((item) => item.x_studio_featured_property === true)
+        const feat = response.data.filter((item) => item.x_studio_featured_property === "Yes")
         setFeatured(feat)
   
         setRelatedLocation(data?.x_studio_many2one_field_YbLip[1])
@@ -176,6 +177,8 @@ const ListingDynamicDetailsV1 = () => {
                           height={450}
                           layout="responsive"
                           priority
+                          placeholder="blur"
+                          blurDataURL={property?.x_studio_featured_url} 
                         />
                         : <></>
                       }
@@ -187,72 +190,10 @@ const ListingDynamicDetailsV1 = () => {
               {/* End .col-sm-7 .col-lg-8 */}
 
 
-              {/* <div className="col-sm-5 col-lg-4"> */}
-
-              {/* <div style={{ display: "flex", placeContent: "center", justifyContent: "center", alignContent: "center", placeItems: "center", gap: "10px"}}>
-                <MdChevronRight
-                  onClick={slideRight}
-                  size={120}
-                />
-                <div className="row mt20" >
-                  <div
-                    style={{ overflowX: "scroll", whiteSpace: "nowrap", scrollBehavior: "smooth", display: "flex", gap: "10px", scrollbarColor: "#d5ac68", scrollbarWidth: "thin", overflow: "hidden"}}
-                    id="slider"
-                  >
-                    {property?.x_studio_property_images && property?.x_studio_property_images.split('"')?.filter(handleImages)?.map((val, i) => (
-                      <div className="col-3" key={i} >
-                        <div className="spls_style_two img-gallery-box mb24">
-                          <Item
-                            original={val}
-                            thumbnail={val}
-                            width={752}
-                            height={450}
-                            priority
-                            layout="responsive"
-
-                          >
-                            {({ ref, open }) => (
-                              <div role="button" ref={ref} onClick={open}>
-                                <img
-                                  className="img-fluid w100"
-                                  src={val}
-                                  alt="2.jpg"
-                                  priority
-                                />
-                              </div>
-                            )}
-                          </Item>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <MdChevronLeft
-                  onClick={slideLeft}
-                  size={120}
-                />
-              </div> */}
 
 
 
-<div className="col-lg-12">
-            <div className="feature_property_home3_slider gutter-x15" style={{paddingLeft: "5px"}}>
-              <PropGallery  gal={gal}/>
-            </div>
-          </div>
-
-
-          {/* <section id="feature-property" className="feature-property bgc-f7">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="feature_property_slider gutter-x15">
-                <FeaturedProperties />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
+<PropertyGallery gal={gal}/>  
 
 
 

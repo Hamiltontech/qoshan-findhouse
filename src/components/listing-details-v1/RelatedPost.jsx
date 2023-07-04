@@ -11,14 +11,16 @@ const RelatedPost = ({relatedType, relatedLocation, property}) => {
   useEffect(()=>{
     axios.get("/data.json").then((response)=>{
       setRelatedProperties(response.data)
+    }).then(()=>{
+      relatedProperteis?.sort(function(a,b){
+        return new Date(b?.x_studio_create_date_wp) - new Date(a?.x_studio_create_date_wp);
+      });
+    }).catch((err)=>{
+      console.log(err)
     })
   }, [])
 
-  relatedProperteis?.sort(function(a,b){
-    // Turn your strings into dates, and then subtract them
-    // to get a value that is either negative, positive, or zero.
-    return new Date(b?.x_studio_create_date_wp) - new Date(a?.x_studio_create_date_wp);
-  });
+
 
   // bring the location and type through props
   const handleRelated = (item) =>{
@@ -28,21 +30,20 @@ const RelatedPost = ({relatedType, relatedLocation, property}) => {
   }
 
 const handleType = (item)=>{
-  if(item?.x_studio_property_type[1] === relatedType && item?.x_name !== property?.x_name){
-
-    return item?.x_studio_property_type[1]
+  if(item?.x_name !== property?.x_name){
+    return item?.x_name
   }
 }
 
   return (
     <>
-       {relatedProperteis?.filter(handleRelated)?.slice(0, 6).map((item) => (
+       {relatedProperteis?.filter(handleRelated)?.filter(handleType)?.slice(0, 6).map((item) => (
         <div className="col-md-6 col-lg-6" key={item?.id}>
           <div className="for_blog feat_property">
             <div className="thumb">
-              <Link href={`/detials/${item?.x_studio_property_id}`}>
+              <Link href={`/property/${item?.x_studio_property_id}`}>
                 <a>
-                  <img className="img-whp"  src={item?.x_studio_featured_url && item?.x_studio_featured_url} alt={item.img} />
+                  <img className="img-whp" src={item?.x_studio_featured_url && item?.x_studio_featured_url} alt={item.img} />
                 </a>
               </Link>
             </div>

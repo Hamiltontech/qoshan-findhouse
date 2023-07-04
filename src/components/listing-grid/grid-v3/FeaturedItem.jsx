@@ -47,7 +47,7 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
   // sorting
   const featuredHandler = (item) => {
     if (sort === "faetured") {
-      if (item?.x_studio_featured_property === true) {
+      if (item?.x_studio_featured_property === "Yes") {
         return item?.x_studio_featured_property
       }
     } else {
@@ -253,12 +253,7 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
 
 
                     {/* details */}
-                    <Link href={{
-                      pathname: `/property/${item.x_studio_property_id}`,
-                      query: {
-                        property: item?.x_name,
-                      }
-                    }}
+                    <Link href={`/property/${item.x_studio_property_id}`}
                     >
                       <button className="btn btn-thm" type="submit">تفاصيل</button>
                     </Link>

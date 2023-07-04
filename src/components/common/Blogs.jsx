@@ -88,12 +88,7 @@ const Blogs = () => {
 
 
               <div className="fp_footer">
-                <Link   href={{
-        pathname: `/property/${item.x_studio_property_id}`,
-        query: {
-            property: item?.x_name,
-        }
-    }}
+                <Link   href={`/property/${item.x_studio_property_id}`}
     >
         <button className="btn btn-thm" type="submit">تفاصيل</button>
     </Link>

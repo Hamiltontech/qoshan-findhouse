@@ -10,6 +10,9 @@
 /* No media query since this is the default in Bootstrap */
 
 @media only screen and (max-width: 1600px) {
+	section#best-property {
+		margin-top: 100px;
+	}
 	.h1ads_1st_list.half_style li.custome_fields_half:nth-child(2) {
 		width: 65%;
 	}
