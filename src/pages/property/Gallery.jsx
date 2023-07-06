@@ -1,19 +1,13 @@
-import Link from "next/link";
+
 import Slider from "react-slick";
-import { Gallery, Item } from "react-photoswipe-gallery";
-import "photoswipe/dist/photoswipe.css";
+import { Item } from "react-photoswipe-gallery";
 
-
-
-
-const PropGallery = ({ gal }) => {
-
-
+const Gallery = ({gal}) => {
   const settings = {
-    dots: false,
-    arrows: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    dots: true,
+    arrows: false,
+    slidesToShow: 4,
+    slidesToScroll: 3,
     autoplay: false,
     speed: 1200,
     responsive: [
@@ -21,21 +15,21 @@ const PropGallery = ({ gal }) => {
         breakpoint: 1200,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 1,
+          slidesToScroll: 3,
         },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
+          slidesToScroll: 3,
         },
       },
       {
         breakpoint: 520,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToScroll: 3,
         },
       },
     ],
@@ -43,18 +37,11 @@ const PropGallery = ({ gal }) => {
 
   return (
     <>
-
-      {/* should be featured.slice(0,12).map */}
-      <Slider {...settings} arrows={true}>
-        {gal?.map((val, i) => (
-          <div className="item mt10" key={i} dir="rtl">
-            <div className=" home3">
-              <a  style={{zIndex: "1000"}}>
-              {/* <div className="thumb">
-                <img className="img-whp" src={val} alt="fp1.jpg" />
-              </div> */}
-
-<div className="spls_style_two img-gallery-box mb24">
+      <Slider {...settings} arrows={false}>
+        {gal?.map((val, id) => (
+          <div className="item" key={id}>
+            <div className="feat_property">
+            <div className="spls_style_two img-gallery-box mt10">
                           <Item
                             original={val}
                             thumbnail={val}
@@ -77,18 +64,14 @@ const PropGallery = ({ gal }) => {
                             )}
                           </Item>
                         </div>
+              {/* End .thumb */}
 
-
-              </a>
             </div>
           </div>
-          ))}
+        ))}
       </Slider>
     </>
   );
 };
 
-export default PropGallery;
-
-
-
+export default Gallery;
