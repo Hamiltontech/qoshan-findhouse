@@ -50,7 +50,7 @@ const TaggboxWidget = () => {
     
       <div className="video-grid">
         {playlistData.map((item) => (
-          <div key={item.id} className="video-item" onClick={() => handleVideoClick(item.snippet.resourceId.videoId)}>
+          <div key={item.id} className="video-item" onClick={() => handleVideoClick(item.id.videoId)}>
             <div className="thumbnail">
               <img src={item.snippet.thumbnails.medium.url} alt={item.snippet.title} />
             </div>
