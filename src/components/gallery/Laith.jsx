@@ -10,10 +10,12 @@ const Laith = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC_dx1Isro1pudToX4xDKqlg&key=AIzaSyDRU6kE78hnlAc6m8ROFMouwRberRQF-kk&maxResults=18`
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC_dx1Isro1pudToX4xDKqlg&key=AIzaSyDRU6kE78hnlAc6m8ROFMouwRberRQF-kk&maxResults=1000`
         );
-        setPlaylistData(response.data.items);
-        console.log(response)
+        const videos = response.data.items.filter((video => !video.snippet.title.includes("#قوشان") && !video.snippet.title.includes("QoshanCom")))
+        console.log(videos)
+        setPlaylistData(videos);
+        
       } catch (error) {
         console.error('Error fetching playlist data:', error);
       }
@@ -34,7 +36,7 @@ const Laith = () => {
     <div className="playlist-container" dir='rtl'>
       <h1>قناة قوشان على اليوتيوب</h1>
       <div className="video-grid">
-        {playlistData.map((item) => (
+        {playlistData?.slice(0.16)?.map((item) => (
           <div key={item.id} className="video-item" onClick={() => handleVideoClick(item?.id?.videoId)}>
             <div className="thumbnail">
               <img src={item.snippet.thumbnails.medium.url} alt={item.snippet.title} />
