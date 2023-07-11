@@ -13,7 +13,12 @@ const Laith = () => {
           `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC_dx1Isro1pudToX4xDKqlg&key=AIzaSyDRU6kE78hnlAc6m8ROFMouwRberRQF-kk&maxResults=1000`
         );
         const videos = response.data.items.filter((video => !video.snippet.title.includes("#قوشان") && !video.snippet.title.includes("QoshanCom")))
-     
+          
+        videos?.sort(async function(a,b){
+          const x = new Date(b?.snippet.publishedAt) - new Date(a?.snippet.publishedAt); 
+          return x
+        });
+
         setPlaylistData(videos);
         
       } catch (error) {
