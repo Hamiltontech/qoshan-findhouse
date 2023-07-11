@@ -10,7 +10,7 @@ const PropGallery = ({ gal }) => {
 
 
   const settings = {
-    dots: false,
+    // dots: false,
     arrows: true,
     slidesToShow: 3,
     slidesToScroll: 1,
