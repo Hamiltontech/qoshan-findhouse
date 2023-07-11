@@ -4,7 +4,7 @@ import { Item } from "react-photoswipe-gallery";
 
 const Gallery = ({gal}) => {
   const settings = {
-    dots: true,
+    // dots: true,
     arrows: false,
     slidesToShow: 4,
     slidesToScroll: 3,
@@ -40,8 +40,8 @@ const Gallery = ({gal}) => {
       <Slider {...settings} arrows={false}>
         {gal?.map((val, id) => (
           <div className="item" key={id}>
-            <div className="feat_property">
-            <div className="spls_style_two img-gallery-box mt10">
+            <div className="feat_property mt10">
+            <div className="spls_style_two img-gallery-box ">
                           <Item
                             original={val}
                             thumbnail={val}
