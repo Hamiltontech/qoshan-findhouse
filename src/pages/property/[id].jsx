@@ -100,7 +100,7 @@ const ListingDynamicDetailsV1 = () => {
   }
 
 
-  const gal = property?.x_studio_property_images && property?.x_studio_property_images?.split('"')?.filter(handleImages)
+  const gal = property?.x_studio_property_images && property?.x_studio_property_images?.split('"')?.filter(handleImages) || []
 
 
 
@@ -203,7 +203,7 @@ const ListingDynamicDetailsV1 = () => {
           </Gallery>
 
           <ul className="contact_form_social_area mt30">
-            <Social propertyUrl={`https://qoshan-findhouse.vercel.app/property/${url}`} />
+            <Social propertyUrl={`https://qoshan.com/property/${url}`} />
           </ul>
         </div>
       </section>
@@ -220,7 +220,7 @@ const ListingDynamicDetailsV1 = () => {
 
 
             <div className="col-lg-4 col-xl-4">
-              <Sidebar featured={featured} relatedLocation={relatedLocation} relatedType={relatedType} propertyLink={`https://qoshan-findhouse.vercel.app/property/${url}`} propertyName={property?.x_name} />
+              <Sidebar featured={featured} relatedLocation={relatedLocation} relatedType={relatedType} propertyLink={`https://qoshan.com/property/${url}`} propertyName={property?.x_name} />
             </div>
             {/* End sidebar content .col-lg-4 */}
           </div>
