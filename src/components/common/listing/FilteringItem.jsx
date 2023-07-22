@@ -21,6 +21,8 @@ const FilteringItem = ({postNum,setPostNum, headerType, setHeaderType, setSort, 
 
   };
 
+
+  console.log(location)
 const [cities, setCities] = useState([])
 
   useEffect(()=>{

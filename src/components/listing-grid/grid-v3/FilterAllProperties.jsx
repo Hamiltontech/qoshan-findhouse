@@ -177,7 +177,38 @@ return(
         {/* End .offcanvas-heade */}
 
         <div className="offcanvas-body">
-          <SidebarListing2 />
+          <SidebarListing2 
+           setKeyword={setKeyword}
+           setLocation={setLocation} 
+           setStatus={setStatus} 
+           setType={setType} 
+           setGarages={setGarages} 
+           setBathroom={setBathroom} 
+           setBedroom={setBedroom} 
+           setAreaMax={setAreaMax} 
+           setAreaMin={setAreaMin}
+           setBuiltYear={setBuiltYear}
+           setMinprice={setMinprice}
+           setMaxprice={setMaxprice}
+   
+           keyword={keyword}
+           location={location} 
+           status={status} 
+           type={type} 
+           garages={garages} 
+           bathrooms={bathrooms} 
+           bedrooms={bedrooms} 
+           minarea={minarea} 
+           maxarea={maxarea}
+           age={age}
+           maxprice={maxprice}
+           minprice={minprice}
+           setSort={setSort}
+           postNum={postNum} setPostNum={setPostNum}
+   
+           headerType={headerType} 
+           setHeaderType={setHeaderType}
+          />
         </div>
       </div>
       {/* End mobile sidebar listing  */}
