@@ -6,7 +6,7 @@ const Gallery = ({gal}) => {
   const settings = {
     // dots: true,
     arrows: false,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 3,
     autoplay: false,
     speed: 1200,
