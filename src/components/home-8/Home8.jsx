@@ -41,10 +41,13 @@ const Home8 = () => {
     })
   }, [])
   
-  data?.sort(async function(a,b){
+  data?.sort(function(a,b){
     const x = new Date(b?.x_studio_create_date_wp) - new Date(a?.x_studio_create_date_wp); 
     return x
   });
+
+
+
 
 
   return (
