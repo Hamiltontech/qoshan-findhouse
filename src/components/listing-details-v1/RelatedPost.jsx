@@ -11,16 +11,14 @@ const RelatedPost = ({relatedType, relatedLocation, property}) => {
   useEffect(()=>{
     axios.get("/data.json").then((response)=>{
       setRelatedProperties(response.data)
-    }).then(()=>{
-      relatedProperteis?.sort(function(a,b){
-        return new Date(b?.x_studio_create_date_wp) - new Date(a?.x_studio_create_date_wp);
-      });
     }).catch((err)=>{
       console.log(err)
     })
   }, [])
 
-
+  relatedProperteis?.sort(function(a,b){
+    return new Date(b?.x_studio_create_date_wp) - new Date(a?.x_studio_create_date_wp);
+  })
 
   // bring the location and type through props
   const handleRelated = (item) =>{
