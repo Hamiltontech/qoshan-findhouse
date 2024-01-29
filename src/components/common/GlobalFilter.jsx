@@ -5,6 +5,7 @@ import axios from "axios";
 
 const GlobalFilter = ({ className = "", pageRoute }) => {
   const [cities, setCities] = useState([])
+  const [citiesOptions, setCitiesOptions] = useState([])
 
   useEffect(()=>{
     axios.get("/cities.json").then((response)=>{
@@ -14,6 +15,14 @@ const GlobalFilter = ({ className = "", pageRoute }) => {
     })
   }, [])
 
+
+  useEffect(()=>{
+    axios.get("/citiesOptions.json").then((response)=>{
+      setCitiesOptions(response.data)
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }, [])
 
 
   // values of search
@@ -114,8 +123,11 @@ if(tested){
               className="selectpicker  show-tick form-select desktopInputs"
             >
               <option value="">الموقع</option>
-              {cities?.map((item)=>(
-                <option key={item?.id} value={item?.x_name[0]}>{item?.x_name[1]}</option>
+              {
+              citiesOptions?.map((item)=>(
+              <>
+                <option key={item?.id} value={item?.x_name}>{item?.x_name}</option>
+                </>
               ))}
             </select>
             </div>

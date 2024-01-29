@@ -85,9 +85,11 @@ const ListingDynamicDetailsV1 = () => {
     })
   }, [id])
 
-
+console.log(inittags)
   let tags = inittags.filter(c => property?.x_studio_tags?.includes(c.id));
   let features = initfeatures.filter(c => property?.x_studio_many2many_field_Tzhpw?.includes(c.id));
+
+
 
 
 

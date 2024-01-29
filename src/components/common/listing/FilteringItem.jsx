@@ -24,6 +24,7 @@ const FilteringItem = ({postNum,setPostNum, headerType, setHeaderType, setSort, 
 
   console.log(location)
 const [cities, setCities] = useState([])
+const [citiesOptions, setCitiesOptions] = useState([])
 
   useEffect(()=>{
     axios.get("/cities.json").then((response)=>{
@@ -32,6 +33,16 @@ const [cities, setCities] = useState([])
       console.log(error)
     })
   }, [])
+
+
+  useEffect(()=>{
+    axios.get("/citiesOptions.json").then((response)=>{
+      setCitiesOptions(response.data)
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }, [])
+
 
 
 
@@ -64,8 +75,8 @@ const [cities, setCities] = useState([])
               className="selectpicker w100 show-tick form-select"
             >
               <option value="">الموقع</option>
-              {cities?.map((item)=>(
-                <option key={item.id} value={item.x_name[0]}>{item.x_name[1]}</option>
+              {citiesOptions?.map((item)=>(
+                <option key={item.id} value={item.x_name}>{item.x_name}</option>
               ))}
             </select>
           </div>
