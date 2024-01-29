@@ -42,7 +42,7 @@ const ComfortPlaces = ({data}) => {
       <div className="details">
         <div className="tc_content">
           {/* type */}
-          <p className="text-thm">{item.x_studio_property_type}</p>
+          <p className="text-thm">{item.x_studio_property_type[1]}</p>
           <h4>
             <Link href={`/property/${item.x_studio_property_id}`}>
               <a>{item.x_name}</a>

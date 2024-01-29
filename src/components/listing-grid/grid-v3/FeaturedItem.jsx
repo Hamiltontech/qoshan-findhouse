@@ -99,9 +99,9 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
   const typeHandler = (item) => {
     if (type === "all") {
       return item
-    } else if (item?.x_studio_property_type === type?.toLowerCase()
+    } else if (item?.x_studio_property_type[1] === type?.toLowerCase()
     ) {
-      return item?.x_studio_property_type
+      return item?.x_studio_property_type[1]
     }
 
   }
@@ -186,7 +186,7 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
                     {/* type */}
 
 
-                    <p className="text-thm">{item?.x_studio_property_type}</p>
+                    <p className="text-thm">{item?.x_studio_property_type[1]}</p>
 
                     {/* name */}
 

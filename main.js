@@ -18,7 +18,7 @@ client.methodCall('authenticate', [db, username, password, {}], (error, uid) => 
 
   const model = 'x_crm';  
 
-  const fields = [ 'x_studio_many2one_field_YbLip', 'x_studio_featured_url', 'x_studio_property_id', 'x_studio_propertyarea', 'x_studio_landarea', 'x_studio_beedrooms_count', 'x_studio_bathrooms_count', 'x_studio_garages_count', 'x_studio_status', 'x_studio_property_type', 'x_studio_price_prefix', 'x_studio_property_information', 'x_studio_featured_property', 'x_studio_view_on_slider', 'x_name', 'x_studio_property_images', 'x_url', 'x_studio_sales_price', 'x_studio_many2many_field_Tzhpw'];  
+  const fields = [ 'x_studio_many2one_field_YbLip','x_studio_create_date_wp', 'x_studio_featured_url', 'x_studio_property_id', 'x_studio_propertyarea', 'x_studio_landarea', 'x_studio_beedrooms_count', 'x_studio_bathrooms_count', 'x_studio_garages_count', 'x_studio_status', 'x_studio_property_type', 'x_studio_price_prefix', 'x_studio_property_information', 'x_studio_featured_property', 'x_studio_view_on_slider', 'x_name', 'x_studio_property_images', 'x_url', 'x_studio_sales_price', 'x_studio_many2many_field_Tzhpw'];  
 
   models.methodCall('execute_kw', [db, uid, password, model, 'search_read', [[]], { fields: fields }], (error, entries) => {
     if (error) {

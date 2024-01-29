@@ -59,7 +59,7 @@ const PropertyDetails = ({ property }) => {
           {property?.x_studio_property_type ?
             <li>
               <p>
-                نوع العقار : <span>{property?.x_studio_property_type}</span>
+                نوع العقار : <span>{property?.x_studio_property_type[1]}</span>
               </p>
             </li>
             : <></>

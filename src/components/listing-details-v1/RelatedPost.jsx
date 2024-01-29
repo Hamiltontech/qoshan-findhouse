@@ -47,7 +47,7 @@ const handleType = (item)=>{
             </div>
             <div className="details">
               <div className="tc_content">
-                <p style={{color: "#c2b49a"}}>{item?.x_studio_property_type}</p>
+                <p style={{color: "#c2b49a"}}>{item?.x_studio_property_type[1]}</p>
                 <h4>
                   <Link href={`/property/${item?.x_studio_property_id}`}>
                     <a>{item?.x_name}</a>

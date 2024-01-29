@@ -46,7 +46,7 @@ const ListingDynamicDetailsV1 = () => {
         setFeatured(feat)
   
         setRelatedLocation(data?.x_studio_many2one_field_YbLip[1])
-        setRelatedType(data?.x_studio_property_type)
+        setRelatedType(data?.x_studio_property_type[1])
       }else{
 
         const data = response.data?.find((item) => item?.x_studio_property_id == id)
@@ -56,7 +56,7 @@ const ListingDynamicDetailsV1 = () => {
         setFeatured(feat)
   
         setRelatedLocation(data?.x_studio_many2one_field_YbLip[1])
-        setRelatedType(data?.x_studio_property_type)
+        setRelatedType(data?.x_studio_property_type[1])
       }
 
     }).catch((error) => {

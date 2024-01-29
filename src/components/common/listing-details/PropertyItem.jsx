@@ -4,7 +4,7 @@ const PropertyItem = ({property}) => {
     <ul className="mb0" dir="rtl">
       {property?.x_studio_property_type ? 
       <li className="list-inline-item">
-        <a href="#">{property?.x_studio_property_type}</a>
+        <a href="#">{property?.x_studio_property_type[1]}</a>
       </li>
       : <></>}
       
