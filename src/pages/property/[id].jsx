@@ -46,7 +46,7 @@ const ListingDynamicDetailsV1 = () => {
         setFeatured(feat)
   
         setRelatedLocation(data?.x_studio_many2one_field_YbLip[1])
-        setRelatedType(data?.x_studio_property_type[1])
+        setRelatedType(data?.x_studio_property_type)
       }else{
 
         const data = response.data?.find((item) => item?.x_studio_property_id == id)
@@ -56,7 +56,7 @@ const ListingDynamicDetailsV1 = () => {
         setFeatured(feat)
   
         setRelatedLocation(data?.x_studio_many2one_field_YbLip[1])
-        setRelatedType(data?.x_studio_property_type[1])
+        setRelatedType(data?.x_studio_property_type)
       }
 
     }).catch((error) => {
@@ -93,14 +93,14 @@ const ListingDynamicDetailsV1 = () => {
 
   const url = property?.x_studio_property_id
 
-  const handleImages = (val) => {
-    if (val !== ", ") {
-      return val
-    }
-  }
+  // const handleImages = (val) => {
+  //   if (val !== ", ") {
+  //     return val
+  //   }
+  // }
 
 
-  const gal = property?.x_studio_property_images && property?.x_studio_property_images?.split('"')?.filter(handleImages) || []
+  const gal = property?.x_studio_property_images && property?.x_studio_property_images?.split(',') || []
 
 
 
@@ -152,10 +152,10 @@ const ListingDynamicDetailsV1 = () => {
                 <div className="single_property_social_share position-static transform-none">
                   <div className="price float-start fn-400">
                     {/* price */}
-                    {property?.x_studio_sale_price > 0 ?
+                    {property?.x_studio_sales_price > 0 ?
                       <h2>
                         <span style={{ fontSize: '12px' }}>{property?.x_studio_price_prefix}</span>
-                        {property?.x_studio_sale_price && property?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني
+                        {property?.x_studio_sales_price && property?.x_studio_sales_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني
                       </h2>
                       :
                       <> <span style={{ fontSize: '12px' }}>{property?.x_studio_price_prefix}</span></>}

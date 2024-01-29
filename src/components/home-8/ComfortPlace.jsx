@@ -26,10 +26,10 @@ const ComfortPlaces = ({data}) => {
 
 
           {/* price */}
-          {item.x_studio_sale_price ? 
+          {item.x_studio_sales_price ? 
           <Link href={`/property/${item.x_studio_property_id}`}>
           <a className="fp_price">
-              {item.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
+              {item.x_studio_sales_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
           </a>
         </Link>
         : <></>  
@@ -42,7 +42,7 @@ const ComfortPlaces = ({data}) => {
       <div className="details">
         <div className="tc_content">
           {/* type */}
-          <p className="text-thm">{item.x_studio_property_type[1]}</p>
+          <p className="text-thm">{item.x_studio_property_type}</p>
           <h4>
             <Link href={`/property/${item.x_studio_property_id}`}>
               <a>{item.x_name}</a>
@@ -60,7 +60,7 @@ const ComfortPlaces = ({data}) => {
               <li className="list-inline-item">
                 <a href="#" style={{display: 'flex', gap: '5px'}}>
                   <TfiRulerAlt size={15}/>
-                  المساحة: {item.x_studio_property_area} متر مربع
+                  المساحة: {item.x_studio_propertyarea} متر مربع
                 </a>
               </li>
           </ul>

@@ -4,7 +4,7 @@ const PropertyItem = ({property}) => {
     <ul className="mb0" dir="rtl">
       {property?.x_studio_property_type ? 
       <li className="list-inline-item">
-        <a href="#">{property?.x_studio_property_type[1]}</a>
+        <a href="#">{property?.x_studio_property_type}</a>
       </li>
       : <></>}
       
@@ -23,9 +23,9 @@ const PropertyItem = ({property}) => {
     : <></> 
     }
 
-      {property?.x_studio_property_area ?
+      {property?.x_studio_propertyarea ?
       <li className="list-inline-item" style={{marginRight: '10px'}}>
-        <a href="#">المساحة: {property?.x_studio_property_area} متر مربع</a>
+        <a href="#">المساحة: {property?.x_studio_propertyarea} متر مربع</a>
       </li>
       : <></>}
     </ul>

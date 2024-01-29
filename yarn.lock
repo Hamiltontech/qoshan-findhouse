@@ -3368,7 +3368,7 @@ xmlrpc-client@^0.2.1:
   resolved "https://registry.yarnpkg.com/xmlrpc-client/-/xmlrpc-client-0.2.1.tgz#800eda296b93bd68876ec131733a8f2922fda87e"
   integrity sha512-bsaVfIWLx1jMglM7fcWzoJj0rhZ2ulthVM/fWI+2K6Pobdk8Y9U2ZPkcoCzgOh6D8EY4hRB+tBeCqbdXtMs6Fg==
 
-xmlrpc@^1.3.1:
+xmlrpc@^1.3.1, xmlrpc@^1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/xmlrpc/-/xmlrpc-1.3.2.tgz#26b2ea347848d028aac7e7514b5351976de3e83d"
   integrity sha512-jQf5gbrP6wvzN71fgkcPPkF4bF/Wyovd7Xdff8d6/ihxYmgETQYSuTc+Hl+tsh/jmgPLro/Aro48LMFlIyEKKQ==

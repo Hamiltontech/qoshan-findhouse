@@ -89,9 +89,9 @@ const HeroSlider = ({heroProperties}) => {
 
 
                   {/* Area */}
-                  {singleItem?.x_studio_land_area > 0 ? 
+                  {singleItem?.x_studio_landarea > 0 ? 
                   <div style={{display: 'flex', gap: '2px', }}>
-                  <TfiRulerAlt size={20} /> <p style={{color: 'white', fontSize: '16px'}}>المساحة: {singleItem?.x_studio_land_area} متر مربع</p>
+                  <TfiRulerAlt size={20} /> <p style={{color: 'white', fontSize: '16px'}}>المساحة: {singleItem?.x_studio_landarea} متر مربع</p>
                   </div>
                   : <></>
                   }
@@ -99,7 +99,7 @@ const HeroSlider = ({heroProperties}) => {
 
                   {/* price */}
                   <p style={{fontSize: '22px', color: '#c2b49a', fontWeight: 'bold'}}>
-                  {singleItem.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
+                  {singleItem.x_studio_sales_price?.replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
                 </p>      
 
                 {/* details */}

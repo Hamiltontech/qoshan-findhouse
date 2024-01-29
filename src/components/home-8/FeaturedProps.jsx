@@ -57,7 +57,7 @@ const FeaturedProperties = ({ featured }) => {
                   {/* price */}
                   <Link href={`/property/${item?.x_studio_property_id}`}>
                     <a className="fp_price">
-                    {item?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
+                    {item?.x_studio_sales_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
                     </a>
                   </Link>
                 </div>
@@ -67,7 +67,7 @@ const FeaturedProperties = ({ featured }) => {
               <div className="details">
                 <div className="tc_content">
                   {/* type */}
-                  <p className="text-thm">{item?.x_studio_property_type[1]}</p>
+                  <p className="text-thm">{item?.x_studio_property_type}</p>
                   <h4>
                     <Link href={`/property/${item.x_studio_property_id}`}>
                       <a>{item?.x_name}</a>
@@ -83,11 +83,11 @@ const FeaturedProperties = ({ featured }) => {
 
                   {/* area */}
                   <ul className="prop_details mb0">
-                    {item?.x_studio_property_area > 0 ? 
+                    {item?.x_studio_propertyarea > 0 ? 
                     <li className="list-inline-item">
                       <a href="#" style={{ display: 'flex', gap: '5px' }}>
                         <TfiRulerAlt size={15} />
-                       {item?.x_studio_property_area} متر مربع
+                       {item?.x_studio_propertyarea} متر مربع
                       </a>
                     </li>
                     : <></>

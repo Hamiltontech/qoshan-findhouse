@@ -40,7 +40,7 @@ const Featured = ({featured}) => {
                                         ))}
                                     </ul> */}
                                     <a className="fp_price" href={`/property/${item?.x_studio_property_id}`}>
-                                    {item?.x_studio_sale_price && item?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
+                                    {item?.x_studio_sales_price && item?.x_studio_sales_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني 
                                     </a>
                                     <h4 className="posr color-white">
                                         {item?.x_name}

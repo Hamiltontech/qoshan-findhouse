@@ -40,7 +40,7 @@ const Blogs = () => {
               <div className="tc_content">
                 {/* <p className="text-thm">{item.postMeta}</p> */}
 
-                <p className="text-thm">{item?.x_studio_type}</p>
+                <p className="text-thm">{item?.x_studio_property_type}</p>
                 <h4>
                   <Link href={`/property/${item.x_studio_property_id}`}>
                     <a>{item?.x_name}</a>
@@ -57,15 +57,15 @@ const Blogs = () => {
                
 
               {/* price */}
-          <p><IoPricetagsOutline size={15}/> {item?.x_studio_sale_price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني </p>
+          <p><IoPricetagsOutline size={15}/> {item?.x_studio_sales_price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني </p>
              
 
              {/* details */}
           <ul style={{display: 'flex', gap: "20px"}}>
                  
-                 {item?.x_studio_property_area > 0 ?
+                 {item?.x_studio_propertyarea > 0 ?
                  <li>
-                 <p><TfiRulerAlt size={15}/> {item?.x_studio_property_area} متر مربع</p>
+                 <p><TfiRulerAlt size={15}/> {item?.x_studio_propertyarea} متر مربع</p>
                  </li>
                  : <></>
                  }

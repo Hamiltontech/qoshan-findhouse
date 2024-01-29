@@ -14,27 +14,27 @@ const PropertyDetails = ({ property }) => {
             : <></>
           }
 
-          {property?.x_studio_sale_price ?
+          {property?.x_studio_sales_price ?
             <li>
               <p>
-                السعر :  <span><span style={{ fontSize: '9px' }}>{property?.x_studio_price_prefix}</span> {property?.x_studio_sale_price && property?.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني </span>
+                السعر :  <span><span style={{ fontSize: '9px' }}>{property?.x_studio_price_prefix}</span> {property?.x_studio_sales_price && property?.x_studio_sales_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني </span>
               </p>
             </li>
             : <><span style={{ fontSize: '9px' }}>{property?.x_studio_price_prefix}</span> </>}
 
-          {property?.x_studio_property_area > 0 ?
+          {property?.x_studio_propertyarea > 0 ?
             <li>
               <p>
-                مساحة العقار : <span>{property?.x_studio_area_prefix} {property?.x_studio_area_prefix ? <>,</> : <></>} {property?.x_studio_property_area} متر مربع</span>
+                مساحة العقار : <span>{property?.x_studio_area_prefix} {property?.x_studio_area_prefix ? <>,</> : <></>} {property?.x_studio_propertyarea} متر مربع</span>
               </p>
             </li>
             : <></>
           }
 
-          {property?.x_studio_land_area > 0 ?
+          {property?.x_studio_landarea > 0 ?
             <li>
               <p>
-                مساحة الارض : <span>{property?.x_studio_land_area} متر مربع</span>
+                مساحة الارض : <span>{property?.x_studio_landarea} متر مربع</span>
               </p>
             </li>
             :
@@ -56,10 +56,10 @@ const PropertyDetails = ({ property }) => {
       <div className="col-md-6 col-lg-6 col-xl-4">
         <ul className="list-inline-item">
 
-          {property?.x_studio_type ?
+          {property?.x_studio_property_type ?
             <li>
               <p>
-                نوع العقار : <span>{property?.x_studio_type}</span>
+                نوع العقار : <span>{property?.x_studio_property_type}</span>
               </p>
             </li>
             : <></>

@@ -24,12 +24,12 @@ export default async function handler(req, res) {
   
     const fields = [
       'x_name',
-      'x_studio_sale_price',
+      'x_studio_sales_price',
       'x_studio_many2one_field_YbLip',
       'x_studio_featured_url',
       'x_studio_property_id',
-      'x_studio_property_area',
-      'x_studio_land_area',
+      'x_studio_propertyarea',
+      'x_studio_landarea',
       'x_studio_beedrooms_count',
       'x_studio_bathrooms_count',
       'x_studio_garages_count',

@@ -21,9 +21,9 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
   useEffect(() => {
     axios.get("/data.json").then((response) => {
       if (
-        sort === "lowPrice" && response?.data.x_studio_sale_price
+        sort === "lowPrice" && response?.data.x_studio_sales_price
       ) {
-        let arr = response.data.sort((a, b) => parseFloat(a?.x_studio_sale_price) - parseFloat(b?.x_studio_sale_price));
+        let arr = response.data.sort((a, b) => parseFloat(a?.x_studio_sales_price) - parseFloat(b?.x_studio_sales_price));
         setProeprty(arr)
       } else if (
         sort === "recent"
@@ -61,8 +61,8 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
     if (minarea !== 0 && maxarea !== 0) {
       if (minarea !== "أقل مساحة" && maxarea !== "أكبر مساحة") {
         return (
-          item?.x_studio_property_area >= minarea &&
-          item?.x_studio_property_area <= maxarea
+          item?.x_studio_propertyarea >= minarea &&
+          item?.x_studio_propertyarea <= maxarea
         );
       }
     }
@@ -74,8 +74,8 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
   const priceHandler = (item) => {
     if (minprice !== "أقل سعر" && maxprice !== "أعلى سعر") {
       return (
-        parseInt(item?.x_studio_sale_price) >= minprice &&
-        parseInt(item?.x_studio_sale_price) <= maxprice
+        parseInt(item?.x_studio_sales_price) >= minprice &&
+        parseInt(item?.x_studio_sales_price) <= maxprice
       );
     }
     return true;
@@ -99,9 +99,9 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
   const typeHandler = (item) => {
     if (type === "all") {
       return item
-    } else if (item?.x_studio_property_type[1] === type?.toLowerCase()
+    } else if (item?.x_studio_property_type === type?.toLowerCase()
     ) {
-      return item?.x_studio_property_type[1]
+      return item?.x_studio_property_type
     }
 
   }
@@ -170,9 +170,9 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
                     <img className="img-whp" src={item.x_studio_featured_url && item.x_studio_featured_url} alt="fp1.jpg" />
 
                     <div className="thmb_cntnt">
-                      {item.x_studio_sale_price > 0 ?
+                      {item.x_studio_sales_price > 0 ?
                         <a className="fp_price">
-                          {item.x_studio_sale_price && item.x_studio_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني
+                          {item.x_studio_sales_price && item.x_studio_sales_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني
                         </a>
                         : <></>}
 
@@ -186,7 +186,7 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
                     {/* type */}
 
 
-                    <p className="text-thm">{item?.x_studio_property_type[1]}</p>
+                    <p className="text-thm">{item?.x_studio_property_type}</p>
 
                     {/* name */}
 
@@ -219,9 +219,9 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
                     <div style={{ display: 'flex', justifyContent: 'start', gap: '20px' }}>
 
                       {/* area */}
-                      {item?.x_studio_property_area > 0 ?
+                      {item?.x_studio_propertyarea > 0 ?
                       <div style={{ display: 'flex', gap: '2px', }}>
-                        <TfiRulerAlt size={20} /> <p>{item?.x_studio_property_area} متر مربع</p>
+                        <TfiRulerAlt size={20} /> <p>{item?.x_studio_propertyarea} متر مربع</p>
                       </div>
                       : <></>
                       }

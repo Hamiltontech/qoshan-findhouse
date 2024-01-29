@@ -115,7 +115,7 @@ if(tested){
             >
               <option value="">الموقع</option>
               {cities?.map((item)=>(
-                <option key={item?.id} value={item?.x_name}>{item?.x_name}</option>
+                <option key={item?.id} value={item?.x_name[0]}>{item?.x_name[1]}</option>
               ))}
             </select>
             </div>
