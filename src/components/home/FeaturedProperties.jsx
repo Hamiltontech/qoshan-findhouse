@@ -50,7 +50,7 @@ const FeaturedProperties = () => {
       <div className="feat_property">
         <a href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
         <div className="thumb">
-          <img className="img-whp" src={item?.x_studio_api_url} alt="fp1.jpg" />
+          <img className="img-whp" src={item?.x_studio_featured_image[1]} alt="fp1.jpg" />
           <div className="thmb_cntnt">
           </div>
         </div>

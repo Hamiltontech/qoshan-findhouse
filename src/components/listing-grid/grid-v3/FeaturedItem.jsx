@@ -168,11 +168,10 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
 
                   <div className="thumb">
                     <img className="img-whp" src={item.x_studio_featured_url && item.x_studio_featured_url} alt="fp1.jpg" />
-
                     <div className="thmb_cntnt">
                       {item.x_studio_sales_price > 0 ?
                         <a className="fp_price">
-                          {item.x_studio_sales_price && item.x_studio_sales_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني
+                          {item.x_studio_sales_price && item.x_studio_sales_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} دينار أردني  
                         </a>
                         : <></>}
 
@@ -225,8 +224,6 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
                       </div>
                       : <></>
                       }
-
-
 
                       {/* bathrooms */}
                       {item?.x_studio_bathrooms_count ?

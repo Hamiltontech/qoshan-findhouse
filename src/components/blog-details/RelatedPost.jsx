@@ -30,7 +30,7 @@ relatedNews?.sort(function(a,b){
             <div className="thumb">
               <Link href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
                 <a>
-                  <img className="img-whp" src={item?.x_studio_api_url && item?.x_studio_api_url} alt={item?.x_studio_api_url && item?.x_studio_api_url} />
+                  <img className="img-whp" src={item?.x_studio_featured_image[1] && item?.x_studio_featured_image[1]} alt={item?.x_studio_featured_image[1] && item?.x_studio_featured_image[1]} />
                 </a>
               </Link>
             </div>

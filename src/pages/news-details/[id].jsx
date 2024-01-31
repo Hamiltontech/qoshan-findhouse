@@ -77,7 +77,7 @@ const propertyUrl = window.location.href
                     </ul>
                     <div className="thumb">
                     <Image 
-                    src={article?.x_studio_api_url && article?.x_studio_api_url}
+                    src={article?.x_studio_featured_image && article?.x_studio_featured_image[1]}
                       width={752}
                       height={450}
                       />

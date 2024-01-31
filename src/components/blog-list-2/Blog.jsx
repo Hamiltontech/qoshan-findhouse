@@ -34,7 +34,7 @@ const Blog = ({setPostNum, postNum, news, keyword, setKeyword, categ, setCateg})
             <div className="thumb">
               <Link href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
                 <a>
-                  <img className="img-whp" src={item?.x_studio_api_url && item?.x_studio_api_url} alt="fp1.jpg"/>
+                  <img className="img-whp" src={item?.x_studio_featured_image[1] && item?.x_studio_featured_image[1]} alt="fp1.jpg"/>
                 </a>
               </Link>
               <div className="blog_tag"> <p style={{color: "white"}}>{item?.x_studio_many2one_field_doQAc[1]}</p></div>

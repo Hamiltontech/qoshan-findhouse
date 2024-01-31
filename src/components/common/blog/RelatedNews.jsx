@@ -24,7 +24,7 @@ useEffect(()=>{
             <a>
               <img
                 className="align-self-start me-3"
-                src={item?.x_studio_api_url && item?.x_studio_api_url}
+                src={item?.x_studio_featured_image[1] && item?.x_studio_featured_image[1]}
                 alt="featured listing image"
               />
             </a>
