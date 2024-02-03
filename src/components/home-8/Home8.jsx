@@ -15,40 +15,46 @@ import CategoriesFilter from "../blog-list-2/CategoriesFilter";
 import Advert from "./advert";
 import Link from "next/link";
 import FeaturedProperties from "../home/FeaturedProperties";
-import Watchqoshan from './Watchqoshan'
-
-
+import Watchqoshan from "./Watchqoshan";
+import UnderConstruction from "./UnderConstruction";
 
 // diala
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Home8 = () => {
-  const [data, setData] = useState([])
-  const [featured, setFeatured] = useState([])
-  const [heroProperties, setHeroProperties] = useState([])
-
-
-  
+  const [data, setData] = useState([]);
+  const [featured, setFeatured] = useState([]);
+  const [heroProperties, setHeroProperties] = useState([]);
 
   useEffect(() => {
-    axios.get("/data.json").then((res) => {
-      setData(res.data)
-      setFeatured(res.data.filter((ele) => ele?.x_studio_featured_property === "Yes"))
-      setHeroProperties(res.data.filter((ele) => ele?.x_studio_view_on_slider === "Yes"))
-    }).catch((err) => {
-      console.log(err)
-    })
-  }, [])
-  
-  data?.sort(function(a,b){
-    const x = new Date(b?.x_studio_create_date_wp) - new Date(a?.x_studio_create_date_wp); 
-    return x
+    axios
+      .get("/data.json")
+      .then((res) => {
+        setData(res.data);
+        setFeatured(
+          res.data.filter((ele) => ele?.x_studio_featured_property === "Yes")
+        );
+        
+        setHeroProperties(
+          res.data.filter((ele) => ele?.x_studio_view_on_slider === "Yes")
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+
+
+
+
+  data?.sort(function (a, b) {
+    const x =
+      new Date(b?.x_studio_create_date_wp) -
+      new Date(a?.x_studio_create_date_wp);
+    return x;
   });
-
-
-
-
 
   return (
     <>
@@ -61,12 +67,12 @@ const Home8 = () => {
       {/* <!-- Modal --> */}
       <PopupSignInUp />
 
-      {/* <!-- 4th Home Slider --> */}
+      {/* <!-- Slider --> */}
       <section className="p0">
         <div className="container-fluid p0">
           <div className="home8-slider">
             <div className="bs_carousel ">
-              <HeroSlider heroProperties={heroProperties}/>
+              <HeroSlider heroProperties={heroProperties} />
             </div>
           </div>
         </div>
@@ -76,36 +82,34 @@ const Home8 = () => {
           <div className="row posr">
             <div className="col-lg-12">
               <HeroFilter />
-
             </div>
           </div>
         </div>
-
         {/* End .container */}
-
         <div className="mouse_scroll">
-          <a href="#feature-property">
-
-          </a>
+          <a href="#feature-property"></a>
         </div>
       </section>
 
-      <section id="feature-property" className="feature-property " style={{ marginLeft: 30, marginRight: 30 }}>
+      {/* Featured Properties */}
+      <section
+        id="feature-property"
+        className="feature-property "
+        style={{ marginLeft: 30, marginRight: 30 }}
+      >
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center mt10">
-               <Advert />
+              <Advert />
             </div>
 
             <div className="main-title mb40 mt30">
-
               <h2>عقارات مميزة</h2>
               <p>
                 <a className="float-start" href="all-properties?type=all">
                   إعرض المزيد <span className="flaticon-back"></span>
                 </a>
                 عقارات مميزة لكم من فريق قوشان.
-
               </p>
             </div>
           </div>
@@ -116,6 +120,33 @@ const Home8 = () => {
           </div>
         </div>
       </section>
+
+      {/* under construction properties */}
+      <section
+        id="feature-property"
+        className="feature-property "
+        style={{ marginLeft: 30, marginRight: 30 }}
+      >
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="main-title mb40 mt30">
+              <h2>عقارات قيد الانشاء</h2>
+              <p>
+                <a className="float-start" href="all-properties?type=all&keyword=قيد+الإنشاء">
+                  إعرض المزيد <span className="flaticon-back"></span>
+                </a>
+                تعرف على مجموعة من مشاريع عقارات تحت الانشاء
+              </p>
+            </div>
+          </div>
+          <div className="col-lg-12">
+            <div className="feature_property_home3_slider gutter-x15">
+              <UnderConstruction  data={data}/>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* <!-- Property Cities --> */}
       <section id="property-city" className="property-city pb30 bb1">
         <div className="container">
@@ -136,13 +167,12 @@ const Home8 = () => {
       </section>
 
       {/* <!-- Find Comfort Place --> */}
-      <section id="comfort-place" className="comfort-place pb30 bb1" >
+      <section id="comfort-place" className="comfort-place pb30 bb1">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
                 <h2>جميع العقارات</h2>
-
               </div>
             </div>
           </div>
@@ -178,22 +208,45 @@ const Home8 = () => {
       <section className="our-hot-offer parallax" dir="rtl">
         <div className="container">
           <div className="row mt40">
-
             <div className="col-lg-12">
-
               <div className="our_hotoffer">
                 <p>#مستشارك_العقاري</p>
                 <h2>شاهد قوشان</h2>
-                <Link href="/watch-qoshan"><button style={{ background: '#22222222', paddingLeft: '15px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', color: '#ffff', border: 'none' }}>شاهد قوشان</button></Link>
-                <Link href="/shorts"><button style={{ background: '#ffff', paddingLeft: '15px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', color: '#000000', border: 'none' }}>نصائح عقارية</button></Link>
+                <Link href="/watch-qoshan">
+                  <button
+                    style={{
+                      background: "#22222222",
+                      paddingLeft: "15px",
+                      paddingRight: "10px",
+                      paddingTop: "5px",
+                      paddingBottom: "5px",
+                      color: "#ffff",
+                      border: "none",
+                    }}
+                  >
+                    شاهد قوشان
+                  </button>
+                </Link>
+                <Link href="/shorts">
+                  <button
+                    style={{
+                      background: "#ffff",
+                      paddingLeft: "15px",
+                      paddingRight: "10px",
+                      paddingTop: "5px",
+                      paddingBottom: "5px",
+                      color: "#000000",
+                      border: "none",
+                    }}
+                  >
+                    نصائح عقارية
+                  </button>
+                </Link>
                 {/* <Watchqoshan/> */}
-
               </div>
-
             </div>
           </div>
         </div>
-
       </section>
 
       {/* <!-- Our Footer --> */}

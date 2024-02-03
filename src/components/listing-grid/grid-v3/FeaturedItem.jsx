@@ -91,7 +91,6 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
         return item?.x_studio_many2one_field_YbLip[1]
       }
     }
-
   }
 
 
@@ -103,7 +102,6 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
     ) {
       return item?.x_studio_property_type[1]
     }
-
   }
 
 
@@ -141,18 +139,14 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
   }
 
 
-
   useEffect(() => {
     setCount((property?.filter(typeHandler)?.filter(areaHandler)?.filter(priceHandler)?.filter(locationHandler)?.filter(bedroomsHandler)?.filter(bathroomsHandler)?.filter(garagesHandler)?.filter(keywordHandler)?.filter(featuredHandler)).length)
   }), []
 
 
-  console.log(count)
   return (
     <>
       {property?.filter(typeHandler)?.filter(areaHandler)?.filter(priceHandler)?.filter(locationHandler)?.filter(bathroomsHandler)?.filter(bedroomsHandler)?.filter(garagesHandler)?.filter(keywordHandler)?.filter(featuredHandler)?.slice(0, postNum)?.map((item) => {
-
-
         return (
           <>
             <div
