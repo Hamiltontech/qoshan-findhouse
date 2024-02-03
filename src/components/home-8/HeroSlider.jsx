@@ -9,9 +9,6 @@ import {IoBedOutline} from 'react-icons/io5'
 import {TfiRulerAlt} from 'react-icons/tfi'
 
 const HeroSlider = ({heroProperties}) => {
-
-
-
   const settings = {
     dots: true,
     arrow: true,
@@ -19,9 +16,8 @@ const HeroSlider = ({heroProperties}) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
+    autoplaySpeed: 2000,
   };
-
-
 
   return (
     <Slider {...settings} arrows={false}>
