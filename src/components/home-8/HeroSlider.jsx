@@ -14,11 +14,11 @@ const HeroSlider = ({heroProperties}) => {
 
   const settings = {
     dots: true,
-    arrow: false,
-    speed: 1200,
+    arrow: true,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
   };
 
 
