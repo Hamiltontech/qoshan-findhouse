@@ -9,9 +9,9 @@
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
-@media only screen and (max-width: 1600px) {
+@media only screen and (max-width: 1400px) {
 	section#best-property {
-		margin-top: 100px;
+		margin-top: 200px;
 	}
 	.h1ads_1st_list.half_style li.custome_fields_half:nth-child(2) {
 		width: 65%;
@@ -444,8 +444,8 @@
 	}
 	.feat_property .details .fp_footer .fp_pdate {
 		float: left !important;
-		margin-left: 55px;
-		margin-top: -15px;
+		/* margin-left: 55px;
+		margin-top: -15px; */
 	}
 	.feat_property.list .details .fp_footer .fp_pdate {
 		float: right !important;
