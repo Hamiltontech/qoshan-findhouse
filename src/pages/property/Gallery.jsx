@@ -4,12 +4,12 @@ import { Item } from "react-photoswipe-gallery";
 
 const Gallery = ({gal}) => {
   const settings = {
-    // dots: true,
-    arrows: false,
-    slidesToShow: 3,
+    dots: true,
+    arrows: true,
+    slidesToShow: 4,
     slidesToScroll: 3,
-    autoplay: false,
-    speed: 1200,
+    autoplay: true,
+    speed: 700,
     responsive: [
       {
         breakpoint: 1200,

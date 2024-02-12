@@ -71,7 +71,7 @@ const index = () => {
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row" style={{placeContent: "center"}}>
           <CategoriesCards />
           </div>
         </div>
