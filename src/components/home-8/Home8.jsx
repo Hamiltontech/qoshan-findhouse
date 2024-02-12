@@ -100,7 +100,9 @@ const Home8 = () => {
       >
         <div className="row">
           <div className="col-lg-12">
-            <div className="text-center mt10">
+            <div className="text-center mt10 gap-5" style={{display: "flex", justifyContent: "justify-between", placeContent: "center"}}>
+              <Advert />
+              <Advert />
               <Advert />
             </div>
 
@@ -148,7 +150,7 @@ const Home8 = () => {
         </div>
       </section> */}
        {/* <!-- Property Cities --> */}
-       <section  className="best-property bgc-f7">
+       <section className="best-property bgc-f7">
         <div className="container ovh">
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
@@ -158,7 +160,7 @@ const Home8 = () => {
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row" style={{placeContent: "center"}}>
           <CategoriesCards />
           </div>
         </div>
@@ -212,8 +214,8 @@ const Home8 = () => {
             <div className="lsd_list">
               <CategoriesFilter />
             </div>
-            <div className="col-lg-12">
-              <div className="feature_property_slider gutter-x15">
+            <div className="col-lg-12" >
+              <div className="feature_property_slider gutter-x15" >
                 <FeaturedProperties />
               </div>
             </div>

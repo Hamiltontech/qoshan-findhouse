@@ -46,8 +46,9 @@ const FeaturedProperties = () => {
   };
 
   let content = articles?.slice(0, 12)?.map((item) => (
-    <div className="item" key={item.id}>
-      <div className="feat_property">
+    <div className="item" key={item.id} >
+      
+      <div className="feat_property" >
         <a href={`/news-details/${item.x_name.replace(/\s+/g, '-')}`}>
         <div className="thumb">
           <img className="img-whp" src={item?.x_studio_featured_image[1]} alt="fp1.jpg" />

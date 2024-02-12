@@ -36,7 +36,7 @@ const [keyword, setKeyword] = useState("")
 
 
         {/* 2 */}
-        <div className="col-sm-6 col-lg-3" >
+        {/* <div className="col-sm-6 col-lg-3" >
           <Link  href={{
               pathname: "all-properties",
               query: {
@@ -61,7 +61,7 @@ const [keyword, setKeyword] = useState("")
             </a>
           </Link>
         </div>
-
+ */}
 
         <div className="col-sm-6 col-lg-3" >
           <Link  href={{
