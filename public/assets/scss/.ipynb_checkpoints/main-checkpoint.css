@@ -5263,7 +5263,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 }
 
 .feat_property .thumb img {
-  opacity: 0.6;
+  opacity: 0.8;
   object-fit: fill;
   min-height: 220px;
 }

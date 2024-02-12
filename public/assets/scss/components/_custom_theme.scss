@@ -710,14 +710,22 @@ header.header-nav.menu_style_home_one .ace-responsive-menu li.add_listing:hover 
             border-color: #666;
         }
     }
+
+    .sliderContent{
+        background-color: rgba(0, 0, 0, 0.412);
+        margin-top: 100px;
+        padding: 10px;
+        border-radius: 10pxy;
+    }
     .bs_carousel_bg {
         -webkit-background-size: cover;
         background-size: cover;
         position: relative;
+        height: 650px !important;
     }
 
     .bs_carousel .bs_carousel_bg:after {
-        background-color: rgba(29, 41, 62, 0.6);
+        // background-color: rgba(29, 41, 62, 0.301);
         bottom: 0;
         content: " ";
         display: block;

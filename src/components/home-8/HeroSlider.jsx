@@ -36,7 +36,7 @@ const HeroSlider = ({heroProperties}) => {
               <div className="container">
                 <div className="row align-items-center">
                  
-                  <div className="col-md-7 col-lg-8">
+                  <div className="col-md-7 col-lg-8 sliderContent">
 
          {/* tags */}
                 {/* <ul className="tag">
