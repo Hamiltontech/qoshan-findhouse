@@ -17,6 +17,7 @@ import Link from "next/link";
 import FeaturedProperties from "../home/FeaturedProperties";
 import Watchqoshan from "./Watchqoshan";
 import UnderConstruction from "./UnderConstruction";
+import CategoriesCards from "../home-4/CategoriesCards";
 
 // diala
 import axios from "axios";
@@ -122,7 +123,7 @@ const Home8 = () => {
       </section>
 
       {/* under construction properties */}
-      <section
+      {/* <section
         id="feature-property"
         className="feature-property "
         style={{ marginLeft: 30, marginRight: 30 }}
@@ -143,6 +144,22 @@ const Home8 = () => {
             <div className="feature_property_home3_slider gutter-x15">
               <UnderConstruction  data={data}/>
             </div>
+          </div>
+        </div>
+      </section> */}
+       {/* <!-- Property Cities --> */}
+       <section  className="best-property bgc-f7">
+        <div className="container ovh">
+          <div className="row">
+            <div className="col-lg-6 offset-lg-3">
+              <div className="main-title text-center mb40">
+                <h2>عقارات حسب النوع</h2>
+                <p>قم بالبحث عن عقارك بشكل مفصل من قائمة عقار قوشان حيث يتم تحديثها أولاً بأول</p>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+          <CategoriesCards />
           </div>
         </div>
       </section>

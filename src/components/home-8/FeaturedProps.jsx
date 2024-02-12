@@ -44,7 +44,7 @@ const FeaturedProperties = ({ featured }) => {
       {/* should be featured.slice(0,12).map */}
       <Slider {...settings} arrows={true}>
         {featured?.slice(0, 12)?.map((item) => (
-          <div className="item" key={item?.id} dir="rtl">
+          <div className="item " key={item?.id} dir="rtl">
             <div className="feat_property home3">
               <a href={`/property/${item?.x_studio_property_id}`} style={{zIndex: "1000"}}>
               <div className="thumb">

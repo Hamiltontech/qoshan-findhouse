@@ -57,11 +57,11 @@ const Header = () => {
                   height={80}
                 />
                 </a> */}
-
             </div>
-            <div className="footer_social_widget col-lg-4 " style={{ fontSize: 18, direction: 'rtl', textAlign: 'left', paddingLeft: "15px" }}>
+
+            <div className="footer_social_widget col-lg-4" style={{ fontSize: 18, direction: 'rtl', textAlign: 'left', paddingLeft: "15px" }}>
        <a href="tel:+962796868500">
-       <img  src="https://i.imgur.com/z6ADbNq.png" width={150}/></a>
+       <img src="https://i.imgur.com/z6ADbNq.png" width={150}/></a>
           <Social />
         </div>
           </div>
