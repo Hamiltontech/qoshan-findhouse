@@ -711,11 +711,17 @@ header.header-nav.menu_style_home_one .ace-responsive-menu li.add_listing:hover 
         }
     }
 
+
+
+
     .sliderContent{
-        background-color: rgba(0, 0, 0, 0.412);
+        background-color: #414040b5;
         margin-top: 100px;
         padding: 10px;
-        border-radius: 10pxy;
+        border-radius: 10px;
+        @media (max-width: 1280px)  {
+            margin-top: 0px;
+        }
     }
     .bs_carousel_bg {
         -webkit-background-size: cover;

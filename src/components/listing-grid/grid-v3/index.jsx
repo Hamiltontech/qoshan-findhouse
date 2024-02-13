@@ -7,7 +7,6 @@ import FilterAllProperties from "./FilterAllProperties";
 
 
 const index = () => {
- 
   return (
     <>
       {/* <!-- Main Header Nav --> */}

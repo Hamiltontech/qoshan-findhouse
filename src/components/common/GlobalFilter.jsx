@@ -2,10 +2,13 @@
 import {useState, useEffect} from 'react'
 import Link from "next/link";
 import axios from "axios";
+import { CompanyModule } from '@faker-js/faker';
 
 const GlobalFilter = ({ className = "", pageRoute }) => {
   const [cities, setCities] = useState([])
+  const [data, setData] = useState([])
   const [citiesOptions, setCitiesOptions] = useState([])
+  const [complete, setComplete] = useState(false)
 
   useEffect(()=>{
     axios.get("/cities.json").then((response)=>{
@@ -23,6 +26,16 @@ const GlobalFilter = ({ className = "", pageRoute }) => {
       console.log(error)
     })
   }, [])
+
+  useEffect(()=>{
+    axios.get("/data.json").then((response)=>{
+      setData(response.data)
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }, [])
+
+
 
 
   // values of search
@@ -65,6 +78,16 @@ if(tested){
 }
 
 
+  // keyword filter
+  const keywordHandler = (item) => {
+    if (item?.x_name?.toLowerCase().includes(keyword.toLowerCase())) {
+      return (
+        item?.x_name
+      )
+    }
+  }
+
+  
 
   return (
     <div className={`home1-advnc-search ${className}`}>
@@ -73,7 +96,7 @@ if(tested){
 
         {/* keyword */}
         <li className="list-inline-item keywordInput">
-          <div className="form-group">
+          <div className="form-group" onClick={()=>setComplete(true)}>
             <input
               type="text"
               className="form-control desktopInputs"
@@ -81,6 +104,18 @@ if(tested){
               placeholder="أدخل كلمة للبحث"
               onChange={(e) => setKeyword(e.target.value)}
             />
+            {/* {complete && keyword && (
+            <ul>
+              {data?.filter(item => item?.x_name?.includes(keyword))?.map((item)=>{
+                return(
+                  <>
+                  {item?.x_name}
+                  </>
+                )
+              }
+              )}
+            </ul>
+            )} */}
           </div>
         </li>
      
