@@ -25,7 +25,7 @@ module.exports=[
   },
   {
     "id": 4,
-    "x_name": "ام اذينة",
+    "x_name": "أم اذينة",
     "x_studio_image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Umm_Uthayna_2.jpg",
     "x_studio_active": true,
     "x_studio_image_card_size": "Small",
@@ -65,7 +65,7 @@ module.exports=[
   },
   {
     "id": 9,
-    "x_name": "ام السماق",
+    "x_name": "أم السماق",
     "x_studio_image_url": "https://read.opensooq.com/wp-content/uploads/2019/06/-%D8%A3%D9%85-%D8%A7%D9%84%D8%B3%D9%85%D8%A7%D9%82-%D9%81%D9%8A-%D9%85%D8%AD%D8%A7%D9%81%D8%B8%D8%A9-%D8%B9%D9%85%D8%A7%D9%86-e1560670990345.jpg",
     "x_studio_active": true,
     "x_studio_image_card_size": "Small",
