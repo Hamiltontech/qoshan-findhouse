@@ -244,7 +244,7 @@ if(tested){
 }
 
      {/* price range */}
-     <li className=" list-inline-item">
+     {/* <li className=" list-inline-item">
         <div className="form-group ">
           <input
           value={minPrice}
@@ -267,7 +267,33 @@ if(tested){
             onChange={(e) => setMaxPrice(e.target.value)}
           />
         </div>
-      </li>
+      </li> */}
+
+<li className="list-inline-item ml-6" style={{marginLeft: "8px"}}>
+          <div className="form-group">
+            <div className="candidate_revew_select">
+              <select 
+              value={type}
+              onChange={(e) => {setMaxPrice(e.target.value); setMinPrice(e.target.value - 100000)}} 
+              className="selectpicker form-select show-tick desktopInputs">
+                <option value="">السعر</option>
+                <option value="100000">50,000 - 100,000</option>
+                <option value="200000">100,000 - 200,000</option>
+                <option value="300000">200,000 - 300,000</option>
+                <option value="400000">300,000 - 400,000</option>
+                <option value="500000">400,000 - 500,000</option>
+                <option value="600000">500,000 - 600,000</option>
+                <option value="700000">600,000 - 700,000</option>
+                <option value="800000">700,000 - 800,000</option>
+                <option value="900000">800,000 - 900,000</option>
+                <option value="1000000">900,000 - 1,000,000</option>
+                <option value="5000000">1,000,000 وأكثر</option>
+              </select>
+            </div>
+          </div>
+        </li>
+       
+
 
 
       {/* <li className="custome_fields_520 list-inline-item"></li> */}
