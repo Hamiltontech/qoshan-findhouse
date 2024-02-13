@@ -23,7 +23,6 @@ if(page === "/detailed-search"){
               
             </ul>
             {/* End nav-pills */}
-
             <div className="tab-content home1_adsrchfrm" id="pills-tabContent">
                 <div
                     className="tab-pane fade show active"

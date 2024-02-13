@@ -28,7 +28,7 @@ const FilterAllProperties = () =>{
 
     const [ postNum, setPostNum] = useState(6);
 
-    // diala - top bar
+// diala - top bar
 // filtered count
 const [count, setCount] = useState(0)
 
