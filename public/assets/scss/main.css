@@ -387,6 +387,7 @@ address {
 }
 .cursorpointer{
   cursor: pointer;
+  word-wrap: break-word;
 }
 
 .cursorpointer:hover{
@@ -395,6 +396,13 @@ address {
 }
 
 @media only screen and (max-width: 600px) {
+
+  li.list-inline-item.keywordInput {
+    max-width: 300px;
+    word-wrap: break-word;
+    overflow-x: scroll;
+}
+
   .desktopInputs {
     width: 90% !important;
     margin-top: 5px;

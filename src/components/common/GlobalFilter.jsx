@@ -223,7 +223,7 @@ if(tested){
 
 
        {/* area range */}
-     <li className=" list-inline-item">
+     {/* <li className=" list-inline-item">
         <div className="form-group ">
           <input
           value={minArea}
@@ -246,7 +246,25 @@ if(tested){
             onChange={(e) => setMaxArea(e.target.value)}
           />
         </div>
-      </li>
+      </li> */}
+      <li className="list-inline-item ml-6" style={{marginLeft: "8px"}}>
+          <div className="form-group">
+            <div className="candidate_revew_select">
+              <select 
+              onChange={(e) => {setMaxArea(e.target.value); setMinArea(e.target.value - 100)}} 
+              className="selectpicker form-select show-tick desktopInputs">
+                <option value="">المساحة</option>
+                <option value="100">50 - 100</option>
+                <option value="200">100 - 200</option>
+                <option value="300">200 - 300</option>
+                <option value="400">300 - 400</option>
+                <option value="500">400 - 500</option>
+                <option value="600">500 وأكثر</option>
+               
+              </select>
+            </div>
+          </div>
+        </li>
 </>
 :
 <></>
