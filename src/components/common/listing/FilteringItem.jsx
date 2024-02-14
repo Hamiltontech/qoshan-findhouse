@@ -181,8 +181,6 @@ const [citiesOptions, setCitiesOptions] = useState([])
       {/* End li */}
 
 
-
-
       <li className="min_area list-inline-item">
         <div className="form-group mb-4">
           <input
@@ -210,7 +208,6 @@ const [citiesOptions, setCitiesOptions] = useState([])
         </div>
       </li>
       {/* End li */}
-
 
 
       {/* price range */}

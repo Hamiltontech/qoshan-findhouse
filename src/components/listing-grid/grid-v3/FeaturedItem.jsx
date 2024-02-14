@@ -53,24 +53,17 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
     } else {
       return item
     }
-
   }
 
 
   // area handler
   const areaHandler = (item) => {
-    if (minarea !== 0 && maxarea !== 0 && maxarea) {
-      if (minarea !== "أقل مساحة" && maxarea !== "أكبر مساحة") {
-        if(maxarea === 600){
-          return(
-            item?.x_studio_propertyarea >= 500
-          )
-        }else{   
+    if (minarea !== 0 && maxarea !== 0 && maxarea !== 600) {
+      if (minarea !== "أقل مساحة" && maxarea !== "أكبر مساحة") { 
           return (
             item?.x_studio_propertyarea >= minarea &&
             item?.x_studio_propertyarea <= maxarea
           );
-        }
       }
     }
     return true;
