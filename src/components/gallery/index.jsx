@@ -27,7 +27,6 @@ const index = () => {
       {/* <!-- About Text Content --> */}
       <section className="pb30">
         <div className="container">
-          <Laith />
           <div className="row">
           <Season3/>
           <br></br>
@@ -38,6 +37,7 @@ const index = () => {
           <Season1/>
             
           </div>
+          <Laith />
         </div>
       </section>
 
