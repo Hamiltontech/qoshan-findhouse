@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import Link from "next/link";
 import axios from "axios";
 import { CompanyModule } from '@faker-js/faker';
+import { filter } from '../../data/findProperties';
 
 const GlobalFilter = ({ className = "", pageRoute }) => {
   const [cities, setCities] = useState([])
@@ -80,7 +81,7 @@ if(tested){
 
   // keyword filter
   const keywordHandler = (item) => {
-    if (item?.x_name?.toLowerCase().includes(keyword.toLowerCase())) {
+    if (item?.x_name?.toString().toLowerCase().includes(keyword.toLowerCase())) {
       return (
         item?.x_name
       )
@@ -96,7 +97,7 @@ if(tested){
 
         {/* keyword */}
         <li className="list-inline-item keywordInput">
-          <div className="form-group" onClick={()=>setComplete(true)}>
+          {/* <div className="form-group" >
             <input
               type="text"
               className="form-control desktopInputs"
@@ -104,19 +105,27 @@ if(tested){
               placeholder="أدخل كلمة للبحث"
               onChange={(e) => setKeyword(e.target.value)}
             />
-            {/* {complete && keyword && (
-            <ul>
-              {data?.filter(item => item?.x_name?.includes(keyword))?.map((item)=>{
-                return(
-                  <>
-                  {item?.x_name}
-                  </>
-                )
-              }
-              )}
-            </ul>
-            )} */}
-          </div>
+          </div> */}
+
+
+          <div className="candidate_revew_select">
+           
+            <input 
+            type="text"
+            className="form-control desktopInputs"
+            style={{width: '100%'}}
+            placeholder="أدخل كلمة للبحث"
+            onChange={(e) =>{setKeyword(e.target.value);setComplete(true)} }
+            value={keyword}
+            />
+              {complete && keyword !== "" &&
+              data?.filter?.(keywordHandler)?.map((item)=>(
+              <>
+                <option className='cursorpointer ' onClick={()=>{setKeyword(item?.x_name); setComplete(false)}} key={item?.id} value={item?.x_name}>{item?.x_name}</option>
+              </>
+              ))}
+          
+            </div>
         </li>
      
 
