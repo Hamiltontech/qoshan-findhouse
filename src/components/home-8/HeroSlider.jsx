@@ -19,6 +19,18 @@ const HeroSlider = ({heroProperties}) => {
     autoplaySpeed: 2000,
   };
 
+  // tags
+  const [inittags, setinitTags] = useState([])
+
+  useEffect(() => {
+    axios.get("/property_tags.json").then((res) => {
+      setinitTags(res.data)
+    })
+  }, [])
+
+
+
+
   return (
     <Slider {...settings} arrows={false}>
       {heroProperties.map((singleItem) => (
@@ -27,11 +39,11 @@ const HeroSlider = ({heroProperties}) => {
           className={`bs_carousel_bg vh-100`}
           key={singleItem.id}
         >
-          <img className="vh-100 image-hero" 
+          <img className="vh-100 image-hero"  
           src={singleItem.x_studio_featured_url && singleItem.x_studio_featured_url}
           alt="slider-property" />
           
-          <div className="carousel-slide ">
+          <div className="carousel-slide " >
             <div className="bs-caption">
               <div className="container">
                 <div className="row align-items-center">
@@ -39,13 +51,13 @@ const HeroSlider = ({heroProperties}) => {
                   <div className="col-md-7 col-lg-8 sliderContent">
 
          {/* tags */}
-                {/* <ul className="tag">
-                  {tags?.map((item) => (
+                <ul className="tag">
+                  {inittags?.filter(item =>singleItem.x_studio_tags.includes(item.id))?.map((item) => (
                     <li key={item?.id} className="list-inline-item" style={{ color: 'white', margin: '6px', backgroundColor: '#c2b49a', paddingLeft: '20px', paddingRight: '20px', borderRadius: '6px' }}>
                       {item?.x_name}
                     </li>
                   ))}
-                </ul> */}
+                </ul>
   
                  
 

@@ -42,11 +42,12 @@ const Gallery = ({gal}) => {
           <div className="item" key={id}>
             <div className="feat_property mt10">
             <div className="spls_style_two img-gallery-box ">
+              
                           <Item
                             original={val}
                             thumbnail={val}
-                            width={752}
-                            height={450}
+                            // width={452}
+                            // height={550}
                             priority
                             layout="responsive"
                             placeholder="blur"

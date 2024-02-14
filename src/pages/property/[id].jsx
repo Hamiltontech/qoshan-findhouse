@@ -173,14 +173,18 @@ const ListingDynamicDetailsV1 = () => {
                   <div className="">
                     <div className="spls_style_two mb30-520">
                       {property?.x_studio_featured_url ?
-                        <Image src={property?.x_studio_featured_url}
-                          width={752}
-                          height={450}
-                          layout="responsive"
-                          priority
-                          placeholder="blur"
-                          blurDataURL={property?.x_studio_featured_url} 
-                        />
+                      <img 
+                      src={property?.x_studio_featured_url}
+                          
+                      />
+                        // <Image src={property?.x_studio_featured_url}
+                        //   width={100}
+                        //   height={100}
+                        //   layout="responsive"
+                        //   priority
+                        //   placeholder="blur"
+                        //   blurDataURL={property?.x_studio_featured_url} 
+                        // />
                         : <></>
                       }
 
