@@ -10,14 +10,14 @@ const Laith = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC_dx1Isro1pudToX4xDKqlg&key=AIzaSyDRU6kE78hnlAc6m8ROFMouwRberRQF-kk&maxResults=1000`
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC_dx1Isro1pudToX4xDKqlg&key=AIzaSyDRU6kE78hnlAc6m8ROFMouwRberRQF-kk&maxResults=1000&publishedAfter=2019-01-01T00:00:00Z&publishedBefore=2023-01-01T00:00:00Z&order=date`
         );
         const videos = response.data.items.filter((video => !video.snippet.title.includes("#قوشان") && !video.snippet.title.includes("QoshanCom")))
           
-        videos?.sort(async function(a,b){
-          const x = new Date(b?.snippet.publishedAt) - new Date(a?.snippet.publishedAt); 
-          return x
-        });
+        // videos?.sort(async function(a,b){
+        //   const x = new Date(b?.snippet.publishedAt) - new Date(a?.snippet.publishedAt); 
+        //   return x
+        // });
 
         setPlaylistData(videos);
         
