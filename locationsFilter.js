@@ -49,7 +49,7 @@ client.methodCall('authenticate', [db, username, password, {}], (error, uid) => 
         ...entry, 
       }));
 
-      const jsonData = JSON.stringify(modifiedEntries, null, 2);
+      const jsonData = `module.exports = ${JSON.stringify(modifiedEntries, null, 2)};`;
 
       fs.writeFile('public/locationsFilter.js', jsonData, 'utf8', (error) => {
         if (error) {

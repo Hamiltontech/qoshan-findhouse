@@ -48,7 +48,7 @@ client.methodCall('authenticate', [db, username, password, {}], (error, uid) => 
     const modifiedEntries = entries.map(entry => ({
       ...entry,
       x_cities: fetchMany2OneName(entry, 'x_studio_many2one_field_YbLip'), 
-      x_features: fetchMany2ManyNames(entry, 'x_studio_many2many_field_Tzhpw'),  
+      x_features: fetchMany2ManyNames(entry, 'x_studio_many2many_field_Tzhpw'), 
     }));
 
     const jsData = `module.exports = ${JSON.stringify(modifiedEntries, null, 2)};`;
