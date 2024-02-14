@@ -5306,7 +5306,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .feat_property .thumb .thmb_cntnt ul.tag,
 .properti_city.home6 .thumb .thmb_cntnt ul.tag {
   position: absolute;
-  left: 12px;
+  /* left: 12px; */
   top: 10px;
 }
 
@@ -5318,7 +5318,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   height: 25px;
   line-height: 25px;
   text-align: center;
-  width: 75px;
+  /* width: 75px; */
 }
 
 .feat_property.home8 ul.tag {
