@@ -58,8 +58,8 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
 
   // area handler
   const areaHandler = (item) => {
-    if (minarea !== 0 && maxarea !== 0 && maxarea !== 600) {
-      if (minarea !== "أقل مساحة" && maxarea !== "أكبر مساحة") { 
+    if (minarea !== 0 && maxarea !== 0 ) {
+      if (minarea !== "المساحة" && maxarea !== "المساحة") { 
           return (
             item?.x_studio_propertyarea >= minarea &&
             item?.x_studio_propertyarea <= maxarea
@@ -72,7 +72,7 @@ const FeaturedItem = ({ postNum, setPostNum, headerType, keyword, location, stat
 
   // price handler
   const priceHandler = (item) => {
-    if (minprice !== "أقل سعر" && maxprice !== "أعلى سعر") {
+    if (minprice !== "السعر" && maxprice !== "السعر") {
       return (
         parseInt(item?.x_studio_sales_price) >= minprice &&
         parseInt(item?.x_studio_sales_price) <= maxprice

@@ -21,10 +21,10 @@ const FilterAllProperties = () =>{
     const [bedrooms, setBedroom] = useState("")
     const [garages, setGarages] = useState("")
     const [age, setBuiltYear] = useState("")
-    const [minarea, setAreaMin] = useState('أقل مساحة')
-    const [maxarea, setAreaMax] = useState("أكبر مساحة")
-    const [minprice, setMinprice] = useState('أقل سعر')
-    const [maxprice, setMaxprice] = useState("أعلى سعر")
+    const [minarea, setAreaMin] = useState('المساحة')
+    const [maxarea, setAreaMax] = useState("المساحة")
+    const [minprice, setMinprice] = useState('السعر')
+    const [maxprice, setMaxprice] = useState("السعر")
 
     const [ postNum, setPostNum] = useState(6);
 

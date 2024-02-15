@@ -142,9 +142,9 @@ if(tested){
                 <option value="شقق طابقية">شقق طابقية</option>
                 <option value="فلل متلاصقة">فلل متلاصقة</option>
                 <option value="فلل">فلل</option>
-                {/* <option value="قطع أراضي سكني">قطع أراضي سكنية</option> */}
+                <option value="قطع أراضي سكني">قطع أراضي سكنية</option>
                 {/* <option value="قطع أراضي تجاري">قطع أراضي تجارية</option> */}
-                <option value="قطع أراضي صناعي">قطع أراضي صناعية</option>
+                {/* <option value="قطع أراضي صناعي">قطع أراضي صناعية</option> */}
                 <option value="برج سكني">برج سكني</option>
                 <option value="استوديوهات">استوديوهات</option>
                 <option value="شاليهات">شاليهات</option>
@@ -329,6 +329,7 @@ if(tested){
 
    <li className="list-inline-item">
           <div className="search_option_button">
+            
             <Link
             href={{
               pathname: "all-properties",
