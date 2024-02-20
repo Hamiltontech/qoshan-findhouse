@@ -43,14 +43,14 @@ const GlobalFilter = ({ className = "", pageRoute }) => {
 const [type, setType] = useState("all")
 const [location, setLocation] = useState("")
 const [keyword, setKeyword] = useState("")
-const [minPrice, setMinPrice] = useState("أقل سعر")
-const [maxPrice, setMaxPrice] = useState("أعلى سعر")
+const [minPrice, setMinPrice] = useState("السعر")
+const [maxPrice, setMaxPrice] = useState("السعر")
 
 const [bedrooms, setBedrooms] = useState("")
 const [bathrooms, setBathrooms] = useState("")
 const [garages, setGarages] = useState("")
-const [minArea, setMinArea] = useState("أقل مساحة")
-const [maxArea, setMaxArea] = useState("أكبر مساحة")
+const [minArea, setMinArea] = useState("المساحة")
+const [maxArea, setMaxArea] = useState("المساحة")
 
 
 
